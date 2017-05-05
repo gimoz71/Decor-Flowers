@@ -371,11 +371,11 @@ img {
     // }
     &.menu-aux {
         min-height      : auto;
-        background-color: #333;
+        background-color: darken($body-color, 57) !important;
         font-size: .75em;
         padding: 0;
         a:hover, a:active, a:focus {
-            background-color: #000 !important;
+            background-color: darken($body-color, 40) !important;
             color: #fff !important;
         }
     }
@@ -388,6 +388,10 @@ img {
         }
     }
 }
+.block-main {
+    background-color: lighten($body-color, 17);
+    box-shadow: 0 2px 6px rgba(0,0,0,.12);
+}
 
 @media (min-width: $screen-sm ) {
     .affix {
@@ -395,11 +399,14 @@ img {
         left:0;
         right: 0;
         z-index: 20;
-        background-color: #fff;
-        box-shadow: 0 2px 6px rgba(0,0,0,.12);
         .header-logo {
-            @include img-retina("../images/logo.png", "../images/logo@2x.png", 120px, 60px);
-            width: 120px;
+            @include img-retina("../images/logo.png", "../images/logo@2x.png", 200px, 60px);
+            width: 200px;
+            height: 60px !important;
+        }
+        .header-logo-v2 {
+            @include img-retina("../images/logo_v2.png", "../images/logo@2x.png", 122px, 60px);
+            width: 122px;
             height: 60px !important;
         }
         .search-bar {
@@ -415,8 +422,8 @@ img {
         left:inherit;
         right: inherit;
         z-index: inherit;
-        background-color: #fff;
-        box-shadow: 0 2px 6px rgba(0,0,0,.12)
+        background-color: lighten($body-color, 17);
+        box-shadow: 0 2px 6px rgba(0,0,0,.12);
     }
     .dropdown-menu {
         position: relative;
@@ -444,11 +451,25 @@ img {
     margin-bottom      : 15px !important;
     transition    : all 0.2s ease-in-out;
 }
+.header-logo-v2 {
+    @extend .navbar-brand;
+    @extend .text-hide;
+    @include img-retina("../images/logo_v2.png", "../images/logo@2x.png", 203px, 100px);
+    background-size: contain;
+    background-repeat  : no-repeat;
+    background-position: center center;
+    width              : 150px;
+    height             : 100px;
+    margin             : 0 !important;
+    margin-top         : 15px !important;
+    margin-bottom      : 15px !important;
+    transition    : all 0.2s ease-in-out;
+}
 .search-bar {
     transition    : all 0.2s ease-in-out;
 }
 @media (max-width: $screen-sm ) {
-    .header-logo {
+    .header-logo, .header-logo-v2 {
         float: none;
         display: inline-block;
         margin-left: auto;
@@ -526,7 +547,7 @@ img {
 /*-------------------------------*/
 /* @group Stili ed elementi content */
 .content {
-    background: $content-color;
+    // background: $content-color;
     padding   : 15px 0;
     // margin-bottom: 20px;
     > div {
