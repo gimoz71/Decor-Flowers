@@ -1,0 +1,77 @@
+/*
+Error: File to import not found or unreadable: bootstrap-select-variables.
+       Load paths:
+         Compass::SpriteImporter
+         /Volumes/LaCie HD 1Tb/lavori/luca/iury/Decor & Flowers/sito/sass
+         /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets
+         /Users/gianluca/.compass/extensions/readme.txt/stylesheets
+         /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/susy-2.1.3/sass
+         /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-normalize-1.5/stylesheets
+         /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-h5bp-0.1.2/stylesheets
+         /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-960-plugin-0.10.4/stylesheets
+         /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/html5-boilerplate-2.1.0/stylesheets
+         /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/bootstrap-sass-3.2.0.1/assets/stylesheets
+         /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/sassy-maps-0.4.0/sass
+         /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/breakpoint-2.5.0/stylesheets
+         /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-5.3.0/stylesheets
+         /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/bootstrap-sass-3.2.0.1/assets/stylesheets
+        on line 1 of /Volumes/LaCie HD 1Tb/lavori/luca/iury/Decor & Flowers/sito/sass/bootstrap-select.scss
+
+1: @import "bootstrap-select-variables";
+2: // Mixins
+3: @mixin cursor-disabled() {
+4:     cursor: not-allowed;
+5: }
+6: @mixin box-sizing($fmt) {
+
+Backtrace:
+/Volumes/LaCie HD 1Tb/lavori/luca/iury/Decor & Flowers/sito/sass/bootstrap-select.scss:1
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/import_node.rb:66:in `import'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/import_node.rb:64:in `import'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/import_node.rb:36:in `css_import?'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/stack.rb:79:in `with_base'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/stack.rb:115:in `with_frame'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/stack.rb:79:in `with_base'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+org/jruby/RubyArray.java:2412:in `map'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:167:in `visit_children'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/engine.rb:368:in `_render_with_sourcemap'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/engine.rb:285:in `render_with_sourcemap'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:23:in `render_with_sourcemap'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:22:in `render_with_sourcemap'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
+org/jruby/RubyMethod.java:128:in `call'
+file:/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Java/compass-app.jar!/hook/compass_patch.rb:108:in `update_stylesheet'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/plugin/compiler.rb:215:in `update_stylesheets'
+org/jruby/RubyArray.java:1613:in `each'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/plugin/compiler.rb:470:in `on_file_changed'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/sass-3.4.13/lib/sass/plugin/compiler.rb:328:in `watch'
+org/jruby/RubyProc.java:271:in `call'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/jruby/listen-1.3.1-patched/lib/listen/listener.rb:252:in `on_change'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/jruby/listen-1.3.1-patched/lib/listen/listener.rb:290:in `initialize_adapter'
+org/jruby/RubyProc.java:271:in `call'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/jruby/listen-1.3.1-patched/lib/listen/adapter.rb:252:in `report_changes'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/jruby/listen-1.3.1-patched/lib/listen/adapter.rb:321:in `poll_changed_directories'
+/Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/jruby/listen-1.3.1-patched/lib/listen/adapter.rb:297:in `start_poller'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: bootstrap-select-variables.\A        Load paths:\A          Compass::SpriteImporter\A          /Volumes/LaCie HD 1Tb/lavori/luca/iury/Decor & Flowers/sito/sass\A          /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_1.0/compass-core-1.0.3/stylesheets\A          /Users/gianluca/.compass/extensions/readme.txt/stylesheets\A          /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/susy-2.1.3/sass\A          /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-normalize-1.5/stylesheets\A          /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-h5bp-0.1.2/stylesheets\A          /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/compass-960-plugin-0.10.4/stylesheets\A          /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/html5-boilerplate-2.1.0/stylesheets\A          /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/bootstrap-sass-3.2.0.1/assets/stylesheets\A          /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/sassy-maps-0.4.0/sass\A          /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/breakpoint-2.5.0/stylesheets\A          /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/zurb-foundation-5.3.0/stylesheets\A          /Volumes/LaCie HD 1Tb/Applications/compass.app/Contents/Resources/lib/ruby/compass_extensions/bootstrap-sass-3.2.0.1/assets/stylesheets\A         on line 1 of /Volumes/LaCie HD 1Tb/lavori/luca/iury/Decor & Flowers/sito/sass/bootstrap-select.scss\A \A 1: @import \"bootstrap-select-variables\";\A 2: // Mixins\A 3: @mixin cursor-disabled() {\A 4:     cursor: not-allowed;\A 5: }\A 6: @mixin box-sizing($fmt) {"; }
