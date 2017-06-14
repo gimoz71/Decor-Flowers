@@ -281,6 +281,12 @@ html {
 body {
     -webkit-font-smoothing: antialiased;
     // background            : $body-color;
+    &.splash {
+        background-size: cover;
+        background-image: url("../images/splash.jpg");
+        background-repeat: none;
+        background-position: center center;
+    }
 }
 
 h1,
@@ -478,7 +484,7 @@ img {
     margin-bottom      : 15px !important;
     transition    : all 0.2s ease-in-out;
 }
-.header-logo-v3 {
+.header-logo-v3 { // DEFINITIVO
     @extend .navbar-brand;
     @extend .text-hide;
     @include img-retina("../images/logo_v3b.png", "../images/logo@2x.png", 288px, 100px);
@@ -492,6 +498,33 @@ img {
     margin-bottom      : 15px !important;
     transition    : all 0.2s ease-in-out;
 }
+.splash-logo-v3 {
+    @extend .navbar-brand;
+    @extend .text-hide;
+    @include img-retina("../images/splash_logo_v3b.png", "../images/splash_logo_v3b.png", 722px, 250px);
+    background-size: contain;
+    background-repeat  : no-repeat;
+    background-position: center center;
+    width              : 722px;
+    height             : 250px;
+    margin-top         : 100px !important;
+    margin-bottom      : 50px !important;
+    transition    : all 0.2s ease-in-out;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block;
+    float: none !important;
+}
+
+@media (max-width: $screen-sm ) {
+    .splash-logo-v3 {
+        @include img-retina("../images/splash_logo_v3b.png", "../images/splash_logo_v3b.png", 289px, 100px);
+        width              : 289px;
+        height             : 100px;
+        margin-top         : 30px !important;
+    }
+}
+
 .search-bar {
     transition    : all 0.2s ease-in-out;
 }
