@@ -669,8 +669,30 @@ img {
     // background-color: lighten($body-color, 35);
 }
 
-#accordion > .panel {
-    cursor: pointer;
+#accordion {
+    > .panel {
+        cursor: pointer;
+    }
+    .panel-heading{
+        position: relative;
+    }
+    .expand-accordion {
+        border-left: solid 1px $panel-default-border;
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 21px;
+        padding: 10px 20px;
+        color: darken($body-color, 10);
+        background-color: rgba($body-color, .2);
+        &:hover {
+            color: darken($body-color, 20);
+        }
+    }
+    .panel-collapse {
+        overflow: auto;
+        max-height: 400px;
+    }
 }
 
 

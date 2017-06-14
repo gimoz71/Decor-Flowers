@@ -9393,6 +9393,26 @@ img {
 #accordion > .panel {
   cursor: pointer;
 }
+#accordion .panel-heading {
+  position: relative;
+}
+#accordion .expand-accordion {
+  border-left: solid 1px #ebe3d4;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 21px;
+  padding: 10px 20px;
+  color: #cbb78e;
+  background-color: rgba(219, 205, 177, 0.2);
+}
+#accordion .expand-accordion:hover {
+  color: #bba06b;
+}
+#accordion .panel-collapse {
+  overflow: auto;
+  max-height: 400px;
+}
 
 .description,
 .main-description {
