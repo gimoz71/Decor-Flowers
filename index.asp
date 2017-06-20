@@ -65,122 +65,97 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 hidden">
-                    <div class="panel panel-default user-comment">
-                        <!-- Default panel contents -->
-                        <div class="panel-heading">
-                            <h5><i class="fa fa-users"></i> Dicono di noi...</h5>
-                        </div>
-                        <ul class="list-group">
-                            <li class="list-group-item"><i class="fa fa-user"></i> <em>Ho acquistato una lampada d<b>a parete</b> per esterno Newport verde. Per la consegna c'&egrave; voluto qua...</em></li>
-                            <li class="list-group-item"><i class="fa fa-user"></i> <em>Pochi giorni fa ho acquistato un lampadario per bagno di <b>Murano</b> bombato <b>a soffitto</b> ho telefonato i...</em></li>
-                            <li class="list-group-item"><i class="fa fa-user"></i> <em>Il mio ordine: ORINA PLAFONIERA IN METALLO CROMATO. &Egrave; arrivato prima il pacco che le mail di spedizi...</em></li>
-                        </ul>
-                        <div class="panel-footer"><a href="#">leggi tutti i commenti <i class="fa fa-chevron-right"></i></a></div>
-                    </div>
-                </div>
             </div>
             <div class="row top-buffer">
                 <div class="col-xl-12">
-                    <h4 class="subtitle">In evidenza</h4>
+                    <h4 class="subtitle">Categorie in evidenza</h4>
                 </div>
+                <%
+                Set cat_rs=Server.CreateObject("ADODB.Recordset")
+                sql = "SELECT TOP 4 * "
+                sql = sql + "FROM Categorie_1 "
+                sql = sql + "WHERE PrimoPiano='True' "
+                sql = sql + "ORDER BY Posizione ASC, Titolo_1 ASC"
+                cat_rs.Open sql, conn, 1, 1
+
+                if cat_rs.recordcount>0 then
+                  Do While Not cat_rs.EOF
+                  Pkid_Cat_1=cat_rs("Pkid")
+                  Titolo_1_Cat_1=cat_rs("Titolo_1")
+                %>
                 <div class="col-xs-6 col-sm-4 col-md-3">
                     <article class="col-item">
                         <div class="photo">
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="descrizione lampadario" src="images/blank.png"></a>
+                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="<%=Titolo_1_Cat_1%>" src="images/blank.png"></a>
                         </div>
                         <div class="info">
                             <div class="row">
                                 <div class="category col-md-6">
-                                    <a href="#"><h1>Categoria</h1></a>
+                                    <a href="#" title="<%=Titolo_1_Cat_1%>"><h1><%=Titolo_1_Cat_1%></h1></a>
                                 </div>
                             </div>
                         </div>
                     </article>
                 </div>
-                <div class="col-xs-6 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="900x550" src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="category col-md-6">
-                                    <a href="#"><h1>Categoria</h1></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="900x550" src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="category col-md-6">
-                                    <a href="#"><h1>Categoria</h1></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3 ">
-                    <article class="col-item">
-                        <div class="photo">
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="descrizione lampadario" src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="category col-md-6">
-                                    <a href="#"><h1>Categoria</h1></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                <%
+                  cat_rs.movenext
+                  loop
+                end if
+                cat_rs.close
+                %>
             </div>
             <div class="row top-buffer">
                 <div class="col-xl-12">
-                    <h4 class="subtitle">Offerte</h4>
+                    <h4 class="subtitle">Prodotti in offerta</h4>
                 </div>
+                <%
+                Set pro_rs=Server.CreateObject("ADODB.Recordset")
+                sql = "SELECT * "
+                sql = sql + "FROM Prodotti_Madre "
+                sql = sql + "WHERE Stato=1 "
+                sql = sql + "ORDER BY Posizione ASC, Titolo ASC"
+                pro_rs.Open sql, conn, 1, 1
+                if pro_rs.recordcount>0 then
+                  Do While Not pro_rs.EOF
+                  Pkid_Prod=pro_rs("Pkid")
+                  Titolo_Prod=pro_rs("Titolo")
+                  Codice_Prod=pro_rs("Codice")
+                  PrezzoProdotto=pro_rs("PrezzoProdotto")
+                  if PrezzoProdotto="" or IsNull(PrezzoProdotto) then PrezzoProdotto=0
+                  PrezzoOfferta=pro_rs("PrezzoOfferta")
+                  if PrezzoOfferta="" or IsNull(PrezzoOfferta) then PrezzoOfferta=0
+
+                  Set img_rs=Server.CreateObject("ADODB.Recordset")
+      						sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
+      						img_rs.Open sql, conn, 1, 1
+      						if img_rs.recordcount>0 then
+                    img="https://www.decorandflowers.it/public/thumb/"&img_rs("File")
+                  else
+                    img=""
+                  end if
+                  img_rs.close
+                %>
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <article class="col-item">
                         <div class="photo">
-                            <!-- <div class="options">
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti">
-                                    <i class="fa fa-heart"></i>
-                                </button>
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compara con altri prodotti">
-                                    <i class="fa fa-exchange"></i>
-                                </button>
-                            </div>
-                            <div class="options-cart">
-                                <button class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top"  title="Aggiungi al carrello">
-                                    <span class="fa fa-shopping-cart"></span>
-                                </button>
-                            </div> -->
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="900x550" src="images/blank.png"></a>
+                            <a href="#" class="prod-img-replace" style="background-image: url(<%=img%>)" title="<%=Titolo_Prod%>"><img alt="<%=Titolo_Prod%>" src="images/blank.png"></a>
                         </div>
                         <div class="info">
                             <div class="row">
                                 <div class="price-details col-md-6">
-                                    <a href="#"><h3>Bouquet da sposa</h3></a>
-                                    <p class="details">codice: <b>1025/S02</b><br /> <span class="hidden">produttore: <b>Decor &amp; Flowers</b></span</p>
+                                    <a href="#"><h3><%=Titolo_Prod%></h3></a>
+                                    <p class="details">codice: <b><%=Codice_Prod%></b></p>
                                     <div class="price-box separator">
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;110.00 &euro;</span><br />
-                                        <span class="price-old">invece di  <b>130.00 &euro;</b></span>
+                                        <%if PrezzoOfferta>0 then%>
+                                          <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=PrezzoOfferta%> &euro;</span><br />
+                                          <span class="price-old">invece di  <b><%=PrezzoProdotto%> &euro;</b></span>
+                                        <%else%>
+                                          <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=PrezzoProdotto%> &euro;</span><br />&nbsp;
+                                        <%end if%>
                                     </div>
-                                    <!-- <p class="details">
-                                        Lorem ipsum dolor sit amet, consectetur..
-                                    </p> -->
                                 </div>
                             </div>
                             <div class="separator clear-left">
-                                <!-- <p class="btn-add">
-                                    <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Aggiungi al carrello"><i class="fa fa-shopping-cart"></i></a>
-                                </p> -->
                                 <p class="btn-add">
                                     <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
                                 </p>
@@ -193,534 +168,12 @@
                         </div>
                     </article>
                 </div>
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <!-- <div class="options">
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti">
-                                    <i class="fa fa-heart"></i>
-                                </button>
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compara con altri prodotti">
-                                    <i class="fa fa-exchange"></i>
-                                </button>
-                            </div>
-                            <div class="options-cart">
-                                <button class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top"  title="Aggiungi al carrello">
-                                    <span class="fa fa-shopping-cart"></span>
-                                </button>
-                            </div> -->
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="900x550" src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="price-details col-md-6">
-                                    <a href="#" title="Composizione tulipani con sottovaso"><h3>Composizione tulipani con sottovaso</h3></a>
-                                    <p class="details">codice: <b>1025/S02</b><br /> <span class="hidden">produttore: <b>Decor &amp; Flowers</b></span</p>
-                                    <div class="price-box separator">
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;110.00 &euro;</span><br />
-                                        <span class="price-old">invece di  <b>130.00 &euro;</b></span>
-                                    </div>
-                                    <!-- <p class="details">
-                                        Lorem ipsum dolor sit amet, consectetur..
-                                    </p> -->
-                                </div>
-                            </div>
-                            <div class="separator clear-left">
-                                <!-- <p class="btn-add">
-                                    <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Aggiungi al carrello"><i class="fa fa-shopping-cart"></i></a>
-                                </p> -->
-                                <p class="btn-add">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
-                                </p>
-                                <p class="btn-details">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <!-- <div class="options">
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti">
-                                    <i class="fa fa-heart"></i>
-                                </button>
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compara con altri prodotti">
-                                    <i class="fa fa-exchange"></i>
-                                </button>
-                            </div>
-                            <div class="options-cart">
-                                <button class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top"  title="Aggiungi al carrello">
-                                    <span class="fa fa-shopping-cart"></span>
-                                </button>
-                            </div> -->
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="900x550" src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="price-details col-md-6">
-                                    <a href="#"><h3>Bouquet da sposa</h3></a>
-                                    <p class="details">codice: <b>1025/S02</b><br /> <span class="hidden">produttore: <b>Decor &amp; Flowers</b></span</p>
-                                    <div class="price-box separator">
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;110.00 &euro;</span><br />
-                                        <span class="price-old">invece di  <b>130.00 &euro;</b></span>
-                                    </div>
-                                    <!-- <p class="details">
-                                        Lorem ipsum dolor sit amet, consectetur..
-                                    </p> -->
-                                </div>
-                            </div>
-                            <div class="separator clear-left">
-                                <!-- <p class="btn-add">
-                                    <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Aggiungi al carrello"><i class="fa fa-shopping-cart"></i></a>
-                                </p> -->
-                                <p class="btn-add">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
-                                </p>
-                                <p class="btn-details">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <!-- <div class="options">
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti">
-                                    <i class="fa fa-heart"></i>
-                                </button>
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compara con altri prodotti">
-                                    <i class="fa fa-exchange"></i>
-                                </button>
-                            </div>
-                            <div class="options-cart">
-                                <button class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top"  title="Aggiungi al carrello">
-                                    <span class="fa fa-shopping-cart"></span>
-                                </button>
-                            </div> -->
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="900x550" src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="price-details col-md-6">
-                                    <a href="#"><h3>Bouquet da sposa</h3></a>
-                                    <p class="details">codice: <b>1025/S02</b><br /> <span class="hidden">produttore: <b>Decor &amp; Flowers</b></span</p>
-                                    <div class="price-box separator">
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;110.00 &euro;</span><br />
-                                        <span class="price-old">invece di  <b>130.00 &euro;</b></span>
-                                    </div>
-                                    <!-- <p class="details">
-                                        Lorem ipsum dolor sit amet, consectetur..
-                                    </p> -->
-                                </div>
-                            </div>
-                            <div class="separator clear-left">
-                                <!-- <p class="btn-add">
-                                    <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Aggiungi al carrello"><i class="fa fa-shopping-cart"></i></a>
-                                </p> -->
-                                <p class="btn-add">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
-                                </p>
-                                <p class="btn-details">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <!-- <div class="options">
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti">
-                                    <i class="fa fa-heart"></i>
-                                </button>
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compara con altri prodotti">
-                                    <i class="fa fa-exchange"></i>
-                                </button>
-                            </div>
-                            <div class="options-cart">
-                                <button class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top"  title="Aggiungi al carrello">
-                                    <span class="fa fa-shopping-cart"></span>
-                                </button>
-                            </div> -->
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="900x550" src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="price-details col-md-6">
-                                    <a href="#"><h3>Bouquet da sposa</h3></a>
-                                    <p class="details">codice: <b>1025/S02</b><br /> <span class="hidden">produttore: <b>Decor &amp; Flowers</b></span</p>
-                                    <div class="price-box separator">
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;110.00 &euro;</span><br />
-                                        <span class="price-old">invece di  <b>130.00 &euro;</b></span>
-                                    </div>
-                                    <!-- <p class="details">
-                                        Lorem ipsum dolor sit amet, consectetur..
-                                    </p> -->
-                                </div>
-                            </div>
-                            <div class="separator clear-left">
-                                <!-- <p class="btn-add">
-                                    <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Aggiungi al carrello"><i class="fa fa-shopping-cart"></i></a>
-                                </p> -->
-                                <p class="btn-add">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
-                                </p>
-                                <p class="btn-details">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <!-- <div class="options">
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti">
-                                    <i class="fa fa-heart"></i>
-                                </button>
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compara con altri prodotti">
-                                    <i class="fa fa-exchange"></i>
-                                </button>
-                            </div>
-                            <div class="options-cart">
-                                <button class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top"  title="Aggiungi al carrello">
-                                    <span class="fa fa-shopping-cart"></span>
-                                </button>
-                            </div> -->
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="900x550" src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="price-details col-md-6">
-                                    <a href="#"><h3>Bouquet da sposa</h3></a>
-                                    <p class="details">codice: <b>1025/S02</b><br /> <span class="hidden">produttore: <b>Decor &amp; Flowers</b></span</p>
-                                    <div class="price-box separator">
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;110.00 &euro;</span><br />
-                                        <span class="price-old">invece di  <b>130.00 &euro;</b></span>
-                                    </div>
-                                    <!-- <p class="details">
-                                        Lorem ipsum dolor sit amet, consectetur..
-                                    </p> -->
-                                </div>
-                            </div>
-                            <div class="separator clear-left">
-                                <!-- <p class="btn-add">
-                                    <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Aggiungi al carrello"><i class="fa fa-shopping-cart"></i></a>
-                                </p> -->
-                                <p class="btn-add">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
-                                </p>
-                                <p class="btn-details">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <!-- <div class="options">
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti">
-                                    <i class="fa fa-heart"></i>
-                                </button>
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compara con altri prodotti">
-                                    <i class="fa fa-exchange"></i>
-                                </button>
-                            </div>
-                            <div class="options-cart">
-                                <button class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top"  title="Aggiungi al carrello">
-                                    <span class="fa fa-shopping-cart"></span>
-                                </button>
-                            </div> -->
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="900x550" src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="price-details col-md-6">
-                                    <a href="#"><h3>Bouquet da sposa</h3></a>
-                                    <p class="details">codice: <b>1025/S02</b><br /> <span class="hidden">produttore: <b>Decor &amp; Flowers</b></span</p>
-                                    <div class="price-box separator">
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;110.00 &euro;</span><br />
-                                        <span class="price-old">invece di  <b>130.00 &euro;</b></span>
-                                    </div>
-                                    <!-- <p class="details">
-                                        Lorem ipsum dolor sit amet, consectetur..
-                                    </p> -->
-                                </div>
-                            </div>
-                            <div class="separator clear-left">
-                                <!-- <p class="btn-add">
-                                    <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Aggiungi al carrello"><i class="fa fa-shopping-cart"></i></a>
-                                </p> -->
-                                <p class="btn-add">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
-                                </p>
-                                <p class="btn-details">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <!-- <div class="options">
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti">
-                                    <i class="fa fa-heart"></i>
-                                </button>
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compara con altri prodotti">
-                                    <i class="fa fa-exchange"></i>
-                                </button>
-                            </div>
-                            <div class="options-cart">
-                                <button class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top"  title="Aggiungi al carrello">
-                                    <span class="fa fa-shopping-cart"></span>
-                                </button>
-                            </div> -->
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="900x550" src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="price-details col-md-6">
-                                    <a href="#"><h3>Bouquet da sposa</h3></a>
-                                    <p class="details">codice: <b>1025/S02</b><br /> <span class="hidden">produttore: <b>Decor &amp; Flowers</b></span</p>
-                                    <div class="price-box separator">
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;110.00 &euro;</span><br />
-                                        <span class="price-old">invece di  <b>130.00 &euro;</b></span>
-                                    </div>
-                                    <!-- <p class="details">
-                                        Lorem ipsum dolor sit amet, consectetur..
-                                    </p> -->
-                                </div>
-                            </div>
-                            <div class="separator clear-left">
-                                <!-- <p class="btn-add">
-                                    <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Aggiungi al carrello"><i class="fa fa-shopping-cart"></i></a>
-                                </p> -->
-                                <p class="btn-add">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
-                                </p>
-                                <p class="btn-details">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <!-- <div class="options">
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti">
-                                    <i class="fa fa-heart"></i>
-                                </button>
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compara con altri prodotti">
-                                    <i class="fa fa-exchange"></i>
-                                </button>
-                            </div>
-                            <div class="options-cart">
-                                <button class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top"  title="Aggiungi al carrello">
-                                    <span class="fa fa-shopping-cart"></span>
-                                </button>
-                            </div> -->
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="900x550" src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="price-details col-md-6">
-                                    <a href="#"><h3>Bouquet da sposa</h3></a>
-                                    <p class="details">codice: <b>1025/S02</b><br /> <span class="hidden">produttore: <b>Decor &amp; Flowers</b></span</p>
-                                    <div class="price-box separator">
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;110.00 &euro;</span><br />
-                                        <span class="price-old">invece di  <b>130.00 &euro;</b></span>
-                                    </div>
-                                    <!-- <p class="details">
-                                        Lorem ipsum dolor sit amet, consectetur..
-                                    </p> -->
-                                </div>
-                            </div>
-                            <div class="separator clear-left">
-                                <!-- <p class="btn-add">
-                                    <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Aggiungi al carrello"><i class="fa fa-shopping-cart"></i></a>
-                                </p> -->
-                                <p class="btn-add">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
-                                </p>
-                                <p class="btn-details">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <!-- <div class="options">
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti">
-                                    <i class="fa fa-heart"></i>
-                                </button>
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compara con altri prodotti">
-                                    <i class="fa fa-exchange"></i>
-                                </button>
-                            </div>
-                            <div class="options-cart">
-                                <button class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top"  title="Aggiungi al carrello">
-                                    <span class="fa fa-shopping-cart"></span>
-                                </button>
-                            </div> -->
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="900x550" src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="price-details col-md-6">
-                                    <a href="#"><h3>Bouquet da sposa</h3></a>
-                                    <p class="details">codice: <b>1025/S02</b><br /> <span class="hidden">produttore: <b>Decor &amp; Flowers</b></span</p>
-                                    <div class="price-box separator">
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;110.00 &euro;</span><br />
-                                        <span class="price-old">invece di  <b>130.00 &euro;</b></span>
-                                    </div>
-                                    <!-- <p class="details">
-                                        Lorem ipsum dolor sit amet, consectetur..
-                                    </p> -->
-                                </div>
-                            </div>
-                            <div class="separator clear-left">
-                                <!-- <p class="btn-add">
-                                    <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Aggiungi al carrello"><i class="fa fa-shopping-cart"></i></a>
-                                </p> -->
-                                <p class="btn-add">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
-                                </p>
-                                <p class="btn-details">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <!-- <div class="options">
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti">
-                                    <i class="fa fa-heart"></i>
-                                </button>
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compara con altri prodotti">
-                                    <i class="fa fa-exchange"></i>
-                                </button>
-                            </div>
-                            <div class="options-cart">
-                                <button class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top"  title="Aggiungi al carrello">
-                                    <span class="fa fa-shopping-cart"></span>
-                                </button>
-                            </div> -->
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="900x550" src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="price-details col-md-6">
-                                    <a href="#"><h3>Bouquet da sposa</h3></a>
-                                    <p class="details">codice: <b>1025/S02</b><br /> <span class="hidden">produttore: <b>Decor &amp; Flowers</b></span</p>
-                                    <div class="price-box separator">
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;110.00 &euro;</span><br />
-                                        <span class="price-old">invece di  <b>130.00 &euro;</b></span>
-                                    </div>
-                                    <!-- <p class="details">
-                                        Lorem ipsum dolor sit amet, consectetur..
-                                    </p> -->
-                                </div>
-                            </div>
-                            <div class="separator clear-left">
-                                <!-- <p class="btn-add">
-                                    <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Aggiungi al carrello"><i class="fa fa-shopping-cart"></i></a>
-                                </p> -->
-                                <p class="btn-add">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
-                                </p>
-                                <p class="btn-details">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <!-- <div class="options">
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti">
-                                    <i class="fa fa-heart"></i>
-                                </button>
-                                <button class="btn btn-sm btn-default" type="submit" data-toggle="tooltip" data-placement="top" title="Compara con altri prodotti">
-                                    <i class="fa fa-exchange"></i>
-                                </button>
-                            </div>
-                            <div class="options-cart">
-                                <button class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top"  title="Aggiungi al carrello">
-                                    <span class="fa fa-shopping-cart"></span>
-                                </button>
-                            </div> -->
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="900x550" src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="price-details col-md-6">
-                                    <a href="#"><h3>Bouquet da sposa</h3></a>
-                                    <p class="details">codice: <b>1025/S02</b><br /> <span class="hidden">produttore: <b>Decor &amp; Flowers</b></span</p>
-                                    <div class="price-box separator">
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;110.00 &euro;</span><br />
-                                        <span class="price-old">invece di  <b>130.00 &euro;</b></span>
-                                    </div>
-                                    <!-- <p class="details">
-                                        Lorem ipsum dolor sit amet, consectetur..
-                                    </p> -->
-                                </div>
-                            </div>
-                            <div class="separator clear-left">
-                                <!-- <p class="btn-add">
-                                    <a href="#" class="hidden-sm" data-toggle="tooltip" data-placement="top" title="Aggiungi al carrello"><i class="fa fa-shopping-cart"></i></a>
-                                </p> -->
-                                <p class="btn-add">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
-                                </p>
-                                <p class="btn-details">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
-                                </p>
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-                    </article>
-                </div>
+                <%
+                  pro_rs.movenext
+                  loop
+                end if
+                pro_rs.close
+                %>
             </div>
         </div>
     </div>
