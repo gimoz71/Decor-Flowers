@@ -23,7 +23,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="#" class="panel-title"><%=Titolo_1_Cat_1%></a>
+                    <a href="prodotti.asp?cat_1=<%=Pkid_Cat_1%>" class="panel-title"><%=Titolo_1_Cat_1%></a>
                     <%if sot_rs.recordcount>0 then%><span class="expand-accordion" data-toggle="collapse" data-parent="#accordion" href="#collapse<%=Pkid_Cat_1%>"><span class="caret"></span></span><%end if%>
                 </div>
                 <%
@@ -36,7 +36,7 @@
                         Pkid_Cat_2=sot_rs("Pkid")
                         Titolo_1_Cat_2=sot_rs("Titolo_1")
                         %>
-                        <a href="#" class="list-group-item" title="<%=Titolo_1_Cat_2%>"><%=Titolo_1_Cat_2%></a>
+                        <a href="prodotti.asp?cat_2=<%=Pkid_Cat_2%>" class="list-group-item" title="<%=Titolo_1_Cat_2%>"><%=Titolo_1_Cat_2%></a>
                         <%
                         sot_rs.movenext
                         loop
