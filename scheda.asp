@@ -151,8 +151,8 @@ end if
                                 <div class="row">
                                     <%
                                     Do While Not img_rs.EOF
-                                    img_thumb="https://www.decorandflowers.it/public/thumb/"&img_rs("File")
-                                    img_zoom="https://www.decorandflowers.it/public/"&img_rs("Zoom")
+                                    img_thumb="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
+                                    img_zoom="https://www.decorandflowers.it/public/"&NoLettAcc(img_rs("Zoom"))
                                     img_titolo=img_rs("Titolo")
                                     %>
                                     <div class="col-md-2 col-xs-4">
@@ -172,72 +172,60 @@ end if
                                 img_rs.close
                                 %>
                             </div>
+                            <%
+                            Set var_rs=Server.CreateObject("ADODB.Recordset")
+                            sql = "SELECT * "
+                            sql = sql + "FROM Prodotti_Figli WHERE FkProdotto_Madre="&pkid_prod&" "
+                            sql = sql + "ORDER BY Titolo ASC"
+                            var_rs.Open sql, conn, 1, 1
+                            if var_rs.recordcount>0 then
+                            %>
                             <table id="cart" class="table table-hover table-condensed table-cart">
                                 <thead>
                                     <tr>
-                                        <th style="width:85%">Variante</th>
-                                        <!-- <th style="width:10%">Prezzo</th> -->
+                                        <th style="width:65%">Variante</th>
+                                        <th style="width:10%">Prezzo</th>
+                                        <th style="width:10%">Disponibilit&agrave;</th>
                                         <th style="width:15%">Quantit&agrave;</th>
-                                        <!-- <th style="width:22%" class="text-center">Subtotale</th>
-                                        <th style="width:15%"></th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <%
+                                    Do while not var_rs.EOF
+                                    %>
                                     <tr>
                                         <td data-th="Product" class="cart-product">
                                             <div class="row">
                                                 <div class="col-xs-2">
                                                     <div class="col-item">
                                                         <div class="photo">
-                                                            <a href="scheda.html" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="900x550" src="images/blank.png"></a>
+                                                            <a href="scheda.html" class="prod-img-replace" style="background-image: url(https://www.decorandflowers.it/public/thumb/<%=NoLettAcc(var_rs("Img"))%>)"><img alt="900x550" src="images/blank.png"></a>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-10">
-                                                    <h5 class="nomargin"><a href="scheda.html">Modello Plafoniera Moderna</a></h5>
-                                                    <p>Col.: Avorio antico - Lamp.: Bianco satinato</p>
+                                                    <h5 class="nomargin"><a href="scheda.html"><%=var_rs("Titolo")%></a></h5>
+                                                    <p>Codice: <%=var_rs("Codice")%></p>
                                                 </div>
                                             </div>
                                         </td>
-                                        <!-- <td data-th="Price" class="hidden-xs">55&euro;</td> -->
+                                        <td data-th="Price" class="hidden-xs"><%=var_rs("PrezzoProdotto")%>&euro;</td>
+                                        <td data-th="Price" class="hidden-xs"><%=var_rs("Pezzi")%></td>
                                         <td data-th="Quantity">
                                             <input type="number" class="form-control text-center" value="1">
                                         </td>
-                                        <!-- <td data-th="Subtotal" class="text-center">55&euro;</td>
-                                            <td class="actions" data-th="">
-                                            <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-                                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-                                        </td> -->
                                     </tr>
-                                    <tr>
-                                        <td data-th="Product" class="cart-product">
-                                            <div class="row">
-                                                <div class="col-xs-2">
-                                                    <div class="col-item">
-                                                        <div class="photo">
-                                                            <a href="scheda.html" class="prod-img-replace" style="background-image: url(images/thumb.jpg)"><img alt="900x550" src="images/blank.png"></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-10">
-                                                    <h5 class="nomargin"><a href="scheda.html">Modello Plafoniera Moderna</a></h5>
-                                                    <p>Col.: Avorio antico - Lamp.: Bianco satinato</p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <!-- <td data-th="Price" class="hidden-xs">55&euro;</td> -->
-                                        <td data-th="Quantity">
-                                            <input type="number" class="form-control text-center" value="1">
-                                        </td>
-                                        <!-- <td data-th="Subtotal" class="text-center">55&euro;</td>
-                                            <td class="actions" data-th="">
-                                            <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-                                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-                                        </td> -->
-                                    </tr>
+                                    <%
+                                    var_rs.movenext
+                                    loop
+                                    %>
                                 </tbody>
                             </table>
                             <a href="carrello.html" class="btn btn-danger btn-block">Aggiungi al carrello <i class="glyphicon glyphicon-shopping-cart"></i></a>
+                            <%
+                            end if
+                            var_rs.close
+                            %>
                         </div>
                     </div>
                 </div>

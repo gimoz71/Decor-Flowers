@@ -87,7 +87,7 @@
                   sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Cat_1&" and Tabella='Categorie_1' ORDER BY Posizione ASC"
                   img_rs.Open sql, conn, 1, 1
                   if img_rs.recordcount>0 then
-                    img="https://www.decorandflowers.it/public/thumb/"&img_rs("File")
+                    img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
                   else
                     img="images/thumb_d&f.png"
                   end if
@@ -139,7 +139,7 @@
       						sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
       						img_rs.Open sql, conn, 1, 1
       						if img_rs.recordcount>0 then
-                    img="https://www.decorandflowers.it/public/thumb/"&img_rs("File")
+                    img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
                   else
                     img="images/thumb_d&f.png"
                   end if
@@ -210,7 +210,7 @@
       						sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
       						img_rs.Open sql, conn, 1, 1
       						if img_rs.recordcount>0 then
-                    img="https://www.decorandflowers.it/public/thumb/"&img_rs("File")
+                    img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
                   else
                     img="images/thumb_d&f.png"
                   end if

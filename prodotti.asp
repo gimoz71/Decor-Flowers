@@ -118,7 +118,6 @@ end if
         <!--#include file="inc_header_2.asp"-->
     </div>
     <div class="container content">
-        <!--#include file="inc_slider.asp"-->
         <!--#include file="inc_menu.asp"-->
         <div class="col-md-9">
             <div class="row top-buffer">
@@ -189,7 +188,7 @@ end if
       						sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
       						img_rs.Open sql, conn, 1, 1
       						if img_rs.recordcount>0 then
-                    img="https://www.decorandflowers.it/public/thumb/"&img_rs("File")
+                    img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
                   else
                     img=""
                   end if
