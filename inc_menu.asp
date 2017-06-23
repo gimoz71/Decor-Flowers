@@ -1,6 +1,6 @@
 <div class="col-md-3 hidden-xs">
     <div class="row top-buffer">
-        <h4>RICERCA PER CATEGORIE</h4>
+        <!-- <h4>RICERCA PER CATEGORIE</h4> -->
         <div class="panel-group" id="accordion">
           <%
           Set cat_rs=Server.CreateObject("ADODB.Recordset")

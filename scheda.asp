@@ -98,6 +98,7 @@ end if
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.5/webcomponents.min.js"></script>
+    <link href="stylesheets/jquery.fancybox.css" media="screen" rel="stylesheet" type="text/css">
     <link rel="import" href="awesome-slider.html">
     <style type="text/css">
         .clearfix:after {
@@ -129,109 +130,109 @@ end if
                 <div class="col-md-12">
                     <div class="top-buffer">
                         <div class="title">
-                            <h4><%=Titolo_Prod%></h4>
+                            <h1 class="main"><%=Titolo_Prod%></h1>
                             <p class="details">codice: <b><%=Codice_Prod%></b></p>
                         </div>
-                        <div class="col-md-12">
-                            <div class="top-buffer">
-                                <p class="descrizione"><small>
-                                    <%=Descrizione_Prod%><br >
-                                    <%if Len(Materiale_Prod)>0 then%><strong>Materiale:</strong><%=Materiale_Prod%><br /><%end if%>
-                                    <%if Len(Dimensioni_Prod)>0 then%><strong>Dimensioni:</strong><%=Dimensioni_Prod%><br /><%end if%>
-                                    <%if Len(Colori_Prod)>0 then%><strong>Colori:</strong><%=Colori_Prod%><br /><%end if%>
-                                    </small>
-                                </p>
-                                <hr />
+                        <div class="top-buffer">
+                            <p class="descrizione"><small>
+                                <%=Descrizione_Prod%><br >
+                                <%if Len(Materiale_Prod)>0 then%><strong>Materiale:</strong><%=Materiale_Prod%><br /><%end if%>
+                                <%if Len(Dimensioni_Prod)>0 then%><strong>Dimensioni:</strong><%=Dimensioni_Prod%><br /><%end if%>
+                                <%if Len(Colori_Prod)>0 then%><strong>Colori:</strong><%=Colori_Prod%><br /><%end if%>
+                                </small>
+                            </p>
+                            <hr />
+                            <%
+                            Set img_rs=Server.CreateObject("ADODB.Recordset")
+                						sql = "SELECT * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
+                						img_rs.Open sql, conn, 1, 1
+                						if img_rs.recordcount>0 then
+                            %>
+                            <div class="row">
                                 <%
-                                Set img_rs=Server.CreateObject("ADODB.Recordset")
-                    						sql = "SELECT * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
-                    						img_rs.Open sql, conn, 1, 1
-                    						if img_rs.recordcount>0 then
+                                Do While Not img_rs.EOF
+                                img_thumb="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
+                                img_zoom="https://www.decorandflowers.it/public/"&NoLettAcc(img_rs("Zoom"))
+                                img_titolo=img_rs("Titolo")
                                 %>
-                                <div class="row">
-                                    <%
-                                    Do While Not img_rs.EOF
-                                    img_thumb="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
-                                    img_zoom="https://www.decorandflowers.it/public/"&NoLettAcc(img_rs("Zoom"))
-                                    img_titolo=img_rs("Titolo")
-                                    %>
-                                    <div class="col-md-2 col-xs-4">
-                                        <div class="col-item">
-                                            <div class="photo">
-                                                <a href="scheda.html" class="prod-img-replace" style="background-image: url(<%=img_thumb%>)"><img alt="900x550" src="images/blank.png"></a>
-                                            </div>
+                                <div class="col-md-3 col-xs-4">
+                                    <div class="col-item">
+                                        <div class="photo">
+                                            <a href="url(<%=img_thumb%>)" data-fancybox="group" data-caption="Caption #1" class="prod-img-replace" style="background-image: url(<%=img_thumb%>)"><img alt="900x550" src="images/blank.png"></a>
                                         </div>
                                     </div>
-                                    <%
-                                    img_rs.movenext
-                                    loop
-                                    %>
                                 </div>
                                 <%
-                                end if
-                                img_rs.close
+                                img_rs.movenext
+                                loop
                                 %>
                             </div>
                             <%
-                            Set var_rs=Server.CreateObject("ADODB.Recordset")
-                            sql = "SELECT * "
-                            sql = sql + "FROM Prodotti_Figli WHERE FkProdotto_Madre="&pkid_prod&" "
-                            sql = sql + "ORDER BY Titolo ASC"
-                            var_rs.Open sql, conn, 1, 1
-                            if var_rs.recordcount>0 then
-                            %>
-                            <table id="cart" class="table table-hover table-condensed table-cart">
-                                <thead>
-                                    <tr>
-                                        <th style="width:65%">Variante</th>
-                                        <th style="width:10%">Prezzo</th>
-                                        <th style="width:10%">Disponibilit&agrave;</th>
-                                        <th style="width:15%">Quantit&agrave;</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <%
-                                    Do while not var_rs.EOF
-                                    %>
-                                    <tr>
-                                        <td data-th="Product" class="cart-product">
-                                            <div class="row">
-                                                <div class="col-xs-2">
-                                                    <div class="col-item">
-                                                        <div class="photo">
-                                                            <a href="scheda.html" class="prod-img-replace" style="background-image: url(https://www.decorandflowers.it/public/thumb/<%=NoLettAcc(var_rs("Img"))%>)"><img alt="900x550" src="images/blank.png"></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-10">
-                                                    <h5 class="nomargin"><a href="scheda.html"><%=var_rs("Titolo")%></a></h5>
-                                                    <p>Codice: <%=var_rs("Codice")%></p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td data-th="Price" class="hidden-xs"><%=var_rs("PrezzoProdotto")%>&euro;</td>
-                                        <td data-th="Price" class="hidden-xs"><%=var_rs("Pezzi")%></td>
-                                        <td data-th="Quantity">
-                                            <input type="number" class="form-control text-center" value="1">
-                                        </td>
-                                    </tr>
-                                    <%
-                                    var_rs.movenext
-                                    loop
-                                    %>
-                                </tbody>
-                            </table>
-                            <a href="carrello.html" class="btn btn-danger btn-block">Aggiungi al carrello <i class="glyphicon glyphicon-shopping-cart"></i></a>
-                            <%
                             end if
-                            var_rs.close
+                            img_rs.close
                             %>
                         </div>
+                        <%
+                        Set var_rs=Server.CreateObject("ADODB.Recordset")
+                        sql = "SELECT * "
+                        sql = sql + "FROM Prodotti_Figli WHERE FkProdotto_Madre="&pkid_prod&" "
+                        sql = sql + "ORDER BY Titolo ASC"
+                        var_rs.Open sql, conn, 1, 1
+                        if var_rs.recordcount>0 then
+                        %>
+                        <table id="cart" class="table table-hover table-condensed table-cart">
+                            <thead>
+                                <tr>
+                                    <th style="width:65%">Variante</th>
+                                    <th style="width:10%" class="hidden-xs">Prezzo</th>
+                                    <th style="width:10%" class="hidden-xs">Disponibilit&agrave;</th>
+                                    <th style="width:15%">Quantit&agrave;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                Do while not var_rs.EOF
+                                %>
+                                <tr>
+                                    <td data-th="Product" class="cart-product">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-4">
+                                                <div class="col-item">
+                                                    <div class="photo">
+                                                        <a href="url(<%=img_thumb%>)" data-fancybox="group" data-caption="Caption #1"  class="prod-img-replace" style="background-image: url(https://www.decorandflowers.it/public/thumb/<%=NoLettAcc(var_rs("Img"))%>)"><img alt="900x550" src="images/blank.png"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-8">
+                                                <h5 class="nomargin"><%=var_rs("Titolo")%></h5>
+                                                <p>Codice: <%=var_rs("Codice")%></p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td data-th="Price" class="hidden-xs"><%=var_rs("PrezzoProdotto")%>&euro;</td>
+                                    <td data-th="Price" class="hidden-xs"><%=var_rs("Pezzi")%></td>
+                                    <td data-th="Quantity">
+                                        <input type="number" class="form-control text-center" value="1">
+                                    </td>
+                                </tr>
+                                <%
+                                var_rs.movenext
+                                loop
+                                %>
+                            </tbody>
+                        </table>
+                        <a href="carrello.html" class="btn btn-danger btn-block">Aggiungi al carrello <i class="glyphicon glyphicon-shopping-cart"></i></a>
+                        <%
+                        end if
+                        var_rs.close
+                        %>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!--#include file="inc_footer.asp"-->
+
+    <script src="javascripts/jquery.fancybox.js"></script>
 </body>
 <!--#include file="inc_strClose.asp"-->

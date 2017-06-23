@@ -118,16 +118,26 @@ end if
         <!--#include file="inc_header_2.asp"-->
     </div>
     <div class="container content">
+        <ol class="breadcrumb">
+            <li><a href="index.asp">Home</a></li>
+            <li><a href="prodotti.asp?cat_1=<%=FkCategoria_1%>"><%=Titolo_1_Cat_1%></a></li>
+            <li><a href="prodotti.asp?cat_2=<%=FkCategoria_2%>"><%=Titolo_1_Cat_2%></a></li>
+            <li class="active"><%=Titolo_Prod%></li>
+        </ol>
         <!--#include file="inc_menu.asp"-->
         <div class="col-md-9">
-            <div class="row top-buffer">
+            <div class="row">
                 <div class="col-md-12">
-                    <h1 class="slogan subtitle"><%=titolo_pagina%></h1>
-                    <div class="panel panel-default" style="border: none;">
-                        <div class="panel-body">
-                            <p style="font-size: 1.2em; text-align: justify">
-                                <%=descrizione_pagina%>
-                            </p>
+                    <div class="top-buffer">
+                        <div class="title">
+                            <h1 class="main"><%=titolo_pagina%></h1>
+                        </div>
+                        <div class="panel panel-default" style="border: none;">
+                            <div class="panel-body">
+                                <p style="font-size: 1.2em; text-align: justify">
+                                    <%=descrizione_pagina%>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
