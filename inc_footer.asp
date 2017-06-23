@@ -2,14 +2,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 address-col">
-                <!-- <h4>Decor &amp; Flowers</h4> -->
-                <img src="images/logo_v3_footer.png" style="width: 100%; padding-bottom: 15px;"/>
+                <img src="images/logo_v3_footer.png" alt="Decor & Flowers" style="width: 100%; padding-bottom: 15px;"/>
                 <p class="social">
                     Decor & Flowers di Alessandro Verdiani & C Snc<br />
                     C.F. e Iscr. Reg. Impr. di Firenze 06741510488<br />
                     R.E.A. di Firenze<br />
-                    Via I Maggio, 20C - Zona Ind.. Terrafino<br />
-                    50053 Empoli (Firenze)<br />
+                    Via delle mimose, 13<br />
+                    50050 Capraia e Limite sull'Arno (Firenze)<br />
                     Tel.: 0571.594000<br />
                     E-mail: info@decorandflowers.it<br /><br />
                     <a href="#"><i class="fa fa-facebook-square"></i></a>

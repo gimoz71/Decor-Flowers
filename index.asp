@@ -158,7 +158,7 @@
                                     <div class="price-box separator">
                                         <%if PrezzoOfferta>0 then%>
                                           <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=PrezzoOfferta%> &euro;</span><br />
-                                          <span class="price-old">invece di  <b><%=PrezzoProdotto%> &euro;</b></span>
+                                          <%if PrezzoProdotto>0 then%><span class="price-old">invece di <b><%=PrezzoProdotto%> &euro;</b></span><%else%>&nbsp;<%end if%>
                                         <%else%>
                                           <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=PrezzoProdotto%> &euro;</span><br />&nbsp;
                                         <%end if%>
@@ -227,12 +227,12 @@
                                     <a href="scheda.asp?pkid_prod=<%=Pkid_Prod%>" title="Scheda del prodotto <%=Titolo_Prod%>"><h3><%=Titolo_Prod%></h3></a>
                                     <p class="details">codice: <b><%=Codice_Prod%></b></p>
                                     <div class="price-box separator">
-                                        <%if PrezzoOfferta>0 then%>
-                                          <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=PrezzoOfferta%> &euro;</span><br />
-                                          <span class="price-old">invece di  <b><%=PrezzoProdotto%> &euro;</b></span>
-                                        <%else%>
-                                          <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=PrezzoProdotto%> &euro;</span><br />&nbsp;
-                                        <%end if%>
+                                      <%if PrezzoOfferta>0 then%>
+                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=PrezzoOfferta%> &euro;</span><br />
+                                        <%if PrezzoProdotto>0 then%><span class="price-old">invece di <b><%=PrezzoProdotto%> &euro;</b></span><%else%>&nbsp;<%end if%>
+                                      <%else%>
+                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=PrezzoProdotto%> &euro;</span><br />&nbsp;
+                                      <%end if%>
                                     </div>
                                 </div>
                             </div>

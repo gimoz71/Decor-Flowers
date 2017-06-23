@@ -28,273 +28,100 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav nav-justified main-menu hidden visible-xs">
-                <li class="nav-user visible-xs"><a href="#">Home</a></li>
-                <li class="nav-user dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Articoli <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+                <li class="nav-user visible-xs"><a href="index.asp">Home</a></li>
+                <li class="nav-user dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Prodotti <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
                     <ul class="dropdown-menu">
                         <li>
                             <div class="yamm-content">
                                 <div class="row">
-                                    <ul class="col-sm-6 col-lg-4 col-same-height list-unstyled">
-                                        <li class="subcategory">
-                                            <a href="#"><h4><strong>Articoli Natalizi</strong></h4></a>
-                                            <ul class="list-unstyled">
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                            </ul>
-                                        </li>
+                                  <ul class="col-sm-6 col-lg-4 col-same-height list-unstyled">
+                                      <%
+                                      Set cat_rs=Server.CreateObject("ADODB.Recordset")
+                                      sql = "SELECT * "
+                                      sql = sql + "FROM Categorie_1 "
+                                      sql = sql + "ORDER BY Posizione ASC, Titolo_1 ASC"
+                                      cat_rs.Open sql, conn, 1, 1
+                                      if cat_rs.recordcount>0 then
+                                        Do While Not cat_rs.EOF
+                                        Pkid_Cat_1=cat_rs("Pkid")
+                                        Titolo_1_Cat_1=cat_rs("Titolo_1")
 
-                                    </ul>
-                                    <ul class="col-sm-6 col-lg-4 col-same-height list-unstyled">
-                                        <li class="subcategory">
-                                            <a href="#"><h4><strong>Articoli primaverili e Pasquali</strong></h4></a>
+                                        Set sot_rs=Server.CreateObject("ADODB.Recordset")
+                                        sql = "SELECT * "
+                                        sql = sql + "FROM Categorie_2 "
+                                        sql = sql + "WHERE FkCategoria_1="&Pkid_Cat_1&""
+                                        sql = sql + "ORDER BY Posizione ASC, Titolo_1 ASC"
+                                        sot_rs.Open sql, conn, 1, 1
+                                      %>
+
+                                      <li class="subcategory">
+                                          <a href="prodotti.asp?cat_1=<%=Pkid_Cat_1%>"><h4><strong><%=Titolo_1_Cat_1%></strong></h4></a>
+                                          <%
+                                          if sot_rs.recordcount>0 then
+                                          %>
                                             <ul class="list-unstyled">
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
+                                            <%
+                                            Do While Not sot_rs.EOF
+                                            Pkid_Cat_2=sot_rs("Pkid")
+                                            Titolo_1_Cat_2=sot_rs("Titolo_1")
+                                            %>
+                                                <li><a href="prodotti.asp?cat_2=<%=Pkid_Cat_2%>"><%=Titolo_1_Cat_2%></b></a></li>
+                                            <%
+                                            sot_rs.movenext
+                                            loop
+                                            %>
                                             </ul>
-                                        </li>
-                                    </ul>
-                                    <ul class="col-sm-6 col-lg-4 col-same-height list-unstyled">
-                                        <li class="subcategory">
-                                            <a href="#"><h4><strong>Candele</strong></h4></a>
-                                            <ul class="list-unstyled">
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul class="col-sm-6 col-lg-4 col-same-height list-unstyled">
-                                        <li class="subcategory">
-                                            <a href="#"><h4><strong>Cesteria</strong></h4></a>
-                                            <ul class="list-unstyled">
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul class="col-sm-6 col-lg-4 col-same-height list-unstyled">
-                                        <li class="subcategory">
-                                            <a href="#"><h4><strong>Cuori, San Valentino, Festa della Mamma</strong></h4></a>
-                                            <ul class="list-unstyled">
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul class="col-sm-6 col-lg-4 col-same-height list-unstyled">
-                                        <li class="subcategory">
-                                            <a href="#"><h4><strong>Decorazioni Varie</strong></h4></a>
-                                            <ul class="list-unstyled">
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul class="col-sm-6 col-lg-4 col-same-height list-unstyled">
-                                        <li class="subcategory">
-                                            <a href="#"><h4><strong>Decori Casa e Complementi</strong></h4></a>
-                                            <ul class="list-unstyled">
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul class="col-sm-6 col-lg-4 col-same-height list-unstyled">
-                                        <li class="subcategory">
-                                            <a href="#"><h4><strong>Fiori Artificiali</strong></h4></a>
-                                            <ul class="list-unstyled">
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul class="col-sm-6 col-lg-4 col-same-height list-unstyled">
-                                        <li class="subcategory">
-                                            <a href="#"><h4><strong>Frutta, Bacche e Varie</strong></h4></a>
-                                            <ul class="list-unstyle">
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul class="col-sm-6 col-lg-4 col-same-height list-unstyled">
-                                        <li class="subcategory">
-                                            <a href="#"><h4><strong>Halloween, Streghe</strong></h4></a>
-                                            <ul class="list-unstyled">
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul class="col-sm-6 col-lg-4 col-same-height list-unstyled">
-                                        <li class="subcategory">
-                                            <a href="#"><h4><strong>Piante Artificiali</strong></h4></a>
-                                            <ul class="list-unstyled">
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul class="col-sm-6 col-lg-4 col-same-height list-unstyled">
-                                        <li class="subcategory">
-                                            <a href="#"><h4><strong>Prodotti Naturali, Fiori e Rami Essiccati</strong></h4></a>
-                                            <ul class="list-unstyled">
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                    <ul class="col-sm-6 col-lg-4 col-same-height list-unstyled">
-                                        <li class="subcategory">
-                                            <a href="#"><h4><strong>Halloween, Streghe</strong></h4></a>
-                                            <ul class="list-unstyled lampadari">
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                                <li><a href="#">Articolo</b></a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
+                                          <%
+                                          end if
+                                          %>
+                                      </li>
+
+                                      <%
+                                        sot_rs.close
+
+                                        cat_rs.movenext
+                                        loop
+                                      end if
+                                      cat_rs.close
+                                      %>
+                                  </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-user dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Ricerca per Eventi <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="yamm-content">
+                                <div class="row">
+                                  <ul class="col-sm-6 col-lg-4 col-same-height list-unstyled">
+                                      <%
+                                      Set eve_rs=Server.CreateObject("ADODB.Recordset")
+                                      sql = "SELECT * "
+                                      sql = sql + "FROM Eventi "
+                                      sql = sql + "ORDER BY Posizione ASC, Titolo_1 ASC"
+                                      eve_rs.Open sql, conn, 1, 1
+                                      if eve_rs.recordcount>0 then
+                                      %>
+                                      <%
+                                      Do While Not eve_rs.EOF
+                                      Pkid_Eve=eve_rs("Pkid")
+                                      Titolo_1_Eve=eve_rs("Titolo_1")
+                                      %>
+                                      <li class="subcategory">
+                                          <a href="#"><h4><strong><%=Titolo_1_Eve%></strong></h4></a>
+                                      </li>
+
+                                      <%
+                                      eve_rs.movenext
+                                      loop
+                                      %>
+                                      <%
+                                      end if
+                                      cat_rs.close
+                                      %>
+                                  </ul>
                                 </div>
                             </div>
                         </li>

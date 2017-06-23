@@ -63,8 +63,6 @@
         sql = sql + "ORDER BY Posizione ASC, Titolo_1 ASC"
         eve_rs.Open sql, conn, 1, 1
         if eve_rs.recordcount>0 then
-
-
         %>
         <div class="panel-group top-buffer" id="accordion">
             <h4>RICERCA PER EVENTI</h4>
