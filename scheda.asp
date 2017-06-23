@@ -158,7 +158,7 @@ end if
                                 <div class="col-md-3 col-xs-4">
                                     <div class="col-item">
                                         <div class="photo">
-                                            <a href="url(<%=img_thumb%>)" data-fancybox="group" data-caption="Caption #1" class="prod-img-replace" style="background-image: url(<%=img_thumb%>)"><img alt="900x550" src="images/blank.png"></a>
+                                            <a href="<%=img_zoom%>" data-fancybox="group" data-caption="Caption #1" class="prod-img-replace" style="background-image: url(<%=img_thumb%>)"><img alt="900x550" src="images/blank.png"></a>
                                         </div>
                                     </div>
                                 </div>
@@ -192,6 +192,8 @@ end if
                             <tbody>
                                 <%
                                 Do while not var_rs.EOF
+                                img_thumb="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(var_rs("Img"))
+                                img_zoom="https://www.decorandflowers.it/public/"&NoLettAcc(var_rs("Img"))
                                 %>
                                 <tr>
                                     <td data-th="Product" class="cart-product">
@@ -199,7 +201,7 @@ end if
                                             <div class="col-xs-12 col-sm-4">
                                                 <div class="col-item">
                                                     <div class="photo">
-                                                        <a href="url(<%=img_thumb%>)" data-fancybox="group" data-caption="Caption #1"  class="prod-img-replace" style="background-image: url(https://www.decorandflowers.it/public/thumb/<%=NoLettAcc(var_rs("Img"))%>)"><img alt="900x550" src="images/blank.png"></a>
+                                                        <a href="<%=img_zoom%>" data-fancybox="group" data-caption="Caption #1"  class="prod-img-replace" style="background-image: url(<%=img_thumb%>)"><img alt="900x550" src="images/blank.png"></a>
                                                     </div>
                                                 </div>
                                             </div>
