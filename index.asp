@@ -191,10 +191,10 @@
                 </div>
                 <%
                 Set pro_rs=Server.CreateObject("ADODB.Recordset")
-                sql = "SELECT Top 4 * "
+                sql = "SELECT Top 8 * "
                 sql = sql + "FROM Prodotti_Madre "
                 sql = sql + "WHERE (Stato=1 or Stato=2) "
-                sql = sql + "ORDER BY PkId ASC"
+                sql = sql + "ORDER BY PkId DESC"
                 pro_rs.Open sql, conn, 1, 1
                 if pro_rs.recordcount>0 then
                   Do While Not pro_rs.EOF
