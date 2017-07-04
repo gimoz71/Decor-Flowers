@@ -21,6 +21,7 @@ if pkid_prod>0 then
     Materiale_Prod=pro_rs("Materiale")
     Dimensioni_Prod=pro_rs("Dimensioni")
     Colori_Prod=pro_rs("Colori")
+    Stato_Prod=pro_rs("Stato")
 
     FkCategoria_1=pro_rs("FkCategoria_1")
     if FkCategoria_1="" or IsNull(FkCategoria_1) then FkCategoria_1=0
@@ -133,14 +134,55 @@ end if
                             <h1 class="main"><%=Titolo_Prod%></h1>
                             <p class="details">codice: <b><%=Codice_Prod%></b></p>
                         </div>
+                    </div>
+               </div>
+               <div class="col-md-8">
+                   <div class="top-buffer">
+                         <p class="descrizione"><small>
+                             <%=Descrizione_Prod%><br >
+                             <%if Len(Materiale_Prod)>0 then%><strong>Materiale:</strong><%=Materiale_Prod%><br /><%end if%>
+                             <%if Len(Dimensioni_Prod)>0 then%><strong>Dimensioni:</strong><%=Dimensioni_Prod%><br /><%end if%>
+                             <%if Len(Colori_Prod)>0 then%><strong>Colori:</strong><%=Colori_Prod%><br /><%end if%>
+                             </small>
+                         </p>
+                   </div>
+              </div>
+              <div class="col-md-4">
+                  <div class="top-buffer">
+                      <%if prezzoofferta>0 or prezzoprodotto>0 then%>
+                      <div class="panel panel-default" style="box-shadow: 0 3px 5px #ccc;">
+                            <ul class="list-group text-center">
+                                <li class="list-group-item" style="padding-top: 20px">
+                                    <p>
+                                    Prezzo D&F<br />
+                                    <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=prezzoofferta%> &euro;</span><br />
+                                    <%if prezzoprodotto>0 then%><span class="price-old">Invece di  <b><%=prezzoprodotto%> &euro;</b></span><br /><%end if%>
+                                    </p>
+                                </li>
+                            </ul>
+                            <%if Stato_Prod=2 then%>
+                            <div class="panel-footer">
+                                <a href="#" rel="nofollow" class="btn btn-danger btn-block" title="Richiedi il prodotto al nostro staff">Ordina per email <i class="glyphicon glyphicon-envelope"></i></a>
+                            </div>
+                            <%end if%>
+                      </div>
+                      <%end if%>
+                  </div>
+             </div>
+                <div class="col-md-12">
+                    <div class="top-buffer">
                         <div class="top-buffer">
+                            <!--<div class="title">
+                                <h1 class="main"><%=Titolo_Prod%></h1>
+                                <p class="details">codice: <b><%=Codice_Prod%></b></p>
+                            </div>
                             <p class="descrizione"><small>
                                 <%=Descrizione_Prod%><br >
                                 <%if Len(Materiale_Prod)>0 then%><strong>Materiale:</strong><%=Materiale_Prod%><br /><%end if%>
                                 <%if Len(Dimensioni_Prod)>0 then%><strong>Dimensioni:</strong><%=Dimensioni_Prod%><br /><%end if%>
                                 <%if Len(Colori_Prod)>0 then%><strong>Colori:</strong><%=Colori_Prod%><br /><%end if%>
                                 </small>
-                            </p>
+                            </p>-->
                             <hr />
                             <%
                             Set img_rs=Server.CreateObject("ADODB.Recordset")
@@ -180,13 +222,14 @@ end if
                         var_rs.Open sql, conn, 1, 1
                         if var_rs.recordcount>0 then
                         %>
+                        <form>
                         <table id="cart" class="table table-hover table-condensed table-cart">
                             <thead>
                                 <tr>
-                                    <th style="width:65%">Variante</th>
-                                    <th style="width:10%" class="hidden-xs">Prezzo</th>
-                                    <th style="width:10%" class="hidden-xs">Disponibilit&agrave;</th>
-                                    <th style="width:15%">Quantit&agrave;</th>
+                                    <th style="width:60%">Variante</th>
+                                    <th style="width:13%" class="hidden-xs text-right">Prezzo</th>
+                                    <th style="width:12%" class="hidden-xs text-center">Disponibilit&agrave;</th>
+                                    <th style="width:15%" class="text-center">Quantit&agrave;</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -194,6 +237,9 @@ end if
                                 Do while not var_rs.EOF
                                 img_thumb="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(var_rs("Img"))
                                 img_zoom="https://www.decorandflowers.it/public/"&NoLettAcc(var_rs("Img"))
+                                pezzi=var_rs("Pezzi")
+                                if pezzi="" or IsNull(pezzi) then pezzi=0
+                                pkid_prodotto_figlio=var_rs("PkId")
                                 %>
                                 <tr>
                                     <td data-th="Product" class="cart-product">
@@ -211,10 +257,10 @@ end if
                                             </div>
                                         </div>
                                     </td>
-                                    <td data-th="Price" class="hidden-xs"><%=var_rs("PrezzoProdotto")%>&euro;</td>
-                                    <td data-th="Price" class="hidden-xs"><%=var_rs("Pezzi")%></td>
+                                    <td data-th="Price" class="hidden-xs text-right"><%=var_rs("PrezzoProdotto")%> &euro;</td>
+                                    <td data-th="Price" class="hidden-xs text-center"><%=Pezzi%></td>
                                     <td data-th="Quantity">
-                                        <input type="number" class="form-control text-center" value="1">
+                                        <input type="number" class="form-control text-center" name="pezzi_<%=pkid_prodotto_figlio%>" value="0" <%if Pezzi=0 then%>disabled<%end if%>>
                                     </td>
                                 </tr>
                                 <%
@@ -224,6 +270,7 @@ end if
                             </tbody>
                         </table>
                         <a href="carrello.html" class="btn btn-danger btn-block">Aggiungi al carrello <i class="glyphicon glyphicon-shopping-cart"></i></a>
+                        </form>
                         <%
                         end if
                         var_rs.close

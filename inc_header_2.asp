@@ -43,29 +43,29 @@
                                       cat_rs.Open sql, conn, 1, 1
                                       if cat_rs.recordcount>0 then
                                         Do While Not cat_rs.EOF
-                                        Pkid_Cat_1=cat_rs("Pkid")
-                                        Titolo_1_Cat_1=cat_rs("Titolo_1")
+                                        Pkid_Cat_1_menu=cat_rs("Pkid")
+                                        Titolo_1_Cat_1_menu=cat_rs("Titolo_1")
 
                                         Set sot_rs=Server.CreateObject("ADODB.Recordset")
                                         sql = "SELECT * "
                                         sql = sql + "FROM Categorie_2 "
-                                        sql = sql + "WHERE FkCategoria_1="&Pkid_Cat_1&""
+                                        sql = sql + "WHERE FkCategoria_1="&Pkid_Cat_1_menu&""
                                         sql = sql + "ORDER BY Posizione ASC, Titolo_1 ASC"
                                         sot_rs.Open sql, conn, 1, 1
                                       %>
 
                                       <li class="subcategory">
-                                          <a href="prodotti.asp?cat_1=<%=Pkid_Cat_1%>"><h4><strong><%=Titolo_1_Cat_1%></strong></h4></a>
+                                          <a href="prodotti.asp?cat_1=<%=Pkid_Cat_1_menu%>"><h4><strong><%=Titolo_1_Cat_1_menu%></strong></h4></a>
                                           <%
                                           if sot_rs.recordcount>0 then
                                           %>
                                             <ul class="list-unstyled">
                                             <%
                                             Do While Not sot_rs.EOF
-                                            Pkid_Cat_2=sot_rs("Pkid")
-                                            Titolo_1_Cat_2=sot_rs("Titolo_1")
+                                            Pkid_Cat_2_menu=sot_rs("Pkid")
+                                            Titolo_1_Cat_2_menu=sot_rs("Titolo_1")
                                             %>
-                                                <li><a href="prodotti.asp?cat_2=<%=Pkid_Cat_2%>"><%=Titolo_1_Cat_2%></b></a></li>
+                                                <li><a href="prodotti.asp?cat_2=<%=Pkid_Cat_2_menu%>"><%=Titolo_1_Cat_2_menu%></b></a></li>
                                             <%
                                             sot_rs.movenext
                                             loop

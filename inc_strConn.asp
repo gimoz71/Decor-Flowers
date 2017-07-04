@@ -51,7 +51,7 @@ Function NoHTML(strInput)
  RegEx.Global = True
  RegEx.IgnoreCase = True
 
-        ' conserva la formattazione
+ ' conserva la formattazione
  strInput = Replace(strInput, "<br>", chr(10))
  'strInput = Replace(strInput, "'", "")
  strInput = Replace(strInput, """", "")
