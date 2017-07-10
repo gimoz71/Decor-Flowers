@@ -1,5 +1,5 @@
 <div class="col-md-3 hidden-xs">
-    <div class="row top-buffer">
+    <div class="row">
         <!-- <h4>RICERCA PER CATEGORIE</h4> -->
         <div class="panel-group" id="accordion">
           <%
@@ -36,7 +36,7 @@
                         Pkid_Cat_2=sot_rs("Pkid")
                         Titolo_1_Cat_2=sot_rs("Titolo_1")
                         %>
-                        <a href="prodotti.asp?cat_2=<%=Pkid_Cat_2%>" class="list-group-item" title="<%=Titolo_1_Cat_2%>"><%=Titolo_1_Cat_2%></a>
+                        <a href="prodotti.asp?cat_2=<%=Pkid_Cat_2%>" class="list-group-item" id="<%=Titolo_1_Cat_2%>" title="<%=Titolo_1_Cat_2%>"><%=Titolo_1_Cat_2%></a>
                         <%
                         sot_rs.movenext
                         loop

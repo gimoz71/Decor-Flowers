@@ -131,12 +131,12 @@ end if
         <div class="col-md-9">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="top-buffer">
-                        <div class="title">
-                            <h1 class="main"><%=titolo_pagina%></h1>
-                        </div>
-                        <div class="panel panel-default" style="border: none;">
-                            <div class="panel-body">
+                    <div class="title">
+                        <h1 class="main"><%=titolo_pagina%></h1>
+                    </div>
+                    <div class="panel panel-default" style="border: none;">
+                        <div class="panel-body" >
+                            <div class="readmore">
                                 <p style="font-size: 1.2em; text-align: justify">
                                     <%=descrizione_pagina%>
                                 </p>
@@ -263,5 +263,18 @@ end if
         </div>
     </div>
     <!--#include file="inc_footer.asp"-->
+    <script>
+        $('.readmore').readmore({
+            speed: 200,
+            collapsedHeight: 50,
+            moreLink: '<a href="#">Leggi di pi&ugrave; <i class="fa fa-chevron-down"></i></a>',
+            lessLink: '<a href="#">Chiudi <i class="fa fa-chevron-up"></i></a>'
+        });
+        $(document).ready(function() {
+            $('#collapse6').addClass('in');
+            $('#AMARILLIS').css('font-weight', 'bold').append('<span class="active-link"><i class="fa fa-caret-right"></i></span>');
+
+        });
+    </script>
 </body>
 <!--#include file="inc_strClose.asp"-->

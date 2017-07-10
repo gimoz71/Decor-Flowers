@@ -9059,6 +9059,25 @@ img {
     float: none;
   }
 }
+.breadcrumb li {
+  text-transform: lowercase;
+}
+
+.readmore {
+  position: relative;
+  max-height: 2em;
+}
+
+.close-gradient:after {
+  content: " ";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 20px;
+  width: 100%;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), white);
+}
+
 /*-------------------------------*/
 /*  @group Header               */
 /*-------------------------------*/
@@ -9396,6 +9415,12 @@ img {
   color: #666;
 }
 
+#accordion * {
+  text-transform: lowercase;
+}
+#accordion *::first-letter {
+  text-transform: capitalize;
+}
 #accordion > .panel {
   cursor: pointer;
 }
@@ -9418,6 +9443,13 @@ img {
 #accordion .panel-collapse {
   overflow: auto;
   max-height: 400px;
+}
+#accordion .active-link {
+  position: absolute;
+  top: .5em;
+  left: 0;
+  font-size: 22px;
+  color: #dbcdb1;
 }
 
 .description,
@@ -9850,6 +9882,12 @@ footer .address-col .other .fa {
 footer .address-col .fa-facebook-square {
   color: #3b5998;
 }
+footer .address-col .fa-youtube-square {
+  color: #E62117;
+}
+footer .address-col .fa-linkedin-square {
+  color: #0077b5;
+}
 footer .menu-col a {
   position: relative;
   display: inline-block;
@@ -9874,6 +9912,28 @@ footer .menu-col a:hover {
 footer ul {
   list-style: none;
   padding: 0;
+  margin-bottom: 20px;
+}
+footer ul.checklist {
+  background: #fff;
+  padding: 8px;
+  border: solid 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.02);
+}
+footer ul.checklist li {
+  position: relative;
+  padding-left: 15px;
+  font-size: .75em;
+  color: #666;
+}
+footer ul.checklist li:before {
+  content: "\e013";
+  font-family: 'Glyphicons Halflings';
+  font-size: .65em;
+  position: absolute;
+  top: 4px;
+  left: 0;
+  color: #900;
 }
 
 /*-------------------------------*/

@@ -129,11 +129,9 @@ end if
         <div class="col-md-9">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="top-buffer">
-                        <div class="title">
-                            <h1 class="main"><%=Titolo_Prod%></h1>
-                            <p class="details">codice: <b><%=Codice_Prod%></b></p>
-                        </div>
+                    <div class="title">
+                        <h1 class="main"><%=Titolo_Prod%></h1>
+                        <p class="details">codice: <b><%=Codice_Prod%></b></p>
                     </div>
                </div>
                <div class="col-md-8">
@@ -197,7 +195,7 @@ end if
                                 img_zoom="https://www.decorandflowers.it/public/"&NoLettAcc(img_rs("Zoom"))
                                 img_titolo=img_rs("Titolo")
                                 %>
-                                <div class="col-md-3 col-xs-4">
+                                <div class="col-sm-3 col-xs-6">
                                     <div class="col-item">
                                         <div class="photo">
                                             <a href="<%=img_zoom%>" data-fancybox="group" data-caption="Caption #1" class="prod-img-replace" style="background-image: url(<%=img_thumb%>)"><img alt="900x550" src="images/blank.png"></a>
@@ -247,7 +245,7 @@ end if
                                             <div class="col-xs-12 col-sm-4">
                                                 <div class="col-item">
                                                     <div class="photo">
-                                                        <a href="<%=img_zoom%>" data-fancybox="group" data-caption="Caption #1"  class="prod-img-replace" style="background-image: url(<%=img_thumb%>)"><img alt="900x550" src="images/blank.png"></a>
+                                                        <a href="<%=img_zoom%>" data-fancybox data-caption="Caption #1"  class="prod-img-replace" style="background-image: url(<%=img_thumb%>)"><img alt="900x550" src="images/blank.png"></a>
                                                     </div>
                                                 </div>
                                             </div>
