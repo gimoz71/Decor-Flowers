@@ -52,6 +52,9 @@
     </div>
     <div class="container content">
         <!--#include file="inc_slider.asp"-->
+        <div class="top-buffer">
+            
+        </div>
         <!--#include file="inc_menu.asp"-->
         <div class="col-md-9">
             <div class="row top-buffer">
