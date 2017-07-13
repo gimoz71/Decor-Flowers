@@ -1,7 +1,5 @@
 <!--#include file="inc_strConn.asp"-->
 <%
-'Call Visualizzazione("",0,"carrello1.asp")
-
 	mode=request("mode")
 	if mode="" then mode=0
 
@@ -9,24 +7,35 @@
 	IdOrdine=session("ordine_shop")
 	if IdOrdine="" then IdOrdine=0
 
-	id=request("id")
-	if id="" then id=0
+	id_madre=requesy("id_madre")
+	if id_madre="" then id_madre=0
 
-		if IdOrdine=0 and id<>0 then
-			Set os1 = Server.CreateObject("ADODB.Recordset")
-			sql = "SELECT Top 1 PkId, PkId_Contatore FROM Ordini Order by PkId_Contatore Desc"
-			os1.Open sql, conn, 1, 1
-			IdOrdine_ultimo=os1("PkId")
-			IdOrdine_ultimo=cInt(IdOrdine_ultimo)
-			IdOrdine=IdOrdine_ultimo+1
-			os1.close
+	if id_madre>0 and IdOrdine=0 then
+		ordine="KO"
+		Set var_rs=Server.CreateObject("ADODB.Recordset")
+		sql = "SELECT * "
+		sql = sql + "FROM Prodotti_Figli WHERE FkProdotto_Madre="&id_madre&" "
+		sql = sql + "ORDER BY Titolo ASC"
+		var_rs.Open sql, conn, 1, 1
+		if var_rs.recordcount>0 then
+			Do while not var_rs.EOF
+			pkid_prodotto_figlio=var_rs("PkId")
+				pezzi=request("pezzi_"&pkid_prodotto_figlio)
+				'if pezzi="" or pezzi=0 then ordine="KO"
+				if pezzi>0 then ordine="OK"
+			var_rs.movenext
+			loop
+		end if
+		var_rs.close
 
+	end if
+
+		if IdOrdine=0 and ordine="OK" then
 			Set os1 = Server.CreateObject("ADODB.Recordset")
 			sql = "SELECT * FROM Ordini"
 			os1.Open sql, conn, 3, 3
 
 			os1.addnew
-			os1("PkId")=IdOrdine
 			os1("FkCliente")=idsession
 			os1("stato")=0
 			os1("TotaleCarrello")=0
@@ -36,6 +45,12 @@
 			os1("IpOrdine")=Request.ServerVariables("REMOTE_ADDR")
 			os1.update
 
+			os1.close
+
+			Set os1 = Server.CreateObject("ADODB.Recordset")
+			sql = "SELECT Top 1 PkId FROM Ordini Order by PkId Desc"
+			os1.Open sql, conn, 1, 1
+			IdOrdine=os1("PkId")
 			os1.close
 
 			'Creo una sessione con l'id dell'ordine
@@ -84,81 +99,69 @@
 						ts.update
 					ts.close
 				end if
-
-
-				'Set ts = Server.CreateObject("ADODB.Recordset")
-				'sql = "SELECT * FROM RigheOrdine where FkOrdine="&idordine
-				'ts.Open sql, conn, 3, 3
-				'num=0
-				'Do while not ts.EOF
-					'aggiornamento
-					'PrezzoProdotto=ts("PrezzoProdotto")
-					'Quantita=request("quantita"&num)
-					'ts("Quantita")=Quantita
-					'ts("TotaleRiga")=(Quantita*PrezzoProdotto)
-					'ts.update
-					'num=num+1
-					'ts.movenext
-				'loop
-				'ts.close
 			end if
 
 		else
 	'inserimento di un prodotto per la prima volta scelto con il carrello già aperto
 			'Prendo il prezzo del prodotto
 
-			if id<>0 then
-				quantita=request("quantita")
-				if quantita="" then quantita=1
+			if ordine="OK" then
 
-				colore=request("colore")
-				if colore="*****" then colore=""
+			'prendo le caretteristriche del prodotto
 
-				lampadina=request("lampadina")
-				if lampadina="*****" then lampadina=""
+			Set prodotto_rs = Server.CreateObject("ADODB.Recordset")
+			sql = "SELECT * FROM Prodotti_Madre where PkId="&id_madre&""
+			prodotto_rs.Open sql, conn, 1, 1
 
-				'prendo le caretteristriche del prodotto
+			Codice_madre=prodotto_rs("Codice")
+			Titolo_madre=prodotto_rs("Titolo")
 
-				Set prodotto_rs = Server.CreateObject("ADODB.Recordset")
-				sql = "SELECT * FROM Prodotti where PkId="&id&""
-				prodotto_rs.Open sql, conn, 1, 1
+			prodotto_rs.close
 
-				PrezzoProdotto=prodotto_rs("PrezzoProdotto")
-				CodiceArticolo=prodotto_rs("CodiceArticolo")
-				TitoloProdotto=prodotto_rs("Titolo")
+				Set var_rs=Server.CreateObject("ADODB.Recordset")
+				sql = "SELECT * "
+				sql = sql + "FROM Prodotti_Figli WHERE FkProdotto_Madre="&id_madre&" "
+				sql = sql + "ORDER BY Titolo ASC"
+				var_rs.Open sql, conn, 1, 1
+				if var_rs.recordcount>0 then
+					Do while not var_rs.EOF
+						pkid_prodotto_figlio=var_rs("PkId")
+						Codice_figlio=var_rs("Codice")
+						Titolo_figlio=var_rs("Titolo")
+						PrezzoProdotto_figlio=var_rs("PrezzoProdotto")
+						pezzi=request("pezzi_"&pkid_prodotto_figlio)
+						if pezzi>0 then
+								Set riga_rs = Server.CreateObject("ADODB.Recordset")
+								sql = "SELECT * FROM RigheOrdine"
+								riga_rs.Open sql, conn, 3, 3
 
-				prodotto_rs.close
+								riga_rs.addnew
+								riga_rs("FkOrdine")=IdOrdine
+								riga_rs("FkIscritto")=idsession
+								riga_rs("FkProdotto_Madre")=id_madre
+								riga_rs("Codice_Madre")=Codice_Madre
+								riga_rs("Titolo_Madre")=Titolo_Madre
+								riga_rs("FkProdotto_Figlio")=pkid_prodotto_figlio
+								riga_rs("Codice_Figlio")=Codice_figlio
+								riga_rs("Titolo_Figlio")=Titolo_figlio
+								riga_rs("PrezzoProdotto")=PrezzoProdotto_figlio
+								riga_rs("Quantita")=pezzi
+								TotaleRiga=PrezzoProdotto_figlio*pezzi
+								riga_rs("TotaleRiga")=TotaleRiga
+								riga_rs("Data")=now()
+								riga_rs.update
+
+								riga_rs.close
+						end if
+					var_rs.movenext
+					loop
+				end if
+				var_rs.close
 
 
-				Set riga_rs = Server.CreateObject("ADODB.Recordset")
-				sql = "SELECT Top 1 PkId, PkId_Contatore FROM RigheOrdine Order by Pkid_Contatore Desc"
-				riga_rs.Open sql, conn, 1, 1
-				PkId_riga_ultimo=riga_rs("PkId")
-				PkId_riga_ultimo=cInt(PkId_riga_ultimo)
-				PkId_riga=PkId_riga_ultimo+1
-				riga_rs.close
 
-				Set riga_rs = Server.CreateObject("ADODB.Recordset")
-				sql = "SELECT * FROM RigheOrdine"
-				riga_rs.Open sql, conn, 3, 3
 
-				riga_rs.addnew
-				riga_rs("PkId")=PkId_riga
-				riga_rs("FkOrdine")=IdOrdine
-				riga_rs("FkCliente")=idsession
-				riga_rs("FkProdotto")=id
-				riga_rs("PrezzoProdotto")=PrezzoProdotto
-				riga_rs("Quantita")=Quantita
-				TotaleRiga=PrezzoProdotto*Quantita
-				riga_rs("TotaleRiga")=TotaleRiga
-				riga_rs("colore")=Colore
-				riga_rs("lampadina")=Lampadina
-				riga_rs("CodiceArticolo")=CodiceArticolo
-				riga_rs("Titolo")=TitoloProdotto
-				riga_rs("Data")=now()
-				riga_rs.update
 
-				riga_rs.close
 			end if
 		end if
 
@@ -179,7 +182,6 @@
 				if ss.recordcount>0 then
 					ss("TotaleCarrello")=TotaleCarrello
 					ss("TotaleGenerale")=TotaleCarrello
-					'ss("DataOrdine")=now()
 					ss("DataAggiornamento")=now()
 					ss("Stato")=0
 					ss("FkCliente")=idsession
@@ -250,7 +252,7 @@
     </div>
     <%
   		Set rs = Server.CreateObject("ADODB.Recordset")
-  		sql = "SELECT PkId, FkOrdine, FkProdotto, PrezzoProdotto, Quantita, TotaleRiga, Titolo, CodiceArticolo, Colore, Lampadina FROM RigheOrdine WHERE FkOrdine="&idOrdine&""
+  		sql = "SELECT * FROM RigheOrdine WHERE FkOrdine="&idOrdine&""
   		rs.Open sql, conn, 1, 1
   		num_prodotti_carrello=rs.recordcount
 
@@ -331,20 +333,20 @@
 																		<%
 																		Do while not rs.EOF
 
-																		Set url_prodotto_rs = Server.CreateObject("ADODB.Recordset")
-																		sql = "SELECT PkId, NomePagina FROM Prodotti where PkId="&rs("FkProdotto")&""
-																		url_prodotto_rs.Open sql, conn, 1, 1
+																		'Set url_prodotto_rs = Server.CreateObject("ADODB.Recordset")
+																		'sql = "SELECT PkId, NomePagina FROM Prodotti where PkId="&rs("FkProdotto")&""
+																		'url_prodotto_rs.Open sql, conn, 1, 1
 
-																		NomePagina=url_prodotto_rs("NomePagina")
-																		if Len(NomePagina)>0 then
-																			NomePagina="/public/pagine/"&NomePagina
-																		else
-																			NomePagina="#"
-																		end if
+																		'NomePagina=url_prodotto_rs("NomePagina")
+																		'if Len(NomePagina)>0 then
+																			'NomePagina="/public/pagine/"&NomePagina
+																		'else
+																			'NomePagina="#"
+																		'end if
 
-																		url_prodotto_rs.close
+																		'url_prodotto_rs.close
 																		%>
-																		<form method="post" action="/cristalensi/carrello1.asp?mode=1&riga=<%=rs("pkid")%>">
+																		<form method="post" action="carrello1.asp?mode=1&riga=<%=rs("pkid")%>">
 																		<%
 																		quantita=rs("quantita")
 																		if quantita="" then quantita=1
@@ -353,9 +355,8 @@
                                         <td data-th="Product" class="cart-product">
                                             <div class="row">
                                                 <div class="col-sm-12">
-                                                    <h5 class="nomargin"><a href="<%=NomePagina%>" title="Scheda del prodotto: <%=NomePagina%>"><%=rs("titolo")%></a></h5>
-																										<p><strong>Codice: <%=rs("codicearticolo")%></strong></p>
-                                                    <%if Len(rs("colore"))>0 or Len(rs("lampadina"))>0 then%><p>><%if Len(rs("colore"))>0 then%>Col.: <%=rs("colore")%><%end if%><%if Len(rs("lampadina"))>0 then%> - Lamp.: Bianco satinato<%=rs("lampadina")%><%end if%></p><%end if%>
+                                                    <h5 class="nomargin"><a href="<%=NomePagina%>" title="Scheda del prodotto: <%=NomePagina%>"><%=rs("Titolo_Madre")%> - <%=rs("Titolo_Figlio")%></a></h5>
+																										<p><strong>Codice: <%=rs("Codice_Madre")%> - <%=rs("Codice_Figlio")%></strong></p>
                                                 </div>
                                             </div>
                                         </td>
@@ -366,7 +367,7 @@
                                         <td data-th="Subtotal" class="text-center"><%=FormatNumber(rs("TotaleRiga"),2)%>&euro;</td>
                                         <td class="actions" data-th="">
                                             <button class="btn btn-info btn-sm" type="submit"><i class="fa fa-refresh"></i></button>
-                                            <button class="btn btn-danger btn-sm" type="button" onClick="location.href='/cristalensi/carrello1.asp?mode=2&riga=<%=rs("pkid")%>'"><i class="fa fa-trash-o"></i></button>
+                                            <button class="btn btn-danger btn-sm" type="button" onClick="location.href='carrello1.asp?mode=2&riga=<%=rs("pkid")%>'"><i class="fa fa-trash-o"></i></button>
                                         </td>
                                     </tr>
 																		<%
@@ -382,7 +383,7 @@
 												  <%=FormatNumber(ss("TotaleGenerale"),2)%>&euro;<%else%>0&euro;<%end if%></strong></td>
 	                                    </tr>
 	                                    <tr>
-	                                        <td><a href="/index.asp" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continua gli acquisti</a></td>
+	                                        <td><a href="index.asp" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continua gli acquisti</a></td>
 	                                        <td colspan="2" class="hidden-xs"></td>
 	                                        <td class="hidden-xs text-center"><strong>Totale <%if ss("TotaleGenerale")<>0 then%>
 												  <%=FormatNumber(ss("TotaleGenerale"),2)%><%else%>0<%end if%> &euro;</strong></td>
@@ -411,7 +412,7 @@
 
                 </div>
 								<%if ss.recordcount>0 then%>
-								<form method="post" name="modulocarrello" action="<%if italia_log="Si" or italia_log="" then%>https://www.cristalensi.it/carrello2.asp<%end if%><%if italia_log="No" then%>https://www.cristalensi.it/carrello2extra.asp<%end if%>">
+								<form method="post" name="modulocarrello" action="carrello2.asp">
 								<div class="panel panel-default user-comment">
 										<!-- Default panel contents -->
 										<div class="panel-heading">
@@ -426,23 +427,7 @@
 								</div>
 								</form>
 								<%end if%>
-								<div class="panel panel-default user-comment">
-										<!-- Default panel contents -->
-										<div class="panel-heading">
-												<h5><i class="glyphicon glyphicon-warning-sign"></i> INFORMAZIONI IMPORTANTI SULLA DISPONIBILITA' DEI PRODOTTI</h5>
-										</div>
-										<ul class="list-group">
-												<li class="list-group-item">
-													<%if offerta=10 then%>
-													IL PRODOTTO NON E' DISPONIBILE
-													<%else%>
-													Il nostro catalogo &egrave; composto da numerosi prodotti e non tutti sono disponibili immediatamente al momento della richiesta: potrebbero essere disponibili nel giro di qualche giorno.<br />
-													<em>Noi garantiamo una consegna da un minimo di 2 giorni a un massimo di 30 giorni.</em><br />
-													<%end if%>
-												</li>
-										</ul>
-										<div class="panel-footer"><a data-fancybox data-src="#hidden-content" href="javascript:;" class="btn btn-warning btn-block">Contatta lo staff per dettagli sulla disponibilit&agrave; <i class="fa fa-angle-right"></i></a></div>
-								</div>
+
             </div>
             <div class="col-md-4">
 								<%if ss.recordcount>0 then%>
@@ -469,13 +454,13 @@
 										</div>
 										<ul class="list-group">
 											<li class="list-group-item"><strong>PAGAMENTI SICURI</strong></li>
-											<li class="list-group-item"><i class="fa fa-check"></i> <em>Bonifico e PostePay: 0&euro;</em></li>
+											<li class="list-group-item"><i class="fa fa-check"></i> <em>Bonifico bancario: 0&euro;</em></li>
 											<li class="list-group-item"><i class="fa fa-check"></i> <em>Carte di credito e prepagate: 0&euro;</em></li>
 											<li class="list-group-item"><i class="fa fa-check"></i> <em>Contrassegno in contanti: 4&euro;</em></li>
 											<li class="list-group-item">&nbsp;</li>
 											<li class="list-group-item"><strong>SPEDIZIONE IN TUTTA ITALIA ASSICURATA</strong></li>
-											<li class="list-group-item"><i class="fa fa-check"></i> <em>Per ordini superiori a 250&euro;: 0&euro;</em></li>
-											<li class="list-group-item"><i class="fa fa-check"></i> <em>Per ordini fino a  250&euro;: 10&euro;</em></li>
+											<li class="list-group-item"><i class="fa fa-check"></i> <em>Per ordini superiori a 100&euro;: 0&euro;</em></li>
+											<li class="list-group-item"><i class="fa fa-check"></i> <em>Per ordini fino a  100&euro;: 10&euro;</em></li>
 											<li class="list-group-item"><i class="fa fa-check"></i> <em>Ritiro in sede: 0&euro;</em></li>
 										</ul>
 										<div class="panel-footer"><a href="#" class="btn btn-success">Condizioni di vendita <i class="fa fa-chevron-right"></i></a></div>
@@ -487,15 +472,6 @@
             </div>
         </div>
 
-				<!--
-        <div class="col-md-12">
-            <div class="bg-primary">
-                <p style="font-size: 1.2em; text-align: right; padding: 10px 15px; color: #000;">Totale carrello: <b>349,00&euro;</b></p>
-            </div>
-            <a href="#" class="btn btn-danger pull-left"><i class="glyphicon glyphicon-chevron-left"></i> Passo precedente</a>
-            <a href="#" class="btn btn-danger pull-right">Passo successivo <i class="glyphicon glyphicon-chevron-right"></i></a>
-        </div>
-				-->
 
 		</div>
 		<%
