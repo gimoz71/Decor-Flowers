@@ -123,9 +123,15 @@ end if
     <div class="container content">
         <ol class="breadcrumb">
             <li><a href="index.asp">Home</a></li>
-            <%if Len(Titolo_1_Cat_1)>0 then%><li><a href="prodotti.asp?cat_1=<%=FkCategoria_1%>"><%=Titolo_1_Cat_1%></a></li><%end if%>
-            <%if Len(Titolo_1_Cat_2)>0 then%><li><a href="prodotti.asp?cat_2=<%=FkCategoria_2%>"><%=Titolo_1_Cat_2%></a></li><%end if%>
-            <li class="active"><%=Titolo_Prod%></li>
+            <%if Len(Titolo_1_Cat_1)>0 then%>
+              <%if cat_2=0 then%>
+                <li class="active"><%=Titolo_1_Cat_1%></li>
+              <%else%>
+                <li><a href="prodotti.asp?cat_1=<%=FkCategoria_1%>"><%=Titolo_1_Cat_1%></a></li>
+              <%end if%>
+            <%end if%>
+            <%if Len(Titolo_1_Cat_2)>0 then%><li class="active"><%=Titolo_1_Cat_2%></li><%end if%>
+            <!--<li class="active"><%=Titolo_Prod%></li>-->
         </ol>
         <!--#include file="inc_menu.asp"-->
         <div class="col-md-9">
@@ -271,8 +277,8 @@ end if
             lessLink: '<a href="#">Chiudi <i class="fa fa-chevron-up"></i></a>'
         });
         $(document).ready(function() {
-            $('#collapse6').addClass('in');
-            $('#AMARILLIS').css('font-weight', 'bold').append('<span class="active-link"><i class="fa fa-caret-right"></i></span>');
+            $('#collapse<%=FkCategoria_1%>').addClass('in');
+            <%if cat_2>0 then%>$('#<%=cat_2%>').css('font-weight', 'bold').append('<span class="active-link"><i class="fa fa-caret-right"></i></span>');<%end if%>
 
         });
     </script>

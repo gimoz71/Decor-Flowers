@@ -110,6 +110,52 @@ end if
             visibility: hidden;
         }
     </style>
+    <%
+    Set var_rs=Server.CreateObject("ADODB.Recordset")
+    sql = "SELECT * "
+    sql = sql + "FROM Prodotti_Figli WHERE FkProdotto_Madre="&pkid_prod&" "
+    sql = sql + "ORDER BY Titolo ASC"
+    var_rs.Open sql, conn, 1, 1
+    if var_rs.recordcount>0 then
+    'Do while not var_rs.EOF
+    '  pkid_prodotto_figlio=var_rs("PkId")
+    '  testo="(pezzi_"&pkid_prodotto_figlio&">0"
+    'var_rs.movenext
+    'loop
+
+    %>
+    <SCRIPT language="JavaScript">
+			function verifica_1() {
+
+				quantita=document.newsform2.quantita.value;
+
+				if (quantita=="0" || quantita==""){
+					alert("La quantita\' deve essere maggiore di 0");
+					return false;
+				}
+
+				if (num_colori>0 && colore==""){
+					alert("Deve essere scelto un colore");
+					return false;
+				}
+
+				if (num_lampadine>0 && lampadina==""){
+					alert("Deve essere scelta una lampadina");
+					return false;
+				}
+
+				else
+
+					document.newsform2.method = "post";
+					//document.newsform2.action = "../../carrello1.asp";
+					document.newsform2.action = "/cristalensi/carrello1.asp";
+					document.newsform2.submit();
+			}
+	  </SCRIPT>
+    <%
+    end if
+    var_rs.close
+    %>
 </head>
 
 <body>
@@ -220,7 +266,8 @@ end if
                         var_rs.Open sql, conn, 1, 1
                         if var_rs.recordcount>0 then
                         %>
-                        <form>
+                        <form name="newsform2" id="newsform2" onSubmit="return verifica_2();">
+                        <input type="hidden" name="id_madre" value="<%=pkid_prod%>">
                         <table id="cart" class="table table-hover table-condensed table-cart">
                             <thead>
                                 <tr>

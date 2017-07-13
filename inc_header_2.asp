@@ -106,11 +106,11 @@
                                       %>
                                       <%
                                       Do While Not eve_rs.EOF
-                                      Pkid_Eve=eve_rs("Pkid")
-                                      Titolo_1_Eve=eve_rs("Titolo_1")
+                                      Pkid_Eve_menu=eve_rs("Pkid")
+                                      Titolo_1_Eve_menu=eve_rs("Titolo_1")
                                       %>
                                       <li class="subcategory">
-                                          <a href="#"><h4><strong><%=Titolo_1_Eve%></strong></h4></a>
+                                          <a href="#"><h4><strong><%=Titolo_1_Eve_menu%></strong></h4></a>
                                       </li>
 
                                       <%
@@ -129,9 +129,9 @@
                 </li>
                 <li class="nav-user visible-xs"><a href="#">Dicono di noi</a></li>
                 <li class="nav-user visible-xs"><a href="#">Video</a></li>
-                <li class="nav-user visible-xs"><a href="#">Accedi/iscriviti</a></li>
+                <li class="nav-user visible-xs"><a href="iscrizione.asp">Accedi/iscriviti</a></li>
                 <li class="nav-user visible-xs"><a href="#">Lista dei desideri</a></li>
-                <li class="nav-user visible-xs"><a href="#">Carrello</a></li>
+                <li class="nav-user visible-xs"><a href="carrello1.asp">Carrello</a></li>
                 <li class="nav-user visible-xs"><a href="#">Condizioni di vendita</a></li>
             </ul>
         </div>
