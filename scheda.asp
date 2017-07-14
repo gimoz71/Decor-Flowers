@@ -70,7 +70,7 @@ end if
 <html>
 
 <head>
-    <title><%=Titolo_Prod%> <%=Titolo_1_Cat_2%> <%=Titolo_1_Cat_1%> Decor &amp; Flowers</title>
+    <title><%=Titolo_Prod%> - <%=Titolo_1_Cat_2%> - <%=Titolo_1_Cat_1%> - Decor &amp; Flowers</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="<%=Descrizione_Prod%>, <%=Titolo_Prod%>, <%=Titolo_1_Cat_2%>, <%=Titolo_1_Cat_1%>, Decor &amp; Flowers.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -114,14 +114,10 @@ end if
 			function Verifica() {
 
 					document.newsform2.method = "post";
-					document.newsform2.action = "/cristalensi/carrello1.asp";
+					document.newsform2.action = "carrello1.asp";
 					document.newsform2.submit();
 			}
 	  </SCRIPT>
-    <%
-    end if
-    var_rs.close
-    %>
 </head>
 
 <body>
@@ -182,17 +178,6 @@ end if
                 <div class="col-md-12">
                     <div class="top-buffer">
                         <div class="top-buffer">
-                            <!--<div class="title">
-                                <h1 class="main"><%=Titolo_Prod%></h1>
-                                <p class="details">codice: <b><%=Codice_Prod%></b></p>
-                            </div>
-                            <p class="descrizione"><small>
-                                <%=Descrizione_Prod%><br >
-                                <%if Len(Materiale_Prod)>0 then%><strong>Materiale:</strong><%=Materiale_Prod%><br /><%end if%>
-                                <%if Len(Dimensioni_Prod)>0 then%><strong>Dimensioni:</strong><%=Dimensioni_Prod%><br /><%end if%>
-                                <%if Len(Colori_Prod)>0 then%><strong>Colori:</strong><%=Colori_Prod%><br /><%end if%>
-                                </small>
-                            </p>-->
                             <hr />
                             <%
                             Set img_rs=Server.CreateObject("ADODB.Recordset")
@@ -233,7 +218,7 @@ end if
                         if var_rs.recordcount>0 then
                         %>
                         <form name="newsform2" id="newsform2" onSubmit="return Verifica();">
-                        <input type="hidden" name="id_madre" value="<%=pkid_prod%>">
+                        <input type="hidden" name="id_madre" id="id_madre" value="<%=pkid_prod%>">
                         <table id="cart" class="table table-hover table-condensed table-cart">
                             <thead>
                                 <tr>
@@ -271,7 +256,8 @@ end if
                                     <td data-th="Price" class="hidden-xs text-right"><%=var_rs("PrezzoProdotto")%> &euro;</td>
                                     <td data-th="Price" class="hidden-xs text-center"><%=Pezzi%></td>
                                     <td data-th="Quantity">
-                                        <input type="number" class="form-control text-center" name="pezzi_<%=pkid_prodotto_figlio%>" value="0" <%if Pezzi=0 then%>disabled<%end if%>>
+                                        <!--<input type="number" class="form-control text-center" name="pezzi_<%=pkid_prodotto_figlio%>" value="0" <%if Pezzi=0 then%>disabled<%end if%>>-->
+                                        <input type="number" class="form-control text-center" name="pezzi_<%=pkid_prodotto_figlio%>" id="pezzi_<%=pkid_prodotto_figlio%>" value="0">
                                     </td>
                                 </tr>
                                 <%

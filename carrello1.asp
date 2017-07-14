@@ -7,10 +7,11 @@
 	IdOrdine=session("ordine_shop")
 	if IdOrdine="" then IdOrdine=0
 
-	id_madre=requesy("id_madre")
+	id_madre=request("id_madre")
 	if id_madre="" then id_madre=0
+	response.write("id_madre:"&id_madre&"<br>")
 
-	if id_madre>0 and IdOrdine=0 then
+	if id_madre>0 then
 		ordine="KO"
 		Set var_rs=Server.CreateObject("ADODB.Recordset")
 		sql = "SELECT * "
@@ -21,6 +22,7 @@
 			Do while not var_rs.EOF
 			pkid_prodotto_figlio=var_rs("PkId")
 				pezzi=request("pezzi_"&pkid_prodotto_figlio)
+				response.write("pezzi:"&pezzi&"<br>")
 				'if pezzi="" or pezzi=0 then ordine="KO"
 				if pezzi>0 then ordine="OK"
 			var_rs.movenext
@@ -29,7 +31,7 @@
 		var_rs.close
 
 	end if
-
+response.write("ordine:"&ordine&"<br>")
 		if IdOrdine=0 and ordine="OK" then
 			Set os1 = Server.CreateObject("ADODB.Recordset")
 			sql = "SELECT * FROM Ordini"
@@ -370,11 +372,12 @@
                                             <button class="btn btn-danger btn-sm" type="button" onClick="location.href='carrello1.asp?mode=2&riga=<%=rs("pkid")%>'"><i class="fa fa-trash-o"></i></button>
                                         </td>
                                     </tr>
+																		</form>
 																		<%
 																		rs.movenext
 																		loop
 																		%>
-																		</form>
+
 																	</tbody>
 																	<%if ss.recordcount>0 then%>
 	                                <tfoot>
@@ -466,8 +469,8 @@
 										<div class="panel-footer"><a href="#" class="btn btn-success">Condizioni di vendita <i class="fa fa-chevron-right"></i></a></div>
 								</div>
 								<div class="alert alert-success" role="alert" style="text-align: center;">
-                  <em>Hai bisogno di aiuto? Contattaci!</em><br /><br /><a href="tel: 0571.911163" class="alert-link"><span class="glyphicon glyphicon-earphone"></span> 0571.911163</a> - <a href="mailto:info@cristalensi.it" class="alert-link"><span class="glyphicon glyphicon-envelope"></span> info@cristalensi.it</a>
-                  <br /><br />Lun. - Ven.: 9.00 - 12.30 | 14.30 - 19.30<br />Sab.: 9.00 - 12.30 | 15.30 - 19.30<br />Domenica CHIUSI<br />Giugno/Luglio CHIUSI Sabato Pomeriggio<br />
+                  <em>Hai bisogno di aiuto? Contattaci!</em><br /><br /><a href="tel: 0571.594000" class="alert-link"><span class="glyphicon glyphicon-earphone"></span> 0571.911163</a> - <a href="mailto:info@decorandflowers.it" class="alert-link"><span class="glyphicon glyphicon-envelope"></span> info@cristalensi.it</a>
+                  <br /><br />Lunedi - Venerdi<br />9.00 - 13.00 | 14.00 - 18.00<br />Sabato e Domenica CHIUSI<br />
                 </div>
             </div>
         </div>
