@@ -9,7 +9,6 @@
 
 	id_madre=request("id_madre")
 	if id_madre="" then id_madre=0
-	response.write("id_madre:"&id_madre&"<br>")
 
 	if id_madre>0 then
 		ordine="KO"
@@ -22,7 +21,6 @@
 			Do while not var_rs.EOF
 			pkid_prodotto_figlio=var_rs("PkId")
 				pezzi=request("pezzi_"&pkid_prodotto_figlio)
-				response.write("pezzi:"&pezzi&"<br>")
 				'if pezzi="" or pezzi=0 then ordine="KO"
 				if pezzi>0 then ordine="OK"
 			var_rs.movenext
@@ -31,7 +29,7 @@
 		var_rs.close
 
 	end if
-response.write("ordine:"&ordine&"<br>")
+
 		if IdOrdine=0 and ordine="OK" then
 			Set os1 = Server.CreateObject("ADODB.Recordset")
 			sql = "SELECT * FROM Ordini"
@@ -311,12 +309,21 @@ response.write("ordine:"&ordine&"<br>")
                 </div>
             </div>
         </div>
+
+				<div class="col-sm-12">
+            <div class="row">
+                <div class="title">
+                    <h4>Carrello</h4>
+                </div>
+						</div>
+				</div>
+
         <div class="col-sm-12">
             <div class="col-md-8">
                 <div class="row">
-                    <div class="title">
+                    <!--<div class="title">
                         <h4>Carrello</h4>
-                    </div>
+                    </div>-->
                     <div class="col-md-12">
                         <div class="top-buffer">
                             <table id="cart" class="table table-hover table-condensed table-cart">
@@ -325,7 +332,7 @@ response.write("ordine:"&ordine&"<br>")
                                         <th style="width:45%">Prodotto</th>
                                         <th style="width:10%">Prezzo</th>
                                         <th style="width:8%">Quantit&agrave;</th>
-                                        <th style="width:22%" class="text-center">Subtotale</th>
+                                        <th style="width:22%" class="text-center">Totale</th>
                                         <th style="width:15%"></th>
                                     </tr>
                                 </thead>
@@ -431,13 +438,51 @@ response.write("ordine:"&ordine&"<br>")
 								</form>
 								<%end if%>
 
+								<div class="row">
+
+										<div class="col-md-6">
+												<!--condizioni di vendita-->
+												<div class="panel panel-default payment-list">
+														<!-- Default panel contents -->
+														<div class="panel-heading">
+															<h5>Pagamenti accettati</h5>
+														</div>
+														<ul class="list-group">
+															<li class="list-group-item"><strong>PAGAMENTI SICURI</strong></li>
+															<li class="list-group-item"><i class="fa fa-check"></i> <em>Bonifico bancario: 0&euro;</em></li>
+															<li class="list-group-item"><i class="fa fa-check"></i> <em>Carte di credito, prepagate, PayPal: 0&euro;</em></li>
+															<li class="list-group-item"><i class="fa fa-check"></i> <em>Contrassegno in contanti: 4&euro;</em></li>
+														</ul>
+												</div>
+										</div>
+										<div class="col-md-6">
+												<!--condizioni di vendita-->
+												<div class="panel panel-default payment-list">
+														<!-- Default panel contents -->
+														<div class="panel-heading">
+															<h5>SPEDIZIONI IN TUTTA ITALIA</h5>
+														</div>
+														<ul class="list-group">
+															<li class="list-group-item"><strong>SPEDIZIONI ASSICURATE</strong></li>
+															<li class="list-group-item"><i class="fa fa-check"></i> <em>Per ordini superiori a 100&euro;: 0&euro;</em></li>
+															<li class="list-group-item"><i class="fa fa-check"></i> <em>Per ordini fino a  100&euro;: 10&euro;</em></li>
+															<li class="list-group-item"><i class="fa fa-check"></i> <em>Ritiro in sede: 0&euro;</em></li>
+														</ul>
+												</div>
+										</div>
+
+								</div>
+
             </div>
-            <div class="col-md-4">
+
+						<p>&nbsp;</p>
+
+						<div class="col-md-4">
 								<%if ss.recordcount>0 then%>
 								<div class="panel panel-default" style="box-shadow: 0 3px 5px #ccc;">
                     <ul class="list-group text-center">
                         <li class="list-group-item" style="padding-top: 20px">
-                            <p>Totale carrello:<br />
+                            <p><strong>Totale carrello:</strong><br /><br />
                                 <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%if ss("TotaleGenerale")<>0 then%>
 								<%=FormatNumber(ss("TotaleGenerale"),2)%><%else%>0<%end if%> &euro;</span>
                             </p>
@@ -449,30 +494,11 @@ response.write("ordine:"&ordine&"<br>")
                 </div>
 								<%end if%>
 
-								<!--condizioni di vendita-->
-								<div class="panel panel-default payment-list">
-										<!-- Default panel contents -->
-										<div class="panel-heading">
-											<h5>Condizioni di vendita</h5>
-										</div>
-										<ul class="list-group">
-											<li class="list-group-item"><strong>PAGAMENTI SICURI</strong></li>
-											<li class="list-group-item"><i class="fa fa-check"></i> <em>Bonifico bancario: 0&euro;</em></li>
-											<li class="list-group-item"><i class="fa fa-check"></i> <em>Carte di credito e prepagate: 0&euro;</em></li>
-											<li class="list-group-item"><i class="fa fa-check"></i> <em>Contrassegno in contanti: 4&euro;</em></li>
-											<li class="list-group-item">&nbsp;</li>
-											<li class="list-group-item"><strong>SPEDIZIONE IN TUTTA ITALIA ASSICURATA</strong></li>
-											<li class="list-group-item"><i class="fa fa-check"></i> <em>Per ordini superiori a 100&euro;: 0&euro;</em></li>
-											<li class="list-group-item"><i class="fa fa-check"></i> <em>Per ordini fino a  100&euro;: 10&euro;</em></li>
-											<li class="list-group-item"><i class="fa fa-check"></i> <em>Ritiro in sede: 0&euro;</em></li>
-										</ul>
-										<div class="panel-footer"><a href="#" class="btn btn-success">Condizioni di vendita <i class="fa fa-chevron-right"></i></a></div>
-								</div>
 								<div class="alert alert-success" role="alert" style="text-align: center;">
-                  <em>Hai bisogno di aiuto? Contattaci!</em><br /><br /><a href="tel: 0571.594000" class="alert-link"><span class="glyphicon glyphicon-earphone"></span> 0571.911163</a> - <a href="mailto:info@decorandflowers.it" class="alert-link"><span class="glyphicon glyphicon-envelope"></span> info@cristalensi.it</a>
+                  <em>Hai bisogno di aiuto? Contattaci!</em><br /><br /><a href="tel: 0571.594000" class="alert-link"><span class="glyphicon glyphicon-earphone"></span> 0571.594000</a><br /><a href="mailto:info@decorandflowers.it" class="alert-link"><span class="glyphicon glyphicon-envelope"></span> info@decorandflowers.it</a>
                   <br /><br />Lunedi - Venerdi<br />9.00 - 13.00 | 14.00 - 18.00<br />Sabato e Domenica CHIUSI<br />
                 </div>
-            </div>
+						</div>
         </div>
 
 
