@@ -57,7 +57,7 @@
 		if TipoCostoTrasportoScelto=2 then
 			CostoSpedizione=(TotaleCarrello*CostoTrasportoScelto)/100
 		end if
-		if TipoCostoTrasportoScelto=3 or TipoCostoTrasportoScelto=10 or TotaleCarrello>=250 then
+		if TipoCostoTrasportoScelto=3 or TipoCostoTrasportoScelto=10 or TotaleCarrello>=100 then
 			CostoSpedizione=0
 		end if
 
@@ -329,18 +329,18 @@
 																<%
 																Do while not rs.EOF
 
-																Set url_prodotto_rs = Server.CreateObject("ADODB.Recordset")
-																sql = "SELECT PkId, NomePagina FROM Prodotti where PkId="&rs("FkProdotto")&""
-																url_prodotto_rs.Open sql, conn, 1, 1
+																'Set url_prodotto_rs = Server.CreateObject("ADODB.Recordset")
+																'sql = "SELECT PkId, NomePagina FROM Prodotti where PkId="&rs("FkProdotto")&""
+																'url_prodotto_rs.Open sql, conn, 1, 1
 
-																NomePagina=url_prodotto_rs("NomePagina")
-																if Len(NomePagina)>0 then
-																	NomePagina="/public/pagine/"&NomePagina
-																else
-																	NomePagina="#"
-																end if
+																'NomePagina=url_prodotto_rs("NomePagina")
+																'if Len(NomePagina)>0 then
+																	'NomePagina="/public/pagine/"&NomePagina
+																'else
+																	'NomePagina="#"
+																'end if
 
-																url_prodotto_rs.close
+																'url_prodotto_rs.close
 																%>
 																<%
 																quantita=rs("quantita")
@@ -349,11 +349,10 @@
 																<tr>
 		                                <td data-th="Product" class="cart-product">
 		                                    <div class="row">
-		                                        <div class="col-sm-12">
-		                                            <h5 class="nomargin"><%=rs("titolo")%></h5>
-																								<p><strong>Codice: <%=rs("codicearticolo")%></strong></p>
-		                                            <%if Len(rs("colore"))>0 or Len(rs("lampadina"))>0 then%><p>><%if Len(rs("colore"))>0 then%>Col.: <%=rs("colore")%><%end if%><%if Len(rs("lampadina"))>0 then%> - Lamp.: Bianco satinato<%=rs("lampadina")%><%end if%></p><%end if%>
-		                                        </div>
+																					<div class="col-sm-12">
+																							<h5 class="nomargin"><a href="<%=NomePagina%>" title="Scheda del prodotto: <%=NomePagina%>"><%=rs("Titolo_Madre")%> - <%=rs("Titolo_Figlio")%></a></h5>
+																							<p><strong>Codice: <%=rs("Codice_Madre")%> - <%=rs("Codice_Figlio")%></strong></p>
+																					</div>
 		                                    </div>
 		                                </td>
 		                                <td data-th="Quantity" class="text-center">
@@ -524,40 +523,6 @@
 																				%>
 		                                </div>
 		                            </div>
-																<div class="form-group">
-		                                <div class="col-sm-offset-4 col-sm-8">
-		                                    <span>Nazione</span>
-																				<%
-																				Set naz_rs = Server.CreateObject("ADODB.Recordset")
-																				sql = "SELECT * FROM Nazioni order by Nazione ASC"
-																				naz_rs.Open sql, conn, 1, 1
-																				if naz_rs.recordcount>0 then
-																				%>
-																				<select class="selectpicker show-menu-arrow  show-tick" data-size="4" title="Nazione" name="nazione_sp" id="nazione_sp">
-																						<option title="" value="">Selezionare una Nazione</option>
-																						<%
-																						Do While Not naz_rs.EOF
-
-																							if TipoTrasportoScelto<4 and naz_rs("codice")="IT" then
-																								selected="OK"
-																							end if
-																							if nazione_sp=naz_rs("codice") then
-																								selected="OK"
-																							end if
-																						%>
-																						<option title="<%=naz_rs("codice")%>" value=<%=naz_rs("codice")%> <%if selected="OK" then%> selected<%end if%>><%=naz_rs("Nazione")%></option>
-																						<%
-																							selected=""
-																						naz_rs.movenext
-																						loop
-																						%>
-																				</select>
-																				<%
-																				end if
-																				naz_rs.close
-																				%>
-		                                </div>
-		                            </div>
 														<%end if%>
 												</div>
 		                </div>
@@ -576,7 +541,7 @@
 
 										</div>
 										<%if rs.recordcount>0 then%>
-		                <a href="/cristalensi/carrello1.asp" class="btn btn-danger pull-left"><i class="glyphicon glyphicon-chevron-left"></i> Passo precedente</a>
+		                <a href="carrello1.asp" class="btn btn-danger pull-left"><i class="glyphicon glyphicon-chevron-left"></i> Passo precedente</a>
 		                <%if TipoTrasportoScelto>0 then%><a href="#" class="btn btn-danger pull-right" onClick="Continua();">clicca qui per completare l'acquisto <i class="glyphicon glyphicon-chevron-right"></i></a><%end if%>
 										<%end if%>
 		            </div>

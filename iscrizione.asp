@@ -461,7 +461,7 @@ end if
 										<div class="col-md-12">
 												<p class="description">Se sei gi&agrave; iscritto, e quindi hai gi&agrave; Login (Email) e Password, non &egrave; necessario che ti iscriva nuovamente, &egrave; sufficiente inserire i dati di accesso qu&iacute; sotto e sarai riconosciuto immediatamente.
 												</p>
-												<%if errore=2 then%><p><strong>ATTENZIONE! LOGIN O PASSWORD ERRATE. RIPROVATE, GRAZIE.</strong></p><%end if%>
+												<%if errore=2 then%><p><strong>ATTENZIONE! LOGIN O PASSWORD ERRATE.<br />RIPROVATE, GRAZIE.</strong></p><%end if%>
 												<form class="form-horizontal" method="post" action="iscrizione.asp?mode=2" name="newsform2">
 												<input type="hidden" name="prov" value="<%=prov%>">
 														<div class="form-group">

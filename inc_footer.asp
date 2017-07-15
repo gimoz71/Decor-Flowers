@@ -16,15 +16,13 @@
                 <p class="social">
                     <a href="#"><i class="fa fa-facebook-square"></i></a>
                     <a href="#"><i class="fa fa-youtube-square"></i></a>
-                    <a href="#"><i class="fa fa-linkedin-square"></i></a>
                 </p>
             </div>
             <div class="col-md-3 menu-col">
                 <h4>Riferimenti</h4>
                 <ul>
                     <li><a>Contatti e mappa</a></li>
-                    <li><a>Chi siamo: lo showroom</a></li>
-                    <li><a>Video</a></li>
+                    <li><a>Chi siamo</a></li>
                     <li><a>Dicono noi</a></li>
                 </ul>
                 <h4>Area Clienti</h4>
@@ -32,7 +30,7 @@
                     <li><a>Iscriviti/Accedi</a></li>
                     <li><a>Lista dei desideri</a></li>
                     <li><a>Carrello</a></li>
-                    <li><a>Elenco ordini</a></li>
+                    <li><a>Area Clienti</a></li>
                 </ul>
             </div>
             <div class="col-md-3 menu-col">
@@ -46,23 +44,28 @@
                     <li><a>Estivo</a></li>
                     <li><a>Autunno</a></li>
                 </ul>
+                <h4>Novità e Offerte</h4>
+                <ul>
+                    <li><a href="#">Tutti gli ultimi arrivi</a></li>
+                    <li><a href="#">Offerte e promozioni</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 menu-col">
                 <h4>Note legali</h4>
                 <ul>
                     <li><a href="#">Condizioni di vendita</a></li>
                     <li><a href="#">Privacy e note legali</a></li>
                 </ul>
-            </div>
-            <div class="col-md-3 menu-col">
 
                 <h4>Spedizioni</h4>
                 <ul class="checklist">
-                    <li>Spedizioni assicurate GRATUITE in tutta Italia per ordini superiori a 250&euro;</li>
+                    <li>Spedizioni assicurate GRATUITE in tutta Italia per ordini superiori a 100&euro;</li>
                 </ul>
                 <h4>Pagamenti accettati</h4>
                 <ul class="checklist">
-                    <li>Bonifico Bancario</li>
+                    <li>Bonifico Bancario - PostePay</li>
                     <li>Contrassegno</li>
-                    <li>Carte di credito - Prepagate - PostePay</li>
+                    <li>Carte di credito - Prepagate - PayPal</li>
                 </ul>
             </div>
         </div>
