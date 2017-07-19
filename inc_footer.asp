@@ -23,13 +23,12 @@
                 <ul>
                     <li><a>Contatti e mappa</a></li>
                     <li><a>Chi siamo</a></li>
-                    <li><a>Dicono noi</a></li>
                 </ul>
                 <h4>Area Clienti</h4>
                 <ul>
                     <li><a>Iscriviti/Accedi</a></li>
                     <li><a>Lista dei desideri</a></li>
-                    <li><a>Carrello</a></li>
+                    <li><a>Dicono noi</a></li>
                     <li><a>Area Clienti</a></li>
                 </ul>
             </div>
@@ -44,7 +43,7 @@
                     <li><a>Estivo</a></li>
                     <li><a>Autunno</a></li>
                 </ul>
-                <h4>Novità e Offerte</h4>
+                <h4>Novit&aacute; e Offerte</h4>
                 <ul>
                     <li><a href="#">Tutti gli ultimi arrivi</a></li>
                     <li><a href="#">Offerte e promozioni</a></li>

@@ -280,8 +280,8 @@ end if
   	log_rs.close
   	set log_rs = nothing
 
-    if prov=0 and errore=0 then response.redirect("/cristalensi/areaprivata.asp")
-    if prov=1 and errore=0 then response.redirect("/cristalensi/carrello2.asp")
+    if prov=0 and errore=0 then response.redirect("areaprivata.asp")
+    if prov=1 and errore=0 then response.redirect("carrello2.asp")
   else
   	nome_log=Session("nome_log")
   	idsession=Session("idCliente")

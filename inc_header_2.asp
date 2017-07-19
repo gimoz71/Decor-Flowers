@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row no-gutters">
         <div class="col-xs-12 col-sm-4" style="text-align: center">
-            <a class="header-logo-v3" href="/">Decor &amp; Flowers</a>
+            <a class="header-logo-v3" href="index.asp">Decor &amp; Flowers</a>
         </div>
         <div class="col-md-8">
             <form class="navbar-form pull-right search-bar" role="search">
@@ -129,10 +129,11 @@
                 </li>
                 <li class="nav-user visible-xs"><a href="#">Dicono di noi</a></li>
                 <%if idsession>0 then%>
-                  <li class="nav-user visible-xs"><a href="/cristalensi/admin/logout.asp"> LOG OUT</a></li>
+                  <li class="nav-user visible-xs"><a href="admin/logout.asp"> LOG OUT</a></li>
                 <%else%>
-                  <li class="nav-user visible-xs"><a href="/cristalensi/iscrizione.asp"> Accedi/iscriviti</a></li>
+                  <li class="nav-user visible-xs"><a href="iscrizione.asp"> Accedi/iscriviti</a></li>
                 <%end if%>
+                <li class="nav-user visible-xs"><a href="areaprivata.asp">Area clienti</a></li>
                 <li class="nav-user visible-xs"><a href="#">Lista dei desideri</a></li>
                 <li class="nav-user visible-xs"><a href="carrello1.asp">Carrello</a></li>
                 <li class="nav-user visible-xs"><a href="#">Condizioni di vendita</a></li>

@@ -93,7 +93,7 @@
 	os1.close
 
 	if mode=1 and TipoCostoTrasportoScelto<10 then response.Redirect("carrello3.asp")
-	if mode=1 and TipoCostoTrasportoScelto=10 then response.Redirect("carrello2extra.asp")
+	'if mode=1 and TipoCostoTrasportoScelto=10 then response.Redirect("carrello2extra.asp")
 
 %>
 <!DOCTYPE html>
@@ -370,15 +370,15 @@
 														<%if ss.recordcount>0 then%>
 														<tfoot>
 		                            <tr class="visible-xs">
-		                                <td class="text-center"><strong>Totale <%if ss("TotaleGenerale")<>0 then%>
-										<%=FormatNumber(ss("TotaleGenerale"),2)%>&euro;<%else%>0&euro;<%end if%></strong></td>
+		                                <td class="text-center"><strong>Totale <%if ss("TotaleCarrello")<>0 then%>
+										<%=FormatNumber(ss("TotaleCarrello"),2)%>&euro;<%else%>0&euro;<%end if%></strong></td>
 		                            </tr>
 		                            <tr>
 		                                <td class="hidden-xs"></td>
 		                                <td class="hidden-xs"></td>
 		                                <td class="hidden-xs"></td>
-		                                <td class="hidden-xs text-center"><strong>Totale <%if ss("TotaleGenerale")<>0 then%>
-										<%=FormatNumber(ss("TotaleGenerale"),2)%>&euro;<%else%>0&euro;<%end if%></strong></td>
+		                                <td class="hidden-xs text-center"><strong>Totale <%if ss("TotaleCarrello")<>0 then%>
+										<%=FormatNumber(ss("TotaleCarrello"),2)%>&euro;<%else%>0&euro;<%end if%></strong></td>
 		                            </tr>
 		                        </tfoot>
 														<%end if%>
@@ -466,38 +466,38 @@
 														<%if TipoTrasportoScelto<>2 then%>
 														<p class="description">E' necessario indicare esattamente un indirizzo dove recapitare i prodotti ordinati oltre ad un numero di telefono per essere eventualmente contattati dal corriere.</p>
 
-																<div class="form-group">
+																<div class="form-group" clearfix>
 		                                <label for="nominativo_sp" class="col-sm-4 control-label">Nome e Cognome oppure Azienda</label>
 		                                <div class="col-sm-8">
 		                                    <input type="text" class="form-control" name="nominativo_sp" id="nominativo_sp" value="<%=nominativo_sp%>" maxlength="100">
 		                                </div>
 		                            </div>
-																<div class="form-group">
+																<div class="form-group" clearfix>
 		                                <label for="telefono_sp" class="col-sm-4 control-label">Telefono</label>
 		                                <div class="col-sm-8">
 		                                    <input type="number" class="form-control" name="telefono_sp" id="telefono_sp" value="<%=telefono_sp%>" maxlength="50">
 		                                </div>
 		                            </div>
-		                            <div class="form-group">
+		                            <div class="form-group" clearfix>
 		                                <label for="indirizzo_sp" class="col-sm-4 control-label">Indirizzo</label>
 		                                <div class="col-sm-8">
 		                                    <input type="text" class="form-control" name="indirizzo_sp" id="indirizzo_sp" value="<%=indirizzo_sp%>" maxlength="100">
 		                                </div>
 		                            </div>
-		                            <div class="form-group">
+		                            <div class="form-group" clearfix>
 		                                <label for="citta_sp" class="col-sm-4 control-label">Citt&agrave;</label>
 		                                <div class="col-sm-8">
 		                                    <input type="text" class="form-control" name="citta_sp" id="citta_sp" value="<%=citta_sp%>" maxlength="50">
 		                                </div>
 		                            </div>
 
-		                            <div class="form-group">
+		                            <div class="form-group" clearfix>
 		                                <label for="cap_sp" class="col-sm-4 control-label">CAP</label>
 		                                <div class="col-sm-8">
 		                                    <input type="text" class="form-control" name="cap_sp" id="cap_sp" value="<%=cap_sp%>" maxlength="5">
 		                                </div>
 		                            </div>
-		                            <div class="form-group">
+		                            <div class="form-group" clearfix>
 		                                <div class="col-sm-offset-4 col-sm-8">
 		                                    <span>Provincia</span>
 																				<%
