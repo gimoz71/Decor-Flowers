@@ -93,14 +93,14 @@ if mode=1 then
 			HTML1 = HTML1 & "<html>"
 			HTML1 = HTML1 & "<head>"
 			HTML1 = HTML1 & "<meta http-equiv=""Content-Type"" content=""text/html; charset=iso-8859-1"">"
-			HTML1 = HTML1 & "<title>Cristalensi</title>"
+			HTML1 = HTML1 & "<title>DecorAndFlowers.it</title>"
 			HTML1 = HTML1 & "</head>"
 			HTML1 = HTML1 & "<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>"
 			HTML1 = HTML1 & "<table width='553' border='0' cellspacing='0' cellpadding='0'>"
 			HTML1 = HTML1 & "<tr>"
 			HTML1 = HTML1 & "<td>"
 			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Complimenti "&nome&" "&cognome&"! La tua iscrizione a www.decorandflowers.it &egrave; avvenuta correttamente.<br>Da adesso potrai ordinare i nostri prodotti senza dover inserire nuovamente i tuoi dati.</font><br>"
-			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Dati sensibili e determinanti per l'accesso ai servizi di www.decorandflowers.it:<br>Nome e Cognome: <b>"&nome&" "&cognome&"</b><br>Login: <b>"&email&"</b><br>Password: <b>"&password&"</b></font><br>"
+			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Dati sensibili e determinanti per l'accesso ai servizi di www.decorandflowers.it:<br>Nome e Cognome: <b>"&nome&" "&cognome&"</b><br>Login: <b>"&email&"</b><br>Password: <b>"&password&"</b><br><br>Cordiali saluti,<br>lo staff di Decor & Flowers</font>"
 			HTML1 = HTML1 & "</td>"
 			HTML1 = HTML1 & "</tr>"
 			HTML1 = HTML1 & "</table>"
@@ -115,6 +115,26 @@ if mode=1 then
 			Set eMail_cdo = CreateObject("CDO.Message")
 
 			' Imposta le configurazioni
+			Set myConfig = Server.createObject("CDO.Configuration")
+			With myConfig
+				'autentication
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 1
+				' Porta CDO
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2
+				' Timeout
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
+				' Server SMTP di uscita
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.decorandflowers.it"
+				' Porta SMTP
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25
+				'Username
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@decorandflowers.it"
+				'Password
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "alessandrO81"
+
+				.Fields.update
+			End With
+			Set eMail_cdo.Configuration = myConfig
 
 			'eMail_cdo.From = Mittente
 			'eMail_cdo.To = Destinatario
@@ -134,14 +154,14 @@ if mode=1 then
 			HTML1 = HTML1 & "<html>"
 			HTML1 = HTML1 & "<head>"
 			HTML1 = HTML1 & "<meta http-equiv=""Content-Type"" content=""text/html; charset=iso-8859-1"">"
-			HTML1 = HTML1 & "<title>Cristalensi</title>"
+			HTML1 = HTML1 & "<title>DecorAndFlowers.it</title>"
 			HTML1 = HTML1 & "</head>"
 			HTML1 = HTML1 & "<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>"
 			HTML1 = HTML1 & "<table width='553' border='0' cellspacing='0' cellpadding='0'>"
 			HTML1 = HTML1 & "<tr>"
 			HTML1 = HTML1 & "<td>"
 			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Nuova registrazione al sito internet.</font><br>"
-			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Dati sensibili e determinanti per l'accesso ai servizi di www.decorandflowers.it:<br>Nome e Cognome: <b>"&nome&" "&cognome&"</b><br>Login: <b>"&email&"</b><br>Password: <b>"&password&"</b><br>Codice cliente: <b>"&PkId_iscritto&"</b></font><br>"
+			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Dati sensibili e determinanti per l'accesso ai servizi di www.decorandflowers.it:<br>Nome e Cognome: <b>"&nome&" "&cognome&"</b><br>Login: <b>"&email&"</b><br>Password: <b>"&password&"</b><br>Codice cliente: <b>"&PkId_iscritto&"</b><br><br>Cordiali saluti,<br>lo staff di Decor & Flowers</font>"
 			HTML1 = HTML1 & "</td>"
 			HTML1 = HTML1 & "</tr>"
 			HTML1 = HTML1 & "</table>"
@@ -155,6 +175,27 @@ if mode=1 then
 
 			Set eMail_cdo = CreateObject("CDO.Message")
 
+			' Imposta le configurazioni
+			Set myConfig = Server.createObject("CDO.Configuration")
+			With myConfig
+				'autentication
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 1
+				' Porta CDO
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2
+				' Timeout
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
+				' Server SMTP di uscita
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.decorandflowers.it"
+				' Porta SMTP
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25
+				'Username
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@decorandflowers.it"
+				'Password
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "alessandrO81"
+
+				.Fields.update
+			End With
+			Set eMail_cdo.Configuration = myConfig
 
 			'eMail_cdo.From = Mittente
 			'eMail_cdo.To = Destinatario
@@ -179,6 +220,27 @@ if mode=1 then
 
 			Set eMail_cdo = CreateObject("CDO.Message")
 
+			' Imposta le configurazioni
+			Set myConfig = Server.createObject("CDO.Configuration")
+			With myConfig
+				'autentication
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 1
+				' Porta CDO
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2
+				' Timeout
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
+				' Server SMTP di uscita
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.decorandflowers.it"
+				' Porta SMTP
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25
+				'Username
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@decorandflowers.it"
+				'Password
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "alessandrO81"
+
+				.Fields.update
+			End With
+			Set eMail_cdo.Configuration = myConfig
 
 			'eMail_cdo.From = Mittente
 			'eMail_cdo.To = Destinatario
@@ -282,14 +344,178 @@ end if
 
     if prov=0 and errore=0 then response.redirect("areaprivata.asp")
     if prov=1 and errore=0 then response.redirect("carrello2.asp")
-  else
-  	nome_log=Session("nome_log")
-  	idsession=Session("idCliente")
-  	if idsession="" then idsession=0
   end if
 
-	'response.write("mode:"&mode)
-	'response.write("errore:"&errore)
+'recupero password
+	if mode=4 then
+		email=request("email")
+
+		lg1=InStr(email, "'")
+		if lg1>0 then
+			email=Replace(email, "'", " ")
+			'response.End()
+		end if
+		lg2=InStr(email, "&")
+		if lg2>0 then
+			email=Replace(email, "&", " ")
+			'response.End()
+		end if
+		lg3=InStr(email, "=")
+		if lg3>0 then
+			email=Replace(email, "=", " ")
+			'response.End()
+		end if
+		lg4=InStr(email, " or ")
+		if lg4>0 then
+			email=Replace(email, " or ", " ")
+			'response.End()
+		end if
+		email=Trim(email)
+	end if
+
+	if mode=4 then
+		Set rs=Server.CreateObject("ADODB.Recordset")
+		sql = "Select email,password,cognome,nome From Iscritti where email='"&email&"'"
+		rs.Open sql, conn, 1, 1
+		if rs.recordcount=0 then
+			mode=5
+			errore=5
+		else
+			cognome=rs("cognome")
+			nome=rs("nome")
+			password=rs("password")
+		end if
+		rs.close
+	end if
+
+	if mode = 4 then
+
+
+			'invio l'email di recupero pw al cliente
+			HTML1 = ""
+			HTML1 = HTML1 & "<html>"
+			HTML1 = HTML1 & "<head>"
+			HTML1 = HTML1 & "<meta http-equiv=""Content-Type"" content=""text/html; charset=iso-8859-1"">"
+			HTML1 = HTML1 & "<title>DecorAndFlowers.it</title>"
+			HTML1 = HTML1 & "</head>"
+			HTML1 = HTML1 & "<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>"
+			HTML1 = HTML1 & "<table width='553' border='0' cellspacing='0' cellpadding='0'>"
+			HTML1 = HTML1 & "<tr>"
+			HTML1 = HTML1 & "<td>"
+			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Spett.le "&nome&" "&cognome&", la password inserita al momento dell'iscrizione a DecorAndFlowers.it &egrave; la seguente:<br><br></font>"
+			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Password: <b>"&password&"</b><br>Login: <b>"&email&"</b><br><br>Cordiali saluti,<br>lo staff di Decor & Flowers</font><br>"
+			HTML1 = HTML1 & "</td>"
+			HTML1 = HTML1 & "</tr>"
+			HTML1 = HTML1 & "</table>"
+			HTML1 = HTML1 & "</body>"
+			HTML1 = HTML1 & "</html>"
+
+			Mittente = "info@decorandflowers.it"
+			Destinatario = email
+			Oggetto = "Recupero password dal sito DecorAndFlowers.it"
+			Testo = HTML1
+
+			Set eMail_cdo = CreateObject("CDO.Message")
+
+			' Imposta le configurazioni
+			Set myConfig = Server.createObject("CDO.Configuration")
+			With myConfig
+				'autentication
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 1
+				' Porta CDO
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2
+				' Timeout
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
+				' Server SMTP di uscita
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.decorandflowers.it"
+				' Porta SMTP
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25
+				'Username
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@decorandflowers.it"
+				'Password
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "alessandrO81"
+
+				.Fields.update
+			End With
+
+			Set eMail_cdo.Configuration = myConfig
+
+			eMail_cdo.From = Mittente
+			eMail_cdo.To = Destinatario
+			eMail_cdo.Subject = Oggetto
+
+			eMail_cdo.HTMLBody = Testo
+
+			eMail_cdo.Send()
+
+			Set myConfig = Nothing
+			Set eMail_cdo = Nothing
+
+			'fine invio email
+
+			'invio l'email all'amministratore
+			HTML1 = ""
+			HTML1 = HTML1 & "<html>"
+			HTML1 = HTML1 & "<head>"
+			HTML1 = HTML1 & "<meta http-equiv=""Content-Type"" content=""text/html; charset=iso-8859-1"">"
+			HTML1 = HTML1 & "<title>DecorAndFlowers.it</title>"
+			HTML1 = HTML1 & "</head>"
+			HTML1 = HTML1 & "<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>"
+			HTML1 = HTML1 & "<table width='553' border='0' cellspacing='0' cellpadding='0'>"
+			HTML1 = HTML1 & "<tr>"
+			HTML1 = HTML1 & "<td>"
+			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>E' stata fatta una richiesta di recupero password dal seguente cliente: "&nome&" "&cognome&"<br> La password inserita al momento dell'iscrizione a DecorAndFlowers.it &egrave; la seguente:<br></font>"
+			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Password: <b>"&password&"</b><br>Login: <b>"&email&"</b><br><br>Cordiali saluti,<br>lo staff di Decor & Flowers</font><br>"
+			HTML1 = HTML1 & "</td>"
+			HTML1 = HTML1 & "</tr>"
+			HTML1 = HTML1 & "</table>"
+			HTML1 = HTML1 & "</body>"
+			HTML1 = HTML1 & "</html>"
+
+			Mittente = "info@decorandflowers.it"
+			Destinatario = "info@decorandflowers.it"
+			Oggetto = "Richiesta recupero password dal sito DecorAndFlowers.it"
+			Testo = HTML1
+
+			Set eMail_cdo = CreateObject("CDO.Message")
+
+			' Imposta le configurazioni
+			Set myConfig = Server.createObject("CDO.Configuration")
+			With myConfig
+				'autentication
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 1
+				' Porta CDO
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2
+				' Timeout
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
+				' Server SMTP di uscita
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.decorandflowers.it"
+				' Porta SMTP
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25
+				'Username
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@decorandflowers.it"
+				'Password
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "alessandrO81"
+
+				.Fields.update
+			End With
+			Set eMail_cdo.Configuration = myConfig
+
+			'eMail_cdo.From = Mittente
+			'eMail_cdo.To = Destinatario
+			'eMail_cdo.Subject = Oggetto
+
+			'eMail_cdo.HTMLBody = Testo
+
+			'eMail_cdo.Send()
+
+			Set myConfig = Nothing
+			Set eMail_cdo = Nothing
+
+			'fine invio email
+
+	end if
+
 %>
 <!DOCTYPE html>
 <html>
@@ -489,6 +715,36 @@ end if
 														</div>
 												</form>
 										</div>
+										<p>&nbsp;<br>&nbsp;</p>
+										<div class="title">
+                        <h4>Recupero Password</h4>
+                    </div>
+                    <div class="col-md-12">
+											<%if mode=4 then%>
+												<p class="description"><strong>La password di accesso a DecorAndFlowers.it &egrave; stata inviata regolarmente al tuo indirizzo e-mail:<br><%=email%><br>Controllandolo puoi recuperare i dati di accesso al sito internet.</strong>
+												</p>
+											<%else%>
+												<p class="description">Se sei gi&agrave; iscritto, puoi richiedere la password inserita al momento della registrazione a DecorAndFlowers.it.<br>
+				Informazione importante: &egrave; necessario che l'indirizzo <strong>Email</strong> inserito sia lo stesso usato per l'iscrizione. La password ti sar&aacute; inviata automaticamente.
+                        </p>
+												<%if errore=5 then%><p><strong>ATTENZIONE! EMAIL ERRATA. RIPROVATE, GRAZIE.</strong></p><%end if%>
+                        <form class="form-horizontal" method="post" action="iscrizione.asp?mode=4" name="newsform3">
+												<input type="hidden" name="prov" value="<%=prov%>">
+                            <div class="form-group">
+                                <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
+                                <div class="col-sm-8">
+
+																		<input type="email" class="form-control" id="inputEmail3" name="email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-4 col-sm-8">
+                                    <button type="submit" class="btn btn-danger">Richiedi</button>
+                                </div>
+                            </div>
+                        </form>
+											<%end if%>
+                    </div>
 								</div>
 								<div class="col-lg-6">
 										<div class="title">
