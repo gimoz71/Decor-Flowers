@@ -46,9 +46,27 @@
         </awesome-slider>
     </div>
 </div>
-<div class="row top-buffer">
+<div class="gutter-10 row top-buffer">
     <div class="col-md-4">
-        <div class=" " style="background: #d66; border: solid 1px #a33; color: #fff; padding: 10px;">
+    <div class="banner preventivi">
+        <h3 class="title">SITO INTERNET SICURO</h3>
+        <p class="text">Iscrizione e pagamento su sito internet protetto e garantito</p>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="banner pagamenti">
+        <h3 class="title">PAGAMENTI ACCETTATI</h3>
+        <p class="text">Bonifico bancario, Contrassegno in contanti, Carte di credito, Prepagate, PayPal</p>
+    </div>
+    </div>
+    <div class="col-md-4">
+    <div class="banner consegne">
+        <h3 class="title">SPEDIZIONI</h3>
+        <p class="text">Spedizioni assicurate in tutta Italia <b>GRATUITE</b> per ordini speriori a 100&euro;</p>
+    </div>
+    </div>
+    <!-- <div class="col-md-4">
+        <div class="" style="background: #d66; border: solid 1px #a33; color: #fff; padding: 10px;">
             Costi di spedizione
         </div>
     </div>
@@ -61,5 +79,5 @@
         <div class=" " style="background: #66d; border: solid 1px #33a; color: #fff; padding: 10px;">
             Tipi di pagamenti
         </div>
-    </div>
+    </div> -->
 </div>
