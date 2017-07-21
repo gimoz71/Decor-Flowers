@@ -13,14 +13,19 @@
 //
 
 
+
 // colori ufficiali
 
-$body-color: #dbcdb1;
-$verifiche-color: #7EBC49;
+$logo-green-color  : #1EA59B;
+$logo-red-color    : #E7694D;
+
+$body-color        : #dbcdb1;
+$verifiche-color   : #7EBC49;
 $text-default-color: $body-color;
-$sub-content-color: lighten($body-color, 20);
-$content-color: #fff;
-$tab-default-color: lighten($body-color, 10)/*#efefef*/;
+$sub-content-color : lighten($body-color, 20);
+$content-color     : #fff;
+/*#efefef*/
+$tab-default-color : lighten($body-color, 10);
 
 //## Gray and brand colors for use across Bootstrap.
 

@@ -641,17 +641,17 @@ img {
     }
 
     &.preventivi {
-        background-color: mix($brand-danger, $body-color, 0%);
+        background-color: mix($logo-red-color, $body-color, 0%);
         background-image: url("../images/preventivi.jpg");
     }
 
     &.pagamenti {
-        background-color: mix($brand-danger, $body-color, 50%);
+        background-color: mix($logo-red-color, $body-color, 50%);
         background-image: url("../images/pagamenti.jpg");
     }
 
     &.consegne {
-        background-color: mix($brand-danger, $body-color, 100%);
+        background-color: mix($logo-red-color, $body-color, 100%);
         background-image: url("../images/consegne.jpg");
         margin: 0;
     }
