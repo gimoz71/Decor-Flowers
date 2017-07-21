@@ -58,7 +58,7 @@
         </div>
         <!--#include file="inc_menu.asp"-->
         <div class="col-md-9">
-            
+
             <div class="row top-buffer">
                 <div class="col-xl-12">
                     <h4 class="subtitle">Area Clienti</h4>
@@ -106,7 +106,7 @@
                         <div class="info">
                             <div class="row">
                                 <div class="category col-md-6">
-                                    <a href="#" title="Modifica dati iscrizione"><h1>Modifica dati</h1></a>
+                                    <a href="iscrizione.asp" title="Modifica dati iscrizione"><h1>Modifica dati</h1></a>
                                 </div>
                             </div>
                         </div>
