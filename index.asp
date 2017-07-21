@@ -53,7 +53,7 @@
     <div class="container content">
         <!--#include file="inc_slider.asp"-->
         <div class="top-buffer">
-            
+
         </div>
         <!--#include file="inc_menu.asp"-->
         <div class="col-md-9">
@@ -119,7 +119,7 @@
             </div>
             <div class="row top-buffer">
                 <div class="col-xl-12">
-                    <h4 class="subtitle">Prodotti in offerta</h4>
+                    <h4 class="subtitle">Prodotti in offerta</h4><a href="#" class="btn btn-default pull-right" style="position: absolute; top: -10px; right: 15px;">vedi tutto <i class="fa fa-chevron-right"></i></a>
                 </div>
                 <%
                 Set pro_rs=Server.CreateObject("ADODB.Recordset")
@@ -190,7 +190,7 @@
             </div>
             <div class="row top-buffer">
                 <div class="col-xl-12">
-                    <h4 class="subtitle">Novit&Aacute; e ultimi arrivi</h4>
+                    <h4 class="subtitle">Novit&Aacute; e ultimi arrivi</h4><a href="#" class="btn btn-default pull-right" style="position: absolute; top: -10px; right: 15px;">vedi tutto <i class="fa fa-chevron-right"></i></a>
                 </div>
                 <%
                 Set pro_rs=Server.CreateObject("ADODB.Recordset")
