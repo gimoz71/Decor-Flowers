@@ -4,7 +4,6 @@
             <div class="col-md-3 address-col">
                 <img src="images/logo_v3_footer.png" alt="Decor & Flowers" style="width: 100%; padding-bottom: 15px;"/>
                 <p>
-                    Decor & Flowers di Alessandro Verdiani & C Snc<br />
                     C.F. e Iscr. Reg. Impr. di Firenze 06741510488<br />
                     R.E.A. di Firenze<br />
                     Via delle mimose, 13<br />
@@ -45,8 +44,8 @@
                 </ul>
                 <h4>Novit&aacute; e Offerte</h4>
                 <ul>
-                    <li><a href="#">Tutti gli ultimi arrivi</a></li>
-                    <li><a href="#">Offerte e promozioni</a></li>
+                    <li><a href="novita.asp">Tutti gli ultimi arrivi</a></li>
+                    <li><a href="offerte.asp">Offerte e promozioni</a></li>
                 </ul>
             </div>
             <div class="col-md-3 menu-col">

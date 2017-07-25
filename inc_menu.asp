@@ -85,11 +85,11 @@
         end if
         cat_rs.close
         %>
-        <a href="#" class="banner stacked generic">
+        <a href="novita.asp" class="banner stacked generic">
             <h3 class="title">Tutte le novit&agrave;</h3>
             <!-- <p class="text">Iscrizione e pagamento su sito internet protetto e garantito</p> -->
         </a>
-        <a href="#" class="banner stacked generic">
+        <a href="offerte.asp" class="banner stacked generic">
             <h3 class="title">Tutte le offerte</h3>
             <!-- <p class="text">Iscrizione e pagamento su sito internet protetto e garantito</p> -->
         </a>
