@@ -154,13 +154,13 @@ if mode=1 then
 			End With
 			Set eMail_cdo.Configuration = myConfig
 
-			'eMail_cdo.From = Mittente
-			'eMail_cdo.To = Destinatario
-			'eMail_cdo.Subject = Oggetto
+			eMail_cdo.From = Mittente
+			eMail_cdo.To = Destinatario
+			eMail_cdo.Subject = Oggetto
 
-			'eMail_cdo.HTMLBody = Testo
+			eMail_cdo.HTMLBody = Testo
 
-			'eMail_cdo.Send()
+			eMail_cdo.Send()
 
 			Set myConfig = Nothing
 			Set eMail_cdo = Nothing
@@ -179,7 +179,7 @@ if mode=1 then
 			HTML1 = HTML1 & "<tr>"
 			HTML1 = HTML1 & "<td>"
 			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Nuova registrazione al sito internet.</font><br>"
-			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Dati sensibili e determinanti per l'accesso ai servizi di www.decorandflowers.it:<br>Nome e Cognome: <b>"&nome&" "&cognome&"</b><br>Login: <b>"&email&"</b><br>Password: <b>"&password&"</b><br>Codice cliente: <b>"&PkId_iscritto&"</b><br><br>Cordiali saluti,<br>lo staff di Decor & Flowers</font>"
+			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Dati sensibili e determinanti per l'accesso ai servizi di www.decorandflowers.it:<br>Nome e Cognome: <b>"&nome&" "&cognome&"</b><br>Login: <b>"&email&"</b><br>Password: <b>"&password&"</b><br>Codice iscritto: <b>"&PkId_iscritto&"</b></font>"
 			HTML1 = HTML1 & "</td>"
 			HTML1 = HTML1 & "</tr>"
 			HTML1 = HTML1 & "</table>"
@@ -260,13 +260,13 @@ if mode=1 then
 			End With
 			Set eMail_cdo.Configuration = myConfig
 
-			'eMail_cdo.From = Mittente
-			'eMail_cdo.To = Destinatario
-			'eMail_cdo.Subject = Oggetto
+			eMail_cdo.From = Mittente
+			eMail_cdo.To = Destinatario
+			eMail_cdo.Subject = Oggetto
 
-			'eMail_cdo.HTMLBody = Testo
+			eMail_cdo.HTMLBody = Testo
 
-			'eMail_cdo.Send()
+			eMail_cdo.Send()
 
 			Set myConfig = Nothing
 			Set eMail_cdo = Nothing
@@ -519,13 +519,13 @@ end if
 			End With
 			Set eMail_cdo.Configuration = myConfig
 
-			eMail_cdo.From = Mittente
-			eMail_cdo.To = Destinatario
-			eMail_cdo.Subject = Oggetto
+			'eMail_cdo.From = Mittente
+			'eMail_cdo.To = Destinatario
+			'eMail_cdo.Subject = Oggetto
 
-			eMail_cdo.HTMLBody = Testo
+			'eMail_cdo.HTMLBody = Testo
 
-			eMail_cdo.Send()
+			'eMail_cdo.Send()
 
 			Set myConfig = Nothing
 			Set eMail_cdo = Nothing
@@ -831,14 +831,14 @@ end if
 		I dati acquisiti potranno essere comunicati e diffusi in osservanza di quanto disposto dal D.L. 196/2003 allo scopo di perseguire le finalita' sopra indicate.
 
 		Il titolare del trattamento e'
-		Decord and Flowers s.n.c.
+		Decord & Flowers
 		con sede in via delle mimose, 13
 		Capraia e Limite sull'Arno (FI)
 		,ove e' altresì domiciliato il responsabile protempore del trattamento, i cui dati identificativi possono essere acquisiti presso il Registro pubblico tenuto dal Garante, o presso la sede legale dell'Azienda.
 
 		L'Azienda informa altresì l'Interessato che questi potra' esercitare i diritti previsti dal D.L. 196/2003, ossia:
 		Conoscere gratuitamente, mediante accesso al Registro Generale del Garante, l'esistenza di trattamenti di dati che possono riguardarlo;
-		Ottenere da Decord and Flowers s.n.c., - con un contributo spese solo in caso di risposta negativa - la conferma dell'esistenza o meno nei propri archivi di dati che lo riguardino, ed avere la loro comunicazione e l'indicazione della logica e delle finalita' su cui si basa il trattamento. La richiesta e' rinnovabile dopo novanta giorni;
+		Ottenere da Decord and Flowers, - con un contributo spese solo in caso di risposta negativa - la conferma dell'esistenza o meno nei propri archivi di dati che lo riguardino, ed avere la loro comunicazione e l'indicazione della logica e delle finalita' su cui si basa il trattamento. La richiesta e' rinnovabile dopo novanta giorni;
 		Ottenere la cancellazione, la trasformazione in forma anonima ed il blocco dei dati trattati in violazione di legge;
 		Ottenere l'aggiornamento, la rettifica o l'integrazione dei dati;
 		Ottenere l'attestazione che la cancellazione, l'aggiornamento, la rettifica o l'integrazione siano portate a conoscenza di coloro che abbiano avuto comunicazione dei dati;

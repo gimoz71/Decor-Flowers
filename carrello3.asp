@@ -189,7 +189,7 @@
 			if ss.recordcount>0 then
 	  		TotaleCarrello=ss("TotaleCarrello")
 	  		CostoSpedizioneTotale=ss("CostoSpedizione")
-	  		TipoTrasporto=ss("TipoTrasporto")
+	  		TipoSpedizione=ss("TipoSpedizione")
 	  		Nominativo_sp=ss("Nominativo_sp")
 	  		Telefono_sp=ss("Telefono_sp")
 	  		Indirizzo_sp=ss("Indirizzo_sp")
@@ -368,7 +368,7 @@
 												<div class="row">
 													<div class="col-sm-12">
 														<p>
-															<%=TipoTrasporto%>
+															<%=TipoSpedizione%>
 														</p>
 													</div>
 												</div>
@@ -470,9 +470,9 @@
 															loop
 															%>
 											<tr>
-												<td data-th="Product" class="hidden-xs"></td>
-												<td data-th="Price"><b class="visible-xs">Costo operazione: <%=FormatNumber(CostoPagamentoTotale,2)%>&#8364;</b></td>
-												<td data-th="Subtotal" class="hidden-xs"></td>
+												<td data-th="Product"><h5>costo pagamento:</h5></td>
+												<td data-th="Price" class="hidden-xs"></td>
+												<td data-th="Subtotal"><h5><%=FormatNumber(CostoPagamentoTotale,2)%>&#8364;</h5></td>
 											</tr>
 									</tbody>
 									<%end if%>
@@ -493,7 +493,7 @@
 									</div>
 								</div>
 								<div class="form-group clearfix">
-									<label for="rag_soc" class="col-sm-4 control-label">Ragione Sociale (nel caso in cui si tratti di un'Azienda)</label>
+									<label for="rag_soc" class="col-sm-4 control-label">Ragione Sociale<br />(se Azienda)</label>
 									<div class="col-sm-8">
 										<input type="text" class="form-control" name="rag_soc" id="rag_soc" value="<%=Rag_SocOrdine%>" maxlength="50">
 									</div>
@@ -505,7 +505,7 @@
 									</div>
 								</div>
 								<div class="form-group clearfix">
-									<label for="PartitaIVA" class="col-sm-4 control-label">Partita IVA (nel caso in cui si tratti di un'Azienda)</label>
+									<label for="PartitaIVA" class="col-sm-4 control-label">Partita IVA<br />(se Azienda)</label>
 									<div class="col-sm-8">
 										<input type="number" class="form-control" name="PartitaIVA" id="PartitaIVA" value="<%=PartitaIVAOrdine%>" maxlength="20">
 									</div>
@@ -550,7 +550,7 @@
 								&#8364;&nbsp;
 								</b></p>
 							</div>
-							<a href="/cristalensi/carrello2.asp" class="btn btn-danger pull-left"><i class="glyphicon glyphicon-chevron-left"></i> Passo precedente</a>
+							<a href="/decorandflowers/carrello2.asp" class="btn btn-danger pull-left"><i class="glyphicon glyphicon-chevron-left"></i> Passo precedente</a>
 							<a href="#" class="btn btn-danger pull-right" onClick="Continua();">Concludi l'acquisto <i class="glyphicon glyphicon-chevron-right"></i></a>
 						</div>
 					<%end if%>

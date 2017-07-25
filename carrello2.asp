@@ -505,16 +505,16 @@
 										</div>
 									</div>
 									<div class="form-group clearfix">
-										<div class="col-sm-offset-4 col-sm-8">
-											<span>Provincia</span>
+										<label for="cap_sp" class="col-sm-4 control-label">Provincia</label>
+										<div class="col-sm-8">
 									<%
 									Set prov_rs = Server.CreateObject("ADODB.Recordset")
 									sql = "SELECT * FROM Province order by Provincia ASC"
 									prov_rs.Open sql, conn, 1, 1
 									if prov_rs.recordcount>0 then
 									%>
-									<select class="selectpicker show-menu-arrow  show-tick" data-size="4" title="Provincia" name="provincia_sp" id="provincia_sp">
-										<option title="" value="">Selezionare una provincia (solo per l'ITALIA)</option>
+									<select class="selectpicker show-menu-arrow  show-tick" data-size="10" title="Provincia" name="provincia_sp" id="provincia_sp">
+										<option title="" value="">Selezionare una provincia</option>
 										<%
 										Do While Not prov_rs.EOF
 										%>
