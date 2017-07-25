@@ -29,7 +29,7 @@
 	if ss.recordcount>0 then
 		TotaleCarrello=ss("TotaleCarrello")
 		CostoSpedizioneTotale=ss("CostoSpedizione")
-		TipoTrasporto=ss("TipoTrasporto")
+		TipoSpedizione=ss("TipoSpedizione")
 		'DatiSpedizione=ss("DatiSpedizione")
 		Nominativo_sp=ss("Nominativo_sp")
 		Telefono_sp=ss("Telefono_sp")
@@ -67,10 +67,10 @@
 
 	if FkPagamento=1 then
 		Set rs=Server.CreateObject("ADODB.Recordset")
-		sql = "Select * From Clienti where pkid="&idsession
+		sql = "Select * From Iscritti where pkid="&idsession
 		rs.Open sql, conn, 1, 1
 
-		nominativo_email=rs("nome")&" "&rs("nominativo")
+		nominativo_email=rs("nome")&" "&rs("cognome")
 		email=rs("email")
 
 		rs.close
@@ -79,23 +79,23 @@
 			HTML1 = HTML1 & "<html>"
 			HTML1 = HTML1 & "<head>"
 			HTML1 = HTML1 & "<meta http-equiv=""Content-Type"" content=""text/html; charset=iso-8859-1"">"
-			HTML1 = HTML1 & "<title>Cristalensi</title>"
+			HTML1 = HTML1 & "<title>DecorAndFlowers.it</title>"
 			HTML1 = HTML1 & "</head>"
 			HTML1 = HTML1 & "<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>"
 			HTML1 = HTML1 & "<table width='553' border='0' cellspacing='0' cellpadding='0'>"
 			HTML1 = HTML1 & "<tr>"
 			HTML1 = HTML1 & "<td>"
-			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Grazie "&nominativo_email&" per aver scelto i nostri prodotti!<br>Questa &egrave; un email di conferma per il completamento dell'ordine n&deg; "&idordine&".<br><br><b>TOTALE ORDINE: <u>"&TotaleGenerale&"&#8364;</u></b><br><br> Per completare l'ordine &egrave; necessario effettuare il bonifico con i seguenti dati:<br><u>BANCA DI CREDITO COOPERATIVO DI CAMBIANO AG. MONTELUPO FIORENTINO</u><br>IBAN: <u>IT33E0842537960000030277941</u><br>Codice BIC/SWIFT: <u>CRACIT33</u><br>Nella causale indicare: Ordine da sito internet n&deg; "&idordine&"<br><br>Beneficiario: Cristalensi Snc di Lensi Massimiliano & C. (P.Iva e C.Fiscale 05305820481)<br>Via arti e mestieri, 1 - 50056 Montelupo F.no (FI)<br><br><br>Il nostro staff avr&agrave; cura di spedirti la merce appena la banca avr&agrave; notificato il pagamento del bonifico oppure, per velocizzare la spedizione, &egrave; possibile inviarci per email la ricevuta dell'avvenuto pagamento con bonifico (in caso di bonifico fatto con home banking spesso viene fornita dalla banca una ricevuta, oppure &egrave; possibile scannerizzare la ricevuta rilasciata dalla banca).</font><br>"
-			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000><br><br>Cordiali Saluti, lo staff di Cristalensi</font>"
+			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Grazie "&nominativo_email&" per aver scelto i nostri prodotti!<br>Questa &egrave; un email di conferma per il completamento dell'ordine n&deg; "&idordine&".<br><br><b>TOTALE ORDINE: <u>"&TotaleGenerale&"&#8364;</u></b><br><br> Per completare l'ordine &egrave; necessario effettuare il bonifico con i seguenti dati:<br><u>BANCA XXXXXXX</u><br>IBAN: <u>XXXXXXXXX</u><br>Codice BIC/SWIFT: <u>XXXXXX</u><br>Nella causale indicare: Ordine da sito internet n&deg; "&idordine&"<br><br>Beneficiario: Decor And Flowers (P.Iva e C.Fiscale 06741510488)<br>Via delle mimose, 13 - 50050 Capraia e Limite sull'Arno (FI)<br><br><br>Il nostro staff avr&agrave; cura di spedirti la merce appena la banca avr&agrave; notificato il pagamento del bonifico oppure, per velocizzare la spedizione, &egrave; possibile inviarci per email la ricevuta dell'avvenuto pagamento con bonifico (in caso di bonifico fatto con home banking spesso viene fornita dalla banca una ricevuta, oppure &egrave; possibile scannerizzare la ricevuta rilasciata dalla banca).</font><br>"
+			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000><br><br>Cordiali Saluti, lo staff di DecorAndFlowers.it</font>"
 			HTML1 = HTML1 & "</td>"
 			HTML1 = HTML1 & "</tr>"
 			HTML1 = HTML1 & "</table>"
 			HTML1 = HTML1 & "</body>"
 			HTML1 = HTML1 & "</html>"
 
-			Mittente = "info@cristalensi.it"
+			Mittente = "info@decorandflowers.it"
 			Destinatario = email
-			Oggetto = "Conferma invio ordine n "&idordine&" a Cristalensi.it con pagamento con bonifico bancario"
+			Oggetto = "Conferma invio ordine n. "&idordine&" a DecorAndFlowers.it con pagamento con bonifico bancario"
 			Testo = HTML1
 
 			Set eMail_cdo = CreateObject("CDO.Message")
@@ -110,13 +110,13 @@
 				' Timeout
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
 				' Server SMTP di uscita
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.decorandflowers.it"
 				' Porta SMTP
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25
 				'Username
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@decorandflowers.it"
 				'Password
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "m0nt3lup0"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "alessandrO81"
 
 				.Fields.update
 			End With
@@ -140,7 +140,7 @@
 			HTML1 = HTML1 & "<html>"
 			HTML1 = HTML1 & "<head>"
 			HTML1 = HTML1 & "<meta http-equiv=""Content-Type"" content=""text/html; charset=iso-8859-1"">"
-			HTML1 = HTML1 & "<title>Cristalensi</title>"
+			HTML1 = HTML1 & "<title>DecorAndFlowers.it</title>"
 			HTML1 = HTML1 & "</head>"
 			HTML1 = HTML1 & "<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>"
 			HTML1 = HTML1 & "<table width='553' border='0' cellspacing='0' cellpadding='0'>"
@@ -154,9 +154,9 @@
 			HTML1 = HTML1 & "</body>"
 			HTML1 = HTML1 & "</html>"
 
-			Mittente = "info@cristalensi.it"
-			Destinatario = "info@cristalensi.it"
-			Oggetto = "Conferma invio ordine n "&idordine&" a Cristalensi.it con pagamento con bonifico bancario"
+			Mittente = "info@decorandflowers.it"
+			Destinatario = "info@decorandflowers.it"
+			Oggetto = "Conferma invio ordine n. "&idordine&" a DecorAndFlowers.it con pagamento con bonifico bancario"
 			Testo = HTML1
 
 			Set eMail_cdo = CreateObject("CDO.Message")
@@ -171,13 +171,13 @@
 				' Timeout
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
 				' Server SMTP di uscita
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.decorandflowers.it"
 				' Porta SMTP
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25
 				'Username
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@decorandflowers.it"
 				'Password
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "m0nt3lup0"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "alessandrO81"
 
 				.Fields.update
 			End With
@@ -196,9 +196,9 @@
 
 			'invio al webmaster
 
-			Mittente = "info@cristalensi.it"
+			Mittente = "info@decorandflowers.it"
 			Destinatario = "viadeimedici@gmail.com"
-			Oggetto = "Conferma invio ordine n "&idordine&" a Cristalensi.it con pagamento con bonifico bancario"
+			Oggetto = "Conferma invio ordine n. "&idordine&" a DecorAndFlowers.it con pagamento con bonifico bancario"
 			Testo = HTML1
 
 			Set eMail_cdo = CreateObject("CDO.Message")
@@ -213,13 +213,13 @@
 				' Timeout
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
 				' Server SMTP di uscita
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.decorandflowers.it"
 				' Porta SMTP
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25
 				'Username
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@decorandflowers.it"
 				'Password
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "m0nt3lup0"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "alessandrO81"
 
 				.Fields.update
 			End With
@@ -241,10 +241,10 @@
 
 	if FkPagamento=3 then
 		Set rs=Server.CreateObject("ADODB.Recordset")
-		sql = "Select * From Clienti where pkid="&idsession
+		sql = "Select * From Iscritti where pkid="&idsession
 		rs.Open sql, conn, 1, 1
 
-		nominativo_email=rs("nome")&" "&rs("nominativo")
+		nominativo_email=rs("nome")&" "&rs("cognome")
 		email=rs("email")
 
 		rs.close
@@ -253,23 +253,23 @@
 			HTML1 = HTML1 & "<html>"
 			HTML1 = HTML1 & "<head>"
 			HTML1 = HTML1 & "<meta http-equiv=""Content-Type"" content=""text/html; charset=iso-8859-1"">"
-			HTML1 = HTML1 & "<title>Cristalensi</title>"
+			HTML1 = HTML1 & "<title>DecorAndFlowers.it</title>"
 			HTML1 = HTML1 & "</head>"
 			HTML1 = HTML1 & "<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>"
 			HTML1 = HTML1 & "<table width='553' border='0' cellspacing='0' cellpadding='0'>"
 			HTML1 = HTML1 & "<tr>"
 			HTML1 = HTML1 & "<td>"
 			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Grazie "&nominativo_email&" per aver scelto i nostri prodotti!<br>Questa &egrave; un email di conferma per il completamento dell'ordine n&deg; "&idordine&".<br><br><br>Il nostro staff avr&agrave; cura di spedirti la merce appena sar&agrave; disponibile nel nostro magazino.<br>Ti ricordiamo che per il pagamento in contrassegno, il corriere consegner&agrave; la merce solo se verr&agrave; pagata in contanti, non accetter&agrave; altri metodi di pagamento (anche gli assegni non saranno accettati).</font><br>"
-			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000><br><br>Cordiali Saluti, lo staff di Cristalensi</font>"
+			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000><br><br>Cordiali Saluti, lo staff di DecorAndFlowers.it</font>"
 			HTML1 = HTML1 & "</td>"
 			HTML1 = HTML1 & "</tr>"
 			HTML1 = HTML1 & "</table>"
 			HTML1 = HTML1 & "</body>"
 			HTML1 = HTML1 & "</html>"
 
-			Mittente = "info@cristalensi.it"
+			Mittente = "info@decorandflowers.it"
 			Destinatario = email
-			Oggetto = "Conferma invio ordine n "&idordine&" a Cristalensi.it con pagamento in contrassegno"
+			Oggetto = "Conferma invio ordine n. "&idordine&" a DecorAndFlowers.it con pagamento in contrassegno"
 			Testo = HTML1
 
 			Set eMail_cdo = CreateObject("CDO.Message")
@@ -284,13 +284,13 @@
 				' Timeout
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
 				' Server SMTP di uscita
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.decorandflowers.it"
 				' Porta SMTP
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25
 				'Username
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@decorandflowers.it"
 				'Password
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "m0nt3lup0"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "alessandrO81"
 
 				.Fields.update
 			End With
@@ -314,7 +314,7 @@
 			HTML1 = HTML1 & "<html>"
 			HTML1 = HTML1 & "<head>"
 			HTML1 = HTML1 & "<meta http-equiv=""Content-Type"" content=""text/html; charset=iso-8859-1"">"
-			HTML1 = HTML1 & "<title>Cristalensi</title>"
+			HTML1 = HTML1 & "<title>DecorAndFlowers.it</title>"
 			HTML1 = HTML1 & "</head>"
 			HTML1 = HTML1 & "<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>"
 			HTML1 = HTML1 & "<table width='553' border='0' cellspacing='0' cellpadding='0'>"
@@ -328,9 +328,9 @@
 			HTML1 = HTML1 & "</body>"
 			HTML1 = HTML1 & "</html>"
 
-			Mittente = "info@cristalensi.it"
-			Destinatario = "info@cristalensi.it"
-			Oggetto = "Conferma invio ordine n "&idordine&" a Cristalensi.it con pagamento in contrassegno"
+			Mittente = "info@decorandflowers.it"
+			Destinatario = "info@decorandflowers.it"
+			Oggetto = "Conferma invio ordine n. "&idordine&" a DecorAndFlowers.it con pagamento in contrassegno"
 			Testo = HTML1
 
 			Set eMail_cdo = CreateObject("CDO.Message")
@@ -345,13 +345,13 @@
 				' Timeout
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
 				' Server SMTP di uscita
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.decorandflowers.it"
 				' Porta SMTP
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25
 				'Username
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@decorandflowers.it"
 				'Password
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "m0nt3lup0"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "alessandrO81"
 
 				.Fields.update
 			End With
@@ -370,10 +370,10 @@
 
 			'invio al webmaster
 
-			Mittente = "info@cristalensi.it"
+			Mittente = "info@decorandflowers.it"
 			Destinatario = "viadeimedici@gmail.com"
 
-			Oggetto = "Conferma invio ordine n "&idordine&" a Cristalensi.it con pagamento in contrassegno"
+			Oggetto = "Conferma invio ordine n. "&idordine&" a DecorAndFlowers.it con pagamento in contrassegno"
 			Testo = HTML1
 
 			Set eMail_cdo = CreateObject("CDO.Message")
@@ -388,13 +388,13 @@
 				' Timeout
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
 				' Server SMTP di uscita
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.decorandflowers.it"
 				' Porta SMTP
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25
 				'Username
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@decorandflowers.it"
 				'Password
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "m0nt3lup0"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "alessandrO81"
 
 				.Fields.update
 			End With
@@ -416,10 +416,10 @@
 
 	if FkPagamento=4 then
 		Set rs=Server.CreateObject("ADODB.Recordset")
-		sql = "Select * From Clienti where pkid="&idsession
+		sql = "Select * From Iscritti where pkid="&idsession
 		rs.Open sql, conn, 1, 1
 
-		nominativo_email=rs("nome")&" "&rs("nominativo")
+		nominativo_email=rs("nome")&" "&rs("cognome")
 		email=rs("email")
 
 		rs.close
@@ -428,23 +428,23 @@
 			HTML1 = HTML1 & "<html>"
 			HTML1 = HTML1 & "<head>"
 			HTML1 = HTML1 & "<meta http-equiv=""Content-Type"" content=""text/html; charset=iso-8859-1"">"
-			HTML1 = HTML1 & "<title>Cristalensi</title>"
+			HTML1 = HTML1 & "<title>DecorAndFlowers.it</title>"
 			HTML1 = HTML1 & "</head>"
 			HTML1 = HTML1 & "<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>"
 			HTML1 = HTML1 & "<table width='553' border='0' cellspacing='0' cellpadding='0'>"
 			HTML1 = HTML1 & "<tr>"
 			HTML1 = HTML1 & "<td>"
-			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Grazie "&nominativo_email&" per aver scelto i nostri prodotti!<br>Questa �  un email di conferma per il completamento dell'ordine n� "&idordine&".<br><br><strong>TOTALE ORDINE: <u>"&TotaleGenerale&"&#8364;</u></strong><br><br> Per completare l'ordine � necessario effettuare il pagamento su Carta POSTEPAY con i seguenti dati:<br><br><strong>Beneficiario: LENSI GIULIANO - c.f. LNS GLN 42A30 D403J<br>Numero carta: 4023600915402442</strong><br><br>Nella causale indicare: <strong>Ordine da sito internet n&deg; "&idordine&"</strong><br><br><br>Il nostro staff avr&agrave; cura di spedirti la merce appena ricever&agrave; la notifica del pagamento oppure, per velocizzare la spedizione, &egrave; possibile inviarci per email la ricevuta dell'avvenuto pagamento.</font><br>"
-			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000><br><br>Cordiali Saluti, lo staff di Cristalensi</font>"
+			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Grazie "&nominativo_email&" per aver scelto i nostri prodotti!<br>Questa �  un email di conferma per il completamento dell'ordine n. "&idordine&".<br><br><strong>TOTALE ORDINE: <u>"&TotaleGenerale&"&#8364;</u></strong><br><br> Per completare l'ordine � necessario effettuare il pagamento su Carta POSTEPAY con i seguenti dati:<br><br><strong>Beneficiario: xxxx xxxx - c.f. xxxxxxxx<br>Numero carta: 11111111111</strong><br><br>Nella causale indicare: <strong>Ordine da sito internet n. "&idordine&"</strong><br><br><br>Il nostro staff avr&agrave; cura di spedirti la merce appena ricever&agrave; la notifica del pagamento oppure, per velocizzare la spedizione, &egrave; possibile inviarci per email la ricevuta dell'avvenuto pagamento.</font><br>"
+			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000><br><br>Cordiali Saluti, lo staff di DecorAndFlowers.it</font>"
 			HTML1 = HTML1 & "</td>"
 			HTML1 = HTML1 & "</tr>"
 			HTML1 = HTML1 & "</table>"
 			HTML1 = HTML1 & "</body>"
 			HTML1 = HTML1 & "</html>"
 
-			Mittente = "info@cristalensi.it"
+			Mittente = "info@decorandflowers.it"
 			Destinatario = email
-			Oggetto = "Conferma invio ordine n "&idordine&" a Cristalensi.it con pagamento con POSTEPAY"
+			Oggetto = "Conferma invio ordine n. "&idordine&" a DecorAndFlowers.it con pagamento con POSTEPAY"
 			Testo = HTML1
 
 			Set eMail_cdo = CreateObject("CDO.Message")
@@ -459,13 +459,13 @@
 				' Timeout
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
 				' Server SMTP di uscita
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.decorandflowers.it"
 				' Porta SMTP
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25
 				'Username
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@decorandflowers.it"
 				'Password
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "m0nt3lup0"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "alessandrO81"
 
 				.Fields.update
 			End With
@@ -489,7 +489,7 @@
 			HTML1 = HTML1 & "<html>"
 			HTML1 = HTML1 & "<head>"
 			HTML1 = HTML1 & "<meta http-equiv=""Content-Type"" content=""text/html; charset=iso-8859-1"">"
-			HTML1 = HTML1 & "<title>Cristalensi</title>"
+			HTML1 = HTML1 & "<title>DecorAndFlowers.it</title>"
 			HTML1 = HTML1 & "</head>"
 			HTML1 = HTML1 & "<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>"
 			HTML1 = HTML1 & "<table width='553' border='0' cellspacing='0' cellpadding='0'>"
@@ -503,9 +503,9 @@
 			HTML1 = HTML1 & "</body>"
 			HTML1 = HTML1 & "</html>"
 
-			Mittente = "info@cristalensi.it"
-			Destinatario = "info@cristalensi.it"
-			Oggetto = "Conferma invio ordine n "&idordine&" a Cristalensi.it con pagamento con POSTEPAY"
+			Mittente = "info@decorandflowers.it"
+			Destinatario = "info@decorandflowers.it"
+			Oggetto = "Conferma invio ordine n. "&idordine&" a DecorAndFlowers.it con pagamento con POSTEPAY"
 			Testo = HTML1
 
 			Set eMail_cdo = CreateObject("CDO.Message")
@@ -520,13 +520,13 @@
 				' Timeout
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
 				' Server SMTP di uscita
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.decorandflowers.it"
 				' Porta SMTP
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25
 				'Username
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@decorandflowers.it"
 				'Password
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "m0nt3lup0"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "alessandrO81"
 
 				.Fields.update
 			End With
@@ -545,9 +545,9 @@
 
 			'invio al webmaster
 
-			Mittente = "info@cristalensi.it"
+			Mittente = "info@decorandflowers.it"
 			Destinatario = "viadeimedici@gmail.com"
-			Oggetto = "Conferma invio ordine n "&idordine&" a Cristalensi.it con pagamento con POSTEPAY"
+			Oggetto = "Conferma invio ordine n. "&idordine&" a DecorAndFlowers.it con pagamento con POSTEPAY"
 			Testo = HTML1
 
 			Set eMail_cdo = CreateObject("CDO.Message")
@@ -562,13 +562,13 @@
 				' Timeout
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
 				' Server SMTP di uscita
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.decorandflowers.it"
 				' Porta SMTP
 				.Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25
 				'Username
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@cristalensi.it"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@decorandflowers.it"
 				'Password
-				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "m0nt3lup0"
+				.Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "alessandrO81"
 
 				.Fields.update
 			End With
@@ -796,16 +796,16 @@ End If
 												<strong>BANCA xxxxxxxxxxxx<br>IBAN: 11111111111111<br>
 												Codice BIC/SWIFT: AAAAAAAA</strong>
 												<br><br>Nella causale indicare: "<strong>Ordine da sito internet n° <%=idordine%></strong>"<br><br>
-												Beneficiario:<br><strong>Cristalensi Snc di Lensi Massimiliano &amp; C. (P.Iva e C.Fiscale 05305820481)<br>
-												Via arti e mestieri, 1 - 50056 Montelupo F.no (FI)</strong>
+												Beneficiario:<br><strong>Decor And Flowers (P.Iva e C.Fiscale 06741510488)<br>
+												Via delle mimose, 13 - 50050 Capraia e Limite sull'Arno (FI)</strong>
 												<br><br>
 												La merce verr&agrave; spedita al momento che la nostra banca ricever&agrave; il pagamento oppure, per velocizzare la spedizione, &egrave; possibile inviarci per email la ricevuta dell'avvenuto pagamento con bonifico (in caso di bonifico fatto con home banking spesso viene fornita dalla banca una ricevuta, oppure &egrave; possibile scannerizzare la ricevuta rilasciata dalla banca).<br>
 												<br>
 												Pagando, e quindi completando l'ordine, si accettano le condizioni di vendita.<br><br>
-												Salva oppure stampa le condizioni di vendita (consultabili anche nell'apposita pagina del sito internet) da questo file (.pdf):<br><a href="#" target="_blank">condizioni di vendita</a>
+												Salva oppure stampa le condizioni di vendita (consultabili anche nell'apposita pagina del sito internet) da questo file (.pdf):<br><a href="/condizioni_di_vendita.pdf" target="_blank">condizioni di vendita</a>
 												<br>
 												<br>
-												Cordiali saluti, lo staff di Cristalensi
+												Cordiali saluti, lo staff di DecorAndFlowers.it
 												<br>
 												<br>
 										</p>
@@ -815,17 +815,17 @@ End If
 												<br><br>Grazie per aver scelto i nostri prodotti,<br>
 													per completare l'ordine &egrave; necessario effettuare il versamente sulla Carta di POSTEPAY con i seguenti dati:<br>
 													<br><br>
-													<strong>Beneficiario: LENSI GIULIANO - c.f. LNS GLN 42A30 D403J<br>
-													Numero carta: 4023600915402442</strong>
-													<br><br>Nella causale indicare: "<strong>Ordine da sito internet n&deg; <%=idordine%></strong>"<br><br>
+													<strong>Beneficiario: xxxxxxxx - c.f. xxxxxxx<br>
+													Numero carta: xxxxxxxxx</strong>
+													<br><br>Nella causale indicare: "<strong>Ordine da sito internet n. <%=idordine%></strong>"<br><br>
 
 												La merce verr&agrave; spedita al momento che riceveremo il pagamento oppure, per velocizzare la spedizione, &egrave; possibile inviarci per email la ricevuta dell'avvenuto pagamento.<br>
 												<br>
 												Pagando, e quindi completando l'ordine, si accettano le condizioni di vendita.<br><br>
-												Salva oppure stampa le condizioni di vendita (consultabili anche nell'apposita pagina del sito internet) da questo file (.pdf):<br><a href="https://www.cristalensi.it/condizioni_di_vendita.pdf" target="_blank">condizion di vendita</a>
+												Salva oppure stampa le condizioni di vendita (consultabili anche nell'apposita pagina del sito internet) da questo file (.pdf):<br><a href="/condizioni_di_vendita.pdf" target="_blank">condizion di vendita</a>
 												<br>
 												<br>
-												Cordiali saluti, lo staff di Cristalensi
+												Cordiali saluti, lo staff di DecorAndFlowers.it
 												<br>
 												<br>
 										</p>
@@ -838,10 +838,10 @@ End If
 											<br>
 										Pagando, e quindi completando l'ordine, si accettano le condizioni di vendita.<br>
 										Salva oppure stampa le condizioni di vendita (consultabili nell'apposita pagina del sito internet) da questo file (.pdf):<br>
-										<a href="condizioni_di_vendita.pdf" target="_blank">condizion di vendita</a>
+										<a href="/condizioni_di_vendita.pdf" target="_blank">condizion di vendita</a>
 										<br>
 										<br>
-										Cordiali saluti, lo staff di Cristalensi
+										Cordiali saluti, lo staff di DecorAndFlowers.it
 										<br>
 										<br>
 										</p>
@@ -852,15 +852,15 @@ End If
 												<br><br>
 												<em><strong>Ci sono stati problemi con il pagamento di PayPal: dovresti modificare l'ordine scegliendo un altro tipo di pagamento oppure contattarci.
 												<br><br>
-												Cordiali saluti, lo staff di Cristalensi</strong></em>
+												Cordiali saluti, lo staff di DecorAndFlowers.it</strong></em>
 												<br><br>
 												</p>
 										<%else%>
-		<%
-									'TotaleGeneralePP=FormatNumber(TotaleGenerale,2)
-									'TotaleGeneralePP=Replace(TotaleGeneralePP, ".", "")
-									'TotaleGeneralePP=Replace(TotaleGeneralePP, ",", ".")
-									%>
+										<%
+										'TotaleGeneralePP=FormatNumber(TotaleGenerale,2)
+										'TotaleGeneralePP=Replace(TotaleGeneralePP, ".", "")
+										'TotaleGeneralePP=Replace(TotaleGeneralePP, ",", ".")
+										%>
 									<p class="description">
 
 										<a href="https://www.paypal.com/it/webapps/mpp/paypal-popup" title="Come funziona PayPal" onClick="javascript:window.open('https://www.paypal.com/it/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo-center/logo_paypal_carte.jpg" border="0" style="float:right; padding-left:5px; width:319px; height:110px;" alt="Che cos'&egrave; PayPal"></a>Grazie per aver scelto i nostri prodotti,<br>
@@ -868,12 +868,12 @@ End If
 										MasterCard, Visa e Visa Electron, PostePay, Carta Aura e ricariche PayPal.<br><br>
 										Pagando, e quindi completando l'ordine, si accettano le condizioni di vendita.<br>
 									Salva oppure stampa le condizioni di vendita (consultabili anche nell'apposita pagina del sito internet) da questo file (.pdf):<br>
-									<a href="https://www.cristalensi.it/condizioni_di_vendita.pdf" target="_blank">condizion di vendita</a>							    <br>
+									<a href="/condizioni_di_vendita.pdf" target="_blank">condizion di vendita</a>							    <br>
 										<br>
 										</p>
 
 									<p>
-									<form action='https://www.cristalensi.it/ordine.asp' METHOD='POST'>
+									<form action='/ordine.asp' METHOD='POST'>
 										<input type="hidden" name="PaymentOption" value="PayPal" />
 										<input type="hidden" name="IdOrdine" value="<%=IdOrdine%>" />
 										<input type='image' name='submit' src='https://www.paypal.com/it_IT/i/btn/btn_xpressCheckout.gif' border='0' align='top' alt='Check out with PayPal'/>
@@ -883,7 +883,7 @@ End If
 									<br><br>
 									La merce verr&agrave; spedita al momento che la nostra banca ricever&agrave; il pagamento.<br>
 									<br>
-									Cordiali saluti, lo staff di Cristalensi
+									Cordiali saluti, lo staff di DecorAndFlowers.it
 									<br>
 									<br>
 									</p>
