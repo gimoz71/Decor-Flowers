@@ -9403,6 +9403,7 @@ img {
   background-repeat: no-repeat;
   background-blend-mode: luminosity;
   margin-right: 10px;
+  display: block;
 }
 .banner .title {
   font-size: 1em;
@@ -9428,7 +9429,7 @@ img {
   }
 }
 .banner.preventivi {
-  background-color: #dbcdb1;
+  background-color: #dcc3a7;
   background-image: url("../images/preventivi.jpg");
 }
 .banner.pagamenti {
@@ -9436,8 +9437,13 @@ img {
   background-image: url("../images/pagamenti.jpg");
 }
 .banner.consegne {
-  background-color: #e7694d;
+  background-color: #e57357;
   background-image: url("../images/consegne.jpg");
+  margin: 0;
+}
+.banner.generic {
+  background-color: #e7694d;
+  background-image: url("../images/generic.jpg");
   margin: 0;
 }
 @media (max-width: 992px) {
@@ -9446,10 +9452,24 @@ img {
     margin-top: 10px !important;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .banner {
     padding: 20px;
     height: 150px;
+  }
+}
+.banner.stacked {
+  margin-top: 10px !important;
+}
+@media (max-width: 992px) {
+  .banner.stacked {
+    padding: 30px !important;
+  }
+}
+@media (min-width: 992px) {
+  .banner.stacked {
+    padding: 30px !important;
+    height: auto !important;
   }
 }
 

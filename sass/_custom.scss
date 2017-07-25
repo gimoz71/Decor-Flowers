@@ -615,6 +615,7 @@ img {
     background-repeat    : no-repeat;
     background-blend-mode: luminosity;
     margin-right: 10px;
+    display: block;
 
     .title {
         font-size  : 1em;
@@ -641,7 +642,7 @@ img {
     }
 
     &.preventivi {
-        background-color: mix($logo-red-color, $body-color, 0%);
+        background-color: mix($logo-red-color, $body-color, 10%);
         background-image: url("../images/preventivi.jpg");
     }
 
@@ -651,17 +652,33 @@ img {
     }
 
     &.consegne {
-        background-color: mix($logo-red-color, $body-color, 100%);
+        background-color: mix($logo-red-color, $body-color, 90%);
         background-image: url("../images/consegne.jpg");
+        margin: 0;
+    }
+    &.generic {
+        background-color: mix($logo-red-color, $body-color, 100%);
+        background-image: url("../images/generic.jpg");
         margin: 0;
     }
     @media (max-width: $screen-md) {
         margin: 0;
         margin-top: 10px !important;
     }
-    @media (min-width: $screen-lg) {
+    @media (min-width: $screen-md) {
         padding: 20px;
         height: 150px;
+    }
+    &.stacked {
+        margin-top: 10px !important;
+        @media (max-width: $screen-md) {
+            padding: 30px !important;
+            // margin: 0 !important;
+        }
+        @media (min-width: $screen-md) {
+            padding: 30px !important;
+            height: auto !important;
+        }
     }
 }
 .overlay {
