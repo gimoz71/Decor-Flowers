@@ -93,14 +93,14 @@
 		Provincia=request("Provincia")
 	end if
 
-	os1("Nominativo")=Nominativo
-	os1("Rag_Soc")=Rag_Soc
-	os1("Cod_Fisc")=Cod_Fisc
-	os1("PartitaIVA")=PartitaIVA
-	os1("Indirizzo")=Indirizzo
-	os1("CAP")=CAP
-	os1("Citta")=Citta
-	os1("Provincia")=Provincia
+	os1("Nominativo_fat")=Nominativo
+	os1("Rag_Soc_fat")=Rag_Soc
+	os1("Cod_Fisc_fat")=Cod_Fisc
+	os1("PartitaIVA_fat")=PartitaIVA
+	os1("Indirizzo_fat")=Indirizzo
+	os1("CAP_fat")=CAP
+	os1("Citta_fat")=Citta
+	os1("Provincia_fat")=Provincia
 
 	os1("DataAggiornamento")=now()
 	os1("IpOrdine")=Request.ServerVariables("REMOTE_ADDR")

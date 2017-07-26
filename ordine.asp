@@ -30,28 +30,26 @@
 		TotaleCarrello=ss("TotaleCarrello")
 		CostoSpedizioneTotale=ss("CostoSpedizione")
 		TipoSpedizione=ss("TipoSpedizione")
-		'DatiSpedizione=ss("DatiSpedizione")
 		Nominativo_sp=ss("Nominativo_sp")
 		Telefono_sp=ss("Telefono_sp")
 		Indirizzo_sp=ss("Indirizzo_sp")
 		CAP_sp=ss("CAP_sp")
 		Citta_sp=ss("Citta_sp")
 		Provincia_sp=ss("Provincia_sp")
-		Nazione_sp=ss("Nazione_sp")
 		NoteCliente=ss("NoteCliente")
 
 		FkPagamento=ss("FkPagamento")
 		TipoPagamento=ss("TipoPagamento")
 		CostoPagamento=ss("CostoPagamento")
 
-		Nominativo=ss("Nominativo")
-		Rag_Soc=ss("Rag_Soc")
-		Cod_Fisc=ss("Cod_Fisc")
-		PartitaIVA=ss("PartitaIVA")
-		Indirizzo=ss("Indirizzo")
-		Citta=ss("Citta")
-		Provincia=ss("Provincia")
-		CAP=ss("CAP")
+		Nominativo=ss("Nominativo_fat")
+		Rag_Soc=ss("Rag_Soc_fat")
+		Cod_Fisc=ss("Cod_Fisc_fat")
+		PartitaIVA=ss("PartitaIVA_fat")
+		Indirizzo=ss("Indirizzo_fat")
+		Citta=ss("Citta_fat")
+		Provincia=ss("Provincia_fat")
+		CAP=ss("CAP_fat")
 
 		TotaleGenerale=ss("TotaleGenerale")
 
@@ -122,13 +120,13 @@
 			End With
 			Set eMail_cdo.Configuration = myConfig
 
-			'eMail_cdo.From = Mittente
-			'eMail_cdo.To = Destinatario
-			'eMail_cdo.Subject = Oggetto
+			eMail_cdo.From = Mittente
+			eMail_cdo.To = Destinatario
+			eMail_cdo.Subject = Oggetto
 
-			'eMail_cdo.HTMLBody = Testo
+			eMail_cdo.HTMLBody = Testo
 
-			'eMail_cdo.Send()
+			eMail_cdo.Send()
 
 			Set myConfig = Nothing
 			Set eMail_cdo = Nothing
@@ -225,13 +223,13 @@
 			End With
 			Set eMail_cdo.Configuration = myConfig
 
-			'eMail_cdo.From = Mittente
-			'eMail_cdo.To = Destinatario
-			'eMail_cdo.Subject = Oggetto
+			eMail_cdo.From = Mittente
+			eMail_cdo.To = Destinatario
+			eMail_cdo.Subject = Oggetto
 
-			'eMail_cdo.HTMLBody = Testo
+			eMail_cdo.HTMLBody = Testo
 
-			'eMail_cdo.Send()
+			eMail_cdo.Send()
 
 			Set myConfig = Nothing
 			Set eMail_cdo = Nothing
@@ -296,13 +294,13 @@
 			End With
 			Set eMail_cdo.Configuration = myConfig
 
-			'eMail_cdo.From = Mittente
-			'eMail_cdo.To = Destinatario
-			'eMail_cdo.Subject = Oggetto
+			eMail_cdo.From = Mittente
+			eMail_cdo.To = Destinatario
+			eMail_cdo.Subject = Oggetto
 
-			'eMail_cdo.HTMLBody = Testo
+			eMail_cdo.HTMLBody = Testo
 
-			'eMail_cdo.Send()
+			eMail_cdo.Send()
 
 			Set myConfig = Nothing
 			Set eMail_cdo = Nothing
@@ -400,13 +398,13 @@
 			End With
 			Set eMail_cdo.Configuration = myConfig
 
-			'eMail_cdo.From = Mittente
-			'eMail_cdo.To = Destinatario
-			'eMail_cdo.Subject = Oggetto
+			eMail_cdo.From = Mittente
+			eMail_cdo.To = Destinatario
+			eMail_cdo.Subject = Oggetto
 
-			'eMail_cdo.HTMLBody = Testo
+			eMail_cdo.HTMLBody = Testo
 
-			'eMail_cdo.Send()
+			eMail_cdo.Send()
 
 			Set myConfig = Nothing
 			Set eMail_cdo = Nothing
@@ -471,13 +469,13 @@
 			End With
 			Set eMail_cdo.Configuration = myConfig
 
-			'eMail_cdo.From = Mittente
-			'eMail_cdo.To = Destinatario
-			'eMail_cdo.Subject = Oggetto
+			eMail_cdo.From = Mittente
+			eMail_cdo.To = Destinatario
+			eMail_cdo.Subject = Oggetto
 
-			'eMail_cdo.HTMLBody = Testo
+			eMail_cdo.HTMLBody = Testo
 
-			'eMail_cdo.Send()
+			eMail_cdo.Send()
 
 			Set myConfig = Nothing
 			Set eMail_cdo = Nothing
@@ -574,13 +572,13 @@
 			End With
 			Set eMail_cdo.Configuration = myConfig
 
-			'eMail_cdo.From = Mittente
-			'eMail_cdo.To = Destinatario
-			'eMail_cdo.Subject = Oggetto
+			eMail_cdo.From = Mittente
+			eMail_cdo.To = Destinatario
+			eMail_cdo.Subject = Oggetto
 
-			'eMail_cdo.HTMLBody = Testo
+			eMail_cdo.HTMLBody = Testo
 
-			'eMail_cdo.Send()
+			eMail_cdo.Send()
 
 			Set myConfig = Nothing
 			Set eMail_cdo = Nothing
@@ -615,7 +613,7 @@ if PaymentOption = "PayPal" then
 	'
 	' This is set to the value entered on the Integration Assistant
 	'------------------------------------
-	returnURL = "https://www.cristalensi.it/pagamento_paypal_ok.asp"
+	returnURL = "https://www.decorandflowers.it/pagamento_paypal_ok.asp"
 
 	'------------------------------------
 	' The cancelURL is the location buyers are sent to when they click the
@@ -624,7 +622,7 @@ if PaymentOption = "PayPal" then
 	'
 	' This is set to the value entered on the Integration Assistant
 	'------------------------------------
-	cancelURL = "https://www.cristalensi.it/pagamento_paypal_ko.asp"
+	cancelURL = "https://www.decorandflowers.it/pagamento_paypal_ko.asp"
 
 	'------------------------------------
 	' The paymentAmount is the total value of
@@ -647,7 +645,7 @@ if PaymentOption = "PayPal" then
 	shipToCity = Citta_sp
 	shipToState = Provincia_sp
 	'shipToCountryCode = "<<ShipToCountryCode>>" ' Please refer to the PayPal country codes in the API documentation
-	shipToCountryCode = Nazione_sp
+	shipToCountryCode = "IT"
 	shipToZip = CAP_sp
 	phoneNum = Telefono_sp
 	INVNUM = IdOrdine 'valore aggiunto alla funzione
@@ -795,7 +793,7 @@ End If
 												<br>
 												<strong>BANCA xxxxxxxxxxxx<br>IBAN: 11111111111111<br>
 												Codice BIC/SWIFT: AAAAAAAA</strong>
-												<br><br>Nella causale indicare: "<strong>Ordine da sito internet n° <%=idordine%></strong>"<br><br>
+												<br><br>Nella causale indicare: "<strong>Ordine da sito internet n. <%=idordine%></strong>"<br><br>
 												Beneficiario:<br><strong>Decor And Flowers (P.Iva e C.Fiscale 06741510488)<br>
 												Via delle mimose, 13 - 50050 Capraia e Limite sull'Arno (FI)</strong>
 												<br><br>
@@ -856,11 +854,6 @@ End If
 												<br><br>
 												</p>
 										<%else%>
-										<%
-										'TotaleGeneralePP=FormatNumber(TotaleGenerale,2)
-										'TotaleGeneralePP=Replace(TotaleGeneralePP, ".", "")
-										'TotaleGeneralePP=Replace(TotaleGeneralePP, ",", ".")
-										%>
 									<p class="description">
 
 										<a href="https://www.paypal.com/it/webapps/mpp/paypal-popup" title="Come funziona PayPal" onClick="javascript:window.open('https://www.paypal.com/it/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo-center/logo_paypal_carte.jpg" border="0" style="float:right; padding-left:5px; width:319px; height:110px;" alt="Che cos'&egrave; PayPal"></a>Grazie per aver scelto i nostri prodotti,<br>
@@ -909,112 +902,126 @@ End If
 															num_prodotti_carrello=rs.recordcount
 
 														%>
-		                        <%if rs.recordcount>0 then%>
+														<%if rs.recordcount>0 then%>
 														<tbody>
-																<%
+															<%
 																Do while not rs.EOF
 
-																Set url_prodotto_rs = Server.CreateObject("ADODB.Recordset")
-																sql = "SELECT PkId, NomePagina FROM Prodotti where PkId="&rs("FkProdotto")&""
-																url_prodotto_rs.Open sql, conn, 1, 1
+																'Set url_prodotto_rs = Server.CreateObject("ADODB.Recordset")
+																'sql = "SELECT PkId, NomePagina FROM Prodotti where PkId="&rs("FkProdotto")&""
+																'url_prodotto_rs.Open sql, conn, 1, 1
 
-																NomePagina=url_prodotto_rs("NomePagina")
-																if Len(NomePagina)>0 then
-																	NomePagina="/public/pagine/"&NomePagina
-																else
-																	NomePagina="#"
-																end if
+																'NomePagina=url_prodotto_rs("NomePagina")
+																'if Len(NomePagina)>0 then
+																	'NomePagina="/public/pagine/"&NomePagina
+																'else
+																	'NomePagina="#"
+																'end if
 
-																url_prodotto_rs.close
+																'url_prodotto_rs.close
 																%>
 																<%
 																quantita=rs("quantita")
 																if quantita="" then quantita=1
-																%>
-																<tr>
-		                                <td data-th="Product" class="cart-product">
-		                                    <div class="row">
-		                                        <div class="col-sm-12">
-		                                            <h5 class="nomargin"><%=rs("titolo")%></h5>
-																								<p><strong>Codice: <%=rs("codicearticolo")%></strong></p>
-		                                            <%if Len(rs("colore"))>0 or Len(rs("lampadina"))>0 then%><p>><%if Len(rs("colore"))>0 then%>Col.: <%=rs("colore")%><%end if%><%if Len(rs("lampadina"))>0 then%> - Lamp.: Bianco satinato<%=rs("lampadina")%><%end if%></p><%end if%>
-		                                        </div>
-		                                    </div>
-		                                </td>
-		                                <td data-th="Quantity" class="text-center">
-		                                    <%=quantita%>
-		                                </td>
-		                                <td data-th="Price" class="hidden-xs text-center"><%=FormatNumber(rs("PrezzoProdotto"),2)%>&euro;</td>
-		                                <td data-th="Subtotal" class="text-center"><%=FormatNumber(rs("TotaleRiga"),2)%>&euro;</td>
-		                            </tr>
-																<%
-																rs.movenext
-																loop
-																%>
-		                        </tbody>
+															%>
+															<tr>
+																<td data-th="Product" class="cart-product">
+																	<div class="row">
+																		<div class="col-sm-12">
+																			<h5 class="nomargin"><a href="<%=NomePagina%>" title="Scheda del prodotto: <%=NomePagina%>"><%=rs("Titolo_Madre")%> - <%=rs("Titolo_Figlio")%></a></h5>
+																			<p><strong>Codice: <%=rs("Codice_Madre")%> - <%=rs("Codice_Figlio")%></strong></p>
+																		</div>
+																	</div>
+																</td>
+																<td data-th="Quantity" class="text-center">
+																	<%=quantita%>
+																</td>
+																<td data-th="Price" class="hidden-xs text-center">
+																	<%=FormatNumber(rs("PrezzoProdotto"),2)%>&euro;</td>
+																<td data-th="Subtotal" class="text-center">
+																	<%=FormatNumber(rs("TotaleRiga"),2)%>&euro;</td>
+															</tr>
+															<%
+															rs.movenext
+															loop
+															%>
+														</tbody>
 														<%end if%>
-														<%rs.close%>
 														<tfoot>
-		                            <tr class="visible-xs">
-		                                <td class="text-center"><strong>Totale <%if TotaleGenerale<>0 then%>
-										<%=FormatNumber(TotaleGenerale,2)%>&euro;<%else%>0&euro;<%end if%></strong></td>
-		                            </tr>
-		                            <tr>
-		                                <td class="hidden-xs"></td>
-		                                <td class="hidden-xs"></td>
-		                                <td class="hidden-xs"></td>
-		                                <td class="hidden-xs text-center"><strong>Totale <%if TotaleGenerale<>0 then%>
-										<%=FormatNumber(TotaleGenerale,2)%>&euro;<%else%>0&euro;<%end if%></strong></td>
-		                            </tr>
-		                            <tr>
-		                                <td colspan="4">
-		                                    <h5>Eventuali annotazioni</h5>
-		                                    <textarea class="form-control" rows="3" readonly style="font-size: 12px;"><%=NoteCliente%></textarea>
-		                                </td>
-		                            </tr>
-		                        </tfoot>
+															<tr class="visible-xs">
+																<td class="text-center"><strong>Totale <%if TotaleCarrello<>0 then%>
+																	<%=FormatNumber(TotaleCarrello,2)%>&euro;<%else%>0&euro;<%end if%></strong>
+																</td>
+															</tr>
+															<tr>
+																<td class="hidden-xs"></td>
+																<td class="hidden-xs"></td>
+																<td class="hidden-xs"></td>
+																<td class="hidden-xs text-center"><strong>Totale <%if TotaleCarrello<>0 then%>
+																	<%=FormatNumber(TotaleCarrello,2)%>&euro;<%else%>0&euro;<%end if%></strong>
+																</td>
+															</tr>
+															<tr>
+																<td colspan="4">
+																	<h5>Eventuali annotazioni</h5>
+																	<textarea class="form-control" rows="3" readonly style="font-size: 12px;"><%=NoteCliente%></textarea>
+																</td>
+															</tr>
+														</tfoot>
 		                    </table>
 		                </div>
 		            </div>
 		            <div class="clearfix"></div>
 		            <div class="row top-buffer">
-		                <div class="col-md-6">
-		                    <div class="title">
-		                        <h4>Modalit&agrave; di spedizione</h4>
-		                    </div>
-		                    <div class="col-md-12 top-buffer">
-		                        <table id="cart" class="table table-hover table-condensed table-cart">
-		                            <thead>
-		                                <tr>
-		                                    <th style="width:75%">Modalit&agrave; di spedizione</th>
-		                                    <th style="width:25%" class="text-center">Totale</th>
-		                                </tr>
-		                            </thead>
-		                            <tbody>
-		                                <tr>
-		                                    <td data-th="Product" class="cart-product">
-		                                        <div class="row">
-		                                            <div class="col-sm-12">
-		                                                <p><%=TipoTrasporto%></p>
-		                                            </div>
-		                                        </div>
-		                                    </td>
-		                                    <td data-th="Quantity" class="text-center">
-		                                        <%=FormatNumber(CostoSpedizioneTotale,2)%>&euro;
-		                                    </td>
-		                                </tr>
-		                            </tbody>
-		                        </table>
-		                    </div>
-		                </div>
-		                <div class="col-md-6">
-		                    <div class="title">
-		                        <h4>Indirizzo di spedizione</h4>
-		                    </div>
-		                    <div class="col-md-12 top-buffer">
-		                        <p><%=Nominativo_sp%>&nbsp;-&nbsp;Telefono:&nbsp;<%=Telefono_sp%><br /><%=Indirizzo_sp%>&nbsp;-&nbsp;<%=CAP_sp%>&nbsp;-&nbsp;<%=Citta_sp%><%if Provincia_sp<>"" then%>&nbsp;(<%=Provincia_sp%>)<%end if%>&nbsp;-&nbsp;<%=Nazione_sp%></p>
-		                    </div>
-		                </div>
+									<div class="col-md-6">
+										<div class="title">
+											<h4>Modalit&agrave; di spedizione</h4>
+										</div>
+										<div class="col-md-12 top-buffer">
+											<table id="cart" class="table table-hover table-condensed table-cart">
+												<thead>
+													<tr>
+														<th style="width:75%">Modalit&agrave; di spedizione</th>
+														<th style="width:25%" class="text-center">Totale</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td data-th="Product" class="cart-product">
+															<div class="row">
+																<div class="col-sm-12">
+																	<p>
+																		<%=TipoSpedizione%>
+																	</p>
+																</div>
+															</div>
+														</td>
+														<td data-th="Quantity" class="text-center">
+															<%=FormatNumber(CostoSpedizioneTotale,2)%>&euro;
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="title">
+											<h4>Indirizzo di spedizione</h4>
+										</div>
+										<div class="col-md-12 top-buffer">
+											<p>
+												<%=Nominativo_sp%>&nbsp;-&nbsp;Telefono:&nbsp;
+												<%=Telefono_sp%><br />
+												<%=Indirizzo_sp%>&nbsp;-&nbsp;
+												<%=CAP_sp%>&nbsp;-&nbsp;
+												<%=Citta_sp%>
+												<%if Provincia_sp<>"" then%>&nbsp;(
+												<%=Provincia_sp%>)
+												<%end if%>&nbsp;-&nbsp;
+												<%=Nazione_sp%>
+											</p>
+										</div>
+									</div>
 		            </div>
 								<div class="clearfix"></div>
 		            <div class="row top-buffer">
