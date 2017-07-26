@@ -73,7 +73,7 @@
             %>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="#" class="panel-title" title="<%=Titolo_1_Eve_menu%>"><%=Titolo_1_Eve_menu%></a>
+                    <a href="prodotti_eventi.asp?eve=<%=Pkid_Eve_menu%>" class="panel-title" title="<%=Titolo_1_Eve_menu%>"><%=Titolo_1_Eve_menu%></a>
                 </div>
             </div>
             <%
@@ -98,9 +98,9 @@
                 <h5><i class="fa fa-users"></i> Dicono di noi...</h5>
             </div>
             <ul class="list-group">
-                <li class="list-group-item"><i class="fa fa-user"></i> <em>Ho acquistato una lampada d<b>a parete</b> per esterno Newport verde. Per la consegna c'&egrave; voluto qua...</em></li>
-                <li class="list-group-item"><i class="fa fa-user"></i> <em>Pochi giorni fa ho acquistato un lampadario per bagno di <b>Murano</b> bombato <b>a soffitto</b> ho telefonato i...</em></li>
-                <li class="list-group-item"><i class="fa fa-user"></i> <em>Il mio ordine: ORINA PLAFONIERA IN METALLO CROMATO. &Egrave; arrivato prima il pacco che le mail di spedizi...</em></li>
+                <li class="list-group-item"><i class="fa fa-user"></i> <em>Ho acquistato una composizione da camera da letto con rose rosse. Per la consegna sono stati precisi...</em></li>
+                <li class="list-group-item"><i class="fa fa-user"></i> <em>Pochi giorni fa ho acquistato un vaso di vetro per il bagno. ho telefonato e sono stati gentilissimi...</em></li>
+                <li class="list-group-item"><i class="fa fa-user"></i> <em>Il mio ordine &Egrave; arrivato prima del previsto e il pacco era ben chiuso e i prodotti ben protetti...</em></li>
             </ul>
             <div class="panel-footer"><a href="#" class="btn btn-default">leggi tutti i commenti <i class="fa fa-chevron-right"></i></a></div>
         </div>
