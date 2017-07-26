@@ -776,7 +776,7 @@ end if
 								%>
 								<div class="col-lg-6">
 										<div class="title">
-												<h4>Iscriviti</h4>
+												<h4><%if pkid>0 then%>Modifica<%else%>Iscriviti<%end if%></h4>
 										</div>
 										<div class="col-md-12">
 												<p class="description">In questa pagina puoi inserire i tuoi dati per registrarti a DecorAndFlowers.it.<br> Informazione importante: &egrave; necessario che l'indirizzo Email sia un'indirizzo funzionante e che usi normalmente, in quanto ti verranno spedite

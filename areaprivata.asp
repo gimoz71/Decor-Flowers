@@ -52,7 +52,6 @@
         <!--#include file="inc_header_2.asp"-->
     </div>
     <div class="container content">
-        <!--#include file="inc_slider.asp"-->
         <div class="top-buffer">
 
         </div>
@@ -73,12 +72,12 @@
                 <div class="col-xs-6 col-sm-4 col-md-3">
                     <article class="col-item">
                         <div class="photo">
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb_d&f.png)"><img alt="<%=Titolo_1_Cat_1%>" src="images/blank.png"></a>
+                            <a href="ordini_elenco.asp" class="prod-img-replace" style="background-image: url(images/thumb_d&f.png)"><img src="images/blank.png"></a>
                         </div>
                         <div class="info">
                             <div class="row">
                                 <div class="category col-md-6">
-                                    <a href="#" title="Elenco ordini"><h1>Elenco ordini</h1></a>
+                                    <a href="ordini_elenco.asp" title="Elenco ordini"><h1>Elenco ordini</h1></a>
                                 </div>
                             </div>
                         </div>
@@ -101,7 +100,7 @@
                 <div class="col-xs-6 col-sm-4 col-md-3">
                     <article class="col-item">
                         <div class="photo">
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb_d&f.png)"><img src="images/blank.png"></a>
+                            <a href="iscrizione.asp" class="prod-img-replace" style="background-image: url(images/thumb_d&f.png)"><img src="images/blank.png"></a>
                         </div>
                         <div class="info">
                             <div class="row">
