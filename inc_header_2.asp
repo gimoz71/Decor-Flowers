@@ -134,7 +134,7 @@
                   <li class="nav-user visible-xs"><a href="iscrizione.asp"> Accedi/iscriviti</a></li>
                 <%end if%>
                 <li class="nav-user visible-xs"><a href="areaprivata.asp">Area clienti</a></li>
-                <li class="nav-user visible-xs"><a href="#">Lista dei desideri</a></li>
+                <!--<li class="nav-user visible-xs"><a href="#">Lista dei desideri</a></li>-->
                 <li class="nav-user visible-xs"><a href="carrello1.asp">Carrello</a></li>
                 <li class="nav-user visible-xs"><a href="#">Condizioni di vendita</a></li>
             </ul>

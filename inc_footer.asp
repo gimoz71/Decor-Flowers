@@ -4,43 +4,29 @@
             <div class="col-md-3 address-col">
                 <img src="images/logo_v3_footer.png" alt="Decor & Flowers" style="width: 100%; padding-bottom: 15px;"/>
                 <p>
+                    Decorandflowers<br>
                     C.F. e Iscr. Reg. Impr. di Firenze 06741510488<br />
                     R.E.A. di Firenze<br />
                     Via delle mimose, 13<br />
-                    50050 Capraia e Limite sull'Arno (Firenze)<br />
-                    Tel.: 0571.594000<br />
+                    50050 Capraia e Limite (Firenze)<br />
                     E-mail: info@decorandflowers.it
                 </p>
-                <h4>Contatti Social</h4>
+                <!--<h4>Contatti Social</h4>
                 <p class="social">
                     <a href="#"><i class="fa fa-facebook-square"></i></a>
                     <a href="#"><i class="fa fa-youtube-square"></i></a>
-                </p>
-            </div>
-            <div class="col-md-3 menu-col">
-                <h4>Riferimenti</h4>
-                <ul>
-                    <li><a>Contatti e mappa</a></li>
-                    <li><a>Chi siamo</a></li>
-                </ul>
-                <h4>Area Clienti</h4>
-                <ul>
-                    <li><a>Iscriviti/Accedi</a></li>
-                    <li><a>Lista dei desideri</a></li>
-                    <li><a>Dicono noi</a></li>
-                    <li><a>Area Clienti</a></li>
-                </ul>
+                </p>-->
             </div>
             <div class="col-md-3 menu-col">
                 <h4>Cerca per Eventi</h4>
                 <ul>
-                    <li><a>San valentino</a></li>
-                    <li><a>Festa della donna</a></li>
-                    <li><a>Pasqua</a></li>
-                    <li><a>Festa della mamma</a></li>
-                    <li><a>Provenzale</a></li>
-                    <li><a>Estivo</a></li>
-                    <li><a>Autunno</a></li>
+                    <li><a href="/prodotti_eventi.asp?eve=1">San valentino</a></li>
+                    <li><a href="/prodotti_eventi.asp?eve=2">Festa della donna</a></li>
+                    <li><a href="/prodotti_eventi.asp?eve=3">Pasqua</a></li>
+                    <li><a href="/prodotti_eventi.asp?eve=7">Festa della mamma</a></li>
+                    <li><a href="/prodotti_eventi.asp?eve=8">Provenzale</a></li>
+                    <li><a href="/prodotti_eventi.asp?eve=6">Estivo</a></li>
+                    <li><a href="/prodotti_eventi.asp?eve=9">Autunno</a></li>
                 </ul>
                 <h4>Novit&aacute; e Offerte</h4>
                 <ul>
@@ -49,16 +35,31 @@
                 </ul>
             </div>
             <div class="col-md-3 menu-col">
+                <h4>Riferimenti</h4>
+                <ul>
+                    <li><a href="contatti.asp">Contatti</a></li>
+                    <!--<li><a>Chi siamo</a></li>-->
+                </ul>
+                <h4>Area Clienti</h4>
+                <ul>
+                    <li><a>Iscriviti/Accedi</a></li>
+                    <!--<li><a>Lista dei desideri</a></li>-->
+                    <li><a>Dicono noi</a></li>
+                    <li><a>Area Clienti</a></li>
+                </ul>
                 <h4>Note legali</h4>
                 <ul>
-                    <li><a href="#">Condizioni di vendita</a></li>
-                    <li><a href="#">Privacy e note legali</a></li>
+                    <li><a href="condizioni-di-vendita.asp">Condizioni di vendita</a></li>
+                    <li><a href="privacy.asp">Privacy e note legali</a></li>
                 </ul>
+            </div>
 
+            <div class="col-md-3 menu-col">
                 <h4>Spedizioni</h4>
                 <ul class="checklist">
-                    <li>Spedizioni assicurate GRATUITE in tutta Italia per ordini superiori a 100&euro;</li>
+                    <li>Spedizioni GRATUITE in tutta Italia per ordini superiori a 100&euro;</li>
                 </ul>
+                <br />
                 <h4>Pagamenti accettati</h4>
                 <ul class="checklist">
                     <li>Bonifico Bancario - PostePay</li>

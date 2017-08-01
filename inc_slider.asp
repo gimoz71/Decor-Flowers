@@ -34,10 +34,10 @@
         </div>
         <awesome-slider pre-image="/images/logo.svg" autostart="true" bullets="false" height="x40%" color="grey" arrows="true">
             <item source="images/sliders/slider1.jpg">
-                <a class="lettering" href="#">
-                    <h3>Titolo 1</h3>
+                <!--<a class="lettering" href="#">
+                    <h3>Fiori artificiali</h3>
                     <p>link</p>
-                </a>
+                </a>-->
             </item>
             <item source="images/sliders/slider2.jpg"></item>
             <item source="images/sliders/slider3.jpg"></item>
@@ -48,36 +48,21 @@
 </div>
 <div class="gutter-10 row top-buffer">
     <div class="col-md-4">
-    <div class="banner preventivi">
+    <div class="banner pagamenti">
         <h3 class="title">SITO INTERNET SICURO</h3>
         <p class="text">Iscrizione e pagamento su sito internet protetto e garantito</p>
     </div>
     </div>
     <div class="col-md-4">
-    <div class="banner pagamenti">
+    <div class="banner preventivi">
         <h3 class="title">PAGAMENTI ACCETTATI</h3>
-        <p class="text">Bonifico bancario, Contrassegno in contanti, Carte di credito, Prepagate, PayPal</p>
+        <p class="text">Bonifico bancario, PostePay, Contrassegno in contanti, Carte di Credito, Prepagate, PayPal</p>
     </div>
     </div>
     <div class="col-md-4">
     <div class="banner consegne">
         <h3 class="title">SPEDIZIONI</h3>
-        <p class="text">Spedizioni assicurate in tutta Italia <b>GRATUITE</b> per ordini speriori a 100&euro;</p>
+        <p class="text">Spedizioni in tutta Italia <b>GRATUITE</b><br />per ordini speriori a 100&euro;</p>
     </div>
     </div>
-    <!-- <div class="col-md-4">
-        <div class="" style="background: #d66; border: solid 1px #a33; color: #fff; padding: 10px;">
-            Costi di spedizione
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class=" " style="background: #6d6; border: solid 1px #3a3; color: #fff; padding: 10px;">
-            Pagamenti sicuri
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class=" " style="background: #66d; border: solid 1px #33a; color: #fff; padding: 10px;">
-            Tipi di pagamenti
-        </div>
-    </div> -->
 </div>
