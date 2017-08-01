@@ -86,14 +86,12 @@
         cat_rs.close
         %>
         <a href="novita.asp" class="banner stacked generic">
-            <h3 class="title">Tutte le novit&agrave;</h3>
-            <!-- <p class="text">Iscrizione e pagamento su sito internet protetto e garantito</p> -->
+            <h3 class="title">Novit&agrave; & ultimi arrivi</h3>
         </a>
         <a href="offerte.asp" class="banner stacked generic">
-            <h3 class="title">Tutte le offerte</h3>
-            <!-- <p class="text">Iscrizione e pagamento su sito internet protetto e garantito</p> -->
+            <h3 class="title">Offerte & promozioni</h3>
         </a>
-        <div class="panel panel-default user-comment top-buffer">
+        <!--<div class="panel panel-default user-comment top-buffer">
             <div class="panel-heading">
                 <h5><i class="fa fa-users"></i> Dicono di noi...</h5>
             </div>
@@ -103,6 +101,6 @@
                 <li class="list-group-item"><i class="fa fa-user"></i> <em>Il mio ordine &Egrave; arrivato prima del previsto e il pacco era ben chiuso e i prodotti ben protetti...</em></li>
             </ul>
             <div class="panel-footer"><a href="#" class="btn btn-default">leggi tutti i commenti <i class="fa fa-chevron-right"></i></a></div>
-        </div>
+        </div>-->
     </div>
 </div>
