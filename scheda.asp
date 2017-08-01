@@ -62,7 +62,19 @@ if pkid_prod>0 then
     sot_rs.close
   end if
 
-
+  Set var_rs=Server.CreateObject("ADODB.Recordset")
+  sql = "SELECT FkProdotto_Madre, SUM(Pezzi) AS TotalePezzi "
+  sql = sql + "FROM Prodotti_Figli WHERE FkProdotto_Madre="&pkid_prod&" "
+  sql = sql + "GROUP BY FkProdotto_Madre"
+  var_rs.Open sql, conn, 1, 1
+  if var_rs.recordcount>0 then
+    TotalePezzi=var_rs("TotalePezzi")
+    Varianti="si"
+  else
+    TotalePezzi=0
+    Varianti="no"
+  end if
+  var_rs.close
 end if
 
 %>
@@ -166,9 +178,9 @@ end if
                                     </p>
                                 </li>
                             </ul>
-                            <%if Stato_Prod=2 then%>
+                            <%if Stato_Prod=2 or (TotalePezzi=0 and Varianti="no") then%>
                             <div class="panel-footer">
-                                <a href="#" rel="nofollow" class="btn btn-danger btn-block" title="Richiedi il prodotto al nostro staff">Ordina per email <i class="glyphicon glyphicon-envelope"></i></a>
+                                <a href="mailto:info@decorandflowers.it" rel="nofollow" class="btn btn-danger btn-block" title="Richiedi il prodotto al nostro staff">Ordina per email <i class="glyphicon glyphicon-envelope"></i></a>
                             </div>
                             <%end if%>
                       </div>
@@ -216,6 +228,8 @@ end if
                         sql = sql + "ORDER BY Titolo ASC"
                         var_rs.Open sql, conn, 1, 1
                         if var_rs.recordcount>0 then
+                        TotalePezzi=var_rs("TotalePezzi")
+                        response.write("TotalePezzi:"&TotalePezzi)
                         %>
                         <form name="newsform2" id="newsform2" onSubmit="return Verifica();">
                         <input type="hidden" name="id_madre" id="id_madre" value="<%=pkid_prod%>">
@@ -257,7 +271,11 @@ end if
                                     <td data-th="Price" class="hidden-xs text-center"><%=Pezzi%></td>
                                     <td data-th="Quantity">
                                         <!--<input type="number" class="form-control text-center" name="pezzi_<%=pkid_prodotto_figlio%>" value="0" <%if Pezzi=0 then%>disabled<%end if%>>-->
+                                        <%if Pezzi>0 then%>
                                         <input type="number" class="form-control text-center" name="pezzi_<%=pkid_prodotto_figlio%>" id="pezzi_<%=pkid_prodotto_figlio%>" value="0">
+                                        <%else%>
+                                        <a href="mailto:info@decorandflowers.it" rel="nofollow" class="btn btn-danger btn-block" title="Richiedi il prodotto al nostro staff">Ordina per email <i class="glyphicon glyphicon-envelope"></i></a>
+                                        <%end if%>
                                     </td>
                                 </tr>
                                 <%
@@ -266,7 +284,7 @@ end if
                                 %>
                             </tbody>
                         </table>
-                        <a href="#" class="btn btn-danger btn-block" onClick="Verifica();">Aggiungi al carrello <i class="glyphicon glyphicon-shopping-cart"></i></a>
+                        <%if TotalePezzi>0 then%><a href="#" class="btn btn-danger btn-block" onClick="Verifica();">Aggiungi al carrello <i class="glyphicon glyphicon-shopping-cart"></i></a><%end if%>
                         </form>
                         <%
                         end if

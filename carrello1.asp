@@ -460,13 +460,13 @@
 												<div class="panel panel-default payment-list">
 														<!-- Default panel contents -->
 														<div class="panel-heading">
-															<h5>SPEDIZIONI IN TUTTA ITALIA</h5>
+															<h5>SPEDIZIONI</h5>
 														</div>
 														<ul class="list-group">
-															<li class="list-group-item"><strong>SPEDIZIONI ASSICURATE</strong></li>
+															<li class="list-group-item"><strong>CONSEGNE IN TUTTA ITALIA</strong></li>
 															<li class="list-group-item"><i class="fa fa-check"></i> <em>Per ordini superiori a 100&euro;: 0&euro;</em></li>
 															<li class="list-group-item"><i class="fa fa-check"></i> <em>Per ordini fino a  100&euro;: 10&euro;</em></li>
-															<li class="list-group-item"><i class="fa fa-check"></i> <em>Ritiro in sede: 0&euro;</em></li>
+															<li class="list-group-item">&nbsp;</li>
 														</ul>
 												</div>
 										</div>
