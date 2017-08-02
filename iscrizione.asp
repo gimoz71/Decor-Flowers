@@ -215,13 +215,13 @@ if mode=1 then
 			End With
 			Set eMail_cdo.Configuration = myConfig
 
-			'eMail_cdo.From = Mittente
-			'eMail_cdo.To = Destinatario
-			'eMail_cdo.Subject = Oggetto
+			eMail_cdo.From = Mittente
+			eMail_cdo.To = Destinatario
+			eMail_cdo.Subject = Oggetto
 
-			'eMail_cdo.HTMLBody = Testo
+			eMail_cdo.HTMLBody = Testo
 
-			'eMail_cdo.Send()
+			eMail_cdo.Send()
 
 			Set myConfig = Nothing
 			Set eMail_cdo = Nothing
@@ -519,13 +519,13 @@ end if
 			End With
 			Set eMail_cdo.Configuration = myConfig
 
-			'eMail_cdo.From = Mittente
-			'eMail_cdo.To = Destinatario
-			'eMail_cdo.Subject = Oggetto
+			eMail_cdo.From = Mittente
+			eMail_cdo.To = Destinatario
+			eMail_cdo.Subject = Oggetto
 
-			'eMail_cdo.HTMLBody = Testo
+			eMail_cdo.HTMLBody = Testo
 
-			'eMail_cdo.Send()
+			eMail_cdo.Send()
 
 			Set myConfig = Nothing
 			Set eMail_cdo = Nothing
@@ -579,6 +579,16 @@ end if
             visibility: hidden;
         }
     </style>
+		<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-103870379-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
 		<SCRIPT language="JavaScript">
 
     function verifica() {
@@ -651,7 +661,7 @@ end if
 										<div class="progress">
 												<div class="progress-bar"></div>
 										</div>
-										<a href="/cristalensi/carrello1.asp" class="bs-wizard-dot"></a>
+										<a href="carrello1.asp" class="bs-wizard-dot"></a>
 										<div class="bs-wizard-info text-center">Carrello.</div>
 								</div>
 								<div class="col-sm-5 bs-wizard-step active">

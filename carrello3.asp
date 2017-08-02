@@ -76,14 +76,14 @@
 	Rag_Soc=request("Rag_Soc")
 
 	if Nominativo="" and Rag_Soc="" then
-		Nominativo=os1("Nominativo")
-		Rag_Soc=os1("Rag_Soc")
-		Cod_Fisc=os1("Cod_Fisc")
-		PartitaIVA=os1("PartitaIVA")
-		Indirizzo=os1("Indirizzo")
-		CAP=os1("CAP")
-		Citta=os1("Citta")
-		Provincia=os1("Provincia")
+		Nominativo=os1("Nominativo_fat")
+		Rag_Soc=os1("Rag_Soc_fat")
+		Cod_Fisc=os1("Cod_Fisc_fat")
+		PartitaIVA=os1("PartitaIVA_fat")
+		Indirizzo=os1("Indirizzo_fat")
+		CAP=os1("CAP_fat")
+		Citta=os1("Citta_fat")
+		Provincia=os1("Provincia_fat")
 	else
 		Cod_Fisc=request("Cod_Fisc")
 		PartitaIVA=request("PartitaIVA")
@@ -154,6 +154,16 @@
 				visibility: hidden;
 			}
 		</style>
+		<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-103870379-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
 		<script language="javascript">
 			function Cambia() {
 				document.modulocarrello.method = "post";
@@ -201,14 +211,14 @@
 	  		TotaleGenerale=ss("TotaleGenerale")
 	  		NoteCliente=ss("NoteCliente")
 
-	  		NominativoOrdine=ss("Nominativo")
-	  		Rag_SocOrdine=ss("Rag_Soc")
-	  		Cod_FiscOrdine=ss("Cod_Fisc")
-	  		PartitaIVAOrdine=ss("PartitaIVA")
-	  		IndirizzoOrdine=ss("Indirizzo")
-	  		CAPOrdine=ss("CAP")
-	  		CittaOrdine=ss("Citta")
-	  		ProvinciaOrdine=ss("Provincia")
+	  		NominativoOrdine=ss("Nominativo_fat")
+	  		Rag_SocOrdine=ss("Rag_Soc_fat")
+	  		Cod_FiscOrdine=ss("Cod_Fisc_fat")
+	  		PartitaIVAOrdine=ss("PartitaIVA_fat")
+	  		IndirizzoOrdine=ss("Indirizzo_fat")
+	  		CAPOrdine=ss("CAP_fat")
+	  		CittaOrdine=ss("Citta_fat")
+	  		ProvinciaOrdine=ss("Provincia_fat")
 	  	end if
 		%>
 		<div class="container content">
@@ -550,7 +560,7 @@
 								&#8364;&nbsp;
 								</b></p>
 							</div>
-							<a href="/decorandflowers/carrello2.asp" class="btn btn-danger pull-left"><i class="glyphicon glyphicon-chevron-left"></i> Passo precedente</a>
+							<a href="carrello2.asp" class="btn btn-danger pull-left"><i class="glyphicon glyphicon-chevron-left"></i> Passo precedente</a>
 							<a href="#" class="btn btn-danger pull-right" onClick="Continua();">Concludi l'acquisto <i class="glyphicon glyphicon-chevron-right"></i></a>
 						</div>
 					<%end if%>

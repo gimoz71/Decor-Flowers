@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row no-gutters">
         <div class="col-xs-12 col-sm-4" style="text-align: center">
-            <a class="header-logo-v3" href="index.asp">Decor &amp; Flowers</a>
+            <a class="header-logo-v3" href="https://www.decorandflowers.it">Decor &amp; Flowers</a>
         </div>
         <div class="col-md-8">
             <form class="navbar-form pull-right search-bar" role="search">
@@ -28,7 +28,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav nav-justified main-menu hidden visible-xs">
-                <li class="nav-user visible-xs"><a href="index.asp">Home</a></li>
+                <li class="nav-user visible-xs"><a href="https://www.decorandflowers.it">Home</a></li>
                 <li class="nav-user dropdown yamm-fw"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Prodotti <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
                     <ul class="dropdown-menu">
                         <li>
@@ -65,7 +65,7 @@
                                             Pkid_Cat_2_menu=sot_rs("Pkid")
                                             Titolo_1_Cat_2_menu=sot_rs("Titolo_1")
                                             %>
-                                                <li><a href="prodotti.asp?cat_2=<%=Pkid_Cat_2_menu%>"><%=Titolo_1_Cat_2_menu%></b></a></li>
+                                                <li><a href="/prodotti.asp?cat_2=<%=Pkid_Cat_2_menu%>"><%=Titolo_1_Cat_2_menu%></b></a></li>
                                             <%
                                             sot_rs.movenext
                                             loop
@@ -110,7 +110,7 @@
                                       Titolo_1_Eve_menu=eve_rs("Titolo_1")
                                       %>
                                       <li class="subcategory">
-                                          <a href="#"><h4><strong><%=Titolo_1_Eve_menu%></strong></h4></a>
+                                          <a href="/prodotti_eventi.asp?eve=<%=Pkid_Eve_menu%>"><h4><strong><%=Titolo_1_Eve_menu%></strong></h4></a>
                                       </li>
 
                                       <%
@@ -129,14 +129,14 @@
                 </li>
                 <li class="nav-user visible-xs"><a href="#">Dicono di noi</a></li>
                 <%if idsession>0 then%>
-                  <li class="nav-user visible-xs"><a href="admin/logout.asp"> LOG OUT</a></li>
+                  <li class="nav-user visible-xs"><a href="/admin/logout.asp"> LOG OUT</a></li>
                 <%else%>
-                  <li class="nav-user visible-xs"><a href="iscrizione.asp"> Accedi/iscriviti</a></li>
+                  <li class="nav-user visible-xs"><a href="/iscrizione.asp"> Accedi/iscriviti</a></li>
                 <%end if%>
-                <li class="nav-user visible-xs"><a href="areaprivata.asp">Area clienti</a></li>
+                <li class="nav-user visible-xs"><a href="/areaprivata.asp">Area clienti</a></li>
                 <!--<li class="nav-user visible-xs"><a href="#">Lista dei desideri</a></li>-->
-                <li class="nav-user visible-xs"><a href="carrello1.asp">Carrello</a></li>
-                <li class="nav-user visible-xs"><a href="#">Condizioni di vendita</a></li>
+                <li class="nav-user visible-xs"><a href="/carrello1.asp">Carrello</a></li>
+                <li class="nav-user visible-xs"><a href="/condizioni-di-vendita.asp">Condizioni di vendita</a></li>
             </ul>
         </div>
     </div>

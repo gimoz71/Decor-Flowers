@@ -36,7 +36,7 @@
                         Pkid_Cat_2_menu=sot_rs("Pkid")
                         Titolo_1_Cat_2_menu=sot_rs("Titolo_1")
                         %>
-                        <a href="prodotti.asp?cat_2=<%=Pkid_Cat_2_menu%>" class="list-group-item" id="<%=Pkid_Cat_2_menu%>" title="<%=Titolo_1_Cat_2_menu%>"><%=Titolo_1_Cat_2_menu%></a>
+                        <a href="/prodotti.asp?cat_2=<%=Pkid_Cat_2_menu%>" class="list-group-item" id="<%=Pkid_Cat_2_menu%>" title="<%=Titolo_1_Cat_2_menu%>"><%=Titolo_1_Cat_2_menu%></a>
                         <%
                         sot_rs.movenext
                         loop
@@ -73,7 +73,7 @@
             %>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="prodotti_eventi.asp?eve=<%=Pkid_Eve_menu%>" class="panel-title" title="<%=Titolo_1_Eve_menu%>"><%=Titolo_1_Eve_menu%></a>
+                    <a href="/prodotti_eventi.asp?eve=<%=Pkid_Eve_menu%>" class="panel-title" title="<%=Titolo_1_Eve_menu%>"><%=Titolo_1_Eve_menu%></a>
                 </div>
             </div>
             <%

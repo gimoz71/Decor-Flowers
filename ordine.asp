@@ -83,7 +83,7 @@
 			HTML1 = HTML1 & "<table width='553' border='0' cellspacing='0' cellpadding='0'>"
 			HTML1 = HTML1 & "<tr>"
 			HTML1 = HTML1 & "<td>"
-			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Grazie "&nominativo_email&" per aver scelto i nostri prodotti!<br>Questa &egrave; un email di conferma per il completamento dell'ordine n&deg; "&idordine&".<br><br><b>TOTALE ORDINE: <u>"&TotaleGenerale&"&#8364;</u></b><br><br> Per completare l'ordine &egrave; necessario effettuare il bonifico con i seguenti dati:<br><u>BANCA XXXXXXX</u><br>IBAN: <u>XXXXXXXXX</u><br>Codice BIC/SWIFT: <u>XXXXXX</u><br>Nella causale indicare: Ordine da sito internet n&deg; "&idordine&"<br><br>Beneficiario: Decor And Flowers (P.Iva e C.Fiscale 06741510488)<br>Via delle mimose, 13 - 50050 Capraia e Limite sull'Arno (FI)<br><br><br>Il nostro staff avr&agrave; cura di spedirti la merce appena la banca avr&agrave; notificato il pagamento del bonifico oppure, per velocizzare la spedizione, &egrave; possibile inviarci per email la ricevuta dell'avvenuto pagamento con bonifico (in caso di bonifico fatto con home banking spesso viene fornita dalla banca una ricevuta, oppure &egrave; possibile scannerizzare la ricevuta rilasciata dalla banca).</font><br>"
+			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Grazie "&nominativo_email&" per aver scelto i nostri prodotti!<br>Questa &egrave; un email di conferma per il completamento dell'ordine n&deg; "&idordine&".<br><br><b>TOTALE ORDINE: <u>"&TotaleGenerale&"&#8364;</u></b><br><br> Per completare l'ordine &egrave; necessario effettuare il bonifico con i seguenti dati:<br><u>BANCA ALTA TOSCANA - CREDITO COOPERATIVO</u><br>IBAN: <u>IT91 Y089 2238 1700 0000 0822 158</u><br>Nella causale indicare: Ordine da sito internet n&deg; "&idordine&"<br><br>Beneficiario: Decor And Flowers (P.Iva e C.Fiscale 06741510488)<br>Via delle mimose, 13 - 50050 Capraia e Limite sull'Arno (FI)<br><br><br>Il nostro staff avr&agrave; cura di spedirti la merce appena la banca avr&agrave; notificato il pagamento del bonifico oppure, per velocizzare la spedizione, &egrave; possibile inviarci per email la ricevuta dell'avvenuto pagamento con bonifico (in caso di bonifico fatto con home banking spesso viene fornita dalla banca una ricevuta, oppure &egrave; possibile scannerizzare la ricevuta rilasciata dalla banca).</font><br>"
 			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000><br><br>Cordiali Saluti, lo staff di DecorAndFlowers.it</font>"
 			HTML1 = HTML1 & "</td>"
 			HTML1 = HTML1 & "</tr>"
@@ -181,13 +181,13 @@
 			End With
 			Set eMail_cdo.Configuration = myConfig
 
-			'eMail_cdo.From = Mittente
-			'eMail_cdo.To = Destinatario
-			'eMail_cdo.Subject = Oggetto
+			eMail_cdo.From = Mittente
+			eMail_cdo.To = Destinatario
+			eMail_cdo.Subject = Oggetto
 
-			'eMail_cdo.HTMLBody = Testo
+			eMail_cdo.HTMLBody = Testo
 
-			'eMail_cdo.Send()
+			eMail_cdo.Send()
 
 			Set myConfig = Nothing
 			Set eMail_cdo = Nothing
@@ -257,7 +257,7 @@
 			HTML1 = HTML1 & "<table width='553' border='0' cellspacing='0' cellpadding='0'>"
 			HTML1 = HTML1 & "<tr>"
 			HTML1 = HTML1 & "<td>"
-			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Grazie "&nominativo_email&" per aver scelto i nostri prodotti!<br>Questa &egrave; un email di conferma per il completamento dell'ordine n&deg; "&idordine&".<br><br><br>Il nostro staff avr&agrave; cura di spedirti la merce appena sar&agrave; disponibile nel nostro magazino.<br>Ti ricordiamo che per il pagamento in contrassegno, il corriere consegner&agrave; la merce solo se verr&agrave; pagata in contanti, non accetter&agrave; altri metodi di pagamento (anche gli assegni non saranno accettati).</font><br>"
+			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Grazie "&nominativo_email&" per aver scelto i nostri prodotti!<br>Questa &egrave; un email di conferma per il completamento dell'ordine n&deg; "&idordine&".<br><br><br>Il nostro staff avr&agrave; cura di spedirti la merce appena sar&agrave; disponibile nel nostro magazzino.<br>Ti ricordiamo che per il pagamento in contrassegno, il corriere consegner&agrave; la merce solo se verr&agrave; pagata in contanti, non accetter&agrave; altri metodi di pagamento (anche gli assegni non saranno accettati).</font><br>"
 			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000><br><br>Cordiali Saluti, lo staff di DecorAndFlowers.it</font>"
 			HTML1 = HTML1 & "</td>"
 			HTML1 = HTML1 & "</tr>"
@@ -355,13 +355,13 @@
 			End With
 			Set eMail_cdo.Configuration = myConfig
 
-			'eMail_cdo.From = Mittente
-			'eMail_cdo.To = Destinatario
-			'eMail_cdo.Subject = Oggetto
+			eMail_cdo.From = Mittente
+			eMail_cdo.To = Destinatario
+			eMail_cdo.Subject = Oggetto
 
-			'eMail_cdo.HTMLBody = Testo
+			eMail_cdo.HTMLBody = Testo
 
-			'eMail_cdo.Send()
+			eMail_cdo.Send()
 
 			Set myConfig = Nothing
 			Set eMail_cdo = Nothing
@@ -432,7 +432,7 @@
 			HTML1 = HTML1 & "<table width='553' border='0' cellspacing='0' cellpadding='0'>"
 			HTML1 = HTML1 & "<tr>"
 			HTML1 = HTML1 & "<td>"
-			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Grazie "&nominativo_email&" per aver scelto i nostri prodotti!<br>Questa �  un email di conferma per il completamento dell'ordine n. "&idordine&".<br><br><strong>TOTALE ORDINE: <u>"&TotaleGenerale&"&#8364;</u></strong><br><br> Per completare l'ordine � necessario effettuare il pagamento su Carta POSTEPAY con i seguenti dati:<br><br><strong>Beneficiario: xxxx xxxx - c.f. xxxxxxxx<br>Numero carta: 11111111111</strong><br><br>Nella causale indicare: <strong>Ordine da sito internet n. "&idordine&"</strong><br><br><br>Il nostro staff avr&agrave; cura di spedirti la merce appena ricever&agrave; la notifica del pagamento oppure, per velocizzare la spedizione, &egrave; possibile inviarci per email la ricevuta dell'avvenuto pagamento.</font><br>"
+			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Grazie "&nominativo_email&" per aver scelto i nostri prodotti!<br>Questa &egrave; un email di conferma per il completamento dell'ordine n. "&idordine&".<br><br><strong>TOTALE ORDINE: <u>"&TotaleGenerale&"&#8364;</u></strong><br><br> Per completare l'ordine &egrave; necessario effettuare il pagamento su Carta POSTEPAY con i seguenti dati:<br><br><strong>Beneficiario: xxxx xxxx - c.f. xxxxxxxx<br>Numero carta: 11111111111</strong><br><br>Nella causale indicare: <strong>Ordine da sito internet n. "&idordine&"</strong><br><br><br>Il nostro staff avr&agrave; cura di spedirti la merce appena ricever&agrave; la notifica del pagamento oppure, per velocizzare la spedizione, &egrave; possibile inviarci per email la ricevuta dell'avvenuto pagamento.</font><br>"
 			HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000><br><br>Cordiali Saluti, lo staff di DecorAndFlowers.it</font>"
 			HTML1 = HTML1 & "</td>"
 			HTML1 = HTML1 & "</tr>"
@@ -530,13 +530,13 @@
 			End With
 			Set eMail_cdo.Configuration = myConfig
 
-			'eMail_cdo.From = Mittente
-			'eMail_cdo.To = Destinatario
-			'eMail_cdo.Subject = Oggetto
+			eMail_cdo.From = Mittente
+			eMail_cdo.To = Destinatario
+			eMail_cdo.Subject = Oggetto
 
-			'eMail_cdo.HTMLBody = Testo
+			eMail_cdo.HTMLBody = Testo
 
-			'eMail_cdo.Send()
+			eMail_cdo.Send()
 
 			Set myConfig = Nothing
 			Set eMail_cdo = Nothing
@@ -724,7 +724,16 @@ End If
             visibility: hidden;
         }
     </style>
+		<script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+      ga('create', 'UA-103870379-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
 </head>
 
 <body>
@@ -791,11 +800,10 @@ End If
 											Grazie per aver scelto i nostri prodotti,<br>
 												per completare l'ordine &egrave; necessario effettuare il bonifico con i seguenti dati:<br>
 												<br>
-												<strong>BANCA xxxxxxxxxxxx<br>IBAN: 11111111111111<br>
-												Codice BIC/SWIFT: AAAAAAAA</strong>
+												<strong>BANCA ALTA TOSCANA - CREDITO COOPERATIVO<br>IBAN: <u>IT91 Y089 2238 1700 0000 0822 158</strong>
 												<br><br>Nella causale indicare: "<strong>Ordine da sito internet n. <%=idordine%></strong>"<br><br>
 												Beneficiario:<br><strong>Decor And Flowers (P.Iva e C.Fiscale 06741510488)<br>
-												Via delle mimose, 13 - 50050 Capraia e Limite sull'Arno (FI)</strong>
+												Via delle mimose, 13 - 50050 Capraia e Limite(FI)</strong>
 												<br><br>
 												La merce verr&agrave; spedita al momento che la nostra banca ricever&agrave; il pagamento oppure, per velocizzare la spedizione, &egrave; possibile inviarci per email la ricevuta dell'avvenuto pagamento con bonifico (in caso di bonifico fatto con home banking spesso viene fornita dalla banca una ricevuta, oppure &egrave; possibile scannerizzare la ricevuta rilasciata dalla banca).<br>
 												<br>
