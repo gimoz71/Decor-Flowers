@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Decor &amp; Flowers</title>
+    <title>Vendita piante artificiali | Vendita fiori artificiali | Decor &amp; Flowers</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Decor &amp; Flowers.">
     <meta name="keywords" content="">
@@ -110,7 +110,7 @@
                 <div class="col-xs-6 col-sm-4 col-md-3">
                     <article class="col-item">
                         <div class="photo">
-                            <a href="#" class="prod-img-replace" style="background-image: url(<%=img%>)"><img alt="<%=Titolo_1_Cat_1%>" src="images/blank.png"></a>
+                            <a href="prodotti.asp?cat_1=<%=Pkid_Cat_1%>" class="prod-img-replace" style="background-image: url(<%=img%>)" title="<%=Titolo_1_Cat_1%>"><img alt="<%=Titolo_1_Cat_1%>" src="images/blank.png"></a>
                         </div>
                         <div class="info">
                             <div class="row">
@@ -171,10 +171,10 @@
                                     <p class="details">codice: <b><%=Codice_Prod%></b></p>
                                     <div class="price-box separator">
                                         <%if PrezzoOfferta>0 then%>
-                                          <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=PrezzoOfferta%> &euro;</span><br />
-                                          <%if PrezzoProdotto>0 then%><span class="price-old">invece di <b><%=PrezzoProdotto%> &euro;</b></span><%else%>&nbsp;<%end if%>
+                                          <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=FormatNumber(PrezzoOfferta,2)%> &euro;</span><br />
+                                          <%if PrezzoProdotto>0 then%><span class="price-old">invece di <b><%=FormatNumber(PrezzoProdotto,2)%> &euro;</b></span><%else%>&nbsp;<%end if%>
                                         <%else%>
-                                          <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=PrezzoProdotto%> &euro;</span><br />&nbsp;
+                                          <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=FormatNumber(PrezzoProdotto,2)%> &euro;</span><br />&nbsp;
                                         <%end if%>
                                     </div>
                                 </div>
@@ -242,10 +242,10 @@
                                     <p class="details">codice: <b><%=Codice_Prod%></b></p>
                                     <div class="price-box separator">
                                       <%if PrezzoOfferta>0 then%>
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=PrezzoOfferta%> &euro;</span><br />
-                                        <%if PrezzoProdotto>0 then%><span class="price-old">invece di <b><%=PrezzoProdotto%> &euro;</b></span><%else%>&nbsp;<%end if%>
+                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=FormatNumber(PrezzoOfferta,2)%> &euro;</span><br />
+                                        <%if PrezzoProdotto>0 then%><span class="price-old">invece di <b><%=FormatNumber(PrezzoProdotto,2)%> &euro;</b></span><%else%>&nbsp;<%end if%>
                                       <%else%>
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=PrezzoProdotto%> &euro;</span><br />&nbsp;
+                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=FormatNumber(PrezzoProdotto,2)%> &euro;</span><br />&nbsp;
                                       <%end if%>
                                     </div>
                                 </div>

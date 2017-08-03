@@ -183,8 +183,8 @@ end if
                                 <li class="list-group-item" style="padding-top: 20px">
                                     <p>
                                     Prezzo D&F<br />
-                                    <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=prezzoofferta%> &euro;</span><br />
-                                    <%if prezzoprodotto>0 then%><span class="price-old">Invece di  <b><%=prezzoprodotto%> &euro;</b></span><br /><%end if%>
+                                    <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=FormatNumber(prezzoofferta,2)%> &euro;</span><br />
+                                    <%if prezzoprodotto>0 then%><span class="price-old">Invece di  <b><%=FormatNumber(prezzoprodotto,2)%> &euro;</b></span><br /><%end if%>
                                     </p>
                                 </li>
                             </ul>
@@ -277,7 +277,7 @@ end if
                                             </div>
                                         </div>
                                     </td>
-                                    <td data-th="Price" class="hidden-xs text-right"><%=var_rs("PrezzoProdotto")%> &euro;</td>
+                                    <td data-th="Price" class="hidden-xs text-right"><%=FormatNumber(var_rs("PrezzoProdotto"),2)%> &euro;</td>
                                     <td data-th="Price" class="hidden-xs text-center"><%=Pezzi%></td>
                                     <td data-th="Quantity">
                                         <!--<input type="number" class="form-control text-center" name="pezzi_<%=pkid_prodotto_figlio%>" value="0" <%if Pezzi=0 then%>disabled<%end if%>>-->
