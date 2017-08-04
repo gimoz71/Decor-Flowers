@@ -622,7 +622,7 @@ if PaymentOption = "PayPal" then
 	'
 	' This is set to the value entered on the Integration Assistant
 	'------------------------------------
-	cancelURL = "https://www.decorandflowers.it/pagamento_paypal_ko.asp"
+	cancelURL = "https://www.decorandflowers.it/pagamento_paypal_ok.asp"
 
 	'------------------------------------
 	' The paymentAmount is the total value of
@@ -797,96 +797,93 @@ End If
 								<div class="col-md-12 hidden-print">
 								<%if FkPagamento=1 then%>
 										<p class="description">
-											Grazie per aver scelto i nostri prodotti,<br>
-												per completare l'ordine &egrave; necessario effettuare il bonifico con i seguenti dati:<br>
-												<br>
+											Grazie per aver scelto i nostri prodotti,<br />
+												per completare l'ordine &egrave; necessario effettuare il bonifico con i seguenti dati:
+												<br / ><br / >
 												<strong>BANCA ALTA TOSCANA - CREDITO COOPERATIVO<br>IBAN: <u>IT91 Y089 2238 1700 0000 0822 158</strong>
-												<br><br>Nella causale indicare: "<strong>Ordine da sito internet n. <%=idordine%></strong>"<br><br>
+												<br / ><br / >Nella causale indicare: "<strong>Ordine da sito internet n. <%=idordine%></strong>"<br><br>
 												Beneficiario:<br><strong>Decor And Flowers (P.Iva e C.Fiscale 06741510488)<br>
 												Via delle mimose, 13 - 50050 Capraia e Limite(FI)</strong>
-												<br><br>
-												La merce verr&agrave; spedita al momento che la nostra banca ricever&agrave; il pagamento oppure, per velocizzare la spedizione, &egrave; possibile inviarci per email la ricevuta dell'avvenuto pagamento con bonifico (in caso di bonifico fatto con home banking spesso viene fornita dalla banca una ricevuta, oppure &egrave; possibile scannerizzare la ricevuta rilasciata dalla banca).<br>
-												<br>
+												<br / ><br / >
+												La merce verr&agrave; spedita al momento che la nostra banca ricever&agrave; il pagamento oppure, per velocizzare la spedizione, &egrave; possibile inviarci per email la ricevuta dell'avvenuto pagamento con bonifico (in caso di bonifico fatto con home banking spesso viene fornita dalla banca una ricevuta, oppure &egrave; possibile scannerizzare la ricevuta rilasciata dalla banca).
+												<br / ><br / >
 												Pagando, e quindi completando l'ordine, si accettano le condizioni di vendita.<br><br>
-												Salva oppure stampa le condizioni di vendita (consultabili anche nell'apposita pagina del sito internet) da questo file (.pdf):<br><a href="/condizioni_di_vendita.pdf" target="_blank">condizioni di vendita</a>
-												<br>
-												<br>
+												Salva oppure stampa le condizioni di vendita (consultabili anche nell'apposita pagina del sito internet) da questo file (.pdf): <a href="/condizioni_di_vendita.pdf" target="_blank">condizioni di vendita</a>
+												<br / ><br / >
+												<em>Nel caso in cui si volessero modificare alcuni dati o cambiare il sistema di pagamento l'ordine &egrave; presente nell'Area Clienti.</em>
+												<br / ><br / >
 												Cordiali saluti, lo staff di DecorAndFlowers.it
-												<br>
-												<br>
+												<br / ><br / >
 										</p>
 								<%end if%>
 								<%if FkPagamento=4 then%>
 										<p class="description">
-												<br><br>Grazie per aver scelto i nostri prodotti,<br>
-													per completare l'ordine &egrave; necessario effettuare il versamente sulla Carta di POSTEPAY con i seguenti dati:<br>
-													<br><br>
+												<br / ><br / >Grazie per aver scelto i nostri prodotti,<br />
+													per completare l'ordine &egrave; necessario effettuare il versamente sulla Carta di POSTEPAY con i seguenti dati:
+													<br / ><br / >
 													<strong>Beneficiario: xxxxxxxx - c.f. xxxxxxx<br>
 													Numero carta: xxxxxxxxx</strong>
-													<br><br>Nella causale indicare: "<strong>Ordine da sito internet n. <%=idordine%></strong>"<br><br>
+													<br / ><br / >Nella causale indicare: "<strong>Ordine da sito internet n. <%=idordine%></strong>"<br / ><br / >
 
-												La merce verr&agrave; spedita al momento che riceveremo il pagamento oppure, per velocizzare la spedizione, &egrave; possibile inviarci per email la ricevuta dell'avvenuto pagamento.<br>
-												<br>
-												Pagando, e quindi completando l'ordine, si accettano le condizioni di vendita.<br><br>
+												La merce verr&agrave; spedita al momento che riceveremo il pagamento oppure, per velocizzare la spedizione, &egrave; possibile inviarci per email la ricevuta dell'avvenuto pagamento.<br / ><br / >
+												Pagando, e quindi completando l'ordine, si accettano le condizioni di vendita.<br / ><br / >
 												Salva oppure stampa le condizioni di vendita (consultabili anche nell'apposita pagina del sito internet) da questo file (.pdf):<br><a href="/condizioni_di_vendita.pdf" target="_blank">condizion di vendita</a>
-												<br>
-												<br>
+												<br / ><br / >
+
+												<em>Nel caso in cui si volessero modificare alcuni dati o cambiare il sistema di pagamento l'ordine &egrave; presente nell'Area Clienti.</em>
+												<br / ><br / >
 												Cordiali saluti, lo staff di DecorAndFlowers.it
-												<br>
-												<br>
+												<br / ><br / >
 										</p>
 								<%end if%>
 								<%if FkPagamento=3 then%>
 										<p class="description">
-										<br><br>Grazie per aver scelto i nostri prodotti,<br>
-											la merce verr&agrave; spedita appena sar&agrave; disponibile nel nostro magazino.<br>
-											Ti ricordiamo che per il pagamento in contrassegno, il corriere consegner&agrave; la merce solo se verr&agrave; pagata in contanti, non accetter&agrave; altri metodi di pagamento (anche gli assegni non saranno accettati).<br>
-											<br>
-										Pagando, e quindi completando l'ordine, si accettano le condizioni di vendita.<br>
-										Salva oppure stampa le condizioni di vendita (consultabili nell'apposita pagina del sito internet) da questo file (.pdf):<br>
-										<a href="/condizioni_di_vendita.pdf" target="_blank">condizion di vendita</a>
-										<br>
-										<br>
+										<br><br>Grazie per aver scelto i nostri prodotti,<br />
+											la merce verr&agrave; spedita appena sar&agrave; disponibile nel nostro magazino.<br />
+											Ti ricordiamo che per il pagamento in contrassegno, il corriere consegner&agrave; la merce solo se verr&agrave; pagata in contanti, non accetter&agrave; altri metodi di pagamento (anche gli assegni non saranno accettati).
+											<br / ><br / >
+										Pagando, e quindi completando l'ordine, si accettano le condizioni di vendita.<br />
+										Salva oppure stampa le condizioni di vendita (consultabili nell'apposita pagina del sito internet) da questo file (.pdf): <a href="/condizioni_di_vendita.pdf" target="_blank">condizion di vendita</a>
+										<br / ><br / >
+										<em>Nel caso in cui si volessero modificare alcuni dati o cambiare il sistema di pagamento l'ordine &egrave; presente nell'Area Clienti.</em>
+										<br / ><br / >
 										Cordiali saluti, lo staff di DecorAndFlowers.it
-										<br>
-										<br>
+										<br / ><br / >
 										</p>
 								<%end if%>
 								<%if FkPagamento=2 then%>
 										<%if PaymentOption = "PayPal" and ack<>"SUCCESS" Then%>
 												<p class="description">
-												<br><br>
+												<br / ><br / >
 												<em><strong>Ci sono stati problemi con il pagamento di PayPal: dovresti modificare l'ordine scegliendo un altro tipo di pagamento oppure contattarci.
-												<br><br>
+												<br / ><br / >
+												<em>Nel caso in cui si volessero modificare alcuni dati o cambiare il sistema di pagamento l'ordine &egrave; presente nell'Area Clienti.</em>
+												<br / ><br / >
 												Cordiali saluti, lo staff di DecorAndFlowers.it</strong></em>
-												<br><br>
+												<br / ><br / >
 												</p>
 										<%else%>
 									<p class="description">
 
-										<a href="https://www.paypal.com/it/webapps/mpp/paypal-popup" title="Come funziona PayPal" onClick="javascript:window.open('https://www.paypal.com/it/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo-center/logo_paypal_carte.jpg" border="0" style="float:right; padding-left:5px; width:319px; height:110px;" alt="Che cos'&egrave; PayPal"></a>Grazie per aver scelto i nostri prodotti,<br>
-										per completare l'ordine &egrave; necessario effettuare il pagamento con i sistemi sicuri di PayPal che permettono di pagare con moltissime carte di credito e carte ricaribili protetti dai loro protocolli di sicurezza:<br>
-										MasterCard, Visa e Visa Electron, PostePay, Carta Aura e ricariche PayPal.<br><br>
-										Pagando, e quindi completando l'ordine, si accettano le condizioni di vendita.<br>
-									Salva oppure stampa le condizioni di vendita (consultabili anche nell'apposita pagina del sito internet) da questo file (.pdf):<br>
-									<a href="/condizioni_di_vendita.pdf" target="_blank">condizion di vendita</a>							    <br>
-										<br>
-										</p>
-
-									<p>
+										<a href="https://www.paypal.com/it/webapps/mpp/paypal-popup" title="Come funziona PayPal" onClick="javascript:window.open('https://www.paypal.com/it/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/logo-center/logo_paypal_carte.jpg" border="0" style="float:right; padding-left:5px; width:319px; height:110px;" alt="Che cos'&egrave; PayPal"></a>Grazie per aver scelto i nostri prodotti,<br />
+										per completare l'ordine &egrave; necessario effettuare il pagamento con i <strong>sistemi sicuri di PayPal</strong> che permettono di pagare con moltissime carte di credito e carte ricaribili protetti dai loro protocolli di sicurezza:<br />
+										MasterCard, Visa e Visa Electron, PostePay, Carta Aura e ricariche PayPal.<br / ><br / >
+										Pagando, e quindi completando l'ordine, si accettano le condizioni di vendita.<br />
+									Salva oppure stampa le condizioni di vendita (consultabili anche nell'apposita pagina del sito internet) da questo file (.pdf):
+									<a href="/condizioni_di_vendita.pdf" target="_blank">condizion di vendita</a>
+									<br /><br />
+									L'ordine sar&agrave; preso in carico al momento che PayPal ricever&agrave; il pagamento.<br />
+									<br />
+									Cordiali saluti, lo staff di DecorAndFlowers.it
+									<br / ><br / >
+									<strong>CLICCA SUL PULSANTE PAYPAL PER COMPLETARE IL PAGAMENTO</strong><br />
 									<form action='/ordine.asp' METHOD='POST'>
 										<input type="hidden" name="PaymentOption" value="PayPal" />
 										<input type="hidden" name="IdOrdine" value="<%=IdOrdine%>" />
 										<input type='image' name='submit' src='https://www.paypal.com/it_IT/i/btn/btn_xpressCheckout.gif' border='0' align='top' alt='Check out with PayPal'/>
 									</form>
-									</p>
-									<p class="description">
-									<br><br>
-									La merce verr&agrave; spedita al momento che la nostra banca ricever&agrave; il pagamento.<br>
-									<br>
-									Cordiali saluti, lo staff di DecorAndFlowers.it
-									<br>
-									<br>
+									<br / ><br / ><br / ><br / >
+									<em>Nel caso in cui si volessero modificare alcuni dati o cambiare il sistema di pagamento l'ordine &egrave; presente nell'Area Clienti.</em>
 									</p>
 									<%end if%>
 								<%end if%>
@@ -957,7 +954,7 @@ End If
 														<%end if%>
 														<tfoot>
 															<tr class="visible-xs">
-																<td class="text-center"><strong>Totale <%if TotaleCarrello<>0 then%>
+																<td class="text-center"><strong>Totale carrello <%if TotaleCarrello<>0 then%>
 																	<%=FormatNumber(TotaleCarrello,2)%>&euro;<%else%>0&euro;<%end if%></strong>
 																</td>
 															</tr>

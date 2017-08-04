@@ -440,11 +440,11 @@ End If
 										<p class="description">
 											<br /><br />La procedura di pagamento attraverso PayPal non &egrave; stata completata oppure ci sono stati errori nel sistema di pagamento. Ci scusiamo per l'inconveniente.<br /><br />
 												Puoi contattare il nostro staff e spiegare la situazione, ti saremo di aiuto.
-												<br>
-												<br>
+												<br / ><br / >
+												<em>Nel caso in cui si volessero modificare alcuni dati o cambiare il sistema di pagamento l'ordine &egrave; presente nell'Area Clienti.</em>
+												<br / ><br / >
 												Cordiali saluti, lo staff di DecorAndFlowers.it
-												<br>
-												<br>
+												<br / ><br / >
 										</p>
 								<%else%>
 										<p class="description">
@@ -456,12 +456,11 @@ End If
 												<br />
 												<br />
 												Cordiali saluti, lo staff di DecorAndFlowers.it
-												<br>
-												<br>
+												<br / ><br / >
 										</p>
 								<%end if%>
 
-								
+
 
 								<div class="col-md-12">
 		                <div class="top-buffer">
