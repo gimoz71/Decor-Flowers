@@ -23,11 +23,8 @@
 	if mode="" then mode=0
 
 	'inserisco il costo del trasporto.
-	'TipoTrasportoScelto=request("TipoTrasportoScelto")
-	'if TipoTrasportoScelto="" then TipoTrasportoScelto=0
-
-	'Trasporto fisso =1 - senza scelta
-	TipoTrasportoScelto=1
+	TipoTrasportoScelto=request("TipoTrasportoScelto")
+	if TipoTrasportoScelto="" then TipoTrasportoScelto=0
 
 	Set os1 = Server.CreateObject("ADODB.Recordset")
 	sql = "SELECT * FROM Ordini where PkId="&idOrdine
@@ -408,7 +405,7 @@
 								<table id="cart" class="table table-hover table-condensed table-cart">
 									<%
 										Set trasp_rs = Server.CreateObject("ADODB.Recordset")
-										sql = "SELECT TOP 1 * FROM CostiTrasporto"
+										sql = "SELECT * FROM CostiTrasporto"
 										trasp_rs.Open sql, conn, 1, 1
 									%>
 									<thead>
