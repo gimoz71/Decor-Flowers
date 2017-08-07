@@ -190,7 +190,7 @@ end if
                             </ul>
                             <%if Stato_Prod=2 or (TotalePezzi=0 and Varianti="no") then%>
                             <div class="panel-footer">
-                                <a data-fancybox data-src="#hidden-content" href="javascript:;" class="btn btn-danger btn-block" title="Richiedi il prodotto al nostro staff">Ordina per email <i class="glyphicon glyphicon-envelope"></i></a>
+                                <a data-fancybox data-src="#hidden-content" href="javascript:;" class="btn launch btn-danger btn-block">Ordina per email <i class="glyphicon glyphicon-envelope"></i></a>
                             </div>
                             <%end if%>
                       </div>
@@ -239,7 +239,7 @@ end if
                         var_rs.Open sql, conn, 1, 1
                         if var_rs.recordcount>0 then
                         TotalePezzi=var_rs("TotalePezzi")
-                        response.write("TotalePezzi:"&TotalePezzi)
+                        'response.write("TotalePezzi:"&TotalePezzi)
                         %>
                         <form name="newsform2" id="newsform2" onSubmit="return Verifica();">
                         <input type="hidden" name="id_madre" id="id_madre" value="<%=pkid_prod%>">
@@ -284,7 +284,7 @@ end if
                                         <%if Pezzi>0 then%>
                                         <input type="number" class="form-control text-center" name="pezzi_<%=pkid_prodotto_figlio%>" id="pezzi_<%=pkid_prodotto_figlio%>" value="0">
                                         <%else%>
-                                        <a href="mailto:info@decorandflowers.it" rel="nofollow" class="btn btn-danger btn-block" title="Richiedi il prodotto al nostro staff">Ordina per email <i class="glyphicon glyphicon-envelope"></i></a>
+                                        <a data-fancybox data-src="#hidden-content-<%=pkid_prodotto_figlio%>" href="javascript:;" class="btn launch btn-danger btn-block">Ordina per email <i class="glyphicon glyphicon-envelope"></i></a>
                                         <%end if%>
                                     </td>
                                 </tr>

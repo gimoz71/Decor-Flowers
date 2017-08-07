@@ -107,14 +107,25 @@ if ric="" then ric=0
   }
 
 </SCRIPT>
-<div style="display: none; max-width: 800px;" id="hidden-content">
-    <h4>Richiesta informazioni e disponibilit&agrave; per<br /><b><%=Titolo_prodotto%></b><br />Codice prodotto: <%=CodiceArticolo%></h4>
+<%
+Set var_rs=Server.CreateObject("ADODB.Recordset")
+sql = "SELECT * "
+sql = sql + "FROM Prodotti_Figli WHERE FkProdotto_Madre="&pkid_prod&" AND Pezzi=0 "
+sql = sql + "ORDER BY Titolo ASC"
+var_rs.Open sql, conn, 1, 1
+if var_rs.recordcount>0 then
+Do while not var_rs.EOF
+pkid_prodotto_figlio=var_rs("PkId")
+%>
+<div style="display: none; max-width: 800px;" id="hidden-content-<%=pkid_prodotto_figlio%>">
+    <h4>Richiesta informazioni e disponibilit&agrave; per<br /><b><%=Titolo_Prod%></b><br />Codice prodotto: <%=Codice_Prod%> - Variante: <%=var_rs("Codice")%></h4>
     <%if ric=1 then%>
     <p><strong>La richiesta &egrave; stata inoltrata correttamente, il nostro staff ti contatter&agrave; il prima possibile.<br />Saluti da DecorAndFlowers.it</strong></p>
     <%else%>
-    <p class="description">Per richiedere informazioni, disponibilit&agrave; o un preventivo del prodotto riempi il seguente modulo, oppure contattaci direttamente.</p>
+    <p class="description">Per richiedere informazioni, disponibilit&agrave; o un preventivo del prodotto riempi il seguente modulo, oppure contattaci direttamente, indicando eventualmente le varianti a cui fai riferimento.</p>
     <form class="form-horizontal" name="requestform" id="requestform" onSubmit="return verifica_request();">
     <input type="hidden" name="ric" value="1" />
+    <input type="hidden" name="pkid_prodotto_figlio_email" value="<%=pkid_prodotto_figlio%>" />
         <div class="form-group">
             <label for="nome" class="col-sm-4 control-label">Nome</label>
             <div class="col-sm-8">
@@ -147,6 +158,12 @@ if ric="" then ric=0
     </form>
     <%end if%>
 </div>
+<%
+var_rs.movenext
+loop
+end if
+var_rs.close
+%>
 <%end if%>
 <!-- Bootstrap core JavaScript
     ================================================== -->
