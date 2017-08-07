@@ -190,7 +190,7 @@ end if
                             </ul>
                             <%if Stato_Prod=2 or (TotalePezzi=0 and Varianti="no") then%>
                             <div class="panel-footer">
-                                <a href="mailto:info@decorandflowers.it" rel="nofollow" class="btn btn-danger btn-block" title="Richiedi il prodotto al nostro staff">Ordina per email <i class="glyphicon glyphicon-envelope"></i></a>
+                                <a data-fancybox data-src="#hidden-content" href="javascript:;" class="btn btn-danger btn-block" title="Richiedi il prodotto al nostro staff">Ordina per email <i class="glyphicon glyphicon-envelope"></i></a>
                             </div>
                             <%end if%>
                       </div>
@@ -306,7 +306,5 @@ end if
         </div>
     </div>
     <!--#include file="inc_footer.asp"-->
-
-    <script src="javascripts/jquery.fancybox.js"></script>
 </body>
 <!--#include file="inc_strClose.asp"-->

@@ -80,11 +80,88 @@
 </span>
 <!-- /top-link-block -->
 <!-- fine finestra modale -->
+<%if pkid_prod>0 then%>
+<%
+ric=request("ric")
+if ric="" then ric=0
+%>
+<SCRIPT language="JavaScript">
+  function verifica_request() {
+
+  email=document.requestform.email.value;
+
+  if (email==""){
+    alert("Non  e\' stato compilato il campo \"Email\".");
+    return false;
+  }
+  if (email.indexOf("@")==-1 || email.indexOf(".")==-1){
+  alert("ATTENZIONE! \"e-mail\" non valida.");
+  return false;
+  }
+
+    else
+
+      document.requestform.method = "post";
+      document.requestform.action = "<%=toUrl_completo%>?pkid_prod=<%=pkid_prod%>";
+      document.requestform.submit();
+  }
+
+</SCRIPT>
+<div style="display: none; max-width: 800px;" id="hidden-content">
+    <h4>Richiesta informazioni e disponibilit&agrave; per<br /><b><%=Titolo_prodotto%></b><br />Codice prodotto: <%=CodiceArticolo%></h4>
+    <%if ric=1 then%>
+    <p><strong>La richiesta &egrave; stata inoltrata correttamente, il nostro staff ti contatter&agrave; il prima possibile.<br />Saluti da DecorAndFlowers.it</strong></p>
+    <%else%>
+    <p class="description">Per richiedere informazioni, disponibilit&agrave; o un preventivo del prodotto riempi il seguente modulo, oppure contattaci direttamente.</p>
+    <form class="form-horizontal" name="requestform" id="requestform" onSubmit="return verifica_request();">
+    <input type="hidden" name="ric" value="1" />
+        <div class="form-group">
+            <label for="nome" class="col-sm-4 control-label">Nome</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="nome" name="nome">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-4 control-label">Indirizzo Email</label>
+            <div class="col-sm-8">
+                <input type="email" class="form-control" id="email" name="email">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="telefono" class="col-sm-4 control-label">Telefono</label>
+            <div class="col-sm-8">
+                <input type="number" class="form-control" id="telefono" name="telefono">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="richiesta" class="col-sm-4 control-label">Dettagli richiesta</label>
+            <div class="col-sm-8">
+                <textarea class="form-control" name="richesta"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-8">
+                <button type="submit" id="diocane" class="btn btn-danger">invia richiesta</button>
+            </div>
+        </div>
+    </form>
+    <%end if%>
+</div>
+<%end if%>
 <!-- Bootstrap core JavaScript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="javascripts/bootstrap.js"></script>
+<script src="javascripts/holder.js"></script>
 <script src="javascripts/readmore.js"></script>
-<!-- <script src="javascripts/holder.js"></script> -->
+<script src="javascripts/jquery.fancybox.js"></script>
 <script src="javascripts/custom.js"></script>
+
+<script>
+    <% if ric=1 then %>
+    $(document).ready(function() {
+        $(".launch").fancybox().trigger('click');
+    });
+    <% end if %>
+</script>

@@ -12,8 +12,8 @@ On Error Resume Next
 	path_thumb="d:\inetpub\webs\decorandflowersit\public\thumb\"
 
 	fromURL = Request.ServerVariables("HTTP_REFERER")
+	toUrl_completo = Request.ServerVariables("SCRIPT_NAME")
 	toUrl = Request.ServerVariables("SCRIPT_NAME")
-
 
 	'strDaDoveVengo = Request.Servervariables("HTTP_REFERER")
 	UltimoSlash1 = InStrRev(fromURL,"/")
