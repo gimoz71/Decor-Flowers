@@ -3,10 +3,27 @@
         <div class="col-xs-12 col-sm-4" style="text-align: center">
             <a class="header-logo-v3" href="https://www.decorandflowers.it">Decor &amp; Flowers</a>
         </div>
+        <SCRIPT language="JavaScript">
+
+        function verifica_ricerca() {
+
+          testo_ricerca=document.ricerca_modulo.testo_ricerca.value;
+
+          if (testo_ricerca==""){
+            alert("Inserire un testo oppure un codice per effettuare la ricerca.");
+            return false;
+          }
+
+          else
+        return true
+
+        }
+
+        </SCRIPT>
         <div class="col-md-8">
-            <form class="navbar-form pull-right search-bar" role="search">
+            <form action="ricerca_avanzata.asp" class="navbar-form pull-right search-bar" role="search" onSubmit="return verifica_ricerca();">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Nome o codice prodotto" name="srch-term" id="srch-term">
+                    <input type="text" class="form-control" placeholder="Nome o codice prodotto" name="testo_ricerca" id="testo_ricerca">
                     <div class="input-group-btn">
                         <button class="btn btn-default" type="submit" style="margin-right: 5px;"><i class="glyphicon glyphicon-search"></i></button>
                         <button class="btn btn-danger" type="submit"><i class="glyphicon glyphicon-cog visible-xs-inline-block"></i><span class="hidden-xs"> Ricerca avanzata</span></button>
