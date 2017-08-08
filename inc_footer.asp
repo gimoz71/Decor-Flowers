@@ -149,7 +149,7 @@
             <div class="form-group">
                 <label for="richiesta" class="col-sm-4 control-label">Dettagli richiesta</label>
                 <div class="col-sm-8">
-                    <textarea class="form-control" name="richesta"></textarea>
+                    <textarea class="form-control" name="richiesta"></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -213,6 +213,7 @@
         <form class="form-horizontal" name="requestform_<%=pkid_prodotto_figlio%>" id="requestform_<%=pkid_prodotto_figlio%>" onSubmit="return verifica_request_<%=pkid_prodotto_figlio%>();">
         <input type="hidden" name="ric" value="1" />
         <input type="hidden" name="pkid_prodotto_figlio_email" value="<%=pkid_prodotto_figlio%>" />
+        <input type="hidden" name="variante_email" value="<%=var_rs("Codice")%>" />
             <div class="form-group">
                 <label for="nome" class="col-sm-4 control-label">Nome</label>
                 <div class="col-sm-8">
@@ -234,7 +235,7 @@
             <div class="form-group">
                 <label for="richiesta" class="col-sm-4 control-label">Dettagli richiesta</label>
                 <div class="col-sm-8">
-                    <textarea class="form-control" name="richesta"></textarea>
+                    <textarea class="form-control" name="richiesta"></textarea>
                 </div>
             </div>
             <div class="form-group">
@@ -257,6 +258,126 @@
   loop
   end if
   var_rs.close
+  %>
+
+  <%
+  if ric=1 then
+    nome=request("nome")
+    email=request("email")
+    telefono=request("telefono")
+    richiesta=request("richiesta")
+    variante_email=request("variante_email")
+
+    if Len(nome)>0 or Len(email)>0 or Len(telefono)>0 or Len(richiesta)>0 then
+    'invio l'email all'amministratore
+    HTML1 = ""
+    HTML1 = HTML1 & "<html>"
+    HTML1 = HTML1 & "<head>"
+    HTML1 = HTML1 & "<meta http-equiv=""Content-Type"" content=""text/html; charset=iso-8859-1"">"
+    HTML1 = HTML1 & "<title>DecorAndFlowers.it</title>"
+    HTML1 = HTML1 & "</head>"
+    HTML1 = HTML1 & "<body leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>"
+    HTML1 = HTML1 & "<table width='553' border='0' cellspacing='0' cellpadding='0'>"
+    HTML1 = HTML1 & "<tr>"
+    HTML1 = HTML1 & "<td>"
+    HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Nuova richiesta informazioni dal sito internet su un prodotto.</font><br>"
+    HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000>Dati della richiesta:<br>Nome: <b>"&nome&"</b><br>Email: <b>"&email&"</b><br>Telefono: <b>"&telefono&"</b><br>Richiesta: <b>"&richiesta&"</b></font>"
+    HTML1 = HTML1 & "<font face=Verdana size=3 color=#000000><br><br><em>Prodotto: <b>"&Titolo_Prod&"</b> - Codice: <b>"&Codice_Prod&"</b>"
+    if Len(variante_email)>0 then
+      HTML1 = HTML1 & " - Variante: <b>"&variante_email&"</b>"
+    end if
+    HTML1 = HTML1 & "</em></font></td>"
+    HTML1 = HTML1 & "</tr>"
+    HTML1 = HTML1 & "</table>"
+    HTML1 = HTML1 & "</body>"
+    HTML1 = HTML1 & "</html>"
+
+    Mittente = "info@decorandflowers.it"
+    Destinatario = "info@decorandflowers.it"
+    Oggetto = "Richiesta informazioni su un prodotto dal sito internet"
+    Testo = HTML1
+
+    Set eMail_cdo = CreateObject("CDO.Message")
+
+    ' Imposta le configurazioni
+    Set myConfig = Server.createObject("CDO.Configuration")
+    With myConfig
+      'autentication
+      .Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 1
+      ' Porta CDO
+      .Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2
+      ' Timeout
+      .Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
+      ' Server SMTP di uscita
+      .Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.decorandflowers.it"
+      ' Porta SMTP
+      .Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25
+      'Username
+      .Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@decorandflowers.it"
+      'Password
+      .Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "alessandrO81"
+
+      .Fields.update
+    End With
+    'Set eMail_cdo.Configuration = myConfig
+
+    'eMail_cdo.From = Mittente
+    'eMail_cdo.To = Destinatario
+    'eMail_cdo.Subject = Oggetto
+
+    'eMail_cdo.HTMLBody = Testo
+
+    'eMail_cdo.Send()
+
+    'Set myConfig = Nothing
+    'Set eMail_cdo = Nothing
+
+    'fine invio email
+
+    'invio al webmaster
+
+
+    Mittente = "info@decorandflowers.it"
+    Destinatario = "viadeimedici@gmail.com"
+    Oggetto = "Richiesta informazioni su un prodotto dal sito internet"
+    Testo = HTML1
+
+    Set eMail_cdo = CreateObject("CDO.Message")
+
+    ' Imposta le configurazioni
+    Set myConfig = Server.createObject("CDO.Configuration")
+    With myConfig
+      'autentication
+      .Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate") = 1
+      ' Porta CDO
+      .Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusing") = 2
+      ' Timeout
+      .Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpconnectiontimeout") = 60
+      ' Server SMTP di uscita
+      .Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserver") = "smtp.decorandflowers.it"
+      ' Porta SMTP
+      .Fields.item("http://schemas.microsoft.com/cdo/configuration/smtpserverport") = 25
+      'Username
+      .Fields.item("http://schemas.microsoft.com/cdo/configuration/sendusername") = "postmaster@decorandflowers.it"
+      'Password
+      .Fields.item("http://schemas.microsoft.com/cdo/configuration/sendpassword") = "alessandrO81"
+
+      .Fields.update
+    End With
+    Set eMail_cdo.Configuration = myConfig
+
+    eMail_cdo.From = Mittente
+    eMail_cdo.To = Destinatario
+    eMail_cdo.Subject = Oggetto
+
+    eMail_cdo.HTMLBody = Testo
+
+    eMail_cdo.Send()
+
+    Set myConfig = Nothing
+    Set eMail_cdo = Nothing
+    end if
+  end if
   %>
 
 <%end if%>
