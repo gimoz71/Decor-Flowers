@@ -80,91 +80,7 @@
 </span>
 <!-- /top-link-block -->
 <!-- fine finestra modale -->
-<%if pkid_prod>0 then%>
-<%
-ric=request("ric")
-if ric="" then ric=0
-%>
-<SCRIPT language="JavaScript">
-  function verifica_request() {
 
-  email=document.requestform.email.value;
-
-  if (email==""){
-    alert("Non  e\' stato compilato il campo \"Email\".");
-    return false;
-  }
-  if (email.indexOf("@")==-1 || email.indexOf(".")==-1){
-  alert("ATTENZIONE! \"e-mail\" non valida.");
-  return false;
-  }
-
-    else
-
-      document.requestform.method = "post";
-      document.requestform.action = "<%=toUrl_completo%>?pkid_prod=<%=pkid_prod%>";
-      document.requestform.submit();
-  }
-
-</SCRIPT>
-<%
-Set var_rs=Server.CreateObject("ADODB.Recordset")
-sql = "SELECT * "
-sql = sql + "FROM Prodotti_Figli WHERE FkProdotto_Madre="&pkid_prod&" AND Pezzi=0 "
-sql = sql + "ORDER BY Titolo ASC"
-var_rs.Open sql, conn, 1, 1
-if var_rs.recordcount>0 then
-Do while not var_rs.EOF
-pkid_prodotto_figlio=var_rs("PkId")
-%>
-<div style="display: none; max-width: 800px;" id="hidden-content-<%=pkid_prodotto_figlio%>">
-    <h4>Richiesta informazioni e disponibilit&agrave; per<br /><b><%=Titolo_Prod%></b><br />Codice prodotto: <%=Codice_Prod%> - Variante: <%=var_rs("Codice")%></h4>
-    <%if ric=1 then%>
-    <p><strong>La richiesta &egrave; stata inoltrata correttamente, il nostro staff ti contatter&agrave; il prima possibile.<br />Saluti da DecorAndFlowers.it</strong></p>
-    <%else%>
-    <p class="description">Per richiedere informazioni, disponibilit&agrave; o un preventivo del prodotto riempi il seguente modulo, oppure contattaci direttamente, indicando eventualmente le varianti a cui fai riferimento.</p>
-    <form class="form-horizontal" name="requestform" id="requestform" onSubmit="return verifica_request();">
-    <input type="hidden" name="ric" value="1" />
-    <input type="hidden" name="pkid_prodotto_figlio_email" value="<%=pkid_prodotto_figlio%>" />
-        <div class="form-group">
-            <label for="nome" class="col-sm-4 control-label">Nome</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="nome" name="nome">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email" class="col-sm-4 control-label">Indirizzo Email</label>
-            <div class="col-sm-8">
-                <input type="email" class="form-control" id="email" name="email">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="telefono" class="col-sm-4 control-label">Telefono</label>
-            <div class="col-sm-8">
-                <input type="number" class="form-control" id="telefono" name="telefono">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="richiesta" class="col-sm-4 control-label">Dettagli richiesta</label>
-            <div class="col-sm-8">
-                <textarea class="form-control" name="richesta"></textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-4 col-sm-8">
-                <button type="submit" id="diocane" class="btn btn-danger">invia richiesta</button>
-            </div>
-        </div>
-    </form>
-    <%end if%>
-</div>
-<%
-var_rs.movenext
-loop
-end if
-var_rs.close
-%>
-<%end if%>
 <!-- Bootstrap core JavaScript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
@@ -175,10 +91,172 @@ var_rs.close
 <script src="javascripts/jquery.fancybox.js"></script>
 <script src="javascripts/custom.js"></script>
 
-<script>
-    <% if ric=1 then %>
-    $(document).ready(function() {
-        $(".launch").fancybox().trigger('click');
-    });
-    <% end if %>
-</script>
+
+<%if pkid_prod>0 then%>
+
+  <%if Stato_Prod=2 or (TotalePezzi=0 and Varianti="no") then%>
+  <SCRIPT language="JavaScript">
+    function verifica_request() {
+
+    email=document.requestform.email.value;
+
+    if (email==""){
+      alert("Non  e\' stato compilato il campo \"Email\".");
+      return false;
+    }
+    if (email.indexOf("@")==-1 || email.indexOf(".")==-1){
+    alert("ATTENZIONE! \"e-mail\" non valida.");
+    return false;
+    }
+
+      else
+
+        document.requestform.method = "post";
+        document.requestform.action = "<%=toUrl_completo%>?pkid_prod=<%=pkid_prod%>";
+        document.requestform.submit();
+    }
+
+  </SCRIPT>
+  <%if ric=1 then%>
+    <div style="display: none; max-width: 800px;" id="hidden-content">
+    <h4>Richiesta informazioni e disponibilit&agrave; per<br /><b><%=Titolo_Prod%></b><br />Codice prodotto: <%=Codice_Prod%></h4>
+    <p><strong>La richiesta &egrave; stata inoltrata correttamente, il nostro staff ti contatter&agrave; il prima possibile.<br />Saluti da DecorAndFlowers.it</strong></p>
+  <%else%>
+    <div style="display: none; max-width: 800px;" id="hidden-content">
+        <h4>Richiesta informazioni e disponibilit&agrave; per<br /><b><%=Titolo_Prod%></b><br />Codice prodotto: <%=Codice_Prod%></h4>
+
+        <p class="description">Per richiedere informazioni, disponibilit&agrave; o un preventivo del prodotto riempi il seguente modulo, oppure contattaci direttamente, indicando eventualmente le varianti a cui fai riferimento.</p>
+        <form class="form-horizontal" name="requestform" id="requestform" onSubmit="return verifica_request();">
+        <input type="hidden" name="ric" value="1" />
+            <div class="form-group">
+                <label for="nome" class="col-sm-4 control-label">Nome</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="nome" name="nome">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-4 control-label">Indirizzo Email</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telefono" class="col-sm-4 control-label">Telefono</label>
+                <div class="col-sm-8">
+                    <input type="number" class="form-control" id="telefono" name="telefono">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="richiesta" class="col-sm-4 control-label">Dettagli richiesta</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" name="richesta"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-8">
+                    <button type="submit" id="diocane" class="btn btn-danger">invia richiesta</button>
+                </div>
+            </div>
+        </form>
+    </div>
+  <%end if%>
+  <script>
+      <% if ric=1 then %>
+      $(document).ready(function() {
+          $(".launch").fancybox().trigger('click');
+      });
+      <% end if %>
+  </script>
+  <%end if%>
+
+  <%
+  Set var_rs=Server.CreateObject("ADODB.Recordset")
+  sql = "SELECT * "
+  sql = sql + "FROM Prodotti_Figli WHERE FkProdotto_Madre="&pkid_prod&" AND Pezzi=0 "
+  sql = sql + "ORDER BY Titolo ASC"
+  var_rs.Open sql, conn, 1, 1
+  if var_rs.recordcount>0 then
+  Do while not var_rs.EOF
+  pkid_prodotto_figlio=var_rs("PkId")
+  %>
+  <SCRIPT language="JavaScript">
+    function verifica_request_<%=pkid_prodotto_figlio%>() {
+
+    email=document.requestform_<%=pkid_prodotto_figlio%>.email.value;
+
+    if (email==""){
+      alert("Non  e\' stato compilato il campo \"Email\".");
+      return false;
+    }
+    if (email.indexOf("@")==-1 || email.indexOf(".")==-1){
+    alert("ATTENZIONE! \"e-mail\" non valida.");
+    return false;
+    }
+
+      else
+
+        document.requestform_<%=pkid_prodotto_figlio%>.method = "post";
+        document.requestform_<%=pkid_prodotto_figlio%>.action = "<%=toUrl_completo%>?pkid_prod=<%=pkid_prod%>";
+        document.requestform_<%=pkid_prodotto_figlio%>.submit();
+    }
+
+  </SCRIPT>
+  <%if ric=1 and pkid_prodotto_figlio=pkid_prodotto_figlio_email then%>
+    <div style="display: none; max-width: 800px;" id="hidden-response-<%=pkid_prodotto_figlio%>">
+    <h4>Richiesta informazioni e disponibilit&agrave; per<br /><b><%=Titolo_Prod%></b><br />Codice prodotto: <%=Codice_Prod%> - Variante: <%=var_rs("Codice")%></h4>
+    <p><strong>La richiesta &egrave; stata inoltrata correttamente, il nostro staff ti contatter&agrave; il prima possibile.<br />Saluti da DecorAndFlowers.it</strong></p>
+  <%else%>
+    <div style="display: none; max-width: 800px;" id="hidden-content-<%=pkid_prodotto_figlio%>">
+        <h4>Richiesta informazioni e disponibilit&agrave; per<br /><b><%=Titolo_Prod%></b><br />Codice prodotto: <%=Codice_Prod%> - Variante: <%=var_rs("Codice")%></h4>
+
+        <p class="description">Per richiedere informazioni, disponibilit&agrave; o un preventivo del prodotto riempi il seguente modulo, oppure contattaci direttamente, indicando eventualmente le varianti a cui fai riferimento.</p>
+        <form class="form-horizontal" name="requestform_<%=pkid_prodotto_figlio%>" id="requestform_<%=pkid_prodotto_figlio%>" onSubmit="return verifica_request_<%=pkid_prodotto_figlio%>();">
+        <input type="hidden" name="ric" value="1" />
+        <input type="hidden" name="pkid_prodotto_figlio_email" value="<%=pkid_prodotto_figlio%>" />
+            <div class="form-group">
+                <label for="nome" class="col-sm-4 control-label">Nome</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="nome" name="nome">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-4 control-label">Indirizzo Email</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telefono" class="col-sm-4 control-label">Telefono</label>
+                <div class="col-sm-8">
+                    <input type="number" class="form-control" id="telefono" name="telefono">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="richiesta" class="col-sm-4 control-label">Dettagli richiesta</label>
+                <div class="col-sm-8">
+                    <textarea class="form-control" name="richesta"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-8">
+                    <button type="submit" id="diocane" class="btn btn-danger">invia richiesta</button>
+                </div>
+            </div>
+        </form>
+    </div>
+  <%end if%>
+  <script>
+      <% if ric=1 and pkid_prodotto_figlio=pkid_prodotto_figlio_email then %>
+      $(document).ready(function() {
+          $(".launch_<%=pkid_prodotto_figlio%>").fancybox().trigger('click');
+      });
+      <% end if %>
+  </script>
+  <%
+  var_rs.movenext
+  loop
+  end if
+  var_rs.close
+  %>
+
+<%end if%>

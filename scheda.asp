@@ -77,6 +77,12 @@ if pkid_prod>0 then
   var_rs.close
 end if
 
+pkid_prodotto_figlio_email=request("pkid_prodotto_figlio_email")
+if pkid_prodotto_figlio_email="" then pkid_prodotto_figlio_email=0
+pkid_prodotto_figlio_email=cInt(pkid_prodotto_figlio_email)
+'response.write("pkid_prodotto_figlio_email:"&pkid_prodotto_figlio_email)
+ric=request("ric")
+if ric="" then ric=0
 %>
 <!DOCTYPE html>
 <html>
@@ -282,9 +288,13 @@ end if
                                     <td data-th="Quantity">
                                         <!--<input type="number" class="form-control text-center" name="pezzi_<%=pkid_prodotto_figlio%>" value="0" <%if Pezzi=0 then%>disabled<%end if%>>-->
                                         <%if Pezzi>0 then%>
-                                        <input type="number" class="form-control text-center" name="pezzi_<%=pkid_prodotto_figlio%>" id="pezzi_<%=pkid_prodotto_figlio%>" value="0">
+                                          <input type="number" class="form-control text-center" name="pezzi_<%=pkid_prodotto_figlio%>" id="pezzi_<%=pkid_prodotto_figlio%>" value="0">
                                         <%else%>
-                                        <a data-fancybox data-src="#hidden-content-<%=pkid_prodotto_figlio%>" href="javascript:;" class="btn launch btn-danger btn-block">Ordina per email <i class="glyphicon glyphicon-envelope"></i></a>
+                                          <%if ric=1 and pkid_prodotto_figlio_email=pkid_prodotto_figlio then%>
+                                            <a data-fancybox data-src="#hidden-response-<%=pkid_prodotto_figlio%>" href="javascript:;" class="btn launch_<%=pkid_prodotto_figlio%> btn-danger btn-block">Ordina per email <i class="glyphicon glyphicon-envelope"></i></a>
+                                          <%else%>
+                                            <a data-fancybox data-src="#hidden-content-<%=pkid_prodotto_figlio%>" href="javascript:;" class="btn launch_<%=pkid_prodotto_figlio%> btn-danger btn-block">Ordina per email <i class="glyphicon glyphicon-envelope"></i></a>
+                                          <%end if%>
                                         <%end if%>
                                     </td>
                                 </tr>
