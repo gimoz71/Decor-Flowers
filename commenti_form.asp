@@ -68,73 +68,44 @@
         <!--#include file="inc_menu.asp"-->
         <div class="col-md-9">
 
-            <div class="row top-buffer">
-                <div class="col-xl-12">
-                    <h4 class="subtitle">Area Clienti</h4>
-                    <div class="panel panel-default" style="border: none;">
-                        <div class="panel-body">
-                            <p style="font-size: 1.2em; text-align: justify">
-                                Da questa sezione puoi accedere ai servizi riservati ai Clienti D&amp;F: elenco ordini effettuati, inserimento commenti, modifica dati di iscrizione e elenco prodotti preferiti.
-                            </p>
+            <div class="title">
+                <h4>Inserisci il tuo commento!</h4>
+            </div>
+            <div class="col-md-12">
+              <%if mode=1 then%>
+                <p class="description">Il tuo commento &egrave; stato inserito correttamente, adesso il nostro staff lo valuter&agrave; e se sar&agrave; approvato, ti verr&agrave; recapitata una notifica via email.<br />Grazie della tua collaborazione dallo staff di Cristalensi.<br /><br /><a href="https://www.cristalensi.it/commenti_elenco.asp" class="button_link_red" style="float:right">Elenco commenti</a>
+                </p>
+              <%else%>
+                <p class="description">Inserisci un commento su i prodotti acquistati, se ti sono piaciuti o no, oppure un commento sul sito internet o sull'azienda e lo staff.<br />Il commento non sar&agrave; pubblicato immediatamente ma sar&agrave; soggetto a un controllo da parte del nostro staff per evitare che vengano inseriti contenuti non leciti, offese e termini non pubblicabili.<br />Si prega di non inserire codice html, email, link e collegamenti ad altri siti internet: il commento non sar&agrave; pubblicato.<br />Per ogni commento saranno pubblicati anche il <strong>Nome</strong> e la <strong>Citt&agrave;</strong> inseriti al momento dell'iscrizione.
+                </p>
+                <%if mode=2 then%><p><strong>Attenzione! Controllare il testo inserito rispettando le regole, grazie.</strong></p><%end if%>
+                <form class="form-horizontal" method="post" action="commenti_form.asp?mode=1" name="newsform2">
+                    <div class="form-group">
+                        <label for="testo" class="col-sm-2 control-label">Commento</label>
+                        <div class="col-sm-10">
+                            <textarea name="testo" style="width: 100%" rows="4" id="testo"></textarea>
                         </div>
                     </div>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <a href="ordini_elenco.asp" class="prod-img-replace" style="background-image: url(images/thumb_d&f.png)"><img src="images/blank.png"></a>
+                    <div class="form-group">
+                        <label for="valutazione" class="col-sm-2 control-label">Valutazione</label>
+                        <div class="col-sm-10">
+                            <select class="selectpicker show-menu-arrow  show-tick" data-size="5" title="valutazione" name="valutazione" id="valutazione">
+                            <option value="5" selected>5 - Ottimo</option>
+                            <option value="4">4 - Buono</option>
+                            <option value="3">3 - Sufficiente</option>
+                            <option value="2">2 - Insufficiente</option>
+                            <option value="1">1 - Scarso</option>
+                            </select>
                         </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="category col-md-6">
-                                    <a href="ordini_elenco.asp" title="Elenco ordini"><h1>Elenco ordini</h1></a>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-4 col-sm-8">
+                            <a href="commenti_elenco.asp" class="btn btn-warning"><i class="fa fa-angle-left"></i> Elenco commenti</a>
+                            <button type="submit" class="btn btn-danger">Invia</button>
                         </div>
-                    </article>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <a href="commenti_form.asp" class="prod-img-replace" style="background-image: url(images/thumb_d&f.png)"><img src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="category col-md-6">
-                                    <a href="commenti_form.asp" title="Inserimento commenti"><h1>Inserimento commenti</h1></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <a href="iscrizione.asp" class="prod-img-replace" style="background-image: url(images/thumb_d&f.png)"><img src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="category col-md-6">
-                                    <a href="iscrizione.asp" title="Modifica dati iscrizione"><h1>Modifica dati</h1></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-                <div class="col-xs-6 col-sm-4 col-md-3">
-                    <article class="col-item">
-                        <div class="photo">
-                            <a href="#" class="prod-img-replace" style="background-image: url(images/thumb_d&f.png)"><img src="images/blank.png"></a>
-                        </div>
-                        <div class="info">
-                            <div class="row">
-                                <div class="category col-md-6">
-                                    <a href="#" title="Lista dei desideri"><h1>Lista dei desideri</h1></a>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                    </div>
+                </form>
+              <%end if%>
             </div>
 
         </div>
