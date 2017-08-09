@@ -19,9 +19,11 @@ cat=request("cat")
 if cat="" then cat=0
 
 prezzo_da=CleanStr(request("prezzo_da"))
+prezzo_da=replace(prezzo_da, ",", ".")
 if prezzo_da="" then prezzo_da=0
 
 prezzo_a=CleanStr(request("prezzo_a"))
+prezzo_a=replace(prezzo_a, ",", ".")
 if prezzo_a="" then prezzo_a=0
 
 p=request("p")
