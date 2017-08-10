@@ -144,7 +144,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-user visible-xs"><a href="#">Dicono di noi</a></li>
+                <li class="nav-user visible-xs"><a href="/commenti_elenco.asp">Dicono di noi</a></li>
                 <%if idsession>0 then%>
                   <li class="nav-user visible-xs"><a href="/admin/logout.asp"> LOG OUT</a></li>
                 <%else%>

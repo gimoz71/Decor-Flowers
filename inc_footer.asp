@@ -30,27 +30,27 @@
                 </ul>
                 <h4>Novit&aacute; e Offerte</h4>
                 <ul>
-                    <li><a href="novita.asp">Tutti gli ultimi arrivi</a></li>
-                    <li><a href="offerte.asp">Offerte e promozioni</a></li>
+                    <li><a href="/novita.asp">Tutti gli ultimi arrivi</a></li>
+                    <li><a href="/offerte.asp">Offerte e promozioni</a></li>
                 </ul>
             </div>
             <div class="col-md-3 menu-col">
                 <h4>Riferimenti</h4>
                 <ul>
-                    <li><a href="contatti.asp">Contatti</a></li>
+                    <li><a href="/contatti.asp">Contatti</a></li>
                     <!--<li><a>Chi siamo</a></li>-->
                 </ul>
                 <h4>Area Clienti</h4>
                 <ul>
-                    <li><a>Iscriviti/Accedi</a></li>
+                    <li><a href="/iscrizione.asp">Iscriviti/Accedi</a></li>
                     <!--<li><a>Lista dei desideri</a></li>-->
-                    <li><a>Dicono noi</a></li>
-                    <li><a>Area Clienti</a></li>
+                    <li><a href="/commenti_elenco.asp">Dicono noi</a></li>
+                    <li><a href="/areaprivata.asp">Area Clienti</a></li>
                 </ul>
                 <h4>Note legali</h4>
                 <ul>
-                    <li><a href="condizioni-di-vendita.asp">Condizioni di vendita</a></li>
-                    <li><a href="privacy.asp">Privacy e note legali</a></li>
+                    <li><a href="/condizioni-di-vendita.asp">Condizioni di vendita</a></li>
+                    <li><a href="/privacy.asp">Privacy e note legali</a></li>
                 </ul>
             </div>
 

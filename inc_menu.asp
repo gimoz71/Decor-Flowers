@@ -91,16 +91,29 @@
         <a href="offerte.asp" class="banner stacked generic">
             <h3 class="title">Offerte & promozioni</h3>
         </a>
-        <!--<div class="panel panel-default user-comment top-buffer">
+        <%
+        Set com_rs = Server.CreateObject("ADODB.Recordset")
+        sql = "SELECT TOP 3 * FROM Commenti_Clienti WHERE Pubblicato=1 ORDER BY PkId DESC"
+        com_rs.open sql,conn, 1, 1
+        if com_rs.recordcount>0 then
+        %>
+        <div class="panel panel-default user-comment top-buffer">
             <div class="panel-heading">
                 <h5><i class="fa fa-users"></i> Dicono di noi...</h5>
             </div>
             <ul class="list-group">
-                <li class="list-group-item"><i class="fa fa-user"></i> <em>Ho acquistato una composizione da camera da letto con rose rosse. Per la consegna sono stati precisi...</em></li>
-                <li class="list-group-item"><i class="fa fa-user"></i> <em>Pochi giorni fa ho acquistato un vaso di vetro per il bagno. ho telefonato e sono stati gentilissimi...</em></li>
-                <li class="list-group-item"><i class="fa fa-user"></i> <em>Il mio ordine &Egrave; arrivato prima del previsto e il pacco era ben chiuso e i prodotti ben protetti...</em></li>
+            <%Do While not com_rs.EOF%>
+                <li class="list-group-item"><i class="fa fa-user"></i> <em><%=Left(NoHTML(com_rs("Testo")), 90)%>... Voto: <%=com_rs("Valutazione")%>/5</em></li>
+            <%
+            com_rs.movenext
+            loop
+            %>
             </ul>
-            <div class="panel-footer"><a href="#" class="btn btn-default">leggi tutti i commenti <i class="fa fa-chevron-right"></i></a></div>
-        </div>-->
+            <div class="panel-footer"><a href="commenti_elenco.asp" class="btn btn-default">leggi tutti i commenti <i class="fa fa-chevron-right"></i></a></div>
+        </div>
+        <%
+        end if
+        com_rs.close
+        %>
     </div>
 </div>
