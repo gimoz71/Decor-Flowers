@@ -724,6 +724,13 @@ End If
             visibility: hidden;
         }
     </style>
+		<script language="JavaScript" type="text/JavaScript">
+		<!--
+		function MM_openBrWindow(theURL,winName,features) { //v2.0
+			window.open(theURL,winName,features);
+		}
+		//-->
+		</script>
 		<script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -800,7 +807,7 @@ End If
 											Grazie per aver scelto i nostri prodotti,<br />
 												per completare l'ordine &egrave; necessario effettuare il bonifico con i seguenti dati:
 												<br / ><br / >
-												<strong>BANCA ALTA TOSCANA - CREDITO COOPERATIVO<br>IBAN: <u>IT91 Y089 2238 1700 0000 0822 158</strong>
+												<strong>BANCA ALTA TOSCANA - CREDITO COOPERATIVO<br>IBAN: IT91 Y089 2238 1700 0000 0822 158</strong>
 												<br / ><br / >Nella causale indicare: "<strong>Ordine da sito internet n. <%=idordine%></strong>"<br><br>
 												Beneficiario:<br><strong>Decor And Flowers (P.Iva e C.Fiscale 06741510488)<br>
 												Via delle mimose, 13 - 50050 Capraia e Limite(FI)</strong>
@@ -1089,7 +1096,7 @@ End If
 												</b></p>
 				            </div>
 				            <%if FkPagamento=1 or FkPagamento=3 or FkPagamento=4 then%>
-				            <a href="javascript:window.print()" class="btn btn-danger pull-right hidden-print"><i class="glyphicon glyphicon-print"></i> Stampa ordine</a>
+				            <a href="#" onClick="MM_openBrWindow('stampa-ordine.asp?idordine=<%=IdOrdine%>&mode=1','','width=900,height=900,scrollbars=yes')" class="btn btn-danger pull-right hidden-print"><i class="glyphicon glyphicon-print"></i> Stampa ordine</a>
 										<%end if%>
 				        </div>
 						</div>

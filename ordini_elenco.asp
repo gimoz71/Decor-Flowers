@@ -58,6 +58,13 @@ end if
             visibility: hidden;
         }
     </style>
+		<script language="JavaScript" type="text/JavaScript">
+		<!--
+		function MM_openBrWindow(theURL,winName,features) { //v2.0
+			window.open(theURL,winName,features);
+		}
+		//-->
+		</script>
 		<script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -194,8 +201,8 @@ end if
 																					<em><%=etichetta_stato%></em>
 																			</td>
 																			<td class="actions" data-th="">
-																			<button type="button" name="visualizza" class="btn btn-default" onClick="MM_openBrWindow('stampa_ordine.asp?idordine=<%=rs("PkId")%>&mode=0','','width=760,height=400,scrollbars=yes')">visualizza</button>
-																			&nbsp;<button type="button" name="stampa" class="btn btn-default" onClick="MM_openBrWindow('stampa_ordine.asp?idordine=<%=rs("PkId")%>&mode=1','','width=760,height=900,scrollbars=yes')">stampa</button>
+																			<button type="button" name="visualizza" class="btn btn-default" onClick="MM_openBrWindow('stampa-ordine.asp?idordine=<%=rs("PkId")%>&mode=0','','width=760,height=800,scrollbars=yes')">visualizza</button>
+																			&nbsp;<button type="button" name="stampa" class="btn btn-default" onClick="MM_openBrWindow('stampa-ordine.asp?idordine=<%=rs("PkId")%>&mode=1','','width=900,height=900,scrollbars=yes')">stampa</button>
 																			<%if stato=0 or stato=1 or stato=2 or stato=3 or stato=5 or stato=6 then%>
 																			<br><button type="button" name="modifica" class="btn btn-default" style="margin-top:5px;" onClick="document.location.href='ordini_elenco.asp?IdOrdine=<%=rs("PkId")%>&mode=1';">continua l'ordine</button>
 																			<%else%>
