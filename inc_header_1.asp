@@ -17,7 +17,7 @@
 <nav class="navbar navbar-inverse menu-aux hidden-xs first-top-menu">
     <div class="container">
         <ul class="nav nav-justified">
-            <!--<li><a href="#"><span class="glyphicon glyphicon-earphone"></span> +39.0571.594000</a></li>-->
+            <!--<li><a href="#"><span class="glyphicon glyphicon-earphone"></span> +39.0571</a></li>-->
             <li><a href="mailto:info@decorandflowers.it"><span class="glyphicon glyphicon-envelope"></span> info@decorandflowers.it</a></li>
             <li><a href="/contatti.asp"><span class="glyphicon glyphicon-map-marker"></span> Contatti</a></li>
             <!--<li><a href="#"><span class="glyphicon glyphicon-star"></span> Chi siamo</a></li>-->
