@@ -1,37 +1,12 @@
 <div class="row hidden-xs">
-    <div class="col-md-12 ">
-        <div class="carousel slide hidden" id="carousel-example-captions" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-example-captions" data-slide-to="0" class=""></li>
-                <li data-target="#carousel-example-captions" data-slide-to="1" class=""></li>
-                <li data-target="#carousel-example-captions" data-slide-to="2" class="active"></li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-                <div class="item">
-                    <img alt="900x550" src="/images/sliders/slider1.jpg">
-                </div>
-                <div class="item">
-                    <img alt="900x550" src="/images/sliders/slider2.jpg">
-                </div>
-                <div class="item active">
-                    <img alt="900x550" src="/images/sliders/slider3.jpg">
-                </div>
-            </div>
-            <a href="#carousel-example-captions" class="left carousel-control" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a>
-            <a href="#carousel-example-captions" class="right carousel-control" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+    <div class="col-md-12 clearfix">
+        <div id="slider">
+            <div data-src="images/sliders/slider1.jpg"></div>
+            <div data-src="images/sliders/slider2.jpg"></div>
+            <div data-src="images/sliders/slider3.jpg"></div>
+            <div data-src="images/sliders/slider4.jpg"></div>
+            <div data-src="images/sliders/slider5.jpg"></div>
         </div>
-        <awesome-slider pre-image="/images/logo.svg" autostart="true" bullets="false" height="x40%" color="grey" arrows="true">
-            <item source="/images/sliders/slider1.jpg">
-                <!--<a class="lettering" href="#">
-                    <h3>Fiori artificiali</h3>
-                    <p>link</p>
-                </a>-->
-            </item>
-            <item source="/images/sliders/slider2.jpg"></item>
-            <item source="/images/sliders/slider3.jpg"></item>
-            <item source="/images/sliders/slider4.jpg"></item>
-            <item source="/images/sliders/slider5.jpg"></item>
-        </awesome-slider>
     </div>
 </div>
 <div class="gutter-10 row top-buffer">

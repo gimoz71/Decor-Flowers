@@ -28,12 +28,11 @@
     <meta name="theme-color" content="#ffffff">
     <link href="stylesheets/styles.css" media="screen" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="stylesheets/customization.css" shim-shadowdom>
+    <link rel="stylesheet" type="text/css" href="stylesheets/camera.css" shim-shadowdom>
     <link href="javascripts/html5shiv.js" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,400i,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.5/webcomponents.min.js"></script>
-    <link rel="import" href="awesome-slider.html">
     <style type="text/css">
         .clearfix:after {
             content: ".";
@@ -273,5 +272,18 @@
         </div>
     </div>
     <!--#include file="inc_footer.asp"-->
+    <script type='text/javascript' src='javascripts/camera.js'></script>
+    <script type='text/javascript' src='javascripts/jquery.easing.1.3.js'></script>
+    <script>
+		jQuery(function(){
+
+			jQuery('#slider').camera({
+                height: '40%',
+	            pagination: false,
+				thumbnails: false,
+                autoadvance: true
+			});
+		});
+	</script>
 </body>
 <!--#include file="inc_strClose.asp"-->
