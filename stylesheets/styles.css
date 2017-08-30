@@ -9075,7 +9075,7 @@ h4,
 h5,
 h6 {
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 600;
   color: #bea572;
   text-shadow: 0;
 }
@@ -9140,6 +9140,7 @@ img {
 .navbar-inverse.service-menu a {
   font-size: .75em;
   color: #000;
+  opacity: .75;
   padding: 10px 0;
 }
 

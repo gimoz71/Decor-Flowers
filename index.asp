@@ -29,10 +29,11 @@
     <link href="stylesheets/styles.css" media="screen" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="stylesheets/customization.css" shim-shadowdom>
     <link rel="stylesheet" type="text/css" href="stylesheets/camera.css" shim-shadowdom>
-    <link href="javascripts/html5shiv.js" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Cabin:400,400i,500,600,700" rel="stylesheet">
+    <!--[if lt IE 9]><script src="javascripts/html5shiv.js"></script><![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:300,300i,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,600" rel="stylesheet">
     <style type="text/css">
         .clearfix:after {
             content: ".";
@@ -71,7 +72,7 @@
                     <h1 class="slogan subtitle">Decor &amp; Flowers, vendita piante e fiori artificiali</h1>
                     <div class="panel panel-default" style="border: none;">
                         <div class="panel-body">
-                            <p style="font-size: 1.2em; text-align: justify">
+                            <p style="text-align: justify">
                               Da Decor and Flowers &egrave; possibile trovare un'ampia gamma di fiori e piante artificiali, composizioni floreali, vasi, cesti e vari oggetti in vetro e ceramica per arredare con stile la tua casa, personalizzare le tue stanze, allestire un negozio, preparare un evento o una manifestazione. L'assortimento di piante e fiori artificiali in vendita &egrave; in pronta consegna con spedizione in tutta Italia con pagamenti online sicuri e garantiti.
 <br /><em>Dai un tocca di colore al tuo ambiente!</em>
                             </p>

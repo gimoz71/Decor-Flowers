@@ -322,7 +322,7 @@ h4,
 h5,
 h6 {
     text-transform: uppercase;
-    font-weight   : bold;
+    font-weight   : 600;
     color: darken($body-color, 18);
     // color: #e70;
     text-shadow: 0
@@ -389,6 +389,7 @@ img {
         a {
             font-size: .75em;
             color: #000;
+            opacity: .75;
             padding: 10px 0;
         }
     }
