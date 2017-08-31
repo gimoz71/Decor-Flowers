@@ -152,12 +152,20 @@ if ric="" then ric=0
         <!--#include file="inc_header_2.asp"-->
     </div>
     <div class="container content">
-        <ol class="breadcrumb">
-            <li><a href="index.asp">Home</a></li>
-            <li><a href="prodotti.asp?cat_1=<%=FkCategoria_1%>"><%=Titolo_1_Cat_1%></a></li>
-            <li><a href="prodotti.asp?cat_2=<%=FkCategoria_2%>"><%=Titolo_1_Cat_2%></a></li>
-            <li class="active"><%=Titolo_Prod%></li>
-        </ol>
+        <div class="row clearfix">
+			<div class="col-md-10 col-md-push-2">
+		        <ol class="breadcrumb">
+                    <li><a href="index.asp">Home</a></li>
+                    <li><a href="prodotti.asp?cat_1=<%=FkCategoria_1%>"><%=Titolo_1_Cat_1%></a></li>
+                    <li><a href="prodotti.asp?cat_2=<%=FkCategoria_2%>"><%=Titolo_1_Cat_2%></a></li>
+                    <li class="active"><%=Titolo_Prod%></li>
+		        </ol>
+			</div>
+			<div class="col-md-2 col-md-pull-10">
+				<a class="btn btn-warning btn-block" href="javascript:history.back()"><i class="fa fa-chevron-left"></i> torna indietro</a>
+			</div>
+		</div>
+        <div class="top-buffer hidden-md hidden-lg"></div>
         <!--#include file="inc_menu.asp"-->
 
         <div class="col-md-9">
