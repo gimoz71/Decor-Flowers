@@ -90,6 +90,11 @@
 <script src="javascripts/jquery.fancybox.js"></script>
 <script src="javascripts/custom.js"></script>
 
+<script>
+$(document).ready(function() {
+    $.fancybox.defaults.hash = false;
+});
+</script>
 
 <%if pkid_prod>0 then%>
 
