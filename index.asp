@@ -228,7 +228,7 @@
         </div>
     </div>
     <!--#include file="inc_footer.asp"-->
-    <script type='text/javascript' src='javascripts/camera.js'></script>
+    <script type='text/javascript' src='javascripts/camera.min.js'></script>
     <script type='text/javascript' src='javascripts/jquery.easing.1.3.js'></script>
     <script>
 		jQuery(function(){
