@@ -9429,13 +9429,13 @@ img {
     font-size: 0.9em;
   }
 }
-.banner.preventivi {
-  background-color: #dcc3a7;
-  background-image: url("../images/preventivi.jpg");
-}
 .banner.pagamenti {
-  background-color: #e19b7f;
+  background-color: #dcc3a7;
   background-image: url("../images/pagamenti.jpg");
+}
+.banner.preventivi {
+  background-color: #e19b7f;
+  background-image: url("../images/preventivi.jpg");
 }
 .banner.consegne {
   background-color: #e57357;

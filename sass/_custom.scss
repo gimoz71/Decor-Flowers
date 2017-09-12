@@ -642,15 +642,15 @@ img {
         }
     }
 
-    &.preventivi {
+    &.pagamenti {
         background-color: mix($logo-red-color, $body-color, 10%);
+        background-image: url("../images/pagamenti.jpg");
+    }
+    &.preventivi {
+        background-color: mix($logo-red-color, $body-color, 50%);
         background-image: url("../images/preventivi.jpg");
     }
 
-    &.pagamenti {
-        background-color: mix($logo-red-color, $body-color, 50%);
-        background-image: url("../images/pagamenti.jpg");
-    }
 
     &.consegne {
         background-color: mix($logo-red-color, $body-color, 90%);
