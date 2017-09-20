@@ -29,7 +29,7 @@
                         <div class="panel-body">
                             <p style="text-align: justify">
                               Da Decor and Flowers &egrave; possibile trovare un'ampia gamma di fiori e piante artificiali, composizioni floreali, vasi, cesti e vari oggetti in vetro e ceramica per arredare con stile la tua casa, personalizzare le tue stanze, allestire un negozio, preparare un evento o una manifestazione. L'assortimento di piante e fiori artificiali in vendita &egrave; in pronta consegna con spedizione in tutta Italia con pagamenti online sicuri e garantiti.
-<br /><em>Dai un tocca di colore al tuo ambiente!</em>
+<br /><em>Dai un tocco di colore al tuo ambiente!</em>
                             </p>
                         </div>
                     </div>
