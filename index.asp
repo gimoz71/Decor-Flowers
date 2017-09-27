@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>Vendita piante artificiali | Vendita fiori artificiali | Decor &amp; Flowers</title>
+    <title>Vendita fiori artificiali | Vendita piante artificiali | Decor &amp; Flowers</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Decor &amp; Flowers.">
     <meta name="keywords" content="">
@@ -228,7 +228,7 @@
         </div>
     </div>
     <!--#include file="inc_footer.asp"-->
-    <script type='text/javascript' src='javascripts/camera.min.js'></script>
+    <script type='text/javascript' src='javascripts/camera.js'></script>
     <script type='text/javascript' src='javascripts/jquery.easing.1.3.js'></script>
     <script>
 		jQuery(function(){
