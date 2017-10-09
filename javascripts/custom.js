@@ -14,13 +14,13 @@ var upperMenuTot = $(".first-top-menu").outerHeight() + $(".last-top-menu").oute
 
 console.log(upperMenuTot);
 
-$(window).scroll(function (event) {
+$(document).scroll(function (event) {
     var scroll = $(window).scrollTop();
     if (scroll >= upperMenuTot){
-        $(".content").css("margin-top", "130px");
+        // $(".content").css("margin-top", "130px");
         $('#top-link-block').removeClass('hidden');
     } else {
-        $(".content").css("margin-top", "0px");
+        // $(".content").css("margin-top", "5px");
         $('#top-link-block').addClass('hidden');
 
     };

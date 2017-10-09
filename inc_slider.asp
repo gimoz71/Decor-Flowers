@@ -9,7 +9,7 @@
         </div>
     </div>
 </div>
-<div class="gutter-10 row top-buffer">
+<div class="gutter-10 row top-buffer banners">
     <div class="col-md-4">
     <div class="banner pagamenti">
         <h3 class="title">SITO INTERNET SICURO</h3>

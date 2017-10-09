@@ -85,7 +85,8 @@
             </div>
             <div class="row top-buffer">
                 <div class="col-xl-12">
-                    <h4 class="subtitle">Prodotti in offerta</h4><a href="offerte.asp" class="btn btn-default pull-right" style="position: absolute; top: -10px; right: 15px;">vedi tutto <i class="fa fa-chevron-right"></i></a>
+                    <h4 class="subtitle">Prodotti in offerta</h4><a href="offerte.asp" class="btn btn-default pull-right hidden-xs" style="position: absolute; top: -10px; right: 15px;">vedi tutto <i class="fa fa-chevron-right"></i></a>
+                    <a href="offerte.asp" class="btn btn-default btn-block hidden visible-xs bottom-buffer" style="">vedi tutto <i class="fa fa-chevron-right"></i></a>
                 </div>
                 <%
                 Set pro_rs=Server.CreateObject("ADODB.Recordset")
@@ -156,7 +157,8 @@
             </div>
             <div class="row top-buffer">
                 <div class="col-xl-12">
-                    <h4 class="subtitle">Novit&Aacute; e ultimi arrivi</h4><a href="novita.asp" class="btn btn-default pull-right" style="position: absolute; top: -10px; right: 15px;">vedi tutto <i class="fa fa-chevron-right"></i></a>
+                    <h4 class="subtitle">Novit&Aacute; e ultimi arrivi</h4><a href="novita.asp" class="btn btn-default pull-right hidden-xs" style="position: absolute; top: -10px; right: 15px;">vedi tutto <i class="fa fa-chevron-right"></i></a>
+                    <a href="novita.asp" class="btn btn-default btn-block hidden visible-xs bottom-buffer" style="">vedi tutto <i class="fa fa-chevron-right"></i></a>
                 </div>
                 <%
                 Set pro_rs=Server.CreateObject("ADODB.Recordset")

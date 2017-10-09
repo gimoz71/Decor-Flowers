@@ -192,6 +192,9 @@
 .top-buffer {
     margin-top: 20px;
 }
+.bottom-buffer {
+    margin-bottom: 20px;
+}
 
 .gap {
     & > [class*=" col-"],
@@ -608,6 +611,16 @@ img {
         // margin-bottom: 20px;
     }
 }
+.banners {
+    @media (max-width: $screen-sm) {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+    @media (min-width: $screen-sm) {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+}
 .banner {
     padding              : 10px;
     box-shadow           : inset 0 0 10px rgba(0,0,0,.25);
@@ -751,6 +764,7 @@ img {
     }
     .panel-heading{
         position: relative;
+        padding-right: 50px;
     }
     .expand-accordion {
         border-left: solid 1px $panel-default-border;
@@ -1286,6 +1300,7 @@ img {
     position: fixed; /* allows it to "slide" up into view */
     bottom: 10px; /* negative of the offset - height of link element */
     left: 10px; /* padding from the left side of the window */
+    z-index: 1000;
 }
 
 .price-new {
