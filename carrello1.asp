@@ -414,7 +414,7 @@
 														<ul class="list-group">
 															<li class="list-group-item"><strong>PAGAMENTI SICURI</strong></li>
 															<li class="list-group-item"><i class="fa fa-check"></i> <em>Bonifico bancario: 0&euro;</em></li>
-															<li class="list-group-item"><i class="fa fa-check"></i> <em>Carte di credito, prepagate, PayPal: 0&euro;</em></li>
+															<li class="list-group-item"><i class="fa fa-check"></i> <em>Carte di credito, prepagate: 0&euro;</em></li>
 															<li class="list-group-item"><i class="fa fa-check"></i> <em>Contrassegno in contanti: 4&euro;</em></li>
 														</ul>
 												</div>

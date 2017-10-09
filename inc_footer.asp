@@ -59,12 +59,13 @@
                 <ul class="checklist">
                     <li>Spedizioni GRATUITE in tutta Italia per ordini superiori a 100&euro;</li>
                 </ul>
-                <br />
                 <h4>Pagamenti accettati</h4>
                 <ul class="checklist">
                     <li>Bonifico Bancario - PostePay</li>
                     <li>Contrassegno</li>
-                    <li>Carte di credito - Prepagate - PayPal</li>
+                    <li>Carte di credito - Prepagate - PayPal<br />
+                        <img src="/images/payment.png" style="padding: 5px 15px 0px 0px;">
+                    </li>
                 </ul>
             </div>
         </div>
