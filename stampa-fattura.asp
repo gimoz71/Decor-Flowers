@@ -104,7 +104,7 @@ rs.close
             <div class="col-xs-6">
                 <p style="font-size: 80%; margin: 20px 15px; color: #999">
                   Decorandflowers<br>
-                  C.F. e Iscr. Reg. Impr. di Firenze 06741510488 R.E.A. di Firenze<br />
+                  Partita IVA 06741510488 - Codice Fiscale VRDLSN81C07D403B<br />
                   Via delle mimose, 13 - 50050 Capraia e Limite (Firenze)<br />
                   E-mail: info@decorandflowers.it
                 </p>
@@ -114,7 +114,7 @@ rs.close
         <div class="row top-buffer">
             <div class="col-md-12">
                 <div class="title">
-                    <h4>FATTURA N. <%=NumeroFattura%>/<%=Anno%> - DATA FAT. <%=DataFattura%> - Rif. Ordine n. <%=FkOrdine%> Data Ord. <%=Left(DataOrdine,10)%></h4>
+                    <h4>FATTURA N. <%=NumeroFattura%>/<%=Anno%> - DATA FAT. <%=Left(DataFattura,10)%> - Ordine n. <%=FkOrdine%> Data Ord. <%=Left(DataOrdine,10)%></h4>
                 </div>
                 <div class="col-md-12 top-buffer">
                     <table id="cart" class="table table-hover table-condensed table-cart">

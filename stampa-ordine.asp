@@ -97,7 +97,7 @@ rs.close
             <div class="col-xs-6">
                 <p style="font-size: 80%; margin: 20px 15px; color: #999">
                   Decorandflowers<br>
-                  C.F. e Iscr. Reg. Impr. di Firenze 06741510488 R.E.A. di Firenze<br />
+                  Partita IVA 06741510488 - Codice Fiscale VRDLSN81C07D403B<br />
                   Via delle mimose, 13 - 50050 Capraia e Limite (Firenze)<br />
                   E-mail: info@decorandflowers.it
                 </p>
