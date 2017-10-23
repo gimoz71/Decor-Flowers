@@ -84,34 +84,17 @@ Function NoLettAcc(strInput)
 
 End Function
 
-'rewrite url per i produttori
-	Function ConvertiTitoloInUrlProduttore(Titolo, IDArticolo)
-		Risultato = Titolo
-
-		Set RegEx = New RegExp
-		RegEx.Pattern = "<[^>]*>"
-		RegEx.Global = True
-		RegEx.IgnoreCase = True
-		Risultato = RegEx.Replace(Risultato, "")
-
-		Risultato = LCase(Risultato)
-		Risultato = Replace(Risultato, " - ", "-")
-		Risultato = Replace(Risultato, " ", "-")
-		Risultato = Replace(Risultato, ",", "")
-		Risultato = Replace(Risultato, "\", "-")
-		Risultato = Replace(Risultato, "/", "-")
-		Risultato = Replace(Risultato, ":", "")
-		Risultato = Replace(Risultato, "*", "-")
-		Risultato = Replace(Risultato, "?", "-")
-		Risultato = Replace(Risultato, "<", "-")
-		Risultato = Replace(Risultato, ">", "-")
-		Risultato = Replace(Risultato, "|", "-")
-		Risultato = Replace(Risultato, """", "")
-		Risultato = Replace(Risultato, "'", "")
-		Risultato = Replace(Risultato, "�", "a")
-		Risultato = IDArticolo & "f-" & Risultato & ".asp"
-		ConvertiTitoloInUrlProduttore = Risultato
-	End Function
+'funzione che mi registra l'apertura di un prodotto
+Sub VisualizzazioneProdotti(record)
+	Set vis_rs = Server.CreateObject("ADODB.Recordset")
+	sql = "SELECT * FROM Visualizzazioni_Prodotti"
+	vis_rs.open sql, conn, 3, 3
+	vis_rs.addnew
+		vis_rs("Data")=Now()
+		vis_rs("FkProdotto")=record
+	vis_rs.update
+	vis_rs.close
+End Sub
 
 	idsession=Session("idCliente")
 	if idsession="" then idsession=0

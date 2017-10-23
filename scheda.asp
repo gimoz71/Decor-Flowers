@@ -75,6 +75,9 @@ if pkid_prod>0 then
     Varianti="no"
   end if
   var_rs.close
+
+  'conteggio visualizzazione'
+  Call VisualizzazioneProdotti(pkid_prod)
 end if
 
 pkid_prodotto_figlio_email=request("pkid_prodotto_figlio_email")
