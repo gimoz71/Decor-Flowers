@@ -251,9 +251,17 @@ if ric="" then ric=0
                                     <td data-th="Price" class="hidden-xs text-right"><%=FormatNumber(var_rs("PrezzoProdotto"),2)%> &euro;</td>
                                     <td data-th="Price" class="hidden-xs text-center"><%=Pezzi%></td>
                                     <td data-th="Quantity">
-                                        <!--<input type="number" class="form-control text-center" name="pezzi_<%=pkid_prodotto_figlio%>" value="0" <%if Pezzi=0 then%>disabled<%end if%>>-->
                                         <%if Pezzi>0 then%>
-                                          <input type="number" class="form-control text-center" name="pezzi_<%=pkid_prodotto_figlio%>" id="pezzi_<%=pkid_prodotto_figlio%>" min="0" max="<%=Pezzi%>" value="0">
+                                          <select class="form-control text-center" data-size="5" title="Pezzi <%=var_rs("Titolo")%>" name="pezzi_<%=pkid_prodotto_figlio%>" id="pezzi_<%=pkid_prodotto_figlio%>">
+                        										<option title="0" value="0">0</option>
+                        										<%
+                        										FOR npezzi=1 TO pezzi
+                        										%>
+                        										<option title="<%=npezzi%>" value=<%=npezzi%>><%=npezzi%></option>
+                        										<%
+                        										NEXT
+                        										%>
+                        									</select>
                                         <%else%>
                                           <%if ric=1 and pkid_prodotto_figlio_email=pkid_prodotto_figlio then%>
                                             <a data-fancybox data-src="#hidden-response-<%=pkid_prodotto_figlio%>" href="javascript:;" class="btn launch_<%=pkid_prodotto_figlio%> btn-danger btn-block">Ordina per email <i class="glyphicon glyphicon-envelope"></i></a>

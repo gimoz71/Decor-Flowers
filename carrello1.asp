@@ -305,19 +305,15 @@
 																<tbody>
 																		<%
 																		Do while not rs.EOF
+																		FkProdotto_Figlio=rs("FkProdotto_Figlio")
+																		FkProdotto_Madre=rs("FkProdotto_Madre")
+																		NomePagina="/scheda.asp?pkid_prod="&FkProdotto_Madre
 
-																		'Set url_prodotto_rs = Server.CreateObject("ADODB.Recordset")
-																		'sql = "SELECT PkId, NomePagina FROM Prodotti where PkId="&rs("FkProdotto")&""
-																		'url_prodotto_rs.Open sql, conn, 1, 1
-
-																		'NomePagina=url_prodotto_rs("NomePagina")
-																		'if Len(NomePagina)>0 then
-																			'NomePagina="/public/pagine/"&NomePagina
-																		'else
-																			'NomePagina="#"
-																		'end if
-
-																		'url_prodotto_rs.close
+																		Set url_prodotto_rs = Server.CreateObject("ADODB.Recordset")
+																		sql = "SELECT PkId, Pezzi FROM Prodotti_Figli where PkId="&FkProdotto_Figlio
+																		url_prodotto_rs.Open sql, conn, 1, 1
+																			maxpezzi=url_prodotto_rs("pezzi")
+																		url_prodotto_rs.close
 																		%>
 																		<form method="post" action="carrello1.asp?mode=1&riga=<%=rs("pkid")%>">
 																		<%
@@ -335,7 +331,17 @@
                                         </td>
                                         <td data-th="Price" class="hidden-xs"><%=FormatNumber(rs("PrezzoProdotto"),2)%>&euro;</td>
                                         <td data-th="Quantity">
-                                            <input type="number" class="form-control text-center" name="quantita" value="<%=quantita%>">
+                                            <!--<input type="number" class="form-control text-center" name="quantita" value="<%=quantita%>">-->
+																						<select class="form-control text-center" data-size="5" title="quantita" name="quantita" id="quantita">
+	                        										<option title="0" value="0">0</option>
+	                        										<%
+	                        										FOR npezzi=1 TO maxpezzi
+	                        										%>
+	                        										<option title="<%=npezzi%>" value=<%=npezzi%> <%if cInt(quantita)=cInt(npezzi) then%> selected<%end if%>><%=npezzi%></option>
+	                        										<%
+	                        										NEXT
+	                        										%>
+	                        									</select>
                                         </td>
                                         <td data-th="Subtotal" class="text-center"><%=FormatNumber(rs("TotaleRiga"),2)%>&euro;</td>
                                         <td class="actions" data-th="">
