@@ -157,7 +157,7 @@ end if
                 if prezzo_da>0 or prezzo_a>0 then
       						sql = sql + "(PrezzoOfferta>="&prezzo_da&" AND PrezzoOfferta<="&prezzo_a&") "
       					else
-      						sql = sql + "(PrezzoOfferta>=0) "
+      						sql = sql + "(PrezzoOfferta>=0 or PrezzoOfferta IS NULL) "
       					end if
                 if cat>0 then
       						sql = sql + "AND (FkCategoria_1="&cat&") "
