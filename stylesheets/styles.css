@@ -9202,7 +9202,7 @@ img {
 }
 @media (min-width: 768px) {
   .affix .search-bar {
-    margin-top: 30px;
+    margin-top: 10px;
   }
 }
 @media (max-width: 768px) {
@@ -9273,8 +9273,8 @@ img {
   width: 288px;
   height: 100px;
   margin: 0 !important;
-  margin-top: 15px !important;
-  margin-bottom: 15px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
   transition: all 0.2s ease-in-out;
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
