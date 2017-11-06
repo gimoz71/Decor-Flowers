@@ -86,10 +86,10 @@
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="javascripts/bootstrap.min.js"></script>
-<script src="javascripts/readmore.min.js"></script>
-<script src="javascripts/jquery.fancybox.min.js"></script>
-<script src="javascripts/custom.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/javascripts/readmore.min.js"></script>
+<script src="/javascripts/jquery.fancybox.min.js"></script>
+<script src="/javascripts/custom.js"></script>
 
 <script>
 $(document).ready(function() {
