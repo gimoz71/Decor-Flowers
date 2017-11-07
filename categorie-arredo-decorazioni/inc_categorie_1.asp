@@ -4,53 +4,8 @@ cat_1=id
 if cat_1="" then cat_1=0
 if cat_1=0 then response.Redirect("/")
 
-cat_2=request("cat_2")
-if cat_2="" then cat_2=0
 
-if cat_2>0 then
-  Set sot_rs=Server.CreateObject("ADODB.Recordset")
-  sql = "SELECT * "
-  sql = sql + "FROM Categorie_2 "
-  sql = sql + "WHERE PkId="&cat_2&""
-  sot_rs.Open sql, conn, 1, 1
-  if sot_rs.recordcount>0 then
-    Titolo_1_Cat_2=sot_rs("Titolo_1")
-    Titolo_2_Cat_2=sot_rs("Titolo_2")
-    Descrizione_Cat_2=sot_rs("Descrizione")
-    Title_Cat_2=sot_rs("Title")
-    Description_Cat_2=sot_rs("Description")
-    FkCategoria_1=sot_rs("FkCategoria_1")
-    if FkCategoria_1="" or IsNull(FkCategoria_1) then FkCategoria_1=0
-  end if
-  sot_rs.close
-
-  if FkCategoria_1>0 then
-    Set cat_rs=Server.CreateObject("ADODB.Recordset")
-    sql = "SELECT * "
-    sql = sql + "FROM Categorie_1 "
-    sql = sql + "WHERE PkId="&FkCategoria_1&""
-    cat_rs.Open sql, conn, 1, 1
-    if cat_rs.recordcount>0 then
-      Titolo_1_Cat_1=cat_rs("Titolo_1")
-      Titolo_2_Cat_1=cat_rs("Titolo_2")
-      Descrizione_Cat_1=cat_rs("Descrizione")
-      Title_Cat_1=cat_rs("Title")
-      Description_Cat_1=cat_rs("Description")
-    end if
-    cat_rs.close
-  end if
-
-  FkCategoria_2=cat_2
-  if Len(Titolo_2_Cat_2)>0 then
-    titolo_pagina=Titolo_2_Cat_2
-    descrizione_pagina=Descrizione_Cat_2
-  else
-    titolo_pagina=Titolo_1_Cat_2
-    descrizione_pagina=Descrizione_Cat_2
-  end if
-end if
-
-if cat_2=0 and cat_1>0 then
+if cat_1>0 then
   Set cat_rs=Server.CreateObject("ADODB.Recordset")
   sql = "SELECT * "
   sql = sql + "FROM Categorie_1 "
@@ -62,6 +17,7 @@ if cat_2=0 and cat_1>0 then
     Descrizione_Cat_1=cat_rs("Descrizione")
     Title_Cat_1=cat_rs("Title")
     Description_Cat_1=cat_rs("Description")
+    Url_Cat_1=cat_rs("Url")
   end if
   cat_rs.close
 
@@ -74,7 +30,7 @@ end if
 <html>
 
 <head>
-    <title><%=titolo_pagina%> - Decor &amp; Flowers</title>
+    <title><%=Title_Cat_1%> - Decor &amp; Flowers</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="<%=Left(TogliTAG(descrizione_pagina), 500)%> - Decor &amp; Flowers.">
     <meta name="keywords" content="">
@@ -89,15 +45,7 @@ end if
     <div class="container content">
         <ol class="breadcrumb">
             <li><a href="/">Home</a></li>
-            <%if Len(Titolo_1_Cat_1)>0 then%>
-              <%if cat_2=0 then%>
-                <li class="active"><%=Titolo_1_Cat_1%></li>
-              <%else%>
-                <li><a href="/prodotti.asp?cat_1=<%=FkCategoria_1%>"><%=Titolo_1_Cat_1%></a></li>
-              <%end if%>
-            <%end if%>
-            <%if Len(Titolo_1_Cat_2)>0 then%><li class="active"><%=Titolo_1_Cat_2%></li><%end if%>
-            <!--<li class="active"><%=Titolo_Prod%></li>-->
+            <li class="active"><%=titolo_pagina%></li>
         </ol>
         <!--#include virtual="/inc_menu.asp"-->
         <div class="col-md-9">
@@ -109,7 +57,8 @@ end if
                     <div class="panel panel-default" style="border: none;">
                         <div class="panel-body" >
                             <div class="readmore">
-                                <p style="font-size: 1.2em; text-align: justify">
+                                <p style="font-size: 1.2em; text-align: justify;">
+                                    <%if Len(Titolo_2_Cat_1)>0 then%><h2><%=Titolo_2_Cat_1%></h2><%end if%>
                                     <%=descrizione_pagina%>
                                 </p>
                             </div>
@@ -133,9 +82,7 @@ end if
                 Set pro_rs=Server.CreateObject("ADODB.Recordset")
                 sql = "SELECT * "
                 sql = sql + "FROM Prodotti_Madre "
-                if cat_2>0 then sql = sql + "WHERE ((Stato=1 OR Stato=2) AND (FkCategoria_2="&cat_2&")) "
-                if cat_2=0 and cat_1>0 then sql = sql + "WHERE ((Stato=1 OR Stato=2) AND (FkCategoria_1="&cat_1&")) "
-                if cat_2=0 and cat_1=0 then sql = sql + "WHERE (Stato=1 OR Stato=2) "
+                sql = sql + "WHERE ((Stato=1 OR Stato=2) AND (FkCategoria_1="&cat_1&")) "
                 sql = sql + "ORDER BY "&ordine&""
                 pro_rs.Open sql, conn, 1, 1
                 if pro_rs.recordcount>0 then
@@ -159,11 +106,11 @@ end if
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
                                     <li> <p class="navbar-text">prezzo</p></li>
-                                    <li <%if order=4 then%>class="active"<%end if%>><a href="/<%=toUrl%>?order=4"><i class="glyphicon glyphicon-eur"></i> + </a></li>
-                                    <li <%if order=3 then%>class="active"<%end if%>><a href="/<%=toUrl%>?order=3"><i class="glyphicon glyphicon-eur"></i> - </a></li>
+                                    <li <%if order=4 then%>class="active"<%end if%>><a href="/categorie-arredo-decorazioni/<%=toUrl%>?order=4"><i class="glyphicon glyphicon-eur"></i> + </a></li>
+                                    <li <%if order=3 then%>class="active"<%end if%>><a href="/categorie-arredo-decorazioni/<%=toUrl%>?order=3"><i class="glyphicon glyphicon-eur"></i> - </a></li>
                                     <li><p class="navbar-text">ordine alfabetico</p></li>
-                                    <li <%if order=1 then%>class="active"<%end if%>><a href="/<%=toUrl%>?order=1">A/Z</a></li>
-                                    <li <%if order=2 then%>class="active"<%end if%>><a href="/<%=toUrl%>?order=2">Z/A</a></li>
+                                    <li <%if order=1 then%>class="active"<%end if%>><a href="/categorie-arredo-decorazioni/<%=toUrl%>?order=1">A/Z</a></li>
+                                    <li <%if order=2 then%>class="active"<%end if%>><a href="/categorie-arredo-decorazioni/<%=toUrl%>?order=2">Z/A</a></li>
 
                                 </ul>
                             </div>
