@@ -57,8 +57,8 @@ end if
                     <div class="panel panel-default" style="border: none;">
                         <div class="panel-body" >
                             <div class="readmore">
-                                <p style="font-size: 1.2em; text-align: justify;">
-                                    <%if Len(Titolo_2_Cat_1)>0 then%><h2><%=Titolo_2_Cat_1%></h2><%end if%>
+                                <p style="font-size: 0.8em; text-align: justify;">
+                                    <%if Len(Titolo_2_Cat_1)>0 then%><h2 style="font-size: 1.0em;"><%=Titolo_2_Cat_1%></h2><%end if%>
                                     <%=descrizione_pagina%>
                                 </p>
                             </div>
