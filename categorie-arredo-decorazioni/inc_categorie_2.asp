@@ -81,8 +81,8 @@ end if
                     <div class="panel panel-default" style="border: none;">
                         <div class="panel-body" >
                             <div class="readmore">
-                                <p style="font-size: 1.2em; text-align: justify;">
-                                    <%if Len(Titolo_2_Cat_2)>0 then%><h2><%=Titolo_2_Cat_2%></h2><%end if%>
+                                <%if Len(Titolo_2_Cat_2)>0 then%><h2 style="font-size: 1.0em; margin-top: 0px;"><%=Titolo_2_Cat_2%></h2><%end if%>
+                                <p style="font-size: 0.8em; text-align: justify;">
                                     <%=descrizione_pagina%>
                                 </p>
                             </div>
@@ -207,13 +207,13 @@ end if
     </div>
     <!--#include virtual="/inc_footer.asp"-->
     <script>
-        $('.readmore').readmore({
-            speed: 200,
-            collapsedHeight: 50,
-            moreLink: '<a href="#">Leggi di pi&ugrave; <i class="fa fa-chevron-down"></i></a>',
-            lessLink: '<a href="#">Chiudi <i class="fa fa-chevron-up"></i></a>'
-        });
         $(document).ready(function() {
+            $('.readmore').readmore({
+                speed: 200,
+                collapsedHeight: 70,
+                moreLink: '<a href="#" style="text-align: right">Leggi di pi&ugrave; <i class="fa fa-chevron-down"></i></a>',
+                lessLink: '<a href="#" style="text-align: right">Chiudi <i class="fa fa-chevron-up"></i></a>'
+            });
             $('#collapse<%=FkCategoria_1%>').addClass('in');
             <%if cat_2>0 then%>$('#<%=cat_2%>').css('font-weight', 'bold').append('<span class="active-link"><i class="fa fa-caret-right"></i></span>');<%end if%>
 
