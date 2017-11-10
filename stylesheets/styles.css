@@ -321,8 +321,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url(../fonts/bootstrap/glyphicons-halflings-regular.eot?1496065901);
-  src: url(../fonts/bootstrap/glyphicons-halflings-regular.eot?&1496065901#iefix) format("embedded-opentype"), url(../fonts/bootstrap/glyphicons-halflings-regular.woff2?1496065901) format("woff2"), url(../fonts/bootstrap/glyphicons-halflings-regular.woff?1496065901) format("woff"), url(../fonts/bootstrap/glyphicons-halflings-regular.ttf?1496065901) format("truetype"), url(../fonts/bootstrap/glyphicons-halflings-regular.svg?1496065901#glyphicons_halflingsregular) format("svg");
+  src: url(../fonts/bootstrap/glyphicons-halflings-regular.eot?1469476733);
+  src: url(../fonts/bootstrap/glyphicons-halflings-regular.eot?&1469476733#iefix) format("embedded-opentype"), url(../fonts/bootstrap/glyphicons-halflings-regular.woff2?1469476733) format("woff2"), url(../fonts/bootstrap/glyphicons-halflings-regular.woff?1469476733) format("woff"), url(../fonts/bootstrap/glyphicons-halflings-regular.ttf?1469476733) format("truetype"), url(../fonts/bootstrap/glyphicons-halflings-regular.svg?1469476733#glyphicons_halflingsregular) format("svg");
 }
 .glyphicon {
   position: relative;
@@ -9096,7 +9096,6 @@ img {
 }
 .readmore {
   position: relative;
-  max-height: 2em;
 }
 
 .close-gradient:after {
@@ -9159,40 +9158,40 @@ img {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
   }
   .affix .header-logo {
-    background-image: url(../images/../images/logo.png?1496065901);
+    background-image: url(../images/../images/logo.png?1493898914);
     width: 200px;
     height: 60px !important;
   }
 }
 @media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 768px) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 768px) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 768px) and (min-device-pixel-ratio: 2), only screen and (min-width: 768px) and (min-resolution: 192dpi), only screen and (min-width: 768px) and (min-resolution: 2dppx) {
   .affix .header-logo {
-    background-image: url(../images/../images/logo@2x.png?1507557991);
+    background-image: url(../images/../images/logo@2x.png?1494836019);
     background-size: 200px 60px;
   }
 }
 @media (min-width: 768px) {
   .affix .header-logo-v2 {
-    background-image: url(../images/../images/logo_v2.png?1496065901);
+    background-image: url(../images/../images/logo_v2.png?1493986461);
     width: 122px;
     height: 60px !important;
   }
 }
 @media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 768px) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 768px) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 768px) and (min-device-pixel-ratio: 2), only screen and (min-width: 768px) and (min-resolution: 192dpi), only screen and (min-width: 768px) and (min-resolution: 2dppx) {
   .affix .header-logo-v2 {
-    background-image: url(../images/../images/logo@2x.png?1507557991);
+    background-image: url(../images/../images/logo@2x.png?1494836019);
     background-size: 122px 60px;
   }
 }
 @media (min-width: 768px) {
   .affix .header-logo-v3 {
-    background-image: url(../images/../images/logo_v3b.png?1496065901);
+    background-image: url(../images/../images/logo_v3b.png?1494836019);
     width: 173px;
     height: 60px !important;
   }
 }
 @media only screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), only screen and (min-width: 768px) and (min--moz-device-pixel-ratio: 2), only screen and (min-width: 768px) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-width: 768px) and (min-device-pixel-ratio: 2), only screen and (min-width: 768px) and (min-resolution: 192dpi), only screen and (min-width: 768px) and (min-resolution: 2dppx) {
   .affix .header-logo-v3 {
-    background-image: url(../images/../images/logo@2x.png?1507557991);
+    background-image: url(../images/../images/logo@2x.png?1494836019);
     background-size: 173px 60px;
   }
 }
@@ -9224,7 +9223,7 @@ img {
 }
 /* header logo */
 .header-logo {
-  background-image: url(../images/../images/logo.png?1496065901);
+  background-image: url(../images/../images/logo.png?1493898914);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -9237,13 +9236,13 @@ img {
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .header-logo {
-    background-image: url(../images/../images/logo@2x.png?1507557991);
+    background-image: url(../images/../images/logo@2x.png?1494836019);
     background-size: 250px 100px;
   }
 }
 
 .header-logo-v2 {
-  background-image: url(../images/../images/logo_v2.png?1496065901);
+  background-image: url(../images/../images/logo_v2.png?1493986461);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -9256,13 +9255,13 @@ img {
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .header-logo-v2 {
-    background-image: url(../images/../images/logo@2x.png?1507557991);
+    background-image: url(../images/../images/logo@2x.png?1494836019);
     background-size: 203px 100px;
   }
 }
 
 .header-logo-v3 {
-  background-image: url(../images/../images/logo_v3b.png?1496065901);
+  background-image: url(../images/../images/logo_v3b.png?1494836019);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -9275,13 +9274,13 @@ img {
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .header-logo-v3 {
-    background-image: url(../images/../images/logo@2x.png?1507557991);
+    background-image: url(../images/../images/logo@2x.png?1494836019);
     background-size: 288px 100px;
   }
 }
 
 .splash-logo-v3 {
-  background-image: url(../images/../images/splash_logo_v3b.png?1497445062);
+  background-image: url(../images/../images/splash_logo_v3b.png?1497445206);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -9297,14 +9296,14 @@ img {
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
   .splash-logo-v3 {
-    background-image: url(../images/../images/splash_logo_v3b.png?1497445062);
+    background-image: url(../images/../images/splash_logo_v3b.png?1497445206);
     background-size: 722px 250px;
   }
 }
 
 @media (max-width: 768px) {
   .splash-logo-v3 {
-    background-image: url(../images/../images/splash_logo_v3b.png?1497445062);
+    background-image: url(../images/../images/splash_logo_v3b.png?1497445206);
     width: 289px;
     height: 100px;
     margin-top: 30px !important;
@@ -9312,7 +9311,7 @@ img {
 }
 @media only screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2), only screen and (max-width: 768px) and (min--moz-device-pixel-ratio: 2), only screen and (max-width: 768px) and (-o-min-device-pixel-ratio: 2 / 1), only screen and (max-width: 768px) and (min-device-pixel-ratio: 2), only screen and (max-width: 768px) and (min-resolution: 192dpi), only screen and (max-width: 768px) and (min-resolution: 2dppx) {
   .splash-logo-v3 {
-    background-image: url(../images/../images/splash_logo_v3b.png?1497445062);
+    background-image: url(../images/../images/splash_logo_v3b.png?1497445206);
     background-size: 289px 100px;
   }
 }
