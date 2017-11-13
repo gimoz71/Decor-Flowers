@@ -51,6 +51,12 @@
                   Do While Not cat_rs.EOF
                   Pkid_Cat_1=cat_rs("Pkid")
                   Titolo_1_Cat_1=cat_rs("Titolo_1")
+                  Url_Cat_1=cat_rs("Url")
+                  if Len(Url_Cat_1)>0 then
+                    Url_Cat_1="/categorie-arredo-decorazioni/"&Url_Cat_1
+                  Else
+                    Url_Cat_1="/prodotti.asp?cat_1="&Pkid_Cat_1
+                  end if
 
                   Set img_rs=Server.CreateObject("ADODB.Recordset")
                   sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Cat_1&" and Tabella='Categorie_1' ORDER BY Posizione ASC"
@@ -65,12 +71,12 @@
                 <div class="col-xs-6 col-sm-4 col-md-3">
                     <article class="col-item">
                         <div class="photo">
-                            <a href="prodotti.asp?cat_1=<%=Pkid_Cat_1%>" class="prod-img-replace" style="background-image: url(<%=img%>)" title="<%=Titolo_1_Cat_1%>"><img alt="<%=Titolo_1_Cat_1%>" src="images/blank.png"></a>
+                            <a href="<%=Url_Cat_1%>" class="prod-img-replace" style="background-image: url(<%=img%>)" title="<%=Titolo_1_Cat_1%>"><img alt="<%=Titolo_1_Cat_1%>" src="images/blank.png"></a>
                         </div>
                         <div class="info">
                             <div class="row">
                                 <div class="category col-md-6">
-                                    <a href="prodotti.asp?cat_1=<%=Pkid_Cat_1%>" title="<%=Titolo_1_Cat_1%>"><h1><%=Titolo_1_Cat_1%></h1></a>
+                                    <a href="<%=Url_Cat_1%>" title="<%=Titolo_1_Cat_1%>"><h1><%=Titolo_1_Cat_1%></h1></a>
                                 </div>
                             </div>
                         </div>

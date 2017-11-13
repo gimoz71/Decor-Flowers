@@ -12,6 +12,12 @@
             Do While Not cat_rs.EOF
             Pkid_Cat_1_menu=cat_rs("Pkid")
             Titolo_1_Cat_1_menu=cat_rs("Titolo_1")
+            Url_Cat_1_menu=cat_rs("Url")
+            if Len(Url_Cat_1_menu)>0 then
+              Url_Cat_1_menu="/categorie-arredo-decorazioni/"&Url_Cat_1_menu
+            Else
+              Url_Cat_1_menu="/prodotti.asp?cat_1="&Pkid_Cat_1_menu
+            end if
 
             Set sot_rs=Server.CreateObject("ADODB.Recordset")
             sql = "SELECT * "
@@ -23,7 +29,7 @@
 
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="prodotti.asp?cat_1=<%=Pkid_Cat_1_menu%>" class="panel-title"><%=Titolo_1_Cat_1_menu%></a>
+                    <a href="<%=Url_Cat_1_menu%>" class="panel-title"><%=Titolo_1_Cat_1_menu%></a>
                     <%if sot_rs.recordcount>0 then%><span class="expand-accordion" data-toggle="collapse" data-parent="#accordion" href="#collapse<%=Pkid_Cat_1_menu%>"><span class="caret"></span></span><%end if%>
                 </div>
                 <%
@@ -35,8 +41,14 @@
                         Do While Not sot_rs.EOF
                         Pkid_Cat_2_menu=sot_rs("Pkid")
                         Titolo_1_Cat_2_menu=sot_rs("Titolo_1")
+                        Url_Cat_2_menu=cat_rs("Url")
+                        if Len(Url_Cat_2_menu)>0 then
+                          Url_Cat_2_menu="/categorie-arredo-decorazioni/"&Url_Cat_2_menu
+                        Else
+                          Url_Cat_2_menu="/prodotti.asp?cat_2="&Pkid_Cat_2_menu
+                        end if
                         %>
-                        <a href="/prodotti.asp?cat_2=<%=Pkid_Cat_2_menu%>" class="list-group-item" id="<%=Pkid_Cat_2_menu%>" title="<%=Titolo_1_Cat_2_menu%>"><%=Titolo_1_Cat_2_menu%></a>
+                        <a href="<%=Url_Cat_2_menu%>" class="list-group-item" id="<%=Pkid_Cat_2_menu%>" title="<%=Titolo_1_Cat_2_menu%>"><%=Titolo_1_Cat_2_menu%></a>
                         <%
                         sot_rs.movenext
                         loop
@@ -85,10 +97,10 @@
         end if
         cat_rs.close
         %>
-        <a href="novita.asp" class="banner stacked generic">
+        <a href="/novita.asp" class="banner stacked generic">
             <h3 class="title">Novit&agrave; & ultimi arrivi</h3>
         </a>
-        <a href="offerte.asp" class="banner stacked generic">
+        <a href="/offerte.asp" class="banner stacked generic">
             <h3 class="title">Offerte & promozioni</h3>
         </a>
         <%
@@ -109,7 +121,7 @@
             loop
             %>
             </ul>
-            <div class="panel-footer"><a href="commenti_elenco.asp" class="btn btn-default">leggi tutti i commenti <i class="fa fa-chevron-right"></i></a></div>
+            <div class="panel-footer"><a href="/commenti_elenco.asp" class="btn btn-default">leggi tutti i commenti <i class="fa fa-chevron-right"></i></a></div>
         </div>
         <%
         end if

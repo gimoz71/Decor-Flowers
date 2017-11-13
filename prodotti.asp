@@ -6,6 +6,40 @@ if cat_1="" then cat_1=0
 cat_2=request("cat_2")
 if cat_2="" then cat_2=0
 
+if cat_1>0 then
+  Set cat_rs=Server.CreateObject("ADODB.Recordset")
+  sql = "SELECT * "
+  sql = sql + "FROM Categorie_1 "
+  sql = sql + "WHERE PkId="&cat_1&""
+  cat_rs.Open sql, conn, 1, 1
+  if cat_rs.recordcount>0 then
+    Url_Cat_1=cat_rs("Url")
+      if Len(Url_Cat_1)>0 then
+        'response.Redirect("/categorie-arredo-decorazioni/"&Url_Cat_1)
+        Response.Status = "301 Moved Permanently"
+        Response.AddHeader "Location", "/categorie-arredo-decorazioni/"&Url_Cat_1)
+      end if
+  end if
+  cat_rs.close
+end if
+
+if cat_2>0 then
+  Set sot_rs=Server.CreateObject("ADODB.Recordset")
+  sql = "SELECT * "
+  sql = sql + "FROM Categorie_2 "
+  sql = sql + "WHERE PkId="&cat_2&""
+  sot_rs.Open sql, conn, 1, 1
+  if sot_rs.recordcount>0 then
+    Url_Cat_2=sot_rs("Url")
+    if Len(Url_Cat_2)>0 then
+      'response.Redirect("/categorie-arredo-decorazioni/"&Url_Cat_1)
+      Response.Status = "301 Moved Permanently"
+      Response.AddHeader "Location", "/categorie-arredo-decorazioni/"&Url_Cat_2)
+    end if
+  end if
+  sot_rs.close
+end if
+
 if cat_2>0 then
   Set sot_rs=Server.CreateObject("ADODB.Recordset")
   sql = "SELECT * "

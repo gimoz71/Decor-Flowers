@@ -42,6 +42,12 @@ if pkid_prod>0 then
       Descrizione_Cat_1=cat_rs("Descrizione")
       Title_Cat_1=cat_rs("Title")
       Description_Cat_1=cat_rs("Description")
+      Url_Cat_1=cat_rs("Url")
+      if Len(Url_Cat_1)>0 then
+        Url_Cat_1="/categorie-arredo-decorazioni/"&Url_Cat_1
+      Else
+        Url_Cat_1="/prodotti.asp?cat_1="&FkCategoria_1
+      end if
     end if
     cat_rs.close
   end if
@@ -58,6 +64,12 @@ if pkid_prod>0 then
       Descrizione_Cat_2=sot_rs("Descrizione")
       Title_Cat_2=sot_rs("Title")
       Description_Cat_2=sot_rs("Description")
+      Url_Cat_2=sot_rs("Url")
+      if Len(Url_Cat_2)>0 then
+        Url_Cat_2="/categorie-arredo-decorazioni/"&Url_Cat_2
+      Else
+        Url_Cat_2="/prodotti.asp?cat_2="&FkCategoria_2
+      end if
     end if
     sot_rs.close
   end if
@@ -115,8 +127,8 @@ if ric="" then ric=0
 			<div class="col-md-10 col-md-push-2">
 		        <ol class="breadcrumb">
                     <li><a href="index.asp">Home</a></li>
-                    <li><a href="prodotti.asp?cat_1=<%=FkCategoria_1%>"><%=Titolo_1_Cat_1%></a></li>
-                    <li><a href="prodotti.asp?cat_2=<%=FkCategoria_2%>"><%=Titolo_1_Cat_2%></a></li>
+                    <li><a href="<%=Url_Cat_1%>" title="Elenco prodotti <%=Titolo_1_Cat_1%>"><%=Titolo_1_Cat_1%></a></li>
+                    <li><a href="<%=Url_Cat_2%>" title="Elenco prodotti <%=Titolo_1_Cat_2%>"><%=Titolo_1_Cat_2%></a></li>
                     <li class="active"><%=Titolo_Prod%></li>
 		        </ol>
 			</div>
