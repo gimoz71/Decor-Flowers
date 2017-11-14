@@ -41,7 +41,7 @@
                         Do While Not sot_rs.EOF
                         Pkid_Cat_2_menu=sot_rs("Pkid")
                         Titolo_1_Cat_2_menu=sot_rs("Titolo_1")
-                        Url_Cat_2_menu=cat_rs("Url")
+                        Url_Cat_2_menu=sot_rs("Url")
                         if Len(Url_Cat_2_menu)>0 then
                           Url_Cat_2_menu="/categorie-arredo-decorazioni/"&Url_Cat_2_menu
                         Else
