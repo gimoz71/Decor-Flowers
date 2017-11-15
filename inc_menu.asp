@@ -82,10 +82,16 @@
             Do While Not eve_rs.EOF
             Pkid_Eve_menu=eve_rs("Pkid")
             Titolo_1_Eve_menu=eve_rs("Titolo_1")
+            Url_Eve_menu=eve_rs("Url")
+            if Len(Url_Eve_menu)>0 then
+              Url_Eve_menu="/categorie-arredo-decorazioni/"&Url_Eve_menu
+            Else
+              Url_Eve_menu="/prodotti_eventi.asp?eve="&Pkid_Eve_menu
+            end if
             %>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <a href="/prodotti_eventi.asp?eve=<%=Pkid_Eve_menu%>" class="panel-title" title="<%=Titolo_1_Eve_menu%>"><%=Titolo_1_Eve_menu%></a>
+                    <a href="<%=Url_Eve_menu%>" class="panel-title" title="<%=Titolo_1_Eve_menu%>"><%=Titolo_1_Eve_menu%></a>
                 </div>
             </div>
             <%

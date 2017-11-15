@@ -110,6 +110,12 @@
                   if PrezzoProdotto="" or IsNull(PrezzoProdotto) then PrezzoProdotto=0
                   PrezzoOfferta=pro_rs("PrezzoOfferta")
                   if PrezzoOfferta="" or IsNull(PrezzoOfferta) then PrezzoOfferta=0
+                  Url_Prod=pro_rs("Url")
+                  If Len(Url_Prod)>0 then
+                    Url_Prod="/prodotti-arredo-decorazioni/"&Url_Prod
+                  Else
+                    Url_Prod="/scheda.asp?pkid_prod="&Pkid_Prod
+                  End If
 
                   Set img_rs=Server.CreateObject("ADODB.Recordset")
       						sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
@@ -124,12 +130,12 @@
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <article class="col-item">
                         <div class="photo">
-                            <a href="scheda.asp?pkid_prod=<%=Pkid_Prod%>" class="prod-img-replace" style="background-image: url(<%=img%>)" title="Scheda del prodotto <%=Titolo_Prod%>"><img alt="<%=Titolo_Prod%>" src="images/blank.png"></a>
+                            <a href="<%=Url_Prod%>" class="prod-img-replace" style="background-image: url(<%=img%>)" title="Scheda del prodotto <%=Titolo_Prod%>"><img alt="<%=Titolo_Prod%>" src="images/blank.png"></a>
                         </div>
                         <div class="info">
                             <div class="row">
                                 <div class="price-details col-md-6">
-                                    <a href="scheda.asp?pkid_prod=<%=Pkid_Prod%>" title="Scheda del prodotto <%=Titolo_Prod%>"><h3><%=Titolo_Prod%></h3></a>
+                                    <a href="<%=Url_Prod%>" title="Scheda del prodotto <%=Titolo_Prod%>"><h3><%=Titolo_Prod%></h3></a>
                                     <p class="details">codice: <b><%=Codice_Prod%></b></p>
                                     <div class="price-box separator">
                                         <%if PrezzoOfferta>0 then%>
@@ -146,7 +152,7 @@
                                     <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
                                 </p>
                                 <p class="btn-details">
-                                    <a href="scheda.asp?pkid_prod=<%=Pkid_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
+                                    <a href="<%=Url_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
                                 </p>
                             </div>
                             <div class="clearfix"></div>
@@ -182,6 +188,12 @@
                   if PrezzoProdotto="" or IsNull(PrezzoProdotto) then PrezzoProdotto=0
                   PrezzoOfferta=pro_rs("PrezzoOfferta")
                   if PrezzoOfferta="" or IsNull(PrezzoOfferta) then PrezzoOfferta=0
+                  Url_Prod=pro_rs("Url")
+                  If Len(Url_Prod)>0 then
+                    Url_Prod="/prodotti-arredo-decorazioni/"&Url_Prod
+                  Else
+                    Url_Prod="/scheda.asp?pkid_prod="&Pkid_Prod
+                  End If
 
                   Set img_rs=Server.CreateObject("ADODB.Recordset")
       						sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
@@ -196,12 +208,12 @@
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <article class="col-item">
                         <div class="photo">
-                            <a href="scheda.asp?pkid_prod=<%=Pkid_Prod%>" class="prod-img-replace" style="background-image: url(<%=img%>)" title="Scheda del prodotto <%=Titolo_Prod%>"><img alt="<%=Titolo_Prod%>" src="images/blank.png"></a>
+                            <a href="<%=Url_Prod%>" class="prod-img-replace" style="background-image: url(<%=img%>)" title="Scheda del prodotto <%=Titolo_Prod%>"><img alt="<%=Titolo_Prod%>" src="images/blank.png"></a>
                         </div>
                         <div class="info">
                             <div class="row">
                                 <div class="price-details col-md-6">
-                                    <a href="scheda.asp?pkid_prod=<%=Pkid_Prod%>" title="Scheda del prodotto <%=Titolo_Prod%>"><h3><%=Titolo_Prod%></h3></a>
+                                    <a href="<%=Url_Prod%>" title="Scheda del prodotto <%=Titolo_Prod%>"><h3><%=Titolo_Prod%></h3></a>
                                     <p class="details">codice: <b><%=Codice_Prod%></b></p>
                                     <div class="price-box separator">
                                       <%if PrezzoOfferta>0 then%>
@@ -218,7 +230,7 @@
                                     <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
                                 </p>
                                 <p class="btn-details">
-                                    <a href="scheda.asp?pkid_prod=<%=Pkid_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
+                                    <a href="<%=Url_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
                                 </p>
                             </div>
                             <div class="clearfix"></div>

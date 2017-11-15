@@ -14,13 +14,13 @@ if cat_1>0 then
   cat_rs.Open sql, conn, 1, 1
   if cat_rs.recordcount>0 then
     Url_Cat_1=cat_rs("Url")
-      if Len(Url_Cat_1)>0 then
-        'response.Redirect("/categorie-arredo-decorazioni/"&Url_Cat_1)
-        Response.Status = "301 Moved Permanently"
-        Response.AddHeader "Location", "/categorie-arredo-decorazioni/"&Url_Cat_1)
-      end if
   end if
   cat_rs.close
+  if Len(Url_Cat_1)>0 then
+    'response.Redirect("/categorie-arredo-decorazioni/"&Url_Cat_1)
+    Response.Status = "301 Moved Permanently"
+    Response.AddHeader "Location", "/categorie-arredo-decorazioni/"&Url_Cat_1
+  end if
 end if
 
 if cat_2>0 then
@@ -31,13 +31,13 @@ if cat_2>0 then
   sot_rs.Open sql, conn, 1, 1
   if sot_rs.recordcount>0 then
     Url_Cat_2=sot_rs("Url")
-    if Len(Url_Cat_2)>0 then
-      'response.Redirect("/categorie-arredo-decorazioni/"&Url_Cat_1)
-      Response.Status = "301 Moved Permanently"
-      Response.AddHeader "Location", "/categorie-arredo-decorazioni/"&Url_Cat_2)
-    end if
   end if
   sot_rs.close
+  if Len(Url_Cat_2)>0 then
+    'response.Redirect("/categorie-arredo-decorazioni/"&Url_Cat_1)
+    Response.Status = "301 Moved Permanently"
+    Response.AddHeader "Location", "/categorie-arredo-decorazioni/"&Url_Cat_2
+  end if
 end if
 
 if cat_2>0 then

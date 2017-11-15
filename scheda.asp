@@ -22,6 +22,7 @@ if pkid_prod>0 then
     Dimensioni_Prod=pro_rs("Dimensioni")
     Colori_Prod=pro_rs("Colori")
     Stato_Prod=pro_rs("Stato")
+    Url_Prod=pro_rs("Url")
 
     FkCategoria_1=pro_rs("FkCategoria_1")
     if FkCategoria_1="" or IsNull(FkCategoria_1) then FkCategoria_1=0
@@ -29,6 +30,12 @@ if pkid_prod>0 then
     if FkCategoria_2="" or IsNull(FkCategoria_2) then FkCategoria_2=0
   end if
   pro_rs.close
+
+  if Len(Url_Prod)>0 then
+    'response.Redirect("/categorie-arredo-decorazioni/"&Url_Cat_1)
+    Response.Status = "301 Moved Permanently"
+    Response.AddHeader "Location", "/prodotti-arredo-decorazioni/"&Url_Prod
+  end if
 
   if FkCategoria_1>0 then
     Set cat_rs=Server.CreateObject("ADODB.Recordset")
