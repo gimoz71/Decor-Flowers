@@ -77,7 +77,7 @@ end if
 
 
                 Set pro_rs=Server.CreateObject("ADODB.Recordset")
-                sql = "SELECT [Eventi_Per_Prodotti].FkEvento, Prodotti_Madre.PkId, Prodotti_Madre.Titolo, Prodotti_Madre.Codice, Prodotti_Madre.PrezzoOfferta, Prodotti_Madre.PrezzoProdotto, Prodotti_Madre.Posizione, Prodotti_Madre.Stato "
+                sql = "SELECT [Eventi_Per_Prodotti].FkEvento, Prodotti_Madre.PkId, Prodotti_Madre.Titolo, Prodotti_Madre.Codice, Prodotti_Madre.PrezzoOfferta, Prodotti_Madre.PrezzoProdotto, Prodotti_Madre.Posizione, Prodotti_Madre.Stato, Prodotti_Madre.Url "
                 sql = sql + "FROM Prodotti_Madre INNER JOIN [Eventi_Per_Prodotti] ON Prodotti_Madre.PkId = [Eventi_Per_Prodotti].FkProdotto_Madre "
                 sql = sql + "WHERE ((Prodotti_Madre.Stato=1 OR Prodotti_Madre.Stato=2) AND (([Eventi_Per_Prodotti].FkEvento)="&eve&")) "
                 sql = sql + "ORDER BY "&ordine&""
@@ -125,6 +125,7 @@ end if
                 if PrezzoProdotto="" or IsNull(PrezzoProdotto) then PrezzoProdotto=0
                 PrezzoOfferta=pro_rs("PrezzoOfferta")
                 if PrezzoOfferta="" or IsNull(PrezzoOfferta) then PrezzoOfferta=0
+                Url_Prod=pro_rs("Url")
                 If Len(Url_Prod)>0 then
                   Url_Prod="/prodotti-arredo-decorazioni/"&Url_Prod
                 Else

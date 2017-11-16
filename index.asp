@@ -95,37 +95,73 @@
                     <a href="offerte.asp" class="btn btn-default btn-block hidden visible-xs bottom-buffer" style="">vedi tutto <i class="fa fa-chevron-right"></i></a>
                 </div>
                 <%
-                Set pro_rs=Server.CreateObject("ADODB.Recordset")
-                sql = "SELECT Top 8 * "
-                sql = sql + "FROM Prodotti_Madre "
-                sql = sql + "WHERE (Stato=1 or Stato=2) AND (Offerta=1) "
-                sql = sql + "ORDER BY Posizione ASC, Titolo ASC"
-                pro_rs.Open sql, conn, 1, 1
-                if pro_rs.recordcount>0 then
-                  Do While Not pro_rs.EOF
-                  Pkid_Prod=pro_rs("Pkid")
-                  Titolo_Prod=pro_rs("Titolo")
-                  Codice_Prod=pro_rs("Codice")
-                  PrezzoProdotto=pro_rs("PrezzoProdotto")
-                  if PrezzoProdotto="" or IsNull(PrezzoProdotto) then PrezzoProdotto=0
-                  PrezzoOfferta=pro_rs("PrezzoOfferta")
-                  if PrezzoOfferta="" or IsNull(PrezzoOfferta) then PrezzoOfferta=0
-                  Url_Prod=pro_rs("Url")
-                  If Len(Url_Prod)>0 then
-                    Url_Prod="/prodotti-arredo-decorazioni/"&Url_Prod
-                  Else
-                    Url_Prod="/scheda.asp?pkid_prod="&Pkid_Prod
-                  End If
+                'Set pro_rs=Server.CreateObject("ADODB.Recordset")
+                'sql = "SELECT Top 8 * "
+                'sql = sql + "FROM Prodotti_Madre "
+                'sql = sql + "WHERE (Stato=1 or Stato=2) AND (Offerta=1) "
+                'sql = sql + "ORDER BY Posizione ASC, Titolo ASC"
+                'pro_rs.Open sql, conn, 1, 1
+                'if pro_rs.recordcount>0 then
+                  'Do While Not pro_rs.EOF
+                  'Pkid_Prod=pro_rs("Pkid")
+                  'Titolo_Prod=pro_rs("Titolo")
+                  'Codice_Prod=pro_rs("Codice")
+                  'PrezzoProdotto=pro_rs("PrezzoProdotto")
+                  'if PrezzoProdotto="" or IsNull(PrezzoProdotto) then PrezzoProdotto=0
+                  'PrezzoOfferta=pro_rs("PrezzoOfferta")
+                  'if PrezzoOfferta="" or IsNull(PrezzoOfferta) then PrezzoOfferta=0
+                  'Url_Prod=pro_rs("Url")
+                  'If Len(Url_Prod)>0 then
+                    'Url_Prod="/prodotti-arredo-decorazioni/"&Url_Prod
+                  'Else
+                    'Url_Prod="/scheda.asp?pkid_prod="&Pkid_Prod
+                  'End If
 
-                  Set img_rs=Server.CreateObject("ADODB.Recordset")
-      						sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
-      						img_rs.Open sql, conn, 1, 1
-      						if img_rs.recordcount>0 then
-                    img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
-                  else
-                    img="images/thumb_d&f.png"
-                  end if
-                  img_rs.close
+                  Set pro_rs=Server.CreateObject("ADODB.Recordset")
+                  sql = "SELECT Pkid, Titolo, Codice, PrezzoProdotto, PrezzoOfferta, Url, Stato, Offerta "
+                  sql = sql + "FROM Prodotti_Madre "
+                  sql = sql + "WHERE (Stato=1 or Stato=2) AND (Offerta=1) "
+                  pro_rs.Open sql, conn, 1, 1
+
+                  Randomize()
+                  constnum = 4
+
+
+                  if pro_rs.recordcount>0 then
+                    if not pro_rs.EOF THEN
+                    rndArray = pro_rs.GetRows()
+                    pro_rs.Close
+
+                    Lenarray =  UBOUND( rndArray, 2 ) + 1
+    								skip =  Lenarray  / constnum
+    								IF Lenarray <= constnum THEN skip = 1
+    								FOR i = 0 TO Lenarray - 1 STEP skip
+    									numero = RND * ( skip - 1 )
+    									Pkid_Prod = rndArray( 0, i + numero )
+    									Titolo_Prod = rndArray( 1, i + numero )
+    									Codice_Prod = rndArray( 2, i + numero )
+    									PrezzoProdotto = rndArray( 3, i + numero )
+                      if PrezzoProdotto="" or IsNull(PrezzoProdotto) then PrezzoProdotto=0
+    									PrezzoOfferta = rndArray( 4, i+ numero )
+                      if PrezzoOfferta="" or IsNull(PrezzoOfferta) then PrezzoOfferta=0
+
+    									Url_Prod = rndArray( 5, i+ numero )
+                      If Len(Url_Prod)>0 then
+                        Url_Prod="/prodotti-arredo-decorazioni/"&Url_Prod
+                      Else
+                        Url_Prod="/scheda.asp?pkid_prod="&Pkid_Prod
+                      End If
+
+
+                      Set img_rs=Server.CreateObject("ADODB.Recordset")
+          						sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
+          						img_rs.Open sql, conn, 1, 1
+          						if img_rs.recordcount>0 then
+                        img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
+                      else
+                        img="images/thumb_d&f.png"
+                      end if
+                      img_rs.close
                 %>
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <article class="col-item">
@@ -161,10 +197,15 @@
                     </article>
                 </div>
                 <%
-                  pro_rs.movenext
-                  loop
-                end if
-                pro_rs.close
+                    NEXT
+                    end if
+                  else
+                    pro_rs.close
+                  end if
+                  'pro_rs.movenext
+                  'loop
+                'end if
+                'pro_rs.close
                 %>
             </div>
             <div class="row top-buffer">
