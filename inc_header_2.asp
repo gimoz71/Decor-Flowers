@@ -21,7 +21,7 @@
 
         </SCRIPT>
         <div class="col-md-8">
-            <form action="ricerca_avanzata.asp" class="navbar-form pull-right search-bar" role="search" onSubmit="return verifica_ricerca();">
+            <form action="/ricerca_avanzata.asp" class="navbar-form pull-right search-bar" role="search" onSubmit="return verifica_ricerca();">
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Nome o codice prodotto" name="testo_ricerca" id="testo_ricerca">
                     <div class="input-group-btn">
