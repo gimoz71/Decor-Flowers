@@ -96,6 +96,7 @@
 						PrezzoProdotto=ts("PrezzoProdotto")
 						ts("Quantita")=Quantita
 						ts("TotaleRiga")=(Quantita*PrezzoProdotto)
+						ts("ToltoDalMagazzino")="no"
 						ts.update
 					ts.close
 				end if
@@ -148,6 +149,7 @@
 								riga_rs("Quantita")=pezzi
 								TotaleRiga=PrezzoProdotto_figlio*pezzi
 								riga_rs("TotaleRiga")=TotaleRiga
+								riga_rs("ToltoDalMagazzino")="no"
 								riga_rs("Data")=now()
 								riga_rs.update
 
