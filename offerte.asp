@@ -46,12 +46,12 @@
 
                 <%
                 order=request("order")
-                if order="" then order=1
-
-                if order=1 then ordine="Posizione ASC, Titolo ASC"
-                if order=2 then ordine="Posizione ASC, Titolo DESC"
-                if order=3 then ordine="Posizione ASC, PrezzoOfferta ASC"
-                if order=4 then ordine="Posizione ASC, PrezzoOfferta DESC"
+                if order="" then order=0
+                if order=0 then ordine="Posizione ASC, PrezzoOfferta ASC"
+                if order=1 then ordine="Titolo ASC"
+                if order=2 then ordine="Titolo DESC"
+                if order=3 then ordine="PrezzoOfferta ASC"
+                if order=4 then ordine="PrezzoOfferta DESC"
 
 
                 Set pro_rs=Server.CreateObject("ADODB.Recordset")
@@ -86,7 +86,7 @@
                                     <li><p class="navbar-text">ordine alfabetico</p></li>
                                     <li <%if order=1 then%>class="active"<%end if%>><a href="/<%=toUrl%>?order=1">A/Z</a></li>
                                     <li <%if order=2 then%>class="active"<%end if%>><a href="/<%=toUrl%>?order=2">Z/A</a></li>
-
+                                    <li <%if order=0 then%>class="active"<%end if%>><a href="/<%=toUrl%>?order=0">[ IN EVIDENZA ]</a></li>
                                 </ul>
                             </div>
                             <!-- /.navbar-collapse -->

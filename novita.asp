@@ -49,7 +49,7 @@
                 sql = "SELECT TOP 45 * "
                 sql = sql + "FROM Prodotti_Madre "
                 sql = sql + "WHERE (Stato=1 or Stato=2) "
-                sql = sql + "ORDER BY PkId DESC"
+                sql = sql + "ORDER BY DataAggiornamento DESC"
                 pro_rs.Open sql, conn, 1, 1
                 if pro_rs.recordcount>0 then
 
