@@ -185,7 +185,7 @@
                             </div>
                             <div class="separator clear-left">
                                 <p class="btn-add">
-                                    <a href="/preferiti.asp?id=<%=Pkid_Prod%>>" rel="nofollow" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
+                                    <a href="/preferiti.asp?id=<%=Pkid_Prod%>" rel="nofollow" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
                                 </p>
                                 <p class="btn-details">
                                     <a href="<%=Url_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
@@ -268,7 +268,7 @@
                             </div>
                             <div class="separator clear-left">
                                 <p class="btn-add">
-                                    <a href="#" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
+                                    <a href="/preferiti.asp?id=<%=Pkid_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
                                 </p>
                                 <p class="btn-details">
                                     <a href="<%=Url_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>

@@ -14,7 +14,8 @@ On Error Resume Next
 	fromURL = Request.ServerVariables("HTTP_REFERER")
 	toUrl_completo = Request.ServerVariables("SCRIPT_NAME")
 	toUrl = Request.ServerVariables("SCRIPT_NAME")
-
+	fromURL_preferiti=fromURL
+	
 	'strDaDoveVengo = Request.Servervariables("HTTP_REFERER")
 	UltimoSlash1 = InStrRev(fromURL,"/")
 	fromURL = Mid((fromURL),(UltimoSlash1 + 1), len(fromURL)- UltimoSlash1)

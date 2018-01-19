@@ -84,7 +84,7 @@
                         <div class="info">
                             <div class="row">
                                 <div class="category col-md-6">
-                                    <a href="#" title="Lista dei desideri"><h1>Lista dei desideri</h1></a>
+                                    <a href="preferiti.asp" title="Lista dei desideri"><h1>Lista dei desideri</h1></a>
                                 </div>
                             </div>
                         </div>
