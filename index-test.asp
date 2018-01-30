@@ -20,7 +20,7 @@
         <div class="top-buffer">
           <h1 class="slogan subtitle">Decor &amp; Flowers, vendita piante e fiori artificiali</h1><br />
         </div>
-        <!--#include file="inc_menu.asp"-->
+        <!--#include file="inc_menu_test.asp"-->
         <div class="col-md-9">
 
             <div class="row top-buffer" style="margin-top: 0px;">
@@ -351,19 +351,7 @@
                 pro_rs.close
                 %>
             </div>
-            <div class="row top-buffer">
-                <div class="col-md-12">
-                    <h1 class="slogan subtitle">Decor &amp; Flowers, vendita piante e fiori artificiali</h1>
-                    <div class="panel panel-default" style="border: none;">
-                        <div class="panel-body">
-                            <p style="text-align: justify">
-                              Da Decor and Flowers &egrave; possibile trovare un'ampia gamma di fiori e piante artificiali, composizioni floreali, vasi, cesti e vari oggetti in vetro e ceramica per arredare con stile la tua casa, personalizzare le tue stanze, allestire un negozio, preparare un evento o una manifestazione. L'assortimento di piante e fiori artificiali in vendita &egrave; in pronta consegna con spedizione in tutta Italia con pagamenti online sicuri e garantiti.
-<br /><em>Dai un tocco di colore al tuo ambiente!</em>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
     <!--#include file="inc_footer.asp"-->
