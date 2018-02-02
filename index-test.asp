@@ -77,18 +77,22 @@
                 cat_rs.close
                 %>
             </div>
+            <%
+            oggi=Now()
+
+            Set pro_rs=Server.CreateObject("ADODB.Recordset")
+            sql = "SELECT Top 8 * "
+            sql = sql + "FROM Prodotti_Madre "
+            sql = sql + "WHERE ((Stato=1 or Stato=2) and (InEvidenza=1) and ((InEvidenza_A)>='"&oggi&"' And (InEvidenza_DA)<='"&oggi&"')) "
+            sql = sql + "ORDER BY InEvidenza_Posizione ASC"
+            pro_rs.Open sql, conn, 1, 1
+            if pro_rs.recordcount>0 then
+            %>
             <div class="row top-buffer">
                 <div class="col-xl-12">
                     <h4 class="subtitle">Prodotti in evidenza</h4>
                 </div>
                 <%
-                Set pro_rs=Server.CreateObject("ADODB.Recordset")
-                sql = "SELECT Top 8 * "
-                sql = sql + "FROM Prodotti_Madre "
-                sql = sql + "WHERE ((Stato=1 or Stato=2) and (InEvidenza=1)) "
-                sql = sql + "ORDER BY Posizione_InEvidenza ASC"
-                pro_rs.Open sql, conn, 1, 1
-                if pro_rs.recordcount>0 then
                   Do While Not pro_rs.EOF
                   Pkid_Prod=pro_rs("Pkid")
                   Titolo_Prod=pro_rs("Titolo")
@@ -150,10 +154,12 @@
                 <%
                   pro_rs.movenext
                   loop
-                end if
-                pro_rs.close
                 %>
             </div>
+            <%
+            end if
+            pro_rs.close
+            %>
             <div class="row top-buffer">
                 <div class="col-xl-12">
                     <h4 class="subtitle">Prodotti in offerta</h4><a href="offerte.asp" class="btn btn-default pull-right hidden-xs" style="position: absolute; top: -10px; right: 15px;">vedi tutto <i class="fa fa-chevron-right"></i></a>
