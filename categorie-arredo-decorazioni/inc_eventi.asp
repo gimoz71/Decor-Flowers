@@ -32,6 +32,7 @@ end if
     <meta name="description" content="<%if Len(descrizione_pagina)>0 then%><%=Left(TogliTAG(descrizione_pagina), 500)%><%else%>Vendita online <%=Titolo_2_Eve%>, scegli nel nostro ampio catalogo online di <%=Titolo_2_Eve%><%end if%> - Decor &amp; Flowers.">
     <meta name="keywords" content="">
     <!--#include virtual="/inc_head.asp"-->
+    <link rel="canonical" href="https://www.decorandflowers.it/categorie-arredo-decorazioni/<%=toUrl%>" />
 </head>
 
 <body>

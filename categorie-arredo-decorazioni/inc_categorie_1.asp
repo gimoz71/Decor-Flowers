@@ -35,6 +35,7 @@ end if
     <meta name="description" content="<%=Left(TogliTAG(descrizione_pagina), 500)%> - Decor &amp; Flowers.">
     <meta name="keywords" content="">
     <!--#include virtual="/inc_head.asp"-->
+    <link rel="canonical" href="https://www.decorandflowers.it/categorie-arredo-decorazioni/<%=toUrl%>" />
 </head>
 
 <body>

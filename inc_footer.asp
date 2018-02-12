@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 address-col">
-                <img src="images/logo_v3_footer.png" alt="Decor & Flowers" style="width: 100%; padding-bottom: 15px;"/>
+                <img src="/images/logo_v3_footer.png" alt="Decor & Flowers" style="width: 100%; padding-bottom: 15px;"/>
                 <p>
                     Decorandflowers<br>
                     C.F. e Iscr. Reg. Impr. di Firenze 06741510488<br />
