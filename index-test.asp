@@ -79,6 +79,12 @@
             </div>
             <%
             oggi=Now()
+            giorno=Left(oggi, 2)
+            mese=Right((Left(oggi, 5)), 2)
+            anno=Right((Left(oggi, 10)), 4)
+            data=mese&"/"&giorno&"/"&Anno
+            orario=right(oggi, 8)
+            oggi=data&" "&orario
 
             Set pro_rs=Server.CreateObject("ADODB.Recordset")
             sql = "SELECT Top 8 * "
