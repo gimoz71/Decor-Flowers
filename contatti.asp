@@ -3,9 +3,9 @@
 <html>
 
 <head>
-    <title>Contatti Decor &amp; Flowers</title>
+    <title>Contatti Decor &amp; Flowers - vendita fiori piante finte</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Decor &amp; Flowers.">
+    <meta name="description" content="Da Decor and Flowers &egrave; possibile trovare un'ampia gamma di fiori e piante finte, composizioni floreali, vasi, cesti e vari oggetti in vetro e ceramica per arredare con stile la tua casa, personalizzare le tue stanze, allestire un negozio, preparare un evento o una manifestazione. L'assortimento di piante e fiori artificiali in vendita &egrave; in pronta consegna con spedizione in tutta Italia con pagamenti online sicuri e garantiti.">
     <meta name="keywords" content="">
     <!--#include file="inc_head.asp"-->
 </head>
@@ -22,6 +22,19 @@
         </div>
         <!--#include file="inc_menu.asp"-->
         <div class="col-md-9">
+          <div class="row top-buffer">
+              <div class="col-md-12">
+                  <h1 class="slogan subtitle">Decor &amp; Flowers,<br />vendita fiori e piante finte</h1>
+                  <div class="panel panel-default" style="border: none;">
+                      <div class="panel-body">
+                          <p style="text-align: justify">
+                            Da Decor and Flowers &egrave; possibile trovare un'ampia gamma di fiori e piante finte, composizioni floreali, vasi, cesti e vari oggetti in vetro e ceramica per arredare con stile la tua casa, personalizzare le tue stanze, allestire un negozio, preparare un evento o una manifestazione. L'assortimento di piante e fiori artificiali in vendita &egrave; in pronta consegna con spedizione in tutta Italia con pagamenti online sicuri e garantiti.
+<br /><em>Dai un tocco di colore al tuo ambiente!</em>
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
             <div class="row top-buffer">
                 <div class="col-md-12">
                     <h1 class="slogan subtitle">Contatti e riferimenti Decor &amp; Flowers</h1>

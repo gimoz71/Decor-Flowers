@@ -9,7 +9,7 @@
         </div>
     </div>
 </div>
-<!--<div class="gutter-10 row top-buffer banners">
+<div class="gutter-10 row top-buffer banners">
     <div class="col-md-4">
     <div class="banner pagamenti">
         <h3 class="title">SITO INTERNET SICURO</h3>
@@ -28,4 +28,4 @@
         <p class="text">Spedizioni in tutta Italia <b>GRATUITE</b><br />per ordini speriori a 100&euro;</p>
     </div>
     </div>
-</div>-->
+</div>

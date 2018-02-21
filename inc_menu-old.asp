@@ -133,17 +133,5 @@
         end if
         com_rs.close
         %>
-        <span class="banner stacked pagamenti" style="margin: 0px;">
-          <h3 class="title">SITO INTERNET SICURO</h3>
-          <p class="text" style="padding-right: 0px;">Iscrizione e pagamento su sito internet <b>protetto</b> e garantito</p>
-        </span>
-        <span class="banner stacked preventivi" style="margin: 0px;">
-          <h3 class="title">PAGAMENTI ACCETTATI</h3>
-          <p class="text" style="padding-right: 0px;">Bonifico, Contrassegno, PayPal, Postepay, Carte di Credito</p>
-        </span>
-        <span class="banner stacked consegne">
-          <h3 class="title">SPEDIZIONI</h3>
-          <p class="text" style="padding-right: 0px;">Spedizioni <b>GRATUITE</b> in tutta Italia per ordini superiori a 100&euro;</p>
-        </span>
     </div>
 </div>
