@@ -27,6 +27,7 @@
                     <h4 class="subtitle">Categorie in evidenza</h4>
                 </div>
                 <%
+                
                 Set cat_rs=Server.CreateObject("ADODB.Recordset")
                 sql = "SELECT TOP 4 * "
                 sql = sql + "FROM Categorie_1 "
