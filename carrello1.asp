@@ -461,7 +461,7 @@
                         </li>
                     </ul>
                     <div class="panel-footer">
-                        <a href="#" class="btn btn-danger btn-block" onClick="NoteCliente();">Completa l'acquisto <i class="fa fa-angle-right"></i></a>
+                        <!--<a href="#" class="btn btn-danger btn-block" onClick="NoteCliente();">Completa l'acquisto <i class="fa fa-angle-right"></i></a>-->
                     </div>
                 </div>
 								<%end if%>
