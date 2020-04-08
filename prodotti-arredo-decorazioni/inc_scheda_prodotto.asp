@@ -21,6 +21,9 @@ if pkid_prod>0 then
     Materiale_Prod=pro_rs("Materiale")
     Dimensioni_Prod=pro_rs("Dimensioni")
     Colori_Prod=pro_rs("Colori")
+    Lunghezza_Prod=pro_rs("Lunghezza")
+    Larghezza_Prod=pro_rs("Larghezza")
+    Dimensioni_2_Prod=pro_rs("Dimensioni_2")
     Stato_Prod=pro_rs("Stato")
 
     FkCategoria_1=pro_rs("FkCategoria_1")
@@ -151,9 +154,14 @@ if ric="" then ric=0
                    <div class="top-buffer">
                          <p class="descrizione"><small>
                              <%=Descrizione_Prod%><br >
-                             <%if Len(Materiale_Prod)>0 then%><strong>Materiale:</strong><%=Materiale_Prod%><br /><%end if%>
-                             <%if Len(Dimensioni_Prod)>0 then%><strong>Dimensioni:</strong><%=Dimensioni_Prod%><br /><%end if%>
-                             <%if Len(Colori_Prod)>0 then%><strong>Colori:</strong><%=Colori_Prod%><br /><%end if%>
+                             <%if Len(Materiale_Prod)>0 then%><strong>Materiale:</strong> <%=Materiale_Prod%><br /><%end if%>
+                             <%if Len(Dimensioni_Prod)>0 then%><strong>Dimensioni:</strong> <%=Dimensioni_Prod%><br /><%end if%>
+
+                             <%if Len(Lunghezza_Prod)>0 then%><strong>Lunghezza:</strong> <%=Lunghezza_Prod%><br /><%end if%>
+                             <%if Len(Larghezza_Prod)>0 then%><strong>Larghezza:</strong> <%=Larghezza_Prod%><br /><%end if%>
+                             <%if Len(Dimensioni_2_Prod)>0 then%><strong>Dimensioni Fiore principale:</strong> <%=Dimensioni_2_Prod%><br /><%end if%>
+
+                             <%if Len(Colori_Prod)>0 then%><strong>Colori:</strong> <%=Colori_Prod%><br /><%end if%>
                              </small>
                          </p>
                    </div>
@@ -242,7 +250,7 @@ if ric="" then ric=0
                                 img_zoom="https://www.decorandflowers.it/public/"&NoLettAcc(var_rs("Img"))
                                 pezzi=var_rs("Pezzi")
                                 if pezzi="" or IsNull(pezzi) then pezzi=0
-                                
+
                                 'modifica per interrompere il carrello'
                                 pezzi=0
 
