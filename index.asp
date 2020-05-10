@@ -15,7 +15,7 @@
         <!--#include file="inc_header_2.asp"-->
     </div>
     <div class="container content">
-        <!--#include file="inc_slider-test.asp"-->
+        <!--#include file="inc_slider.asp"-->
         <div class="top-buffer">
           <h1 class="slogan subtitle">Decor &amp; Flowers, vendita piante e fiori artificiali</h1><br />
         </div>
@@ -31,7 +31,7 @@
                 Set cat_rs=Server.CreateObject("ADODB.Recordset")
                 sql = "SELECT TOP 4 * "
                 sql = sql + "FROM Categorie_1 "
-                sql = sql + "WHERE PrimoPiano='True' "
+                sql = sql + "WHERE PrimoPiano='True' AND Visibile='True' "
                 sql = sql + "ORDER BY Posizione ASC, Titolo_1 ASC"
                 cat_rs.Open sql, conn, 1, 1
 

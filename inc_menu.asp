@@ -5,7 +5,7 @@
           <%
           Set cat_rs=Server.CreateObject("ADODB.Recordset")
           sql = "SELECT * "
-          sql = sql + "FROM Categorie_1 "
+          sql = sql + "FROM Categorie_1 WHERE Visibile='True' "
           sql = sql + "ORDER BY Posizione ASC, Titolo_1 ASC"
           cat_rs.Open sql, conn, 1, 1
           if cat_rs.recordcount>0 then
@@ -22,7 +22,7 @@
             Set sot_rs=Server.CreateObject("ADODB.Recordset")
             sql = "SELECT * "
             sql = sql + "FROM Categorie_2 "
-            sql = sql + "WHERE FkCategoria_1="&Pkid_Cat_1_menu&""
+            sql = sql + "WHERE FkCategoria_1="&Pkid_Cat_1_menu&" AND Visibile='True' "
             sql = sql + "ORDER BY Posizione ASC, Titolo_1 ASC"
             sot_rs.Open sql, conn, 1, 1
           %>
