@@ -123,6 +123,21 @@
                     img="images/thumb_d&f.png"
                   end if
                   img_rs.close
+
+                  Varianti="no"
+                  Set var_rs=Server.CreateObject("ADODB.Recordset")
+                  sql = "SELECT FkProdotto_Madre, SUM(Pezzi) AS TotalePezzi "
+                  sql = sql + "FROM Prodotti_Figli WHERE FkProdotto_Madre="&pkid_prod&" "
+                  sql = sql + "GROUP BY FkProdotto_Madre"
+                  var_rs.Open sql, conn, 1, 1
+                  if var_rs.recordcount>0 then
+                    TotalePezzi=var_rs("TotalePezzi")
+                    if TotalePezzi>0 then Varianti="si"
+                  else
+                    TotalePezzi=0
+                    Varianti="no"
+                  end if
+                  var_rs.close
                 %>
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <article class="col-item">
@@ -149,7 +164,7 @@
                                     <a href="/preferiti.asp?id=<%=Pkid_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
                                 </p>
                                 <p class="btn-details">
-                                    <a href="<%=Url_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
+                                    <%if Varianti="si" then%><a href="#" title=" Disponibile "><i class="fa fa-circle" style="color: #1ED760;"></i></a>&nbsp;&nbsp;&nbsp;<%end if%><a href="<%=Url_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
                                 </p>
                             </div>
                             <div class="clearfix"></div>
@@ -239,6 +254,21 @@
                         img="images/thumb_d&f.png"
                       end if
                       img_rs.close
+
+                      Varianti="no"
+                      Set var_rs=Server.CreateObject("ADODB.Recordset")
+                      sql = "SELECT FkProdotto_Madre, SUM(Pezzi) AS TotalePezzi "
+                      sql = sql + "FROM Prodotti_Figli WHERE FkProdotto_Madre="&pkid_prod&" "
+                      sql = sql + "GROUP BY FkProdotto_Madre"
+                      var_rs.Open sql, conn, 1, 1
+                      if var_rs.recordcount>0 then
+                        TotalePezzi=var_rs("TotalePezzi")
+                        if TotalePezzi>0 then Varianti="si"
+                      else
+                        TotalePezzi=0
+                        Varianti="no"
+                      end if
+                      var_rs.close
                 %>
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <article class="col-item">
@@ -265,7 +295,7 @@
                                     <a href="/preferiti.asp?id=<%=Pkid_Prod%>" rel="nofollow" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
                                 </p>
                                 <p class="btn-details">
-                                    <a href="<%=Url_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
+                                    <%if Varianti="si" then%><a href="#" title=" Disponibile "><i class="fa fa-circle" style="color: #1ED760;"></i></a>&nbsp;&nbsp;&nbsp;<%end if%><a href="<%=Url_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
                                 </p>
                             </div>
                             <div class="clearfix"></div>
@@ -322,6 +352,21 @@
                     img="images/thumb_d&f.png"
                   end if
                   img_rs.close
+
+                  Varianti="no"
+                  Set var_rs=Server.CreateObject("ADODB.Recordset")
+                  sql = "SELECT FkProdotto_Madre, SUM(Pezzi) AS TotalePezzi "
+                  sql = sql + "FROM Prodotti_Figli WHERE FkProdotto_Madre="&pkid_prod&" "
+                  sql = sql + "GROUP BY FkProdotto_Madre"
+                  var_rs.Open sql, conn, 1, 1
+                  if var_rs.recordcount>0 then
+                    TotalePezzi=var_rs("TotalePezzi")
+                    if TotalePezzi>0 then Varianti="si"
+                  else
+                    TotalePezzi=0
+                    Varianti="no"
+                  end if
+                  var_rs.close
                 %>
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <article class="col-item">
@@ -348,7 +393,7 @@
                                     <a href="/preferiti.asp?id=<%=Pkid_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
                                 </p>
                                 <p class="btn-details">
-                                    <a href="<%=Url_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
+                                    <%if Varianti="si" then%><a href="#" title=" Disponibile "><i class="fa fa-circle" style="color: #1ED760;"></i></a>&nbsp;&nbsp;&nbsp;<%end if%><a href="<%=Url_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
                                 </p>
                             </div>
                             <div class="clearfix"></div>
