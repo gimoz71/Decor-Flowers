@@ -210,7 +210,12 @@ end if
                                     <a href="/preferiti.asp?id=<%=Pkid_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="Aggiungi ai preferiti"><i class="fa fa-heart"></i></a>
                                 </p>
                                 <p class="btn-details">
-                                    <%if Varianti="si" then%><a href="#" title=" Disponibile "><i class="fa fa-circle" style="color: #1ED760;"></i></a>&nbsp;&nbsp;&nbsp;<%end if%><a href="<%=Url_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
+                                  <%if Varianti="si" then%>
+                                  <a href="#" title=" Disponibile "><i class="fa fa-circle" style="color: #1ED760;"></i></a>
+                                  <%else%>
+                                  <a href="#" title=" Non disponibile "><i class="fa fa-circle" style="color: #DB4E42;"></i></a>
+                                  <%end if%>
+                                  &nbsp;&nbsp;<a href="<%=Url_Prod%>" class="hidden-lg" data-toggle="tooltip" data-placement="top" title="vedi ed aggiungi al carrello">scheda <i class="fa fa-chevron-right"></i></a>
                                 </p>
                             </div>
                             <div class="clearfix"></div>
