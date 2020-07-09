@@ -37,6 +37,20 @@
         clear: both;
         visibility: hidden;
     }
+    .options {
+        position: absolute;
+        display: inline-block;
+        top     : 0;
+        right   : 0;
+        z-index : 3;
+        font-size: .6em;
+        //line-height: 1em;
+        color: #fff;
+        padding: 5px 5px 3px 5px;
+        background: #900;
+        border-radius: 0 0 0 3px;
+        text-align: center;
+    }
 </style>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

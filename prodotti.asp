@@ -237,10 +237,10 @@ end if
                                     <p class="details">codice: <b><%=Codice_Prod%></b></p>
                                     <div class="price-box separator">
                                       <%if PrezzoOfferta>0 then%>
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=FormatNumber(PrezzoOfferta,2)%> &euro;</span><br />
-                                        <%if PrezzoProdotto>0 then%><span class="price-old">invece di <b><%=FormatNumber(PrezzoProdotto,2)%> &euro;</b></span><%else%>&nbsp;<%end if%>
+                                        <span class="price-new"><%=FormatNumber(PrezzoOfferta,2)%> &euro;</span><br />
+                                        <%if PrezzoProdotto>0 then%><span class="price-old"><b><%=FormatNumber(PrezzoProdotto,2)%> &euro;</b></span><%else%>&nbsp;<%end if%>
                                       <%else%>
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=FormatNumber(PrezzoProdotto,2)%> &euro;</span><br />&nbsp;
+                                        <span class="price-new"><%=FormatNumber(PrezzoProdotto,2)%> &euro;</span><br />&nbsp;
                                       <%end if%>
                                     </div>
                                 </div>

@@ -9894,7 +9894,7 @@ img {
   font-size: 18px;
 }
 .col-item .price-details .price-new {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 800;
   color: #900;
 }
@@ -9905,6 +9905,7 @@ img {
   color: #999;
   font-size: 18px;
   bottom: 1em;
+  text-decoration: line-through;
 }
 .col-item .separator {
   border-top: 1px solid #E1E1E1;
@@ -9971,6 +9972,7 @@ img {
   color: #999;
   font-size: 18px;
   bottom: 1em;
+  text-decoration: line-through;
 }
 
 /* @group Sidebar nav */

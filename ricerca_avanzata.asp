@@ -217,6 +217,7 @@ end if
                 Else
                   Url_Prod="/scheda.asp?pkid_prod="&Pkid_Prod
                 End If
+								Offerta_Prod=pro_rs("Offerta")
 
                 Set img_rs=Server.CreateObject("ADODB.Recordset")
                 sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
@@ -245,7 +246,8 @@ end if
                 %>
                 <div class="col-xs-12 col-sm-4 col-md-4">
                     <article class="col-item">
-                        <div class="photo">
+												<%if Offerta_Prod=1 then%><div class="options"><b>PRODOTTO<br />IN OFFERTA</b></div><%end if%>
+												<div class="photo">
                             <a href="<%=Url_Prod%>" class="prod-img-replace" style="background-image: url(<%=img%>)" title="Scheda del prodotto <%=Titolo_Prod%>"><img alt="<%=Titolo_Prod%>" src="images/blank.png"></a>
                         </div>
                         <div class="info">
@@ -255,10 +257,10 @@ end if
                                     <p class="details">codice: <b><%=Codice_Prod%></b></p>
                                     <div class="price-box separator">
                                       <%if PrezzoOfferta>0 then%>
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=FormatNumber(PrezzoOfferta,2)%> &euro;</span><br />
-                                        <%if PrezzoProdotto>0 then%><span class="price-old">invece di <b><%=FormatNumber(PrezzoProdotto,2)%> &euro;</b></span><%else%>&nbsp;<%end if%>
+                                        <span class="price-new"><%=FormatNumber(PrezzoOfferta,2)%> &euro;</span><br />
+                                        <%if PrezzoProdotto>0 then%><span class="price-old"><b><%=FormatNumber(PrezzoProdotto,2)%> &euro;</b></span><%else%>&nbsp;<%end if%>
                                       <%else%>
-                                        <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=FormatNumber(PrezzoProdotto,2)%> &euro;</span><br />&nbsp;
+                                        <span class="price-new"><%=FormatNumber(PrezzoProdotto,2)%> &euro;</span><br />&nbsp;
                                       <%end if%>
                                     </div>
                                 </div>

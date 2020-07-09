@@ -174,8 +174,8 @@ if ric="" then ric=0
                                 <li class="list-group-item" style="padding-top: 20px">
                                     <p>
                                     Prezzo D&F<br />
-                                    <span class="price-new"><i class="fa fa-tag"></i>&nbsp;<%=FormatNumber(prezzoofferta,2)%> &euro;</span><br />
-                                    <%if prezzoprodotto>0 then%><span class="price-old">Invece di  <b><%=FormatNumber(prezzoprodotto,2)%> &euro;</b></span><br /><%end if%>
+                                    <span class="price-new"><%=FormatNumber(prezzoofferta,2)%> &euro;</span><br />
+                                    <%if prezzoprodotto>0 then%><span class="price-old"><b><%=FormatNumber(prezzoprodotto,2)%> &euro;</b></span><br /><%end if%>
                                     </p>
                                 </li>
                             </ul>
