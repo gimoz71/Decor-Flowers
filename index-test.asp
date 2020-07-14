@@ -118,7 +118,8 @@
       						sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
       						img_rs.Open sql, conn, 1, 1
       						if img_rs.recordcount>0 then
-                    img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
+                    'img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
+                    img="https://www.decorandflowers.it/public/"&NoLettAcc(img_rs("File"))
                   else
                     img="images/thumb_d&f.png"
                   end if
@@ -193,7 +194,7 @@
                 </div>
                 <%
                 Set pro_rs=Server.CreateObject("ADODB.Recordset")
-                sql = "SELECT Top 8 * "
+                sql = "SELECT Top 6 * "
                 sql = sql + "FROM Prodotti_Madre "
                 sql = sql + "WHERE (Stato=1 or Stato=2) AND (Offerta=1) "
                 sql = sql + "ORDER BY Posizione ASC, PrezzoOfferta ASC"
@@ -254,7 +255,8 @@
           						sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
           						img_rs.Open sql, conn, 1, 1
           						if img_rs.recordcount>0 then
-                        img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
+                        'img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
+                        img="https://www.decorandflowers.it/public/"&NoLettAcc(img_rs("File"))
                       else
                         img="images/thumb_d&f.png"
                       end if
@@ -275,7 +277,7 @@
                       end if
                       var_rs.close
                 %>
-                <div class="col-xs-12 col-sm-4 col-md-3">
+                <div class="col-xs-12 col-sm-4 col-md-4">
                     <article class="col-item">
                         <div class="photo">
                             <a href="<%=Url_Prod%>" class="prod-img-replace" style="background-image: url(<%=img%>)" title="Scheda del prodotto <%=Titolo_Prod%>"><img alt="<%=Titolo_Prod%>" src="images/blank.png"></a>
