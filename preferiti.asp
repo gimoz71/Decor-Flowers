@@ -72,7 +72,7 @@ end if
     <!--#include file="inc_head.asp"-->
 </head>
 
-<body>
+<body class="index-2020">
   <!--#include file="inc_header_1.asp"-->
     <div id="block-main" class="block-main">
         <!--#include file="inc_header_2.asp"-->

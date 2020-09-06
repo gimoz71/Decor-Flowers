@@ -10066,3 +10066,27 @@ footer ul.checklist li:before {
 /*-------------------------------*/
 
 /*# sourceMappingURL=styles.css.map */
+
+
+/*modifiche alessandro*/
+
+.index-2020 .panel-heading {
+    padding: 5px 15px;
+}
+.index-2020 #accordion .expand-accordion {
+    font-size: 18px;
+    padding: 5px 20px;
+}
+.index-2020 .panel-title {
+    font-size: 18px;
+}
+.prodotti-evidenza .col-item .price-details h3 {
+	height: auto
+}
+.prodotti-evidenza .col-item .photo .prod-img-replace {
+	background-size: contain;
+	height: 300px
+}
+
+
+/**/

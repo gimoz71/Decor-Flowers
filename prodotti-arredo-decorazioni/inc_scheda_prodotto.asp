@@ -120,7 +120,7 @@ if ric="" then ric=0
 	  </SCRIPT>
 </head>
 
-<body>
+<body class="index-2020">
   <!--#include virtual="/inc_header_1.asp"-->
     <div id="block-main" class="block-main">
         <!--#include virtual="/inc_header_2.asp"-->

@@ -9,7 +9,7 @@
     <!--#include file="inc_head.asp"-->
 </head>
 
-<body>
+<body class="index-2020">
   <!--#include file="inc_header_1.asp"-->
     <div id="block-main" class="block-main">
         <!--#include file="inc_header_2.asp"-->
@@ -87,14 +87,14 @@
             oggi=data&" "&orario
 
             Set pro_rs=Server.CreateObject("ADODB.Recordset")
-            sql = "SELECT Top 8 * "
+            sql = "SELECT Top 3 * "
             sql = sql + "FROM Prodotti_Madre "
             sql = sql + "WHERE ((Stato=1 or Stato=2) and (InEvidenza=1) and ((InEvidenza_A)>='"&oggi&"' And (InEvidenza_DA)<='"&oggi&"')) "
             sql = sql + "ORDER BY InEvidenza_Posizione ASC"
             pro_rs.Open sql, conn, 1, 1
             if pro_rs.recordcount>0 then
             %>
-            <div class="row top-buffer">
+            <div class="row top-buffer prodotti-evidenza">
                 <div class="col-xl-12">
                     <h4 class="subtitle">Prodotti in evidenza</h4>
                 </div>
@@ -119,7 +119,8 @@
       						sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
       						img_rs.Open sql, conn, 1, 1
       						if img_rs.recordcount>0 then
-                    img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
+                    'img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
+                    img="https://www.decorandflowers.it/public/"&NoLettAcc(img_rs("File"))
                   else
                     img="images/thumb_d&f.png"
                   end if
@@ -140,7 +141,7 @@
                   end if
                   var_rs.close
                 %>
-                <div class="col-xs-12 col-sm-4 col-md-3">
+                <div class="col-xs-12 col-sm-4 col-md-4">
                     <article class="col-item">
                         <%if Offerta_Prod=1 then%><div class="options"><b>PRODOTTO<br />IN OFFERTA</b></div><%end if%>
                         <div class="photo">
@@ -188,14 +189,14 @@
             end if
             pro_rs.close
             %>
-            <div class="row top-buffer">
+            <div class="row top-buffer prodotti-evidenza">
                 <div class="col-xl-12">
                     <h4 class="subtitle">Prodotti in offerta</h4><a href="offerte.asp" class="btn btn-default pull-right hidden-xs" style="position: absolute; top: -10px; right: 15px;">vedi tutto <i class="fa fa-chevron-right"></i></a>
                     <a href="offerte.asp" class="btn btn-default btn-block hidden visible-xs bottom-buffer" style="">vedi tutto <i class="fa fa-chevron-right"></i></a>
                 </div>
                 <%
                 Set pro_rs=Server.CreateObject("ADODB.Recordset")
-                sql = "SELECT Top 8 * "
+                sql = "SELECT Top 6 * "
                 sql = sql + "FROM Prodotti_Madre "
                 sql = sql + "WHERE (Stato=1 or Stato=2) AND (Offerta=1) "
                 sql = sql + "ORDER BY Posizione ASC, PrezzoOfferta ASC"
@@ -257,7 +258,8 @@
           						sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
           						img_rs.Open sql, conn, 1, 1
           						if img_rs.recordcount>0 then
-                        img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
+                        'img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
+                        img="https://www.decorandflowers.it/public/"&NoLettAcc(img_rs("File"))
                       else
                         img="images/thumb_d&f.png"
                       end if
@@ -278,7 +280,7 @@
                       end if
                       var_rs.close
                 %>
-                <div class="col-xs-12 col-sm-4 col-md-3">
+                <div class="col-xs-12 col-sm-4 col-md-4">
                     <article class="col-item">
                         <%if Offerta_Prod=1 then%><div class="options"><b>PRODOTTO<br />IN OFFERTA</b></div><%end if%>
                         <div class="photo">
@@ -329,14 +331,14 @@
                 pro_rs.close
                 %>
             </div>
-            <div class="row top-buffer">
+            <div class="row top-buffer prodotti-evidenza">
                 <div class="col-xl-12">
                     <h4 class="subtitle">Novit&Aacute; e ultimi arrivi</h4><a href="novita.asp" class="btn btn-default pull-right hidden-xs" style="position: absolute; top: -10px; right: 15px;">vedi tutto <i class="fa fa-chevron-right"></i></a>
                     <a href="novita.asp" class="btn btn-default btn-block hidden visible-xs bottom-buffer" style="">vedi tutto <i class="fa fa-chevron-right"></i></a>
                 </div>
                 <%
                 Set pro_rs=Server.CreateObject("ADODB.Recordset")
-                sql = "SELECT Top 8 * "
+                sql = "SELECT Top 6 * "
                 sql = sql + "FROM Prodotti_Madre "
                 sql = sql + "WHERE (Stato=1 or Stato=2) "
                 sql = sql + "ORDER BY DataAggiornamento DESC"
@@ -362,7 +364,8 @@
       						sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
       						img_rs.Open sql, conn, 1, 1
       						if img_rs.recordcount>0 then
-                    img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
+                    'img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
+                    img="https://www.decorandflowers.it/public/"&NoLettAcc(img_rs("File"))
                   else
                     img="images/thumb_d&f.png"
                   end if
@@ -383,7 +386,7 @@
                   end if
                   var_rs.close
                 %>
-                <div class="col-xs-12 col-sm-4 col-md-3">
+                <div class="col-xs-12 col-sm-4 col-md-4">
                     <article class="col-item">
                         <%if Offerta_Prod=1 then%><div class="options"><b>PRODOTTO<br />IN OFFERTA</b></div><%end if%>
                         <div class="photo">

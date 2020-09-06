@@ -13,14 +13,14 @@
     <!--#include file="inc_head.asp"-->
 </head>
 
-<body>
+<body class="index-2020">
   <!--#include file="inc_header_1.asp"-->
     <div id="block-main" class="block-main">
         <!--#include file="inc_header_2.asp"-->
     </div>
     <div class="container content">
         <ol class="breadcrumb">
-            <li><a href="index.asp">Home</a></li>
+            <li><a href="https://www.decorandflowers.it/">Home</a></li>
                 <li class="active">Offerte e promozioni</li>
         </ol>
         <!--#include file="inc_menu.asp"-->
@@ -42,7 +42,7 @@
                 </div>
             </div>
 
-            <div class="row top-buffer">
+            <div class="row top-buffer prodotti-evidenza">
 
                 <%
                 order=request("order")
@@ -115,7 +115,8 @@
                 sql = "SELECT TOP 1 * FROM Immagini WHERE FkContenuto="&Pkid_Prod&" and Tabella='Prodotti_Madre' ORDER BY Posizione ASC"
                 img_rs.Open sql, conn, 1, 1
                 if img_rs.recordcount>0 then
-                  img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
+                  'img="https://www.decorandflowers.it/public/thumb/"&NoLettAcc(img_rs("File"))
+                  img="https://www.decorandflowers.it/public/"&NoLettAcc(img_rs("File"))
                 else
                   img=""
                 end if

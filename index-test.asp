@@ -9,7 +9,7 @@
     <!--#include file="inc_head.asp"-->
 </head>
 
-<body>
+<body class="index-test">
   <!--#include file="inc_header_1.asp"-->
     <div id="block-main" class="block-main">
         <!--#include file="inc_header_2.asp"-->
@@ -94,7 +94,7 @@
             pro_rs.Open sql, conn, 1, 1
             if pro_rs.recordcount>0 then
             %>
-            <div class="row top-buffer">
+            <div class="row top-buffer prodotti-evidenza">
                 <div class="col-xl-12">
                     <h4 class="subtitle">Prodotti in evidenza</h4>
                 </div>
